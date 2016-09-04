@@ -1,5 +1,6 @@
 *
-!*/
+!scripts/
+!scripts/*/
 !*.py
 !*.pyw
 !.gitignore
