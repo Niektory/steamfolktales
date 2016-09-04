@@ -1,0 +1,412 @@
+# -*- coding: utf-8 -*-
+# Copyright 2016 Tomasz "Niektóry" Turowski
+
+from random import randrange, choice
+#from operator import attrgetter
+
+#from nonplayercharacter import NonPlayerCharacter
+#from playercharacter import PlayerCharacter
+from timeline import Timer
+import gridhelper
+from rpgdice import roll
+
+
+class Combat(object):
+	def __init__(self, application, combatants):
+		self.application = application
+		self.combatants = combatants
+		self.current_combatant = 0
+		self.animations = []
+		self.multi_attack = []
+		# determine initiative
+		self.initiative = {}
+		combat_log = self.application.gui.combat_log  # shortcut
+		for combatant in self.combatants:
+			self.initiative[combatant] = combatant.rpg_stats.initiative_roll
+			#print combatant.name, "initiative:", self.initiative[combatant]
+			#combatant.visual.instance.say(
+			#				"initiative roll: " + str(self.initiative[combatant]), 3000)
+			self.application.gui.sayBubble(
+				combatant.visual.instance,
+				"initiative roll: {}".format(int(self.initiative[combatant])),
+				3000)
+			#link = self.application.gui.help.createPage(
+			#		"40\n- {WIT} (WIT)\n- {REF} (REF)\n+ {d6} (d6)\n---\n= {total}".format(
+			#		WIT=combatant.rpg_stats.attributes["WIT"],
+			#		REF=combatant.rpg_stats.attributes["REF"],
+			#		d6=self.initiative[combatant][0],
+			#		total=self.initiative[combatant]))
+			link = self.application.gui.help.createPage(self.initiative[combatant].total.result)
+			#for i in xrange(30): combat_log.printMessage("spam {}".format(i))
+			combat_log.printMessage("{} rolled initiative: {}".format(
+				combatant.name,
+				combat_log.createLink(int(self.initiative[combatant]), link)))
+		self.combatants.sort(key=lambda combatant: self.initiative[combatant])
+		#self.application.gui.initiative.show(self)
+		# switching to combat animations
+		for combatant in self.combatants:
+			combatant.visual.enterCombat(self)
+			#self.application.real_timeline.addTimer(
+			#				Timer("combat start idle: "+combatant.name, 0, 1, combatant.idle))
+		# call beginTurn() manually after creating the Combat object!
+		#self.beginTurn()
+			
+	def beginTurn(self):
+		self.current_AP = self.combatants[self.current_combatant].rpg_stats.movement
+		self.moved = False
+		self.application.gui.initiative.show(self)
+		self.application.gui.combat_log.window.show()
+		#self.application.gui.hud.refresh()
+		if self.getEnemiesOf(self.combatants[self.current_combatant]):
+			if self.combatants[self.current_combatant].player_controlled:
+				self.createGrid()
+				self.application.gui.hud.showCombat()
+			else:
+				# AI in 3 lines
+				# probably not very smart
+				# just like this comment
+				self.ai_target = choice(self.getEnemiesOf(self.combatants[self.current_combatant]))
+				if not self.attack(self.ai_target, choice(self.available_attacks)):
+					self.run(self.ai_target.visual.instance.getLocation())
+		else:
+			self.endCombat()
+		#if type(self.combatants[self.current_combatant]) == NonPlayerCharacter:
+		#	self.endTurn()
+		#else:
+		#	self.createGrid()
+		
+	def playerEndTurn(self, character=None):
+		if not self.combatants[self.current_combatant].player_controlled:
+			return
+		if len(self.animations):
+			return
+		return self.endTurn(character)
+
+	def endTurn(self, character=None):
+		self.application.view.clearTiles()
+		self.application.gui.inventory.window.hide()
+		self.combatants[self.current_combatant].rpg_stats.onEndTurn()
+		for combatant in self.combatants:
+			if not combatant.player_controlled:
+				# if there's still at least one hostile give the turn to the next combatant
+				if (self.current_combatant + 1) >= len(self.combatants):
+					self.current_combatant = 0
+				else:
+					self.current_combatant += 1
+				self.beginTurn()
+				return
+		# no hostiles, end combat
+		self.endCombat()
+	
+	def killAllEnemies(self):
+		if not self.combatants[self.current_combatant].player_controlled:
+			return
+		if len(self.animations):
+			return
+		for enemy in self.combatants[:]:
+			if not enemy.player_controlled:
+				self.kill(enemy)
+	
+	def kill(self, target):
+		if self.current_combatant > self.combatants.index(target):
+			self.current_combatant -= 1
+		self.combatants.remove(target)
+		target.die()
+	
+	def endCombat(self):
+		self.application.gui.initiative.window.hide()
+		self.application.gui.combat_log.window.hide()
+		self.application.gui.combat_log.clear()
+		self.application.gui.hud.show()
+		self.application.combat = None
+		# switching to non-combat animations
+		for combatant in self.combatants:
+			combatant.visual.leaveCombat()
+		#for combatant in self.combatants:
+		#	combatant.idle()
+	
+	def playerRun(self, dest):
+		if not self.combatants[self.current_combatant].player_controlled:
+			return
+		if len(self.animations):
+			return
+		return self.run(dest)
+	
+	def run(self, dest):
+		if self.moved:
+			return False
+		dist = self.combatants[self.current_combatant].visual.run(dest, cut_dist = self.current_AP)
+		if dist:
+			#print "dist =", dist
+			self.current_AP -= dist
+			self.moved = True
+			self.application.view.clearTiles()
+			return True
+		else:
+			return False
+		#self.combatants[self.current_combatant].idle_script = self.endTurn
+
+	@property
+	def available_attacks(self):
+		attacks = []
+		weapon = self.combatants[self.current_combatant].inventory.hands
+		if weapon:
+			if weapon[0].weapon_data.ranged:
+				attacks.append("Single attack")
+				if not self.moved:
+					attacks.append("Full attack")
+			else:
+				attacks.append("High attack")
+				attacks.append("Low attack")
+		else:
+			attacks.append("High attack")
+			attacks.append("Low attack")
+		return attacks
+		
+	def playerAttack(self, target, attack_type):
+		if not self.combatants[self.current_combatant].player_controlled:
+			return
+		if len(self.animations):
+			return
+		return self.attack(target, attack_type)
+
+	def attack(self, target, attack_type, first=True):
+		if self.combatants[self.current_combatant] == target:
+			# trying to attack self, aborting
+			return False
+		if target not in self.combatants:
+			# target not in combat, aborting
+			return False
+		if (not self.can_attack) and first:
+			# not enough AP, aborting
+			return False
+		if attack_type not in self.available_attacks:
+			# selected attack cannot be performed, aborting
+			return False
+		weapon = self.combatants[self.current_combatant].inventory.hands
+		dist = gridhelper.distance(self.combatants[self.current_combatant].coords, target.coords)
+		# attack roll
+		# TODO: golden success/tumble effects
+		if weapon:
+			# weapon attack
+			if dist > (weapon[0].weapon_data.total_range):
+				# not in range, aborting
+				return False
+			if (weapon[0].weapon_data.magazine_size > 0) and (
+						len(weapon[0].weapon_data.magazine) == 0):
+				# no ammo, aborting
+				return False
+			if len(weapon[0].weapon_data.magazine) > 0:
+				# remove the bullet
+				weapon[0].weapon_data.magazine.pop(0)
+			if dist < 5:
+				# using PDM if closer than 5m
+				# weapon skill check; modifier = target's PDM + weapon accuracy - range penalty
+				hit = self.combatants[self.current_combatant].rpg_stats.skillCheck(
+						weapon[0].weapon_data.skill,
+						target.rpg_stats.passive_defense_modifier
+						+ weapon[0].weapon_data.accuracy
+						- dist // weapon[0].weapon_data.range)
+			else:
+				# too far, no PDM for you!
+				# weapon skill check; modifier = weapon accuracy - range penalty
+				hit = self.combatants[self.current_combatant].rpg_stats.skillCheck(
+						weapon[0].weapon_data.skill,
+						weapon[0].weapon_data.accuracy
+						- dist // weapon[0].weapon_data.range)
+			#print "Range modifier:", int(dist/weapon.range)
+			damage = weapon[0].weapon_data.damage_roll
+			# determine hit location
+			if weapon[0].weapon_data.ranged:
+				location_roll = roll(20)
+				if location_roll >= 19:
+					hit_location = "head"
+				elif location_roll >= 13:
+					hit_location = "torso"
+				#elif location_roll >= 10:
+				#	hit_location = "right arm"
+				elif location_roll >= 7:
+					hit_location = "arm"
+				#elif location_roll >= 4:
+				#	hit_location = "right leg"
+				else:
+					hit_location = "leg"
+			else:
+				if attack_type == "High attack":
+					location_roll = roll(7)
+					if location_roll >= 7:
+						hit_location = "head"
+					elif location_roll >= 5:
+						hit_location = "torso"
+					#elif location_roll >= 3:
+					#	hit_location = "right arm"
+					else:
+						hit_location = "arm"
+				else:
+					location_roll = roll(8)
+					if location_roll >= 7:
+						hit_location = "torso"
+					#elif location_roll >= 4:
+					#	hit_location = "right leg"
+					else:
+						hit_location = "leg"
+		else:
+			# unarmed attack
+			if dist > 1.5:
+				# not in range, aborting
+				return False
+			hit = self.combatants[self.current_combatant].rpg_stats.skillCheck("Brawl",
+					target.rpg_stats.passive_defense_modifier)
+			damage = roll(3)
+			# determine hit location
+			if attack_type == "High attack":
+				location_roll = roll(7)
+				if location_roll >= 7:
+					hit_location = "head"
+				elif location_roll >= 5:
+					hit_location = "torso"
+				#elif location_roll >= 3:
+				#	hit_location = "right arm"
+				else:
+					hit_location = "arm"
+			else:
+				location_roll = roll(8)
+				if location_roll >= 7:
+					hit_location = "torso"
+				#elif location_roll >= 4:
+				#	hit_location = "right leg"
+				else:
+					hit_location = "leg"
+		# save hit results to be used later by onTargetHit
+		self.target = target
+		self.hit = hit
+		self.damage = damage
+		self.hit_location = hit_location
+		# play the attack animation
+		self.combatants[self.current_combatant].visual.attack(target.visual.instance.getLocation())
+		# after attacking immediately end turn
+		#self.endTurn()
+		self.current_AP = 0
+		self.application.view.clearTiles()
+		if first and (attack_type in ("Low attack", "High attack", "Full attack")):
+			if weapon:
+				for i in xrange(weapon[0].weapon_data.speed - 1):
+					self.multi_attack.append(lambda: self.attack(target, attack_type, False))
+		return True
+
+	def onTargetHit(self):
+		#shortcuts
+		combat_log = self.application.gui.combat_log
+		help = self.application.gui.help
+		hit_link = help.createPage("TODO: hit roll")
+		if self.hit:
+			# attack hit, deal damage
+			damage, wound = self.target.rpg_stats.takeDamage(self.damage, self.hit_location)
+			# display damage and wound inflicted
+			dmg_str = str(damage) + " damage"
+			if wound:
+				dmg_str += "\n" + wound.name
+			#self.target.visual.instance.say(dmg_str, 2000)
+			self.application.gui.sayBubble(
+				self.target.visual.instance, dmg_str, 1000, "[colour='FFFF8080']")
+
+			#	"40\n- {WIT} (WIT)\n- {REF} (REF)\n+ {d6} (d6)\n---\n= {total}".format(
+			#		WIT=combatant.rpg_stats.attributes["WIT"],
+			#		REF=combatant.rpg_stats.attributes["REF"],
+			#		d6=self.initiative[combatant][0],
+			#		total=self.initiative[combatant]))
+			location_link = help.createPage("TODO: hit location roll")
+			damage_link = help.createPage("TODO: damage roll")
+			wound_link = help.createPage("TODO: wound roll")
+			combat_log.printMessage(
+				"{} {} {} on the {}, inflicting {} damage and {}.".format(
+					self.combatants[self.current_combatant],
+					combat_log.createLink("hit", hit_link),
+					self.target,
+					combat_log.createLink(self.hit_location, location_link),
+					combat_log.createLink(damage, damage_link),
+					combat_log.createLink(wound.name if wound else "no wound", wound_link)))
+
+			#print target.rpg_stats.wounds
+			#print str(target.rpg_stats.wounds)
+			if self.target.rpg_stats.cur_stamina <= 0:
+				# stamina reached 0, kill and remove the target from combat
+				self.kill(self.target)
+				combat_log.printMessage("{} collapsed.".format(self.target.name))
+			# add blood effect
+			if wound:
+				self.application.view.addSimpleEffect(
+					"Blood_Hit01",
+					self.target.visual.instance.getLocation())
+			else:
+				self.application.view.addSimpleEffect(
+					"Blood_Hit02",
+					self.target.visual.instance.getLocation())
+		else:
+			# attack missed
+			#self.target.visual.instance.say("miss", 2000)
+			self.application.gui.sayBubble(self.target.visual.instance, "miss", 1000)
+			combat_log.printMessage(
+				"{} {} {}.".format(
+					self.combatants[self.current_combatant],
+					combat_log.createLink("missed", hit_link),
+					self.target))
+		self.application.playSound("SFT-KNIFE-SWING")
+
+	def createGrid(self):
+		for combatant in self.combatants:
+			self.application.view.addTile(combatant.coords, 127)
+		for i in xrange(-self.current_AP, self.current_AP+1):
+			for j in xrange(-self.current_AP, self.current_AP+1):
+				loc = self.combatants[self.current_combatant].visual.instance.getLocation()
+				coords = self.combatants[self.current_combatant].coords
+				coords.x += i
+				coords.y += j
+				loc.setLayerCoordinates(coords)
+				if self.combatants[self.current_combatant].visual.testRoute(loc, self.current_AP
+							-(self.combatants[self.current_combatant].rpg_stats.movement+1) // 2):
+					self.application.view.addTile(coords)
+					#print coords.x, coords.y
+				elif self.combatants[self.current_combatant].visual.testRoute(loc,self.current_AP):
+					self.application.view.addTile(coords, 127)
+		
+	def getEnemiesOf(self, combatant):
+		enemies = []
+		for potential_enemy in self.combatants:
+			if combatant == potential_enemy:
+				# can't be his own enemy
+				continue
+			if potential_enemy.dead:
+				# let the dead rest in peace
+				continue
+			if combatant.player_controlled != potential_enemy.player_controlled:
+				enemies.append(potential_enemy)
+		return enemies
+		
+	def animationFinished(self, animation):
+		#print "finished:", animation, animation
+		if self.animations.count(animation):
+			self.animations.remove(animation)
+	
+	@property
+	def can_attack(self):
+		return (self.current_AP * 2) >= self.combatants[self.current_combatant].rpg_stats.movement
+		
+	def pump(self):
+		if len(self.animations):
+			# wait for animations to end
+			#print self.animations
+			return
+		if self.multi_attack:
+			self.multi_attack[0]()
+			self.multi_attack.pop(0)
+			return
+		if not self.can_attack or not self.getEnemiesOf(self.combatants[self.current_combatant]):
+			# no more actions possible or no enemies left
+			self.endTurn()
+			return
+		if not self.combatants[self.current_combatant].player_controlled:
+			self.attack(self.ai_target, choice(self.available_attacks))
+			return
+		self.application.gui.hud.refresh()
+		
