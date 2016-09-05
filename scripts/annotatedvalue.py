@@ -2,15 +2,13 @@
 # Copyright 2016 Tomasz "Niektóry" Turowski
 
 
-# TODO: make this less insane, then adapt the codebase to use it
-
 class AnnotatedValue(object):
 	def __init__(self, value, annotation=None):
 		self.value = value
 		self.annotation = annotation
 
 	def __int__(self):
-		return self.value
+		return int(self.value)
 
 	def __str__(self):
 		return "{}{}".format(
@@ -18,61 +16,67 @@ class AnnotatedValue(object):
 			" ({})".format(self.annotation) if self.annotation else "")
 
 	def __add__(self, other):
-		return AnnotatedExpression(self) + other
+		return AnnotatedExpression(self, "+", other)
 
 	def __radd__(self, other):
-		return other + AnnotatedExpression(self)
+		return AnnotatedExpression(other, "+", self)
 
 	def __sub__(self, other):
-		return AnnotatedExpression(self) - other
+		return AnnotatedExpression(self, "-", other)
 
 	def __rsub__(self, other):
-		return other - AnnotatedExpression(self)
+		return AnnotatedExpression(other, "-", self)
 
 
 class AnnotatedExpression(object):
-	def __init__(self, initial_value, operations=[]):
-		self.initial_value = initial_value
-		self.operations = operations[:]
-
-	def __int__(self):
-		value = int(self.initial_value)
-		for operation in self.operations:
-			if operation[0] == "+":
-				value += int(operation[1])
-			if operation[0] == "-":
-				value -= int(operation[1])
-		return value
-
-	total = property(__int__)
-
-	def __str__(self):
-		value = str(self.initial_value)
-		for operation in self.operations:
-			value += "\n{} {}".format(operation[0], operation[1])
-		# value += "\n---\n= {}".format(int(self))
-		return value
+	def __init__(self, lvalue, operation, rvalue):
+		self.lvalue = lvalue
+		self.operation = operation
+		self.rvalue = rvalue
 
 	@property
-	def result(self):
-		return str(self) + "\n---\n= {}".format(int(self))
+	def value(self):
+		lvalue = getattr(self.lvalue, "value", self.lvalue)
+		rvalue = getattr(self.rvalue, "value", self.rvalue)
+		if self.operation == "+":
+			return int(lvalue) + int(rvalue)
+		if self.operation == "-":
+			return int(lvalue) - int(rvalue)
+
+	def __int__(self):
+		return int(self.value)
+
+	def formatted(self, multiline=False, result=False):
+		need_parentheses = self.operation == "-" and getattr(self.rvalue, "operation", None) == "-"
+		lvalue = formatted(self.lvalue, multiline=multiline, result=False)
+		rvalue = formatted(self.rvalue, multiline=multiline, result=False)
+		return "{lvalue}{separator}{operator} {rvalue}{result}".format(
+			lvalue=lvalue,
+			separator="\n" if multiline else " ",
+			operator=self.operation,
+			rvalue="({})".format(rvalue) if need_parentheses else rvalue,
+			result="{}= {}".format("\n---\n" if multiline else " ", self.value) if result else "")
+
+	def __str__(self):
+		return self.formatted()
 
 	def __add__(self, other):
-		result = AnnotatedExpression(self.initial_value, self.operations)
-		result.operations.append(("+", other))
-		return result
+		return AnnotatedExpression(self, "+", other)
 
 	def __radd__(self, other):
-		result = AnnotatedExpression(other)
-		result.operations.append(("+", AnnotatedExpression(self.initial_value, self.operations)))
-		return result
+		return AnnotatedExpression(other, "+", self)
 
 	def __sub__(self, other):
-		result = AnnotatedExpression(self.initial_value, self.operations)
-		result.operations.append(("-", other))
-		return result
+		return AnnotatedExpression(self, "-", other)
 
 	def __rsub__(self, other):
-		result = AnnotatedExpression(other)
-		result.operations.append(("-", AnnotatedExpression(self.initial_value, self.operations)))
-		return result
+		return AnnotatedExpression(other, "-", self)
+
+
+def formatted(value, multiline=False, result=False):
+	try:
+		format = value.formatted
+	except AttributeError:
+		return str(value)
+	else:
+		return format(multiline=multiline, result=result)

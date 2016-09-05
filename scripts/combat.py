@@ -9,6 +9,7 @@ from random import randrange, choice
 from timeline import Timer
 import gridhelper
 from rpgdice import roll
+from annotatedvalue import formatted
 
 
 class Combat(object):
@@ -36,7 +37,8 @@ class Combat(object):
 			#		REF=combatant.rpg_stats.attributes["REF"],
 			#		d6=self.initiative[combatant][0],
 			#		total=self.initiative[combatant]))
-			link = self.application.gui.help.createPage(self.initiative[combatant].total.result)
+			link = self.application.gui.help.createPage(
+				formatted(self.initiative[combatant].total, multiline=True, result=True))
 			#for i in xrange(30): combat_log.printMessage("spam {}".format(i))
 			combat_log.printMessage("{} rolled initiative: {}".format(
 				combatant.name,
