@@ -38,7 +38,7 @@ class Combat(object):
 			#		d6=self.initiative[combatant][0],
 			#		total=self.initiative[combatant]))
 			link = self.application.gui.help.createPage(
-				formatted(self.initiative[combatant].total, multiline=True, result=True))
+				formatted(self.initiative[combatant], multiline=True, result=True))
 			#for i in xrange(30): combat_log.printMessage("spam {}".format(i))
 			combat_log.printMessage("{} rolled initiative: {}".format(
 				combatant.name,

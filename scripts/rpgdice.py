@@ -5,47 +5,44 @@ from random import randrange
 
 
 def roll(sides=6, dice=1):
-	#roll = 0
-	#for i in xrange(dice):
-	#	roll += randrange(1, sides + 1)
-	#return roll
 	return sum([randrange(1, sides + 1) for i in xrange(dice)])
 
 
-def totalDecorator(function):
-	return lambda self, other: function(self.total, other)
+#def totalDecorator(function):
+#	return lambda self, other: function(self.total, other)
 
 class Roll(object):
-	def __init__(self, sides=6, dice=1, modifier=0):
+	def __init__(self, sides=6, dice=1, modifier=0, annotation=None):
 		self.sides = sides
 		self.dice = dice
 		self.modifier = modifier
-		self.results = []
-		for i in xrange(dice):
-			self.results.append(randrange(1, sides+1))
+		self.annotation = annotation
+		self.results = [randrange(1, sides+1) for i in xrange(dice)]
+
+	@property
+	def value(self):
+		return sum(self.results) + self.modifier
 
 	def __int__(self):
-		return int(sum(self.results) + self.modifier)
-
-	#total = property(__int__)
-	@property
-	def total(self):
-		return sum(self.results) + self.modifier
+		return int(self.value)
 
 	def __getitem__(self, key):
 		return self.results[key]
 
 	def __str__(self):
-		return str(sum(self.results) + self.modifier)
-
-	#@property
-	#def annotated(self):
-	#	return self
+		dice_string = "{dice}d{sides}{modifier}".format(
+			dice=self.dice if self.dice > 1 else "",
+			sides=self.sides,
+			modifier="+{}".format(self.modifier) if self.modifier else "")
+		return "{} ({}{})".format(
+			self.value,
+			"{}: ".format(self.annotation) if self.annotation else "",
+			dice_string)
 
 	# adding Rolls to ints, how cool is that? (I'm going to regret this)
-	__add__, __sub__, __radd__, __rsub__ = map(
-		totalDecorator,
-		(int.__add__, int.__sub__, int.__radd__, int.__rsub__))
+	#__add__, __sub__, __radd__, __rsub__ = map(
+	#	totalDecorator,
+	#	(int.__add__, int.__sub__, int.__radd__, int.__rsub__))
 
 
 class Check(object):

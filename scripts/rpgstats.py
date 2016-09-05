@@ -106,8 +106,7 @@ class RPGStats(object):
 		
 	@property
 	def initiative_roll(self):
-		#return self.initiative + roll(6)
-		return Roll(6, 1, self.initiative)
+		return self.initiative + Roll(6, 1)
 		
 	@property
 	def passive_defense_modifier(self):
