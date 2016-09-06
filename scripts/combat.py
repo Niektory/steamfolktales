@@ -8,7 +8,7 @@ from random import randrange, choice
 #from playercharacter import PlayerCharacter
 from timeline import Timer
 import gridhelper
-from rpgdice import roll
+from rpgdice import roll, Roll
 from annotatedvalue import formatted
 
 
@@ -24,22 +24,12 @@ class Combat(object):
 		combat_log = self.application.gui.combat_log  # shortcut
 		for combatant in self.combatants:
 			self.initiative[combatant] = combatant.rpg_stats.initiative_roll
-			#print combatant.name, "initiative:", self.initiative[combatant]
-			#combatant.visual.instance.say(
-			#				"initiative roll: " + str(self.initiative[combatant]), 3000)
 			self.application.gui.sayBubble(
 				combatant.visual.instance,
 				"initiative roll: {}".format(int(self.initiative[combatant])),
 				3000)
-			#link = self.application.gui.help.createPage(
-			#		"40\n- {WIT} (WIT)\n- {REF} (REF)\n+ {d6} (d6)\n---\n= {total}".format(
-			#		WIT=combatant.rpg_stats.attributes["WIT"],
-			#		REF=combatant.rpg_stats.attributes["REF"],
-			#		d6=self.initiative[combatant][0],
-			#		total=self.initiative[combatant]))
 			link = self.application.gui.help.createPage(
 				formatted(self.initiative[combatant], multiline=True, result=True))
-			#for i in xrange(30): combat_log.printMessage("spam {}".format(i))
 			combat_log.printMessage("{} rolled initiative: {}".format(
 				combatant.name,
 				combat_log.createLink(int(self.initiative[combatant]), link)))
@@ -216,7 +206,6 @@ class Combat(object):
 						weapon[0].weapon_data.skill,
 						weapon[0].weapon_data.accuracy
 						- dist // weapon[0].weapon_data.range)
-			#print "Range modifier:", int(dist/weapon.range)
 			damage = weapon[0].weapon_data.damage_roll
 			# determine hit location
 			if weapon[0].weapon_data.ranged:
@@ -259,7 +248,7 @@ class Combat(object):
 				return False
 			hit = self.combatants[self.current_combatant].rpg_stats.skillCheck("Brawl",
 					target.rpg_stats.passive_defense_modifier)
-			damage = roll(3)
+			damage = Roll(3, annotation="unarmed damage")
 			# determine hit location
 			if attack_type == "High attack":
 				location_roll = roll(7)
@@ -305,32 +294,22 @@ class Combat(object):
 			# attack hit, deal damage
 			damage, wound = self.target.rpg_stats.takeDamage(self.damage, self.hit_location)
 			# display damage and wound inflicted
-			dmg_str = str(damage) + " damage"
+			dmg_str = "{} damage".format(int(damage))
 			if wound:
 				dmg_str += "\n" + wound.name
-			#self.target.visual.instance.say(dmg_str, 2000)
 			self.application.gui.sayBubble(
 				self.target.visual.instance, dmg_str, 1000, "[colour='FFFF8080']")
-
-			#	"40\n- {WIT} (WIT)\n- {REF} (REF)\n+ {d6} (d6)\n---\n= {total}".format(
-			#		WIT=combatant.rpg_stats.attributes["WIT"],
-			#		REF=combatant.rpg_stats.attributes["REF"],
-			#		d6=self.initiative[combatant][0],
-			#		total=self.initiative[combatant]))
 			location_link = help.createPage("TODO: hit location roll")
-			damage_link = help.createPage("TODO: damage roll")
+			damage_link = help.createPage(formatted(damage, multiline=True, result=True))
 			wound_link = help.createPage("TODO: wound roll")
 			combat_log.printMessage(
-				"{} {} {} on the {}, inflicting {} damage and {}.".format(
-					self.combatants[self.current_combatant],
-					combat_log.createLink("hit", hit_link),
-					self.target,
-					combat_log.createLink(self.hit_location, location_link),
-					combat_log.createLink(damage, damage_link),
-					combat_log.createLink(wound.name if wound else "no wound", wound_link)))
-
-			#print target.rpg_stats.wounds
-			#print str(target.rpg_stats.wounds)
+				"{atk} {hit} {tgt} on the {loc}, inflicting {dmg} damage and {wnd}.".format(
+					atk=self.combatants[self.current_combatant],
+					hit=combat_log.createLink("hit", hit_link),
+					tgt=self.target,
+					loc=combat_log.createLink(self.hit_location, location_link),
+					dmg=combat_log.createLink(int(damage), damage_link),
+					wnd=combat_log.createLink(wound.name if wound else "no wound", wound_link)))
 			if self.target.rpg_stats.cur_stamina <= 0:
 				# stamina reached 0, kill and remove the target from combat
 				self.kill(self.target)
@@ -346,13 +325,12 @@ class Combat(object):
 					self.target.visual.instance.getLocation())
 		else:
 			# attack missed
-			#self.target.visual.instance.say("miss", 2000)
 			self.application.gui.sayBubble(self.target.visual.instance, "miss", 1000)
 			combat_log.printMessage(
-				"{} {} {}.".format(
-					self.combatants[self.current_combatant],
-					combat_log.createLink("missed", hit_link),
-					self.target))
+				"{attacker} {missed} {target}.".format(
+					attacker=self.combatants[self.current_combatant],
+					missed=combat_log.createLink("missed", hit_link),
+					target=self.target))
 		self.application.playSound("SFT-KNIFE-SWING")
 
 	def createGrid(self):

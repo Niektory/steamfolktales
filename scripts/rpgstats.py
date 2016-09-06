@@ -136,8 +136,11 @@ class RPGStats(object):
 	#	return False
 
 	def takeDamage(self, damage, hit_location):
-		stamina_damage = min(damage, self.critical_wound_threshold)
-		self.cur_stamina -= stamina_damage
+		#stamina_damage = min(damage, self.critical_wound_threshold)
+		# TODO: proper annotations when threshold reached
+		if damage > self.critical_wound_threshold:
+			damage = self.critical_wound_threshold
+		self.cur_stamina -= int(damage)
 		#if damage >= self.critical_wound_threshold:
 		#	wound = "critical wound"
 		if damage >= self.severe_wound_threshold:
@@ -240,7 +243,7 @@ class RPGStats(object):
 		if wound:
 			if wound.duration:
 				self.wounds.append(wound)
-		return stamina_damage, wound
+		return damage, wound
 	
 	def onEndTurn(self):
 		for wound in reversed(self.wounds[:]):

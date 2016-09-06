@@ -59,7 +59,7 @@ class WeaponData(object):
 		#for die in self.damage:
 		#	damage_sum += roll(die[1], die[0])
 		#return damage_sum
-		return Roll(self.damage[1], self.damage[0], self.damage[2])
+		return Roll(self.damage[1], self.damage[0], self.damage[2], "weapon damage")
 	
 	@property
 	def damage_str(self):
