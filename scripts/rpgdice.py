@@ -29,15 +29,19 @@ class Roll(object):
 	def __getitem__(self, key):
 		return self.results[key]
 
-	def __str__(self):
-		dice_string = "{dice}d{sides}{modifier}".format(
+	@property
+	def d_notation(self):
+		return "{dice}d{sides}{modifier}".format(
 			dice=self.dice if self.dice > 1 else "",
 			sides=self.sides,
 			modifier="+{}".format(self.modifier) if self.modifier else "")
-		return "{} ({}{})".format(
-			self.value,
-			"{}: ".format(self.annotation) if self.annotation else "",
-			dice_string)
+
+	def __str__(self):
+		return "{total} ({annotation}rolled {d_notation}, got {results})".format(
+			total=self.value,
+			annotation="{}: ".format(self.annotation) if self.annotation else "",
+			d_notation=self.d_notation,
+			results=str(self.results).replace("[", "\\["))  # need to escape "[" because of CEGUI
 
 	# adding Rolls to ints, how cool is that? (I'm going to regret this)
 	#__add__, __sub__, __radd__, __rsub__ = map(
