@@ -2,14 +2,11 @@
 # Copyright 2016 Tomasz "Niektóry" Turowski
 
 from random import randrange, choice
-#from operator import attrgetter
 
-#from nonplayercharacter import NonPlayerCharacter
-#from playercharacter import PlayerCharacter
 from timeline import Timer
 import gridhelper
 from rpgdice import roll, Roll
-from annotatedvalue import formatted
+from annotatedvalue import formatted, AnnotatedValue
 
 
 class Combat(object):
@@ -176,7 +173,9 @@ class Combat(object):
 			# selected attack cannot be performed, aborting
 			return False
 		weapon = self.combatants[self.current_combatant].inventory.hands
-		dist = gridhelper.distance(self.combatants[self.current_combatant].coords, target.coords)
+		dist = AnnotatedValue(
+			gridhelper.distance(self.combatants[self.current_combatant].coords, target.coords),
+			"distance")
 		# attack roll
 		# TODO: golden success/tumble effects
 		if weapon:
@@ -289,7 +288,7 @@ class Combat(object):
 		#shortcuts
 		combat_log = self.application.gui.combat_log
 		help = self.application.gui.help
-		hit_link = help.createPage("TODO: hit roll")
+		hit_link = help.createPage(formatted(self.hit, multiline=True, result=True))
 		if self.hit:
 			# attack hit, deal damage
 			damage, wound = self.target.rpg_stats.takeDamage(self.damage, self.hit_location)
@@ -299,9 +298,9 @@ class Combat(object):
 				dmg_str += "\n" + wound.name
 			self.application.gui.sayBubble(
 				self.target.visual.instance, dmg_str, 1000, "[colour='FFFF8080']")
-			location_link = help.createPage("TODO: hit location roll")
+			location_link = help.createPage("TODO: show hit location roll details")
 			damage_link = help.createPage(formatted(damage, multiline=True, result=True))
-			wound_link = help.createPage("TODO: wound roll")
+			wound_link = help.createPage("TODO: show wound roll details")
 			combat_log.printMessage(
 				"{atk} {hit} {tgt} on the {loc}, inflicting {dmg} damage and {wnd}.".format(
 					atk=self.combatants[self.current_combatant],

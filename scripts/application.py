@@ -231,7 +231,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 	def saveGame(self, save_name):
 		self.world.refresh()
 		serializer.save(self.world, "saves/" + save_name + ".sav")
-		self.gui.combat_log.printMessage("Game saved.")
+		print("* Game saved!")
 
 	def loadGame(self, save_name):
 		self.loadMap(self.world.current_map_name)

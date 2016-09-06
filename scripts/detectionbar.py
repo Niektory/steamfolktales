@@ -26,7 +26,7 @@ class DetectionBar(fife.InstanceDeleteListener):
 
 	def edit(self, fill, vis_fill, color=""):
 		if fill > self.fill:
-			self.bar.setProgress(vis_fill)
+			self.bar.setProgress(float(vis_fill))
 			self.fill = fill
 			self.bar.setProperty("LightsColour", color)
 		self.timer.time = 200

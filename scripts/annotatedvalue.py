@@ -8,6 +8,9 @@ class AnnotatedValueBase(object):
 	def __int__(self):
 		return int(self.value)
 
+	def __float__(self):
+		return float(self.value)
+
 	def __add__(self, other):
 		return AnnotatedExpression(self, "+", other)
 
@@ -37,6 +40,10 @@ class AnnotatedValueBase(object):
 
 	def __rtruediv__(self, other):
 		return AnnotatedExpression(other, "/", self)
+
+	def __cmp__(self, other):
+		other = getattr(other, "value", other)
+		return -1 if self.value < other else (1 if self.value > other else 0)
 
 
 class AnnotatedValue(AnnotatedValueBase):

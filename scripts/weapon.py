@@ -6,6 +6,8 @@
 #from rpginventory import RPGItem
 from rpgstats import Roll  #roll
 
+from annotatedvalue import AnnotatedValue
+
 
 #class WeaponDamage(object):
 #	def __init__(self, dice):
@@ -40,11 +42,10 @@ class WeaponData(object):
 			self.damage = x, y, z
 		else:
 			self.damage = damage
-		print self.damage
-		self.accuracy = accuracy
+		self.accuracy = AnnotatedValue(accuracy, "weapon accuracy")
 		self.speed = speed
-		self.range = range
-		self.range_increments = range_increments
+		self.range = AnnotatedValue(range, "weapon basic range")
+		self.range_increments = AnnotatedValue(range_increments, "number of range increments")
 		self.magazine_size = magazine_size
 		self.calibre = calibre
 		self.skill = skill

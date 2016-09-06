@@ -3,6 +3,8 @@
 
 from random import randrange
 
+from annotatedvalue import formatted
+
 
 def roll(sides=6, dice=1):
 	return sum([randrange(1, sides + 1) for i in xrange(dice)])
@@ -54,21 +56,17 @@ class Check(object):
 		self.sides = sides
 		self.dice = dice
 		self.target = target
-		self.results = []
-		for i in xrange(dice):
-			self.results.append(randrange(1, sides + 1))
+		self.results = Roll(sides=sides, dice=dice)
 
 	def __int__(self):
-		return sum(self.results)
-
-	total = property(__int__)
+		return int(self.results)
 
 	@property
 	def margin(self):
-		return self.target - self.total
+		return self.target - self.results
 
 	def __nonzero__(self):
-		return self.total <= self.target
+		return self.results <= self.target
 
 	success = property(__nonzero__)
 
@@ -98,3 +96,10 @@ class Check(object):
 			return "failure"
 		else:
 			return "cat state"
+
+	def formatted(self, multiline=False, result=False):
+		return "{target} (need to roll this or lower){separator}roll {roll}{result}".format(
+			target=formatted(self.target, multiline=multiline, result=result),
+			separator="\n" if multiline else " vs. ",
+			roll=self.results,
+			result="{}{}".format("\n" if multiline else " ", str(self) if result else ""))

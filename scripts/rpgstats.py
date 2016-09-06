@@ -62,11 +62,11 @@ class RPGStats(object):
 		return self.attributeModifier(self.assignedAttribute(skill))
 		
 	def skillTotal(self, skill):
-		return self.skillBase(skill) + self.skills[skill] + self.skillModifier(skill)
+		return AnnotatedValue(
+			self.skillBase(skill) + self.skills[skill] + self.skillModifier(skill),
+			"{} total".format(skill))
 		
 	def skillCheck(self, skill, modifier=0):
-		#print skill, self.skillTotal(skill), modifier
-		#return roll(6,3) <= (self.skillTotal(skill) + modifier - self.wounds_skill_penalty)
 		return Check(6, 3, self.skillTotal(skill) + modifier - self.wounds_skill_penalty)
 		
 	# derived stats and checks
@@ -96,7 +96,6 @@ class RPGStats(object):
 		return (self.attributes["CON"] + self.attributes["WIT"]) // 2
 
 	def painCheck(self, modifier=0):
-		#return (roll(6,3) + modifier) <= self.pain_threshold
 		return Check(6, 3, self.pain_threshold - modifier)
 
 	@property
@@ -110,7 +109,9 @@ class RPGStats(object):
 		
 	@property
 	def passive_defense_modifier(self):
-		return 2 - self.skills["Dodge"] - self.attributeModifier("REF") + self.wounds_pdm_penalty
+		return (2 - AnnotatedValue(self.skills["Dodge"], "Dodge ranks")
+			- AnnotatedValue(self.attributeModifier("REF"), "REF modifier")
+			+ self.wounds_pdm_penalty)
 
 	# damage, wounds
 	
@@ -119,14 +120,14 @@ class RPGStats(object):
 		modifier = 0
 		for wound in self.wounds:
 			modifier += getattr(wound, "pdm_penalty", 0)
-		return modifier
+		return AnnotatedValue(modifier, "wounds PDM penalty")
 
 	@property
 	def wounds_skill_penalty(self):
 		modifier = 0
 		for wound in self.wounds:
 			modifier += getattr(wound, "skill_penalty", 0)
-		return modifier
+		return AnnotatedValue(modifier, "wounds skill penalty")
 	
 	#@property
 	#def knocked_down(self):
