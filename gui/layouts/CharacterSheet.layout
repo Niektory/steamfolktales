@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindowBig" name="CharacterSheet" >
+        <Property name="Text" value="Character Sheet" />
+        <Property name="TitlebarFont" value="DejaVuSans-10" />
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Property name="SizingEnabled" value="False" />
+        <Property name="Area" value="{{0.5,-350},{0.5,-325},{0.5,350},{0.5,325}}" />
+        <Property name="Visible" value="False" />
+        <Window type="TaharezLook/Label" name="NameLabel" >
+            <Property name="Text" value="Name" />
+            <Property name="Position" value="{{0,25},{0,30}}" />
+            <Property name="Size" value="{{0,110},{0,20}}" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+		</Window>
+        <Window type="TaharezLook/StaticImage" name="Portrait" >
+            <Property name="Position" value="{{0,25},{0,50}}" />
+            <Property name="Size" value="{{0,110},{0,110}}" />
+			<Property name="Image" value="" />
+            <Property name="FrameEnabled" value="True" />
+			<Property name="HorzFormatting" value="CentreAligned" />
+			<Property name="VertFormatting" value="CentreAligned" />
+            <Property name="BackgroundEnabled" value="False" />
+        </Window>
+        <Window type="TaharezLook/Label" name="HealthLabel" >
+            <Property name="Text" value="Health" />
+            <Property name="Position" value="{{0,25},{0,170}}" />
+            <Property name="Size" value="{{0,110},{0,60}}" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="HorzFormatting" value="LeftAligned" />
+		</Window>
+        <Window type="TaharezLook/Label" name="CPLabel" >
+            <Property name="Text" value="CP" />
+            <Property name="Position" value="{{0,24},{0,240}}" />
+            <Property name="Size" value="{{0,44},{0,20}}" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="HorzFormatting" value="RightAligned" />
+		</Window>
+        <Window type="TaharezLook/EditboxNoBorder" name="CPEdit" >
+            <Property name="Text" value="0" />
+            <Property name="Position" value="{{0,78},{0,233}}" />
+            <Property name="Size" value="{{0,50},{0,28}}" />
+            <Property name="ReadOnly" value="True" />
+		</Window>
+        
+        <Window type="TaharezLook/GroupBox" name="AttributesGroup" >
+            <Property name="Text" value="Attributes" />
+            <Property name="Position" value="{{0,20},{0,270}}" />
+            <Property name="Size" value="{{0,120},{0,275}}" />
+        </Window>
+        <Window type="TaharezLook/GroupBox" name="CombatSkillsGroup" >
+            <Property name="Text" value="Combat Skills" />
+            <Property name="Position" value="{{0,150},{0,30}}" />
+            <Property name="Size" value="{{0,255},{0,305}}" />
+        </Window>
+        <Window type="TaharezLook/GroupBox" name="MartialArtsGroup" >
+            <Property name="Text" value="Martial Arts" />
+            <Property name="Position" value="{{0,150},{0,340}}" />
+            <Property name="Size" value="{{0,255},{0,185}}" />
+        </Window>
+        <Window type="TaharezLook/GroupBox" name="NonCombatSkillsGroup" >
+            <Property name="Text" value="Other Skills" />
+            <Property name="Position" value="{{0,415},{0,30}}" />
+            <Property name="Size" value="{{0,255},{0,335}}" />
+        </Window>
+        <Window type="TaharezLook/GroupBox" name="DerivedStatsGroup" >
+            <Property name="Text" value="Derived Attributes" />
+            <Property name="Position" value="{{0,415},{0,370}}" />
+            <Property name="Size" value="{{0,255},{0,155}}" />
+			<Window type="TaharezLook/Label" name="StaminaLabel" >
+				<Property name="Text" value="Maximum Stamina" />
+				<Property name="Position" value="{{0,0},{0,10}}" />
+				<Property name="Size" value="{{0,175},{0,20}}" />
+				<Property name="VertFormatting" value="TopAligned" />
+				<Property name="HorzFormatting" value="RightAligned" />
+			</Window>
+			<Window type="TaharezLook/Label" name="StaminaEdit" >
+				<Property name="Text" value="0" />
+				<Property name="Position" value="{{0,185},{0,4}}" />
+				<Property name="Size" value="{{0,50},{0,28}}" />
+			</Window>
+			<Window type="TaharezLook/Label" name="MovementLabel" >
+				<Property name="Text" value="Movement" />
+				<Property name="Position" value="{{0,0},{0,40}}" />
+				<Property name="Size" value="{{0,175},{0,20}}" />
+				<Property name="VertFormatting" value="TopAligned" />
+				<Property name="HorzFormatting" value="RightAligned" />
+			</Window>
+			<Window type="TaharezLook/Label" name="MovementEdit" >
+				<Property name="Text" value="0" />
+				<Property name="Position" value="{{0,185},{0,34}}" />
+				<Property name="Size" value="{{0,50},{0,28}}" />
+			</Window>
+			<Window type="TaharezLook/Label" name="InitiativeLabel" >
+				<Property name="Text" value="Initiative" />
+				<Property name="Position" value="{{0,0},{0,70}}" />
+				<Property name="Size" value="{{0,175},{0,20}}" />
+				<Property name="VertFormatting" value="TopAligned" />
+				<Property name="HorzFormatting" value="RightAligned" />
+			</Window>
+			<Window type="TaharezLook/Label" name="InitiativeEdit" >
+				<Property name="Text" value="0" />
+				<Property name="Position" value="{{0,185},{0,64}}" />
+				<Property name="Size" value="{{0,50},{0,28}}" />
+			</Window>
+			<Window type="TaharezLook/Label" name="PDMLabel" >
+				<Property name="Text" value="Passive Defense Modifier" />
+				<Property name="Position" value="{{0,0},{0,100}}" />
+				<Property name="Size" value="{{0,175},{0,20}}" />
+				<Property name="VertFormatting" value="TopAligned" />
+				<Property name="HorzFormatting" value="RightAligned" />
+			</Window>
+			<Window type="TaharezLook/Label" name="PDMEdit" >
+				<Property name="Text" value="0" />
+				<Property name="Position" value="{{0,185},{0,94}}" />
+				<Property name="Size" value="{{0,50},{0,28}}" />
+				<Property name="TextParsingEnabled" value="True" />
+			</Window>
+        </Window>
+        
+        <Window type="TaharezLook/ImageButton" name="JasonButton" >
+            <Property name="Position" value="{{0,105},{0,555}" />
+            <Property name="Size" value="{{0,72},{0,72}}" />
+            <Property name="NormalImage" value="Gearportrait_Jason/full_image" />
+            <Property name="HoverImage" value="Gearportrait_Jason_hover/full_image" />
+            <Property name="PushedImage" value="Gearportrait_Jason/full_image" />
+            <Property name="DisabledImage" value="Gearportrait_Jason/full_image" />
+            <Property name="Disabled" value="False" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="TomButton" >
+            <Property name="Position" value="{{0,190},{0,555}" />
+            <Property name="Size" value="{{0,72},{0,72}}" />
+            <Property name="NormalImage" value="Gearportrait_Tom/full_image" />
+            <Property name="HoverImage" value="Gearportrait_Tom_hover/full_image" />
+            <Property name="PushedImage" value="Gearportrait_Tom/full_image" />
+            <Property name="DisabledImage" value="Gearportrait_Tom/full_image" />
+            <Property name="Disabled" value="False" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="DustyButton" >
+            <Property name="Position" value="{{0,20},{0,555}" />
+            <Property name="Size" value="{{0,72},{0,72}}" />
+            <Property name="NormalImage" value="Gearportrait_Dusty/full_image" />
+            <Property name="HoverImage" value="Gearportrait_Dusty_hover/full_image" />
+            <Property name="PushedImage" value="Gearportrait_Dusty/full_image" />
+            <Property name="DisabledImage" value="Gearportrait_Dusty/full_image" />
+            <Property name="Disabled" value="False" />
+        </Window>
+        
+        <Window type="TaharezLook/Button" name="OKButton" >
+            <Property name="Text" value="OK" />
+			<Property name="Position" value="{{1,-350},{1,-53}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="ResetButton" >
+            <Property name="Text" value="Reset" />
+			<Property name="Position" value="{{1,-235},{1,-53}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="CancelButton" >
+            <Property name="Text" value="Cancel" />
+			<Property name="Position" value="{{1,-120},{1,-53}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+    </Window>
+</GUILayout>

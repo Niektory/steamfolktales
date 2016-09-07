@@ -1,0 +1,3 @@
+<Imageset name="Portrait_Young_Jason" imagefile="Portrait_Young_Jason.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="100" height="100" xPos="0" yPos="0" />
+</Imageset>

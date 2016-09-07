@@ -1,0 +1,4 @@
+<?fife type="object"?>
+<object blocking="0" cellstack_position="0" id="Ashgrove_Sawmill_House02_front" namespace="steamfolktales" static="1">
+	<image direction="0" source="Ashgrove_Sawmill_House02_front.png" x_offset="-201" y_offset="-208" />
+</object>

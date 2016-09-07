@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Item name="Heavy Revolver" image="Heavy_Revolver/full_image">
+	<WeaponData damage="1d6+6" skill="Handguns" sprite="revolver" range="10" range_increments="7" magazine_size="5" calibre="12mm-S" ranged="1" />
+</Item>

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="ascii" ?>
+<map id="Caves01" format="1.0">
+    <import file="../objects/Block/Block.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Guestroom_Bedside_end.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastian_1stfloor_Bookshelf02.xml" />
+    <import file="../objects/Lightnodes/Lightnode_White.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Guestroom_Table.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastian_1stfloor_pole01.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastian_1stfloor_sofa01.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Corridor_Drawer.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Door_Mansion.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Livingroom_Table.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Radcliffe_Desk.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastian_1stfloor_Kitchen.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastian_1stfloor_Bookshelf01.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastians_Mansion_1stfloor.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastian_1st_to_2ndfloor.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Guestroom_Bedside02.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Livingroom_drawer.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastian_1stfloor_pole04.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Bathroom_Pole.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Radcliffe_Bedside01.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastian_1stfloor_diningtable01.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Radcliffe_Doorpole1.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Guestroom_Cabinet02.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/1stfloor_Toplayer.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Guestroom_Bedside01.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastian_1stfloor_pole03.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastian_1stfloor_pole02.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Sebastians_Mansion_Main_Door_Exit.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_1stfloor/Mr_Radcliffe_Sleep.xml" />
+    <layer id="ground_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" layer_type="interact" layer_type_id="buildings_layer">
+        <instances>
+            <i ns="steamfolktales" o="Sebastians_Mansion_1stfloor" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Block" x="11.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-6.000000" y="-6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="-6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-8.000000" y="-6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-9.000000" y="-6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-10.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-11.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-11.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-10.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-10.000000" y="-10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-9.000000" y="-10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-8.000000" y="-10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-8.000000" y="-11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="-12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-14.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-14.000000" y="-10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-14.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-13.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-12.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-12.000000" y="-13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-11.000000" y="-13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-10.000000" y="-13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-9.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-9.000000" y="-15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-10.000000" y="-15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-11.000000" y="-15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-12.000000" y="-15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-14.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-6.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-8.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-9.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-10.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-11.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-12.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-11.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-14.000000" y="-19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-13.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="0.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="0.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-6.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-8.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-9.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-10.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-10.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-11.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-11.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-12.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-13.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-14.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-12.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-13.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-13.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-14.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-14.000000" y="2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-15.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="0.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-16.000000" y="-3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="20.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="21.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="22.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="7.000000" y="17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="8.000000" y="17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="7.000000" y="18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="8.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="7.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="10.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="10.000000" y="17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="10.000000" y="18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="20.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="21.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="22.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="10.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="8.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="7.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="0.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="23.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="0.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="-5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="-6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="-7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="-10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="-11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="-12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="-13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="-12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="-13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="-15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="-16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="-19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="-20.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="-19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="-19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="0.000000" y="-19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="-19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="-7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="0.000000" y="-7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="-7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="0.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="0.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="-12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="8.000000" y="6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="8.000000" y="7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="10.000000" y="6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="10.000000" y="14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="11.000000" y="14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="12.000000" y="14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="10.000000" y="13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="10.000000" y="12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="10.000000" y="11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="10.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="8.000000" y="11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="7.000000" y="11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-9.000000" y="-7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-9.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="22.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="7.000000" y="22.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="7.000000" y="21.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="21.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="8.000000" y="22.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-13.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-9.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-10.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-12.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="-16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="-16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="0.000000" y="-16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="-15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="20.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="-11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-6.000000" y="-11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="7.000000" y="15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="8.000000" y="15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="9.000000" y="15.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="8.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="7.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="20.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="8.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+        </instances>
+    </layer>
+    <layer id="buildings_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" layer_type="walkable">
+        <instances>
+            <i ns="steamfolktales" o="Sebastian_1stfloor_diningtable01" x="1.000000" y="-8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i id="o:radcliffe_bedside_1" o="Radcliffe_Bedside01" x="7.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i id="o:radcliffe_desk" o="Radcliffe_Desk" x="6.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Sebastian_1stfloor_sofa01" x="-10.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Sebastian_1stfloor_pole01" x="-5.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Sebastian_1stfloor_pole02" x="-5.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Sebastian_1stfloor_pole03" x="-11.000000" y="-9.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Sebastian_1stfloor_pole04" x="-1.000000" y="-13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Bathroom_Pole" x="3.000000" y="14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Radcliffe_Doorpole1" x="3.000000" y="8.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Guestroom_Table" x="6.000000" y="22.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Livingroom_Table" x="-7.000000" y="-11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Sebastian_1stfloor_Kitchen" x="-1.000000" y="-16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Lightnode_White" x="-3.000000" y="-2.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="-2.000000" y="-2.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="-3.000000" y="1.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="-2.000000" y="1.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="-3.000000" y="-6.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="-2.000000" y="-6.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="-10.000000" y="-10.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="-10.000000" y="-9.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="-4.000000" y="-11.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="-5.000000" y="-11.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="4.000000" y="4.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="3.000000" y="4.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="4.000000" y="9.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="3.000000" y="9.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="4.000000" y="13.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="4.000000" y="14.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="12.000000" y="16.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="13.000000" y="16.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="2.000000" y="18.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lightnode_White" x="2.000000" y="19.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Corridor_Drawer" x="2.000000" y="10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Livingroom_drawer" x="-13.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Guestroom_Cabinet02" x="10.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Guestroom_Bedside01" x="9.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Guestroom_Bedside_end" x="7.000000" y="18.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Guestroom_Bedside02" x="6.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Sebastian_1stfloor_Bookshelf01" x="-5.000000" y="-14.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Sebastian_1stfloor_Bookshelf02" x="-9.000000" y="-17.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Mansion_1stfloor_toplayer" x="-12.000000" y="13.000000" z="0.000000" r="0" stackpos="0" />
+            <i id="o:mansion1f_door1" o="Door_Mansion" x="3.000000" y="7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i id="o:mansion1f_door2" o="Door_Mansion" x="3.000000" y="13.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i id="o:mansion1f_stairs" o="Sebastian_1st_to_2ndfloor" x="-9.000000" y="-7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i id="o:mansion1f_door_exit" o="Sebastians_Mansion_Main_Door_Exit" x="-15.000000" y="-3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Mr_Radcliffe_Sleep" x="9.000000" y="6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+        </instances>
+    </layer>
+    <layer id="top_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals">
+        <instances />
+    </layer>
+    <cellcaches>
+        <cellcache id="buildings_layer" default_cost="1.000000" default_speed="1.000000" search_narrow="1" />
+    </cellcaches>
+    <camera id="main_camera" ref_layer_id="buildings_layer" zoom="1.000000" tilt="-50.131700" rotation="45.000000" viewport="0,0,1600,900" ref_cell_width="78" ref_cell_height="50" />
+</map>

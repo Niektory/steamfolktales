@@ -1,0 +1,4 @@
+<?fife type="object"?>
+<object blocking="0" cellstack_position="0" id="Amelia_Exterior_Railing_front" namespace="steamfolktales" static="1">
+	<image direction="0" source="Amelia_Exterior_Railing_front.png" x_offset="93" y_offset="-178" />
+</object>

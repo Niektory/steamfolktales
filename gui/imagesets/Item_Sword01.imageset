@@ -1,0 +1,3 @@
+<Imageset name="Item_Sword01" imagefile="Item_Sword01.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="100" height="200" xPos="0" yPos="0" />
+</Imageset>

@@ -1,0 +1,4 @@
+<?fife type="object"?>
+<object id="Watermill_interior_toplayer" namespace="steamfolktales" blocking="0" static="1">
+	<image source="Watermill_interior_toplayer.png" direction="0" y_offset="2775" />
+</object>

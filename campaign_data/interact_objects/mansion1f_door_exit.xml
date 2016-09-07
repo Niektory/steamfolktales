@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InteractObject name="door" sprite="Sebastians_Mansion_Main_Door_Exit" map="Mansion01_1stfloor">
+	<Portal map="Sebastians_exterior" x="11" y="-1" rotation="0" script="mansionDoorExitScript" />
+</InteractObject>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueNode key="0" npc_text="“Don’t move or you’ll regret it!”" speaker="Gil">
+		<DialogueResponse goto="1" />
+		<DialogueResponse text="{skip conversation: fight with axe}" />
+		<DialogueResponse goto="10" text="{skip conversation: smash the pipes}" />
+	</DialogueNode>
+	<DialogueNode key="1" npc_text="“…Gil? Is that you? What the hell are you doing on this ship?”" speaker="Dusty">
+		<DialogueResponse goto="2" />
+	</DialogueNode>
+	<DialogueNode key="2" npc_text="“Dusty? We didn’t know you were on board, but it’s not too late for you to join us. We gonna blow up this piece of oppressor shit, show ‘em we mean business!”" speaker="Gil">
+		<DialogueResponse goto="3" />
+	</DialogueNode>
+	<DialogueNode key="3" npc_text="“Gil, I quit the Resistance because of exactly this sort of dumbass stuff. I’m done blowing up stuff. All it does is cause more trouble for the innocents you claim to be fighting for.”" speaker="Dusty">
+		<DialogueResponse goto="4" />
+	</DialogueNode>
+	<DialogueNode key="4" npc_text="“You’d give up the cause? What would your father say?”" speaker="Gil">
+		<DialogueResponse goto="5" />
+	</DialogueNode>
+	<DialogueNode key="5" npc_text="“Never the cause, Gil. Just your methods for advancing it. I want women the right to vote, not the right to kill people. And we’ll never know what my father would say, because your “cause” took him from me and left me crippled! So don’t you bring my father into this.”" speaker="Dusty">
+		<DialogueResponse goto="6" />
+	</DialogueNode>
+	<DialogueNode key="6" npc_text="“If that’s the way you want it, Dusty. I’m sorry, but if you ain’t for us, you’re against us.”" speaker="Gil" />
+	<DialogueCheck check="world.application.startCutscene(cls.GilSmashPipesCutscene)" key="10" />
+</Dialogue>

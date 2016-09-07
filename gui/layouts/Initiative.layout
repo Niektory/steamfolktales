@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindowSmall" name="Initiative" >
+        <Property name="Text" value="Initiative" />
+        <Property name="TitlebarFont" value="DejaVuSans-10" />
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Property name="SizingEnabled" value="False" />
+        <Property name="Area" value="{{0,0},{0,0},{0,408},{0,108}}" />
+        <Property name="Visible" value="False" />
+		<Window type="HorizontalLayoutContainer" name="PortraitContainer" >
+			<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+			<Property name="Visible" value="True" />
+		</Window>
+	</Window>
+</GUILayout>

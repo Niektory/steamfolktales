@@ -1,0 +1,13 @@
+<?fife type="object"?>
+<object blocking="0" id="Greengear" namespace="effects" static="0">
+	<action id="0">
+		<animation atlas="Greengear.png" width="1" height="1" x_offset="0" y_offset="0">
+			<direction delay="67" dir="0" frames="1"/>
+		</animation>
+	</action>
+	<action id="idle">
+		<animation atlas="Greengear.png" width="78" height="50" x_offset="0" y_offset="0">
+			<direction delay="150" dir="0" frames="8"/>
+		</animation>
+	</action>
+</object>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueCheck check="world.knowledge.get(&quot;last_prologue&quot;) == &quot;Jason&quot;" goto_if_false="1" goto_if_true="10" key="0" />
+	<DialogueCheck check="world.knowledge.get(&quot;last_prologue&quot;) == &quot;Tom&quot;" goto_if_false="2" goto_if_true="20" key="1" />
+	<DialogueCheck check="world.knowledge.get(&quot;last_prologue&quot;) == &quot;Dusty&quot;" goto_if_false="100" goto_if_true="30" key="2" />
+	<DialogueNode key="10" npc_text="“So, I set out to make my own future, as Sebastian had advised, holding my head high for the first time in my life. As for Uncle Garth, he got his dues and died of syphilis some time later.”" speaker="Jason">
+		<DialogueResponse goto="40" />
+	</DialogueNode>
+	<DialogueNode key="15" npc_text="“How I first met Sebastian? That’s quite a story. You see, I was orphaned at an early age and raised by my uncle Garth, who was the leader of a powerful thieves’ guild. Because of my intelligence and talent, by the age of fifteen I had risen to be his second-in-command.”" speaker="Jason">
+		<DialogueResponse goto="16" />
+	</DialogueNode>
+	<DialogueCheck check="cls.startPrologueJason" key="16" />
+	<DialogueNode key="20" npc_text="“Cole’s wounds healed, but two months later, he took a bullet in the head and died. That’s when I really started to feel the futility of all that fighting and requested a transfer to the medical corps. It was denied. Apparently the war effort needed more grunts with guns than people to keep said grunts alive. So I just learned what I could on my own, and Sebastian helped me when he was able. I’m afraid I still need to catch up with the number of lives saved as opposed to lives taken, though. But he was right. I do manage to sleep at nights every now and then.”" speaker="Tom">
+		<DialogueResponse goto="40" />
+	</DialogueNode>
+	<DialogueNode key="25" npc_text="“As I said, it was during the War, almost twenty years ago. Just before Tzar Ivan the Fourth took the Wulffgartian throne and started suing for peace, the neighbors were throwing everything they had against us.”" speaker="Tom">
+		<DialogueResponse goto="26" />
+	</DialogueNode>
+	<DialogueCheck check="cls.startPrologueTom" key="26" />
+	<DialogueNode key="30" npc_text="“We made it home in one piece, more or less. Got big headlines in the newspapers too. Can you guess what they said? “Airship Amelia in distress – famous scientist’s invention saves the day!””" speaker="Dusty">
+		<DialogueResponse goto="31" />
+	</DialogueNode>
+	<DialogueNode key="31" npc_text="“Ouch.”" speaker="Jason">
+		<DialogueResponse goto="32" />
+	</DialogueNode>
+	<DialogueNode key="32" npc_text="“That stinks.”" speaker="Tom">
+		<DialogueResponse goto="33" />
+	</DialogueNode>
+	<DialogueNode key="33" npc_text="“Yeah. Kinda made me want to go blow up stuff. Still didn’t.”" speaker="Dusty">
+		<DialogueResponse goto="40" />
+	</DialogueNode>
+	<DialogueNode key="35" npc_text="“So, it was last year, when I was working as a steam engine mechanic aboard the airship Amelia, when suddenly things got a bit too interesting…”" speaker="Dusty">
+		<DialogueResponse goto="36" />
+	</DialogueNode>
+	<DialogueCheck check="cls.startPrologueDusty" key="36" />
+	<DialogueCheck check="world.knowledge.get(&quot;jason_prologue&quot;) and world.knowledge.get(&quot;dusty_prologue&quot;) and world.knowledge.get(&quot;tom_prologue&quot;)" goto_if_false="41" goto_if_true="50" key="40" />
+	<DialogueNode key="41" npc_text="“Who wants to go next?”" speaker="Dusty">
+		<DialogueResponse condition="not world.knowledge.get(&quot;jason_prologue&quot;)" goto="15" text="Jason." />
+		<DialogueResponse condition="not world.knowledge.get(&quot;tom_prologue&quot;)" goto="25" text="Tom. {not implemented}" />
+		<DialogueResponse condition="not world.knowledge.get(&quot;dusty_prologue&quot;)" goto="35" text="Dusty. {WIP}" />
+	</DialogueNode>
+	<DialogueNode key="50" npc_text="All 3 prologues finished. That's all Folks!" speaker="narration" />
+	<DialogueNode key="100" npc_text="“Good old Mister Radcliffe. All these years and I still have never seen him smile. I wonder if Sebastian hired an automaton without knowing it.”" speaker="Jason">
+		<DialogueResponse goto="104" />
+		<DialogueResponse goto="112" text="{skip conversation}" />
+		<DialogueResponse goto="202" text="{go to the sawmill}" />
+	</DialogueNode>
+	<DialogueNode key="104" npc_text="“So you have known Sebastian long, then, Mr…?”" speaker="Tom">
+		<DialogueResponse goto="105" />
+	</DialogueNode>
+	<DialogueNode key="105" npc_text="“Ross. Jason Ross. As to your initial question, yes, I have known him for all my adult life, ever since he returned to Ashgrove after the end of the war sixteen years ago. How about you, Mr…?”" speaker="Jason">
+		<DialogueResponse goto="106" />
+	</DialogueNode>
+	<DialogueNode key="106" npc_text="“Tom Barrett. I actually met Sebastian during the war.”" speaker="Tom">
+		<DialogueResponse goto="107" />
+	</DialogueNode>
+	<DialogueNode key="107" npc_text="“Gee, I feel like I’m the new guy here. I just met him last year. Name’s Dusty Callahan, by the way, thank you for asking.”" speaker="Dusty">
+		<DialogueResponse goto="108" />
+	</DialogueNode>
+	<DialogueNode key="108" npc_text="“Guy? I see you wearing trousers all right, but other than that, you must be the prettiest guy I’ve seen.”" speaker="Jason">
+		<DialogueResponse goto="109" />
+	</DialogueNode>
+	<DialogueNode key="109" npc_text="“Cut the crap, mister. You know that in modern times you can call both men and women “guys”. We are equal, you know.”" speaker="Dusty">
+		<DialogueResponse goto="110" />
+	</DialogueNode>
+	<DialogueNode key="110" npc_text="“…”" speaker="Jason">
+		<DialogueResponse goto="111" />
+	</DialogueNode>
+	<DialogueNode key="111" npc_text="“Ahem. It seems we all know Sebastian, but we don’t seem to know each other. How about we swap stories while we wait for our host?”" speaker="Tom">
+		<DialogueResponse goto="112" />
+	</DialogueNode>
+	<DialogueNode key="112" npc_text="“Sounds like a great idea. Who wants to go first?”" speaker="Dusty">
+		<DialogueResponse goto="15" text="Jason." />
+		<DialogueResponse goto="25" text="Tom. {not implemented}" />
+		<DialogueResponse goto="35" text="Dusty. {WIP}" />
+	</DialogueNode>
+	<DialogueCheck check="cls.startPrologueJasonSawmill" key="202" />
+</Dialogue>

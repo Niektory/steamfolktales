@@ -1,0 +1,8 @@
+<?fife type="object"?>
+<object blocking="1" id="Mark_Mapple" namespace="steamfolktales" static="0">
+	<action id="idle">
+		<animation atlas="Mark_Mapple_Idle.png" width="63" height="103" y_offset="-24">
+			<direction delay="150" dir="180" frames="14"/>
+		</animation>
+	</action>
+</object>

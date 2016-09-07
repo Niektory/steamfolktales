@@ -1,0 +1,3 @@
+<Imageset name="Button_Inventory_01" imagefile="Button_Inventory_01.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="50" height="50" xPos="0" yPos="0" />
+</Imageset>

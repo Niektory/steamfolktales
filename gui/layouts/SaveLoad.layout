@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindow" name="SaveLoad" >
+        <Property name="Text" value="Save/Load Game" />
+        <Property name="TitlebarFont" value="DejaVuSans-10" />
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Property name="Area" value="{{0.5,-150},{0.5,-225},{0.5,150},{0.5,225}}" />
+        <Property name="MinSize" value="{{0,300},{0,550}}" />
+        <Property name="Visible" value="False" />
+        <Property name="SizingEnabled" value="False" />
+
+        <Window type="TaharezLook/Editbox" name="NameEdit" >
+            <Property name="MaxTextLength" value="30" />
+            <Property name="Position" value="{{0,14},{0,14}}" />
+            <Property name="Size" value="{{1,-28},{0,28}}" />
+            <Property name="TextParsingEnabled" value="False" />
+            <Property name="ValidationString" value="[[:alnum:][:blank:]-_+()!,]*" />
+        </Window>
+        <Window type="TaharezLook/Listbox" name="Files" >
+            <Property name="Area" value="{{0,14},{0,50},{1,-14},{1,-61}}" />
+        </Window>
+
+        <Window type="TaharezLook/Button" name="CancelButton" >
+            <Property name="Text" value="Cancel" />
+			<Property name="Position" value="{{0.5,7},{1,-47}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="SaveButton" >
+            <Property name="Text" value="Save" />
+			<Property name="Position" value="{{0.5,-107},{1,-47}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="LoadButton" >
+            <Property name="Text" value="Load" />
+			<Property name="Position" value="{{0.5,-107},{1,-47}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+    </Window>
+</GUILayout>

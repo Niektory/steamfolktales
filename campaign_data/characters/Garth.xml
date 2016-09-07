@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Character name="Uncle Garth" sprite="Uncle_Garth" portrait="Portrait_Uncle_Garth/full_image" map="Sawmill_Hideout" interact_script="garthInteractScript" />

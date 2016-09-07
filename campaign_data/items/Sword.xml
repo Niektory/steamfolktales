@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Item name="Common Sword" image="Common_Sword/full_image" size_x="2">
+	<WeaponData damage="1d6" skill="Melee, Balanced" sprite="sword" />
+</Item>

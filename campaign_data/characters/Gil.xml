@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Character name="Gil" sprite="Gil">
+	<Inventory>
+		<Hands>
+			<Item ID="Axe" />
+		</Hands>
+	</Inventory>
+</Character>

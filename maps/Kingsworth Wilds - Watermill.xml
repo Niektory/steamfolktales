@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="ascii" ?>
+<map id="Kingsworth Wilds - Watermill" format="1.0">
+    <import file="../objects/0.xml" />
+    <import file="../objects/Sprites_Vegetation/Ruins/Pillar04.xml" />
+    <import file="../objects/Animals/Butterfly03.xml" />
+    <import file="../objects/Sprites_Vegetation/Animated_Tree01/Tree02_Anim.xml" />
+    <import file="../objects/Sprites_Vegetation/Grass03_Animated.xml" />
+    <import file="../objects/Animals/Butterfly02.xml" />
+    <import file="../objects/Sprites_Vegetation/Ruins/Pillar03.xml" />
+    <import file="../objects/Sprites_Vegetation/Animated_Tree01/Tree04_Anim.xml" />
+    <import file="../objects/Rendered Environments/Kingsworth Wilds - Watermill/Watermill_interior.xml" />
+    <import file="../objects/Sprites_Vegetation/Animated_Bushes/Bush02_animated.xml" />
+    <import file="../objects/Watermill_exterior/Watermill01_block.xml" />
+    <import file="../objects/Sprites_Vegetation/Ruins/Pillar01.xml" />
+    <import file="../objects/Sprites_Vegetation/Animated_Tree01/Tree01_Anim.xml" />
+    <import file="../objects/Sprites_Vegetation/Grass02_Animated.xml" />
+    <import file="../objects/Sprites_Vegetation/Grass01_Animated.xml" />
+    <import file="../objects/Animals/Falcon01.xml" />
+    <import file="../objects/Sprites_Vegetation/Animated_Tree01/Tree03_Anim.xml" />
+    <import file="../objects/Animals/Butterfly01.xml" />
+    <import file="../objects/Rendered Environments/Kingsworth Wilds - Watermill/Watermill_interior_toplayer.xml" />
+    <import file="../objects/Sprites_Vegetation/Ruins/Statue01.xml" />
+    <import file="../objects/Sprites_Vegetation/Animated_Bushes/Bush01_animated.xml" />
+    <import file="../objects/Watermill_exterior/Watermill01.xml" />
+    <import file="../objects/Rendered Environments/Kingsworth Wilds/Water_animation.xml" />
+    <layer id="ground_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" layer_type="interact" layer_type_id="buildings_layer">
+        <instances>
+            <i ns="steamfolktales" o="Watermill_interior" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="0" />
+        </instances>
+    </layer>
+    <layer id="buildings_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" layer_type="walkable">
+        <instances>
+            <i ns="steamfolktales" o="0" x="-10.000000" y="-6.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="0" x="5.000000" y="7.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+        </instances>
+    </layer>
+    <layer id="top_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals">
+        <instances>
+            <i ns="steamfolktales" o="Watermill_interior_toplayer" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="0" />
+        </instances>
+    </layer>
+    <cellcaches>
+        <cellcache id="buildings_layer" default_cost="1.000000" default_speed="1.000000" search_narrow="1">
+<cell x="-10" y="-6" blocker_type="blocker" />
+<cell x="-10" y="-5" blocker_type="blocker" />
+<cell x="-10" y="-4" blocker_type="blocker" />
+<cell x="-10" y="-3" blocker_type="blocker" />
+<cell x="-10" y="-2" blocker_type="blocker" />
+<cell x="-10" y="-1" blocker_type="blocker" />
+<cell x="-10" y="0" blocker_type="blocker" />
+<cell x="-10" y="1" blocker_type="blocker" />
+<cell x="-10" y="2" blocker_type="blocker" />
+<cell x="-10" y="3" blocker_type="blocker" />
+<cell x="-10" y="4" blocker_type="blocker" />
+<cell x="-10" y="5" blocker_type="blocker" />
+<cell x="-10" y="6" blocker_type="blocker" />
+<cell x="-10" y="7" blocker_type="blocker" />
+<cell x="-9" y="-6" blocker_type="blocker" />
+<cell x="-9" y="-5" blocker_type="blocker" />
+<cell x="-9" y="-4" blocker_type="blocker" />
+<cell x="-9" y="-3" blocker_type="blocker" />
+<cell x="-9" y="-2" blocker_type="blocker" />
+<cell x="-9" y="-1" blocker_type="blocker" />
+<cell x="-9" y="0" blocker_type="blocker" />
+<cell x="-9" y="1" blocker_type="blocker" />
+<cell x="-9" y="2" blocker_type="blocker" />
+<cell x="-9" y="3" blocker_type="blocker" />
+<cell x="-9" y="4" blocker_type="blocker" />
+<cell x="-9" y="5" blocker_type="blocker" />
+<cell x="-9" y="6" blocker_type="blocker" />
+<cell x="-9" y="7" blocker_type="blocker" />
+<cell x="-8" y="-6" blocker_type="blocker" />
+<cell x="-8" y="-5" blocker_type="blocker" />
+<cell x="-8" y="-4" blocker_type="blocker" />
+<cell x="-8" y="-3" blocker_type="blocker" />
+<cell x="-8" y="-2" blocker_type="blocker" />
+<cell x="-8" y="-1" blocker_type="blocker" />
+<cell x="-8" y="0" blocker_type="blocker" />
+<cell x="-8" y="6" blocker_type="blocker" />
+<cell x="-8" y="7" blocker_type="blocker" />
+<cell x="-7" y="-6" blocker_type="blocker" />
+<cell x="-7" y="-5" blocker_type="blocker" />
+<cell x="-7" y="-4" blocker_type="blocker" />
+<cell x="-7" y="-3" blocker_type="blocker" />
+<cell x="-7" y="-2" blocker_type="blocker" />
+<cell x="-7" y="-1" blocker_type="blocker" />
+<cell x="-7" y="0" blocker_type="blocker" />
+<cell x="-7" y="6" blocker_type="blocker" />
+<cell x="-7" y="7" blocker_type="blocker" />
+<cell x="-6" y="-6" blocker_type="blocker" />
+<cell x="-6" y="-5" blocker_type="blocker" />
+<cell x="-6" y="-4" blocker_type="blocker" />
+<cell x="-6" y="-3" blocker_type="blocker" />
+<cell x="-6" y="-2" blocker_type="blocker" />
+<cell x="-6" y="-1" blocker_type="blocker" />
+<cell x="-6" y="0" blocker_type="blocker" />
+<cell x="-6" y="6" blocker_type="blocker" />
+<cell x="-6" y="7" blocker_type="blocker" />
+<cell x="-5" y="-6" blocker_type="blocker" />
+<cell x="-5" y="-5" blocker_type="blocker" />
+<cell x="-5" y="-4" blocker_type="blocker" />
+<cell x="-5" y="-3" blocker_type="blocker" />
+<cell x="-5" y="-2" blocker_type="blocker" />
+<cell x="-5" y="-1" blocker_type="blocker" />
+<cell x="-5" y="6" blocker_type="blocker" />
+<cell x="-5" y="7" blocker_type="blocker" />
+<cell x="-4" y="-6" blocker_type="blocker" />
+<cell x="-4" y="-5" blocker_type="blocker" />
+<cell x="-4" y="-4" blocker_type="blocker" />
+<cell x="-4" y="-3" blocker_type="blocker" />
+<cell x="-4" y="-2" blocker_type="blocker" />
+<cell x="-4" y="6" blocker_type="blocker" />
+<cell x="-4" y="7" blocker_type="blocker" />
+<cell x="-3" y="-6" blocker_type="blocker" />
+<cell x="-3" y="-5" blocker_type="blocker" />
+<cell x="-3" y="-4" blocker_type="blocker" />
+<cell x="-3" y="-3" blocker_type="blocker" />
+<cell x="-3" y="-1" blocker_type="blocker" />
+<cell x="-3" y="0" blocker_type="blocker" />
+<cell x="-3" y="6" blocker_type="blocker" />
+<cell x="-3" y="7" blocker_type="blocker" />
+<cell x="-2" y="-6" blocker_type="blocker" />
+<cell x="-2" y="-5" blocker_type="blocker" />
+<cell x="-2" y="-4" blocker_type="blocker" />
+<cell x="-2" y="-3" blocker_type="blocker" />
+<cell x="-2" y="-2" blocker_type="blocker" />
+<cell x="-2" y="-1" blocker_type="blocker" />
+<cell x="-2" y="0" blocker_type="blocker" />
+<cell x="-2" y="4" blocker_type="blocker" />
+<cell x="-2" y="5" blocker_type="blocker" />
+<cell x="-2" y="6" blocker_type="blocker" />
+<cell x="-2" y="7" blocker_type="blocker" />
+<cell x="-1" y="-6" blocker_type="blocker" />
+<cell x="-1" y="-5" blocker_type="blocker" />
+<cell x="-1" y="-4" blocker_type="blocker" />
+<cell x="-1" y="-3" blocker_type="blocker" />
+<cell x="-1" y="-2" blocker_type="blocker" />
+<cell x="-1" y="-1" blocker_type="blocker" />
+<cell x="-1" y="0" blocker_type="blocker" />
+<cell x="-1" y="3" blocker_type="blocker" />
+<cell x="-1" y="4" blocker_type="blocker" />
+<cell x="-1" y="5" blocker_type="blocker" />
+<cell x="-1" y="6" blocker_type="blocker" />
+<cell x="-1" y="7" blocker_type="blocker" />
+<cell x="0" y="-6" blocker_type="blocker" />
+<cell x="0" y="-5" blocker_type="blocker" />
+<cell x="0" y="-4" blocker_type="blocker" />
+<cell x="0" y="-2" blocker_type="blocker" />
+<cell x="0" y="-1" blocker_type="blocker" />
+<cell x="0" y="0" blocker_type="blocker" />
+<cell x="0" y="1" blocker_type="blocker" />
+<cell x="0" y="3" blocker_type="blocker" />
+<cell x="0" y="4" blocker_type="blocker" />
+<cell x="0" y="5" blocker_type="blocker" />
+<cell x="0" y="6" blocker_type="blocker" />
+<cell x="0" y="7" blocker_type="blocker" />
+<cell x="1" y="-6" blocker_type="blocker" />
+<cell x="1" y="-5" blocker_type="blocker" />
+<cell x="1" y="-2" blocker_type="blocker" />
+<cell x="1" y="-1" blocker_type="blocker" />
+<cell x="1" y="0" blocker_type="blocker" />
+<cell x="1" y="1" blocker_type="blocker" />
+<cell x="1" y="3" blocker_type="blocker" />
+<cell x="1" y="4" blocker_type="blocker" />
+<cell x="1" y="5" blocker_type="blocker" />
+<cell x="1" y="6" blocker_type="blocker" />
+<cell x="1" y="7" blocker_type="blocker" />
+<cell x="2" y="-6" blocker_type="blocker" />
+<cell x="2" y="-2" blocker_type="blocker" />
+<cell x="2" y="-1" blocker_type="blocker" />
+<cell x="2" y="0" blocker_type="blocker" />
+<cell x="2" y="3" blocker_type="blocker" />
+<cell x="2" y="4" blocker_type="blocker" />
+<cell x="2" y="5" blocker_type="blocker" />
+<cell x="2" y="6" blocker_type="blocker" />
+<cell x="2" y="7" blocker_type="blocker" />
+<cell x="3" y="-6" blocker_type="blocker" />
+<cell x="3" y="-2" blocker_type="blocker" />
+<cell x="3" y="1" blocker_type="blocker" />
+<cell x="3" y="2" blocker_type="blocker" />
+<cell x="3" y="3" blocker_type="blocker" />
+<cell x="3" y="4" blocker_type="blocker" />
+<cell x="3" y="5" blocker_type="blocker" />
+<cell x="3" y="6" blocker_type="blocker" />
+<cell x="3" y="7" blocker_type="blocker" />
+<cell x="4" y="-6" blocker_type="blocker" />
+<cell x="4" y="-5" blocker_type="blocker" />
+<cell x="4" y="-4" blocker_type="blocker" />
+<cell x="4" y="-1" blocker_type="blocker" />
+<cell x="4" y="0" blocker_type="blocker" />
+<cell x="4" y="1" blocker_type="blocker" />
+<cell x="4" y="2" blocker_type="blocker" />
+<cell x="4" y="3" blocker_type="blocker" />
+<cell x="4" y="4" blocker_type="blocker" />
+<cell x="4" y="5" blocker_type="blocker" />
+<cell x="4" y="6" blocker_type="blocker" />
+<cell x="4" y="7" blocker_type="blocker" />
+<cell x="5" y="-6" blocker_type="blocker" />
+<cell x="5" y="-5" blocker_type="blocker" />
+<cell x="5" y="-4" blocker_type="blocker" />
+<cell x="5" y="-3" blocker_type="blocker" />
+<cell x="5" y="-2" blocker_type="blocker" />
+<cell x="5" y="-1" blocker_type="blocker" />
+<cell x="5" y="0" blocker_type="blocker" />
+<cell x="5" y="1" blocker_type="blocker" />
+<cell x="5" y="2" blocker_type="blocker" />
+<cell x="5" y="3" blocker_type="blocker" />
+<cell x="5" y="4" blocker_type="blocker" />
+<cell x="5" y="5" blocker_type="blocker" />
+<cell x="5" y="6" blocker_type="blocker" />
+<cell x="5" y="7" blocker_type="blocker" />
+		</cellcache>
+	</cellcaches>
+    <camera id="main_camera" ref_layer_id="buildings_layer" zoom="1.000000" tilt="-50.131700" rotation="45.000000"viewport="0,0,1600,900" ref_cell_width="78" ref_cell_height="50" />
+</map>

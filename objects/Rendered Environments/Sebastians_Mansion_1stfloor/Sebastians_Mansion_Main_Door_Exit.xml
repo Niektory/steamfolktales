@@ -1,0 +1,4 @@
+<?fife type="object"?>
+<object id="Sebastians_Mansion_Main_Door_Exit" namespace="steamfolktales" blocking="0" static="1">
+	<image source="Sebastians_Mansion_Main_Door_Exit.png" direction="0" x_offset="-46" y_offset="8" />
+</object>

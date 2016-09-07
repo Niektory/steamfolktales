@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueNode key="0" npc_text="“Without the captain and pilot, I’m afraid we still have one problem to solve. You are a resourceful person, Miss Callahan – you wouldn’t happen to be also familiar with piloting the airship?”" speaker="Sebastian">
+		<DialogueResponse goto="1" />
+		<DialogueResponse text="{skip conversation}" />
+	</DialogueNode>
+	<DialogueNode key="1" npc_text="“I got some basic training, in case of emergency. Never actually tried in a real situation before, so I guess we’ll find out soon enough.”" speaker="Dusty" />
+</Dialogue>

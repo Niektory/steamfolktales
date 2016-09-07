@@ -1,0 +1,13 @@
+<?fife type="object"?>
+<object blocking="1" id="Mansion_Bedroom_Door_East" namespace="steamfolktales" static="0">
+	<action id="closed">
+		<animation atlas="Bedroom_Door_East_Closed.png" width="71" height="128" x_offset="-18" y_offset="-29">
+			<direction delay="100000" dir="0" frames="1"/>
+		</animation>
+	</action>
+	<action id="open">
+		<animation atlas="Bedroom_Door_East_Opened.png" width="121" height="120" x_offset="-43" y_offset="-67">
+			<direction delay="100000" dir="0" frames="1"/>
+		</animation>
+	</action>
+</object>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InteractObject name="desk" sprite="Radcliffe_Desk" map="Mansion01_1stfloor">
+	<Inventory>
+		<Item ID="Coins" />
+		<Item ID="PocketWatch" />
+	</Inventory>
+</InteractObject>

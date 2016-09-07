@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InteractObject name="box" sprite="Sawmill_Hideout_Box01" map="Sawmill_Hideout">
+	<Inventory>
+		<Item ID="Lockpicks" />
+	</Inventory>
+</InteractObject>

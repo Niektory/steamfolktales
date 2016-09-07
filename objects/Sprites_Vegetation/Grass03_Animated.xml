@@ -1,0 +1,13 @@
+<?fife type="object"?>
+<object id="Grass03_Animated" namespace="steamfolktales" blocking="0" static="0">
+	<action id="idle">
+		<animation atlas="Grass03_Animated.png" height="256" width="256" x_offset="0" y_offset="0">
+			<direction delay="250" dir="0" frames="5"/>
+		</animation>
+	</action>
+	<action id="still">
+		<animation atlas="Grass03_Animated.png" height="256" width="256" x_offset="0" y_offset="0">
+			<direction delay="250" dir="0" frames="1"/>
+		</animation>
+	</action>
+</object>

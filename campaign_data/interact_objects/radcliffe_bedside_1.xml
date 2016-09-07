@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InteractObject name="bedside drawer" sprite="Radcliffe_Bedside01" map="Mansion01_1stfloor">
+	<Inventory>
+		<Item ID="Ring3" />
+		<Item ID="Ring4" />
+	</Inventory>
+</InteractObject>

@@ -1,0 +1,13 @@
+<?fife type="object"?>
+<object blocking="1" cellstack_position="0" id="Dead_Tree01" namespace="steamfolktales" static="0">
+	<action id="idle">
+		<animation atlas="Dead_Tree01.png" height="382" width="392" x_offset="45" y_offset="-91">
+			<direction delay="250" dir="0" frames="5" />
+		</animation>
+	</action>
+	<action id="still">
+		<animation atlas="Dead_Tree01.png" height="382" width="392" x_offset="45" y_offset="-91">
+			<direction delay="250" dir="0" frames="1" />
+		</animation>
+	</action>
+</object>

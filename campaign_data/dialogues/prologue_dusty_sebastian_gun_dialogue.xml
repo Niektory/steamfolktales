@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueNode key="0" npc_text="”This device fires capsules of special glue, also my invention, that hardens very rapidly upon exposure to air. A hit should immobilize a human target for long enough so as to be disarmed and neutralized. I have here some anesthetic medicine that can be used to take them out of commission for quite some time after you have first made them non-resistant to being injected.”" speaker="Sebastian">
+		<DialogueResponse goto="1" />
+		<DialogueResponse text="{skip conversation}" />
+	</DialogueNode>
+	<DialogueNode key="1" npc_text="“Cool. Let’s go.”" speaker="Dusty" />
+</Dialogue>

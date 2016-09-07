@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/StaticImage" name="HUD" >
+        <Property name="Area" value="{{0.5,-175},{1,-167},{0.5,176},{1,0}}" />
+        <Property name="Visible" value="False" />
+		<Property name="Image" value="GUI_Background/full_image" />
+		<Property name="HorzFormatting" value="CentreAligned" />
+		<Property name="VertFormatting" value="CentreAligned" />
+        <Property name="FrameEnabled" value="False" />
+        <Property name="BackgroundEnabled" value="False" />
+        <Window type="TaharezLook/ImageButton" name="CharacterButton" >
+            <Property name="Position" value="{{0.5,-27},{0.5,-24}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Button_Character_01/full_image" />
+            <Property name="HoverImage" value="Button_Character_02/full_image" />
+            <Property name="PushedImage" value="Button_Character_01/full_image" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="JournalButton" >
+            <Property name="Position" value="{{0.5,10},{0.5,-61}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Button_Journal_01/full_image" />
+            <Property name="HoverImage" value="Button_Journal_02/full_image" />
+            <Property name="PushedImage" value="Button_Journal_01/full_image" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="InventoryButton" >
+            <Property name="Position" value="{{0.5,-157},{0.5,-24}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Button_Inventory_01/full_image" />
+            <Property name="HoverImage" value="Button_Inventory_02/full_image" />
+            <Property name="PushedImage" value="Button_Inventory_01/full_image" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="CampButton" >
+            <Property name="Position" value="{{0.5,48},{0.5,-24}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Button_Camp_01/full_image" />
+            <Property name="HoverImage" value="Button_Camp_02/full_image" />
+            <Property name="PushedImage" value="Button_Camp_01/full_image" />
+            <Property name="DisabledImage" value="Button_Camp_01/full_image" />
+            <Property name="Disabled" value="False" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="OptionsButton" >
+            <Property name="Position" value="{{0.5,103},{0.5,-24}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Button_Settings_01/full_image" />
+            <Property name="HoverImage" value="Button_Settings_02/full_image" />
+            <Property name="PushedImage" value="Button_Settings_01/full_image" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="MapButton" >
+            <Property name="Position" value="{{0.5,-65},{0.5,-61}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Button_Map01/full_image" />
+            <Property name="HoverImage" value="Button_Map02/full_image" />
+            <Property name="PushedImage" value="Button_Map01/full_image" />
+            <Property name="DisabledImage" value="Button_Map01/full_image" />
+            <Property name="Disabled" value="True" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="WalkButton" >
+            <Property name="Position" value="{{0.5,-102},{0.5,-24}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Button_Walk01/full_image" />
+            <Property name="HoverImage" value="Button_Walk02/full_image" />
+            <Property name="PushedImage" value="Button_Walk01/full_image" />
+        </Window>
+    </Window>
+</GUILayout>

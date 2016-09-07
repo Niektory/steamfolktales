@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueNode key="0" npc_text="“I beg your pardon for this intrusion, miss, but I couldn’t help but overhear your conversation with this angry young man, who I followed down here because he appeared to have some sort of misdemeanor in mind. I must say I’m rather impressed by the solid wisdom in your way of thinking, young lady. But please, forgive me my manners. My name is Sebastian Rex. Who do I have this pleasure…”" speaker="Sebastian">
+		<DialogueResponse goto="1" />
+		<DialogueResponse text="{skip conversation}" />
+	</DialogueNode>
+	<DialogueNode key="1" npc_text="“Cute words, old man, but in case you missed it, this bloody idiot Gil here broke our steam {name of gadget}, and if I don’t get it fixed, this tub isn’t going anywhere.”" speaker="Dusty">
+		<DialogueResponse goto="2" />
+	</DialogueNode>
+	<DialogueNode key="2" npc_text="“Alas, I’m afraid the “bloody idiot’s”, as you aptly put it, brothers in crime are conducting similar acts of sabotage elsewhere aboard this ship. It would appear they have orchestrated quite an operation, and unless they are stopped without undue delay, we may soon have more serious issues at hand than a leaking steam pipe.”" speaker="Sebastian">
+		<DialogueResponse goto="3" />
+	</DialogueNode>
+	<DialogueNode key="3" npc_text="“Shit. You’re right. We don’t even have any armed guards onboard. Any ideas?”" speaker="Dusty">
+		<DialogueResponse goto="4" />
+	</DialogueNode>
+	<DialogueNode key="4" npc_text="“I am a man of non-violence, so I’m afraid I can offer you little in the way of physical assistance. However, there is a prototype device in my cabin that I have invented for non-lethal crowd control. In fact, I was on my way to present it to the constabulary of Kingsworth. If you would like to, shall we say, field test it, I would be most grateful.“" speaker="Sebastian">
+		<DialogueResponse goto="5" />
+	</DialogueNode>
+	<DialogueNode key="5" npc_text="“Lead the way. And it’s Dusty. Dusty Callahan.”" speaker="Dusty" />
+</Dialogue>

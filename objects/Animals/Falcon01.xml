@@ -1,0 +1,15 @@
+<?fife type="object"?>
+<object blocking="0" id="Falcon01" namespace="steamfolktales" static="0">
+	<action id="idle">
+		<animation atlas="Falcon01.png" width="83" height="83" x_offset="0" y_offset="10">
+			<direction delay="150" dir="315" frames="6"/>
+			<direction delay="150" dir="0" frames="6"/>
+			<direction delay="150" dir="45" frames="6"/>
+			<direction delay="150" dir="90" frames="6"/>
+			<direction delay="150" dir="135" frames="6"/>
+			<direction delay="150" dir="160" frames="6"/>
+			<direction delay="150" dir="225" frames="6"/>
+			<direction delay="150" dir="270" frames="6"/>
+		</animation>
+	</action>
+</object>

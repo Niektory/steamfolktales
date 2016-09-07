@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindowSmall" name="PopupSpinner" >
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Property name="SizingEnabled" value="False" />
+        <Property name="Area" value="{{0.5,-140},{0.5,-70},{0.5,140},{0.5,70}}" />
+        <Property name="Visible" value="False" />
+
+        <Window type="TaharezLook/Spinner" name="ValueSpinner" >
+			<Property name="Position" value="{{0,20},{0,20}}" />
+			<Property name="Size" value="{{0,50},{0,28}}" />
+			<Property name="TextInputMode" value="Integer" />
+			<Property name="MinimumValue" value="1" />
+			<Property name="StepSize" value="1" />
+        </Window>
+        <Window type="TaharezLook/Button" name="OKButton" >
+            <Property name="Text" value="OK" />
+			<Property name="Position" value="{{1,-235},{1,-53}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="CancelButton" >
+            <Property name="Text" value="Cancel" />
+			<Property name="Position" value="{{1,-120},{1,-53}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+    </Window>
+</GUILayout>

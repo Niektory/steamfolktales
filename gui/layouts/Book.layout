@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/StaticImage" name="Book" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="Visible" value="False" />
+		<Property name="Image" value="Book_Background/full_image" />
+		<Property name="HorzFormatting" value="CentreAligned" />
+		<Property name="VertFormatting" value="CentreAligned" />
+        <Property name="FrameEnabled" value="False" />
+        <Property name="BackgroundEnabled" value="False" />
+        <Window type="TaharezLook/StaticText" name="LeftPage" >
+            <Property name="Area" value="{{0.5,-290},{0.5,-200},{0.5,-30},{0.5,200}}" />
+            <Property name="HorzFormatting" value="WordWrapLeftAligned" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="VertScrollbar" value="False" />
+            <Property name="FrameEnabled" value="False" />
+            <Property name="BackgroundEnabled" value="False" />
+			<Property name="TextColours" value="tl:[00000000] tr:[00000000] bl:[00000000] br:[00000000]" />
+        </Window>
+        <Window type="TaharezLook/StaticText" name="RightPage" >
+            <Property name="Area" value="{{0.5,30},{0.5,-200},{0.5,290},{0.5,200}}" />
+            <Property name="HorzFormatting" value="WordWrapLeftAligned" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="VertScrollbar" value="False" />
+            <Property name="FrameEnabled" value="False" />
+            <Property name="BackgroundEnabled" value="False" />
+			<Property name="TextColours" value="tl:[00000000] tr:[00000000] bl:[00000000] br:[00000000]" />
+        </Window>
+    </Window>
+</GUILayout>

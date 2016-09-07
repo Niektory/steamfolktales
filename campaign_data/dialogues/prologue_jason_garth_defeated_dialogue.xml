@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueNode key="0" npc_text="”No more! No more, Jason, please! Spare me and you’re free to go wherever you want.”" speaker="Garth">
+		<DialogueResponse goto="10" text="Finish him off." />
+		<DialogueResponse goto="10" text="Spare him." />
+	</DialogueNode>
+	<DialogueNode key="10" npc_text="“Farewell, Uncle.”" speaker="Young_Jason">
+		<DialogueResponse goto="20" />
+	</DialogueNode>
+	<DialogueNode key="20" npc_text="“Uncle Garth was big and strong, but he was also fat, old and slow. I soon had him at my mercy, and he was begging for his life. As much as I hated him, I was not a cold-blooded murderer. Besides, he was family. So I warned him that should our paths ever cross again, I would finish the job, and he swore to my father’s grave that he would leave me alone.”" speaker="Jason">
+		<DialogueResponse goto="21" />
+	</DialogueNode>
+	<DialogueCheck check="cls.finishJasonPrologue" key="21" />
+</Dialogue>

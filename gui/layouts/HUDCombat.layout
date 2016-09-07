@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+	<Window type="DefaultWindow" name="HUDCombat" >
+		<Property name="Visible" value="False" />
+		<Property name="Area" value="{{0.5,-244},{1,-220},{0.5,245},{1,0}}" />
+		<Window type="TaharezLook/StaticImage" name="TopFrame" >
+			<Property name="Area" value="{{0,0},{0,0},{1,0},{0,58}}" />
+			<Property name="Image" value="Combat_GUI_Top/full_image" />
+			<Property name="HorzFormatting" value="CentreAligned" />
+			<Property name="VertFormatting" value="CentreAligned" />
+			<Property name="FrameEnabled" value="False" />
+			<Property name="BackgroundEnabled" value="False" />
+        </Window>
+		<Window type="TaharezLook/StaticImage" name="BottomFrame" >
+			<Property name="Area" value="{{0,0},{1,-58},{1,0},{1,0}}" />
+			<Property name="Image" value="Combat_GUI_Bottom/full_image" />
+			<Property name="HorzFormatting" value="CentreAligned" />
+			<Property name="VertFormatting" value="CentreAligned" />
+			<Property name="FrameEnabled" value="False" />
+			<Property name="BackgroundEnabled" value="False" />
+        </Window>
+		<Window type="TaharezLook/StaticImage" name="WeaponBackground" >
+			<Property name="Area" value="{{0.5,-104},{0.5,-52},{0.5,104},{0.5,52}}" />
+			<Property name="Image" value="Hands_Background/full_image" />
+			<Property name="HorzFormatting" value="CentreAligned" />
+			<Property name="VertFormatting" value="CentreAligned" />
+			<Property name="FrameEnabled" value="False" />
+			<Property name="BackgroundEnabled" value="False" />
+			<Window type="TaharezLook/StaticImage" name="WeaponImage" >
+				<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+				<Property name="Image" value="" />
+				<Property name="HorzFormatting" value="CentreAligned" />
+				<Property name="VertFormatting" value="CentreAligned" />
+				<Property name="FrameEnabled" value="False" />
+				<Property name="BackgroundEnabled" value="False" />
+				<Property name="MousePassThroughEnabled" value="True" />
+			</Window>
+			<Window type="TaharezLook/Label" name="AmmoLabel" >
+				<Property name="Area" value="{{0,10},{0,10},{1,-10},{1,-10}}" />
+				<Property name="Text" value="" />
+				<Property name="HorzFormatting" value="RightAligned" />
+				<Property name="VertFormatting" value="BottomAligned" />
+				<Property name="MousePassThroughEnabled" value="True" />
+			</Window>
+			<Window type="TaharezLook/Label" name="AttackLabel" >
+				<Property name="Area" value="{{0,10},{0,10},{1,-10},{1,-10}}" />
+				<Property name="Text" value="" />
+				<Property name="HorzFormatting" value="LeftAligned" />
+				<Property name="VertFormatting" value="TopAligned" />
+				<Property name="MousePassThroughEnabled" value="True" />
+			</Window>
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="CharacterButton" >
+            <Property name="Position" value="{{0.5,119},{0.5,-25}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Button_Character_01/full_image" />
+            <Property name="HoverImage" value="Button_Character_02/full_image" />
+            <Property name="PushedImage" value="Button_Character_01/full_image" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="DefendButton" >
+            <Property name="Position" value="{{0.5,-169},{0.5,-25}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Defend_01/full_image" />
+            <Property name="HoverImage" value="Defend_02/full_image" />
+            <Property name="PushedImage" value="Defend_01/full_image" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="InventoryButton" >
+            <Property name="Position" value="{{0.5,-229},{0.5,-51}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Button_Inventory_01/full_image" />
+            <Property name="HoverImage" value="Button_Inventory_02/full_image" />
+            <Property name="PushedImage" value="Button_Inventory_01/full_image" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="ItemButton" >
+            <Property name="Position" value="{{0.5,-229},{0.5,1}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="Disabled" value="True" />
+            <Property name="NormalImage" value="Use_Item_01/full_image" />
+            <Property name="HoverImage" value="Use_Item_02/full_image" />
+            <Property name="PushedImage" value="Use_Item_01/full_image" />
+            <Property name="DisabledImage" value="Use_Item_01/full_image" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="OptionsButton" >
+            <Property name="Position" value="{{0.5,184},{0.5,-25}" />
+            <Property name="Size" value="{{0,50},{0,50}}" />
+            <Property name="NormalImage" value="Button_Settings_01/full_image" />
+            <Property name="HoverImage" value="Button_Settings_02/full_image" />
+            <Property name="PushedImage" value="Button_Settings_01/full_image" />
+        </Window>
+    </Window>
+</GUILayout>

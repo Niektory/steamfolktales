@@ -1,0 +1,27 @@
+<?fife type="object"?>
+<object blocking="1" id="Mr_Radcliffe" namespace="steamfolktales" static="0">
+	<action id="idle">
+		<animation atlas="Mr_Radcliffe_Idle.png" width="75" height="105" y_offset="-25">
+			<direction delay="150" dir="315" frames="14"/>
+			<direction delay="150" dir="0" frames="14"/>
+			<direction delay="150" dir="45" frames="14"/>
+			<direction delay="150" dir="90" frames="14"/>
+			<direction delay="150" dir="135" frames="14"/>
+			<direction delay="150" dir="160" frames="14"/>
+			<direction delay="150" dir="225" frames="14"/>
+			<direction delay="150" dir="270" frames="14"/>
+		</animation>
+	</action>
+	<action id="walk">
+		<animation atlas="Mr_Radcliffe_Walk.png" width="91" height="117" y_offset="-25">
+			<direction delay="71" dir="315" frames="14"/>
+			<direction delay="71" dir="0" frames="14"/>
+			<direction delay="71" dir="45" frames="14"/>
+			<direction delay="71" dir="90" frames="14"/>
+			<direction delay="71" dir="135" frames="14"/>
+			<direction delay="71" dir="160" frames="14"/>
+			<direction delay="71" dir="225" frames="14"/>
+			<direction delay="71" dir="270" frames="14"/>
+		</animation>
+	</action>
+</object>

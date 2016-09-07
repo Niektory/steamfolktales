@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueNode key="0" npc_text="“So there I was, on my way back to the headquarters and Uncle Garth. I was now filled with new purpose, and so I strode straight to him to tell him it was all over.”" speaker="Jason">
+		<DialogueResponse goto="1" />
+	</DialogueNode>
+	<DialogueCheck check="cls.startPrologueJasonSawmill2" key="1" />
+</Dialogue>

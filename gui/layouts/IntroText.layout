@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/StaticText" name="IntroTextRoot" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="FrameEnabled" value="False" />
+        <Property name="BackgroundEnabled" value="False" />
+        <Property name="Visible" value="False" />
+        <Property name="MousePassThroughEnabled" value="True" />
+        <Property name="AlwaysOnTop" value="True" />
+        <Property name="VertFormatting" value="CentreAligned" />
+        <Property name="HorzFormatting" value="CentreAligned" />
+        <Property name="Font" value="DejaVuSans-25" />
+    </Window>
+</GUILayout>

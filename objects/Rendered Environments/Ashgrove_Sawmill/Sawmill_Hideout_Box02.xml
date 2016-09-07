@@ -1,0 +1,4 @@
+<?fife type="object"?>
+<object blocking="1" cellstack_position="0" id="Sawmill_Hideout_Box02" namespace="steamfolktales" static="1">
+	<image direction="0" source="Sawmill_Hideout_Box02.png" x_offset="18" y_offset="-7" />
+</object>

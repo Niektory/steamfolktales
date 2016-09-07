@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindow" name="Journal" >
+        <Property name="Text" value="Journal" />
+        <Property name="TitlebarFont" value="DejaVuSans-10" />
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="Area" value="{{0.5,-250},{0.5,-200},{0.5,250},{0.5,200}}" />
+        <Property name="MinSize" value="{{0,500},{0,400}}" />
+        <Property name="Visible" value="False" />
+        <Property name="SizingEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Window type="TaharezLook/StaticText" name="QuestLog" >
+            <Property name="Area" value="{{0,14},{0,14},{1,-14},{1,-61}}" />
+            <Property name="HorzFormatting" value="WordWrapLeftAligned" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="FrameEnabled" value="True" />
+            <Property name="BackgroundEnabled" value="False" />
+			<Property name="TextColours" value="FFFAE2BB" />
+        </Window>
+        <Window type="TaharezLook/Button" name="CloseButton" >
+            <Property name="Text" value="Close" />
+			<Property name="Position" value="{{0.5,-50},{1,-47}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+    </Window>
+</GUILayout>

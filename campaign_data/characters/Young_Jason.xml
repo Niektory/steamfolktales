@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Character name="Young Jason" sprite="Young_Jason" portrait="Portrait_Young_Jason/full_image" map="Sawmill_Hideout">
+	<Inventory>
+		<Backpack>
+			<Item ID="Dagger" />
+		</Backpack>
+	</Inventory>
+	<Stats>
+		<Attributes STR="10" CON="11" DEX="11" REF="10" INT="9" WIT="11" CHA="9" EMP="9" />
+		<Skills>
+			<Skill name="Stealth" rank="1" />
+			<Skill name="Melee, Finesse" rank="1" />
+		</Skills>
+	</Stats>
+</Character>

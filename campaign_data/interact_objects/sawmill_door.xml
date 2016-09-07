@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InteractObject name="door" sprite="Sawmill_Hideout_Door_Outside" map="Ashgrove_Sawmill">
+	<Portal map="Sawmill_Hideout" x="-5" y="3" rotation="0" script="sawmillDoorScript" />
+</InteractObject>

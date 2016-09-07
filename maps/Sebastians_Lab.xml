@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ascii" ?>
+<map id="Sebastians_Lab" format="1.0">
+    <import file="../objects/Block/Block.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_Lab/Bookshelf.xml" />
+    <import file="../objects/Sprites_Vegetation/Smoke/Smoke2.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_Lab/Desk.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_Lab/Staircase.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_Lab/Bomb_remainings.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_Lab/Dead_Sebastian.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_Lab/Random_Tools.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_Lab/Sebastians_Lab.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_Lab/Lab_Frontwall.xml" />
+    <import file="../objects/Rendered Environments/Sebastians_Mansion_Lab/Safe.xml" />
+    <layer id="ground_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" sorting="camera" layer_type="interact" layer_type_id="buildings_layer">
+        <instances>
+            <i ns="steamfolktales" o="Sebastians_Lab" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Block" x="-6.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="0.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="0.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="6.000000" y="-2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="-2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="-3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="5.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="4.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="3.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-1.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="0.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-2.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-3.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-5.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-4.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-6.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="0.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-8.000000" y="1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-8.000000" y="2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-8.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-8.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="5.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="3.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="-7.000000" y="2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="0.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="0.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="0.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="1.000000" y="-2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="0.000000" y="-2.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i o="Block" x="2.000000" y="-1.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+        </instances>
+    </layer>
+    <layer id="buildings_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" sorting="camera" layer_type="walkable">
+        <instances>
+            <i ns="steamfolktales" o="Bomb_remainings" x="3.000000" y="-3.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Safe" x="0.000000" y="-4.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Bookshelf" x="6.000000" y="0.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Dead_Sebastian" x="1.000000" y="0.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Desk" x="-1.000000" y="-4.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Staircase" x="3.000000" y="2.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Random_Tools" x="3.000000" y="-4.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Lab_Frontwall" x="-7.000000" y="6.000000" z="0.000000" r="0" stackpos="0" />
+        </instances>
+    </layer>
+    <layer id="top_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" sorting="camera">
+        <instances>
+            <i ns="steamfolktales" o="Smoke2" x="-1.000000" y="2.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Smoke2" x="-2.000000" y="0.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Smoke2" x="1.000000" y="-4.000000" z="0.000000" r="0" stackpos="0" />
+        </instances>
+    </layer>
+    <cellcaches>
+        <cellcache id="buildings_layer" default_cost="1.000000" default_speed="1.000000" search_narrow="1" />
+    </cellcaches>
+    <camera id="main_camera" ref_layer_id="buildings_layer" zoom="1.000000" tilt="-50.131700" rotation="45.000000" viewport="0,0,1800,1000" ref_cell_width="78" ref_cell_height="50" />
+</map>

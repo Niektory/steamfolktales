@@ -1,0 +1,159 @@
+<?fife type="object"?>
+<object blocking="1" id="Dusty" namespace="steamfolktales" static="0">
+	<action id="idle">
+		<animation atlas="Dusty_Prologue_Idle.png" width="59" height="96" y_offset="-24">
+			<direction delay="120" dir="315" frames="14"/>
+			<direction delay="120" dir="0" frames="14"/>
+			<direction delay="120" dir="45" frames="14"/>
+			<direction delay="120" dir="90" frames="14"/>
+			<direction delay="120" dir="135" frames="14"/>
+			<direction delay="120" dir="160" frames="14"/>
+			<direction delay="120" dir="225" frames="14"/>
+			<direction delay="120" dir="270" frames="14"/>
+		</animation>
+	</action>
+	<action id="walk">
+		<animation atlas="Dusty_Prologue_Walk.png" width="74" height="109" y_offset="-24">
+			<direction delay="66" dir="315" frames="14"/>
+			<direction delay="66" dir="0" frames="14"/>
+			<direction delay="66" dir="45" frames="14"/>
+			<direction delay="66" dir="90" frames="14"/>
+			<direction delay="66" dir="135" frames="14"/>
+			<direction delay="66" dir="160" frames="14"/>
+			<direction delay="66" dir="225" frames="14"/>
+			<direction delay="66" dir="270" frames="14"/>
+		</animation>
+	</action>
+	<action id="sneak_idle">
+		<animation atlas="Dusty_Prologue_Fists_Idle.png" width="75" height="110" y_offset="-24">
+			<direction delay="150" dir="315" frames="14"/>
+			<direction delay="150" dir="0" frames="14"/>
+			<direction delay="150" dir="45" frames="14"/>
+			<direction delay="150" dir="90" frames="14"/>
+			<direction delay="150" dir="135" frames="14"/>
+			<direction delay="150" dir="160" frames="14"/>
+			<direction delay="150" dir="225" frames="14"/>
+			<direction delay="150" dir="270" frames="14"/>
+		</animation>
+	</action>
+	<action id="sneak_walk">
+		<animation atlas="Dusty_Prologue_Fists_Walk.png" width="77" height="114" y_offset="-24">
+			<direction delay="71" dir="315" frames="14"/>
+			<direction delay="71" dir="0" frames="14"/>
+			<direction delay="71" dir="45" frames="14"/>
+			<direction delay="71" dir="90" frames="14"/>
+			<direction delay="71" dir="135" frames="14"/>
+			<direction delay="71" dir="160" frames="14"/>
+			<direction delay="71" dir="225" frames="14"/>
+			<direction delay="71" dir="270" frames="14"/>
+		</animation>
+	</action>
+	<action id="run">
+		<animation atlas="Dusty_Prologue_Walk.png" width="74" height="109" y_offset="-24">
+			<direction delay="45" dir="315" frames="14"/>
+			<direction delay="45" dir="0" frames="14"/>
+			<direction delay="45" dir="45" frames="14"/>
+			<direction delay="45" dir="90" frames="14"/>
+			<direction delay="45" dir="135" frames="14"/>
+			<direction delay="45" dir="160" frames="14"/>
+			<direction delay="45" dir="225" frames="14"/>
+			<direction delay="45" dir="270" frames="14"/>
+		</animation>
+	</action>
+	<action id="die">
+		<animation atlas="Dusty_Prologue_Die.png" width="171" height="150" y_offset="-25">
+			<direction delay="70" dir="315" frames="14"/>
+			<direction delay="70" dir="0" frames="14"/>
+			<direction delay="70" dir="45" frames="14"/>
+			<direction delay="70" dir="90" frames="14"/>
+			<direction delay="70" dir="135" frames="14"/>
+			<direction delay="70" dir="160" frames="14"/>
+			<direction delay="70" dir="225" frames="14"/>
+			<direction delay="70" dir="270" frames="14"/>
+		</animation>
+	</action>
+	<action id="dead">
+		<animation atlas="Dusty_Prologue_Dead.png" width="171" height="150" y_offset="-25">
+			<direction delay="100000" dir="315" frames="1"/>
+			<direction delay="100000" dir="0" frames="1"/>
+			<direction delay="100000" dir="45" frames="1"/>
+			<direction delay="100000" dir="90" frames="1"/>
+			<direction delay="100000" dir="135" frames="1"/>
+			<direction delay="100000" dir="160" frames="1"/>
+			<direction delay="100000" dir="225" frames="1"/>
+			<direction delay="100000" dir="270" frames="1"/>
+		</animation>
+	</action>
+	<action id="wrench_idle">
+		<animation atlas="Dusty_Prologue_Wrench_Idle.png" width="79" height="114" y_offset="-25">
+			<direction delay="60" dir="315" frames="14"/>
+			<direction delay="60" dir="0" frames="14"/>
+			<direction delay="60" dir="45" frames="14"/>
+			<direction delay="60" dir="90" frames="14"/>
+			<direction delay="60" dir="135" frames="14"/>
+			<direction delay="60" dir="160" frames="14"/>
+			<direction delay="60" dir="225" frames="14"/>
+			<direction delay="60" dir="270" frames="14"/>
+		</animation>
+	</action>
+	<action id="wrench_attack">
+		<animation atlas="Dusty_Prologue_Wrench_Attack.png" width="106" height="140" y_offset="-25">
+			<direction delay="40" dir="315" frames="14" action="10"/>
+			<direction delay="40" dir="0" frames="14" action="10"/>
+			<direction delay="40" dir="45" frames="14" action="10"/>
+			<direction delay="40" dir="90" frames="14" action="10"/>
+			<direction delay="40" dir="135" frames="14" action="10"/>
+			<direction delay="40" dir="160" frames="14" action="10"/>
+			<direction delay="40" dir="225" frames="14" action="10"/>
+			<direction delay="40" dir="270" frames="14" action="10"/>
+		</animation>
+	</action>
+	<action id="wrench_walk">
+		<animation atlas="Dusty_Prologue_Wrench_Walk.png" width="85" height="110" y_offset="-25">
+			<direction delay="60" dir="315" frames="14"/>
+			<direction delay="60" dir="0" frames="14"/>
+			<direction delay="60" dir="45" frames="14"/>
+			<direction delay="60" dir="90" frames="14"/>
+			<direction delay="60" dir="135" frames="14"/>
+			<direction delay="60" dir="160" frames="14"/>
+			<direction delay="60" dir="225" frames="14"/>
+			<direction delay="60" dir="270" frames="14"/>
+		</animation>
+	</action>
+	<action id="unarmed_idle">
+		<animation atlas="Dusty_Prologue_Fists_Idle.png" width="75" height="110" y_offset="-24">
+			<direction delay="150" dir="315" frames="14"/>
+			<direction delay="150" dir="0" frames="14"/>
+			<direction delay="150" dir="45" frames="14"/>
+			<direction delay="150" dir="90" frames="14"/>
+			<direction delay="150" dir="135" frames="14"/>
+			<direction delay="150" dir="160" frames="14"/>
+			<direction delay="150" dir="225" frames="14"/>
+			<direction delay="150" dir="270" frames="14"/>
+		</animation>
+	</action>
+	<action id="unarmed_attack">
+		<animation atlas="Dusty_Prologue_Fists_Attack.png" width="105" height="115" y_offset="-24">
+			<direction delay="60" dir="315" frames="14" action="10"/>
+			<direction delay="60" dir="0" frames="14" action="10"/>
+			<direction delay="60" dir="45" frames="14" action="10"/>
+			<direction delay="60" dir="90" frames="14" action="10"/>
+			<direction delay="60" dir="135" frames="14" action="10"/>
+			<direction delay="60" dir="160" frames="14" action="10"/>
+			<direction delay="60" dir="225" frames="14" action="10"/>
+			<direction delay="60" dir="270" frames="14" action="10"/>
+		</animation>
+	</action>
+	<action id="unarmed_walk">
+		<animation atlas="Dusty_Prologue_Fists_Walk.png" width="77" height="114" y_offset="-24">
+			<direction delay="71" dir="315" frames="14"/>
+			<direction delay="71" dir="0" frames="14"/>
+			<direction delay="71" dir="45" frames="14"/>
+			<direction delay="71" dir="90" frames="14"/>
+			<direction delay="71" dir="135" frames="14"/>
+			<direction delay="71" dir="160" frames="14"/>
+			<direction delay="71" dir="225" frames="14"/>
+			<direction delay="71" dir="270" frames="14"/>
+		</animation>
+	</action>
+</object>

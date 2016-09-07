@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueNode key="0" npc_text="“I am no expert, but that looks like an explosive device, Miss Callahan.”" speaker="Sebastian">
+		<DialogueResponse goto="1" />
+		<DialogueResponse text="{skip conversation}" />
+	</DialogueNode>
+	<DialogueNode key="1" npc_text="“Crap. Looks like Gil meant what he said when he said they were going to blow up the ship. Oh well…”" speaker="Dusty">
+		<DialogueResponse goto="2" />
+	</DialogueNode>
+	<DialogueNode key="2" npc_text="“Is there anything you can do about it?”" speaker="Sebastian">
+		<DialogueResponse goto="3" />
+	</DialogueNode>
+	<DialogueNode key="3" npc_text="“Yes. I know this type of incendiary bombs. I know them only too well…”" speaker="Dusty" />
+</Dialogue>

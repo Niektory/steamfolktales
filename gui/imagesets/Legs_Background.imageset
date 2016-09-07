@@ -1,0 +1,3 @@
+<Imageset name="Legs_Background" imagefile="Legs_Background.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="104" height="104" xPos="0" yPos="0" />
+</Imageset>

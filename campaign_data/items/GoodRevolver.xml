@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Item name="R. Bailey 8mm Peacemaker Revolver" image="Good_Revolver/full_image" description="The most common type of revolver in the known world. Almost every adventurer, noble, pirate and guardsman has one of these. Based on an old and reliable single action revolver mechanism and the common 8mm cartridge, this is the type of weapon you can get ammunition, repair and replacement for almost everywhere in the world. Generally every weapon manufacturer is able to produce these.">
+	<WeaponData damage="1d6+3" skill="Handguns" sprite="revolver" accuracy="1" speed="3" range="8" range_increments="7" magazine_size="6" calibre="8mm-S" ranged="1" />
+</Item>

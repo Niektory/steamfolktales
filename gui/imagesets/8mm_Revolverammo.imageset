@@ -1,0 +1,3 @@
+<Imageset name="8mm_Revolverammo" imagefile="8mm_Revolverammo.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="100" height="100" xPos="0" yPos="0" />
+</Imageset>

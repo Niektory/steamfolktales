@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Character name="Thug" sprite="Thug02" map="Ashgrove_Sawmill" killable="1" behavior="detect,wander">
+	<Knowledge key="wander_rect" value="-2,13,4,19" />
+</Character>

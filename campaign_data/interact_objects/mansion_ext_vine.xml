@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InteractObject name="vine" sprite="Sebastians_Mansion_Vine" map="Sebastians_exterior">
+	<Portal map="Mansion01_2ndfloor" x="7" y="21" rotation="90" />
+</InteractObject>

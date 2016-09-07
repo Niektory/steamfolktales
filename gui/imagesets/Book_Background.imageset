@@ -1,0 +1,3 @@
+<Imageset name="Book_Background" imagefile="Book_Background.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="768" height="512" xPos="0" yPos="0" />
+</Imageset>

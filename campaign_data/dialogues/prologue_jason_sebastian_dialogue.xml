@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueNode key="0" npc_text="“Please put that back, young man. It is quite valuable.”" speaker="Sebastian">
+		<DialogueResponse goto="20" />
+		<DialogueResponse goto="10" text="{skip conversation}" />
+	</DialogueNode>
+	<DialogueNode key="1" npc_text="“D-don’t come any closer! I-I’ve got a knife!”" speaker="Young_Jason">
+		<DialogueResponse goto="2" />
+	</DialogueNode>
+	<DialogueNode key="2" npc_text="“I see you do. And what will you do with the knife, young man? And what will you do with your life?”" speaker="Sebastian">
+		<DialogueResponse goto="3" />
+	</DialogueNode>
+	<DialogueNode key="3" npc_text="“My life? What are you talking about?”" speaker="Young_Jason">
+		<DialogueResponse goto="4" />
+	</DialogueNode>
+	<DialogueNode key="4" npc_text="“I’m talking about a frightened young boy, adrift, with no control over his destiny. Tell me, is it your will that brought you into my home and now threatens to end my life, or is it someone else’s?”" speaker="Sebastian">
+		<DialogueResponse goto="5" />
+	</DialogueNode>
+	<DialogueNode key="5" npc_text="“I… I…”" speaker="Young_Jason">
+		<DialogueResponse goto="6" />
+	</DialogueNode>
+	<DialogueNode key="6" npc_text="“The answer is clear on your face. You are on the verge of manhood, lad, and your destiny is yours to make. Remember that – you are the only one who can control your life. Others may try to force their will upon you, but ultimately it will be you who will determine whether you allow yourself be used. So before you stab that knife into my heart, decide: is that what you want to do?”" speaker="Sebastian">
+		<DialogueResponse goto="7" />
+	</DialogueNode>
+	<DialogueNode key="7" npc_text="“No. I was told to come here and find something valuable. I think you just gave it to me.”" speaker="Young_Jason">
+		<DialogueResponse goto="8" />
+	</DialogueNode>
+	<DialogueNode key="8" npc_text="“There is hope for you yet, young man.”" speaker="Sebastian">
+		<DialogueResponse goto="10" />
+	</DialogueNode>
+	<DialogueCheck check="cls.startPrologueJasonSawmill" key="10" />
+	<DialogueCheck check="cls.turnAroundJasonSebastian" goto_if_false="1" key="20" />
+</Dialogue>

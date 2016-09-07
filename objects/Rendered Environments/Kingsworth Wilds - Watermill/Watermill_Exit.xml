@@ -1,0 +1,4 @@
+<?fife type="object"?>
+<object id="Watermill_Exit" namespace="steamfolktales" blocking="0" static="1">
+	<image source="Watermill_Exit.png" direction="0" x_offset="-4" y_offset="-45" />
+</object>

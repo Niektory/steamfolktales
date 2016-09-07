@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindowBig" name="Looting" >
+        <Property name="Text" value="Character Sheet" />
+        <Property name="TitlebarFont" value="DejaVuSans-10" />
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Property name="SizingEnabled" value="False" />
+        <Property name="Area" value="{{0.5,-450},{0.5,-295},{0.5,450},{0.5,295}}" />
+        <Property name="Visible" value="False" />
+        <Property name="AutoRenderingSurface" value="False" />
+        <Window type="TaharezLook/Label" name="PackLabel" >
+            <Property name="Text" value="Pack" />
+	        <Property name="Area" value="{{0,20},{0,20},{1,-460},{0,40}}" />
+        </Window>
+        <Window type="InventoryGrid" name="Grid" >
+	        <Property name="Area" value="{{0,20},{0,40},{1,-460},{1,-73}}" />
+		</Window>
+        
+        <Window type="TaharezLook/Label" name="LootLabel" >
+            <Property name="Text" value="Loot" />
+	        <Property name="Area" value="{{1,-440},{0,20},{1,-20},{0,40}}" />
+        </Window>
+        <Window type="InventoryGrid" name="LootGrid" >
+	        <Property name="Area" value="{{1,-440},{0,40},{1,-20},{1,-73}}" />
+		</Window>
+
+        <Window type="TaharezLook/Button" name="TakeAllButton" >
+            <Property name="Text" value="Take All" />
+			<Property name="Position" value="{{1,-260},{1,-53}}" />
+			<Property name="Size" value="{{0,120},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="CancelButton" >
+            <Property name="Text" value="Close" />
+			<Property name="Position" value="{{1,-120},{1,-53}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+    </Window>
+</GUILayout>

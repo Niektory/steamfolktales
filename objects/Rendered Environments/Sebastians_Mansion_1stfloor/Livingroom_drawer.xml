@@ -1,0 +1,4 @@
+<?fife type="object"?>
+<object blocking="1" cellstack_position="0" id="Livingroom_drawer" namespace="steamfolktales" static="1">
+	<image direction="0" source="Livingroom_drawer.png" x_offset="-17" y_offset="-9" />
+</object>

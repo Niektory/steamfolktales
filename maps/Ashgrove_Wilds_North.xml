@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ascii" ?>
+<map id="Kingsworth Wilds" format="1.0">
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_01.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_02.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_03.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_04.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_05.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_06.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_07.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_08.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_09.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_10.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_11.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_12.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_13.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_14.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_15.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_05_back.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_06_back.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_09_back.xml" />
+    <import file="../objects/Rendered Environments/Ashgrove_Wilds_North/Ashgrove_Wilds_North_10_back.xml" />
+    <import file="../objects/Rendered Environments/Kingsworth Wilds/Water_animation.xml" />
+    <layer id="water_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" sorting="camera">
+        <instances>
+            <i ns="steamfolktales" o="Ashgrove_Wilds_North_05_back" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_06_back" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_09_back" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_10_back" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+        </instances>
+    </layer>
+    <layer id="ground_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" sorting="camera" layer_type="interact" layer_type_id="buildings_layer">
+        <instances>
+            <i ns="steamfolktales" o="Ashgrove_Wilds_North_01" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_02" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_03" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_04" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_05" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_06" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_07" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_08" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_09" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_10" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_11" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_12" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_13" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_14" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+            <i o="Ashgrove_Wilds_North_15" x="55.000000" y="-55.000000" z="0.000000" r="0" stackpos="10" />
+        </instances>
+    </layer>
+    <layer id="buildings_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" sorting="camera" layer_type="walkable">
+        <instances>
+        </instances>
+    </layer>
+    <layer id="top_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_and_diagonals" sorting="camera" layer_type="walkable">
+        <instances>
+        </instances>
+    </layer>
+    <cellcaches>
+        <cellcache id="buildings_layer" default_cost="1.000000" default_speed="1.000000" search_narrow="1" />
+        <cellcache id="top_layer" default_cost="1.000000" default_speed="1.000000" search_narrow="1" />
+    </cellcaches>
+    <camera id="main_camera" ref_layer_id="buildings_layer" zoom="1.000000" tilt="-50.131700" rotation="45.000000" viewport="0,0,1600,1080" ref_cell_width="78" ref_cell_height="50" />
+</map>

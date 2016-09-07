@@ -1,0 +1,3 @@
+<Imageset name="Loadscreen_TwoMapples_Inn" imagefile="Loadscreen_TwoMapples_Inn.png" autoScaled="false" version="2">
+    <Image name="full_image" width="1920" height="1080" xPos="0" yPos="0" />
+</Imageset>

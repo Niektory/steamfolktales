@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InteractObject name="door" sprite="Mansion_Bedroom_Door_East" map="Mansion01_2ndfloor" interact_script="sebastianDoorInteractScript" />

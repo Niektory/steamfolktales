@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindowBig" name="Inventory" >
+        <Property name="Text" value="Character Sheet" />
+        <Property name="TitlebarFont" value="DejaVuSans-10" />
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Property name="SizingEnabled" value="False" />
+        <Property name="Area" value="{{0.5,-350},{0.5,-325},{0.5,350},{0.5,325}}" />
+        <Property name="Visible" value="False" />
+        <Property name="AutoRenderingSurface" value="False" />
+        <Window type="TaharezLook/Label" name="PackLabel" >
+            <Property name="Text" value="Pack" />
+	        <Property name="Area" value="{{0,252},{0,20},{1,-20},{0,40}}" />
+        </Window>
+        <Window type="InventoryGrid" name="Grid" >
+	        <Property name="Area" value="{{0,252},{0,40},{1,-20},{1,-73}}" />
+		</Window>
+        
+        <Window type="TaharezLook/Label" name="HandsLabel" >
+            <Property name="Text" value="Hands" />
+			<Property name="Position" value="{{0,20},{0,20}}" />
+			<Property name="Size" value="{{0,208},{0,20}}" />
+        </Window>
+        <Window type="InventoryGrid" name="HandsGrid" >
+			<Property name="Position" value="{{0,20},{0,40}}" />
+			<Property name="Size" value="{{0,208},{0,104}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="HeadLabel" >
+            <Property name="Text" value="Head" />
+			<Property name="Position" value="{{0,72},{0,150}}" />
+			<Property name="Size" value="{{0,104},{0,20}}" />
+        </Window>
+        <Window type="InventoryGrid" name="HeadGrid" >
+			<Property name="Position" value="{{0,72},{0,170}}" />
+			<Property name="Size" value="{{0,104},{0,104}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="BodyLabel" >
+            <Property name="Text" value="Body" />
+			<Property name="Position" value="{{0,72},{0,280}}" />
+			<Property name="Size" value="{{0,104},{0,20}}" />
+        </Window>
+        <Window type="InventoryGrid" name="BodyGrid" >
+			<Property name="Position" value="{{0,72},{0,300}}" />
+			<Property name="Size" value="{{0,104},{0,104}}" />
+        </Window>
+
+        <Window type="TaharezLook/Label" name="MoneyCount" >
+            <Property name="Text" value="0" />
+			<Property name="Position" value="{{0,72},{0,510}}" />
+			<Property name="Size" value="{{0,104},{0,20}}" />
+        </Window>
+        <Window type="TaharezLook/StaticImage" name="MoneyImage" >
+            <Property name="BackgroundEnabled" value="False" />
+            <Property name="FrameEnabled" value="False" />
+			<Property name="Position" value="{{0,72},{0,460}}" />
+			<Property name="Size" value="{{0,104},{0,38}}" />
+			<Property name="Image" value="Money_Symbol/full_image" />
+			<Property name="HorzFormatting" value="CentreAligned" />
+			<Property name="VertFormatting" value="CentreAligned" />
+        </Window>
+        
+        <Window type="TaharezLook/ImageButton" name="JasonButton" >
+            <Property name="Position" value="{{0.5,-36},{0,475}" />
+            <Property name="Size" value="{{0,72},{0,72}}" />
+            <Property name="NormalImage" value="Gearportrait_Jason/full_image" />
+            <Property name="HoverImage" value="Gearportrait_Jason_hover/full_image" />
+            <Property name="PushedImage" value="Gearportrait_Jason/full_image" />
+            <Property name="DisabledImage" value="Gearportrait_Jason/full_image" />
+            <Property name="Disabled" value="False" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="TomButton" >
+            <Property name="Position" value="{{0.5,49},{0,475}" />
+            <Property name="Size" value="{{0,72},{0,72}}" />
+            <Property name="NormalImage" value="Gearportrait_Tom/full_image" />
+            <Property name="HoverImage" value="Gearportrait_Tom_hover/full_image" />
+            <Property name="PushedImage" value="Gearportrait_Tom/full_image" />
+            <Property name="DisabledImage" value="Gearportrait_Tom/full_image" />
+            <Property name="Disabled" value="False" />
+        </Window>
+        <Window type="TaharezLook/ImageButton" name="DustyButton" >
+            <Property name="Position" value="{{0.5,-121},{0,475}" />
+            <Property name="Size" value="{{0,72},{0,72}}" />
+            <Property name="NormalImage" value="Gearportrait_Dusty/full_image" />
+            <Property name="HoverImage" value="Gearportrait_Dusty_hover/full_image" />
+            <Property name="PushedImage" value="Gearportrait_Dusty/full_image" />
+            <Property name="DisabledImage" value="Gearportrait_Dusty/full_image" />
+            <Property name="Disabled" value="False" />
+        </Window>
+
+        <Window type="TaharezLook/Button" name="OKButton" >
+            <Property name="Text" value="OK" />
+			<Property name="Position" value="{{1,-350},{1,-53}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="ResetButton" >
+            <Property name="Text" value="Reset" />
+			<Property name="Position" value="{{1,-235},{1,-53}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="CancelButton" >
+            <Property name="Text" value="Cancel" />
+			<Property name="Position" value="{{1,-120},{1,-53}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+    </Window>
+</GUILayout>

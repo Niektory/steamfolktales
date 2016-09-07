@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+	<Window type="DefaultWindow" name="Dialogue" >
+		<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+		<Property name="Visible" value="False" />
+		<Window type="TaharezLook/FrameWindow" name="TopFrame" >
+			<Property name="Text" value="Dialogue" />
+			<Property name="TitlebarFont" value="DejaVuSans-10" />
+			<Property name="TitlebarEnabled" value="False" />
+			<Property name="CloseButtonEnabled" value="False" />
+			<Property name="Area" value="{{0.5,-348},{0,70},{0.5,348},{0,255}}" />
+			<Property name="SizingEnabled" value="False" />
+			<Window type="TaharezLook/StaticImage" name="NPCPortrait" >
+				<Property name="Position" value="{{0,14},{0,14}}" />
+				<Property name="Size" value="{{0,110},{0,110}}" />
+				<Property name="Image" value="" />
+				<Property name="FrameEnabled" value="True" />
+				<Property name="HorzFormatting" value="CentreAligned" />
+				<Property name="VertFormatting" value="CentreAligned" />
+				<Property name="BackgroundEnabled" value="False" />
+			</Window>
+			<Window type="TaharezLook/StaticText" name="NPCName" >
+				<Property name="Text" value="" />
+				<Property name="Position" value="{{0,14},{0,129}}" />
+				<Property name="Size" value="{{0,110},{0,34}}" />
+				<Property name="HorzFormatting" value="CentreAligned" />
+				<Property name="VertScrollbar" value="False" />
+				<Property name="FrameEnabled" value="True" />
+				<Property name="BackgroundEnabled" value="False" />
+			</Window>
+			<Window type="TaharezLook/StaticText" name="NPCText" >
+				<Property name="Position" value="{{0,129},{0,14}}" />
+				<Property name="Size" value="{{1,-143},{0,149}}" />
+				<Property name="HorzFormatting" value="WordWrapLeftAligned" />
+				<Property name="VertFormatting" value="TopAligned" />
+				<Property name="VertScrollbar" value="True" />
+				<Property name="FrameEnabled" value="True" />
+				<Property name="BackgroundEnabled" value="False" />
+			</Window>
+		</Window>
+		<Window type="TaharezLook/FrameWindow" name="BottomFrame" >
+			<Property name="Text" value="Dialogue" />
+			<Property name="TitlebarFont" value="DejaVuSans-10" />
+			<Property name="TitlebarEnabled" value="False" />
+			<Property name="CloseButtonEnabled" value="False" />
+			<Property name="Area" value="{{0.5,-348},{1,-255},{0.5,348},{1,-70}}" />
+			<Property name="SizingEnabled" value="False" />
+			<Window type="VerticalLayoutContainer" name="ResponseList" >
+				<Property name="Area" value="{{0,14},{0,14},{1,-14},{1,-14}}" />
+			</Window>
+		</Window>
+	</Window>
+</GUILayout>

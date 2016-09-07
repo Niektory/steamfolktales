@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueNode key="0" npc_text="“The rest of the gang saw I meant business and stood aside as I finally came to confront the big man himself. I told him he was finished and challenged him to a duel.”" speaker="Jason">
+		<DialogueResponse goto="1" />
+	</DialogueNode>
+	<DialogueCheck check="cls.enteringSawmillMonologue" key="1" />
+</Dialogue>

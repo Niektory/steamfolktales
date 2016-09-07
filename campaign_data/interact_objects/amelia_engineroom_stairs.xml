@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InteractObject name="stairs" sprite="Amelia_Engineroom_Stairs" map="Amelia_Engineroom">
+	<Portal map="Amelia_Cabins1" x="-1" y="-20" rotation="270" />
+</InteractObject>

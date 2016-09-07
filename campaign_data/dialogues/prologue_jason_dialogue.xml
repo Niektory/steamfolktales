@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Dialogue start_node="0">
+	<DialogueNode key="0" npc_text="“You bloody useless git! Can’t you do anythin’ right? I can’t fuckin’ believe we’re related.”" speaker="Garth">
+		<DialogueResponse goto="1" />
+		<DialogueResponse text="{skip conversation}" />
+	</DialogueNode>
+	<DialogueNode key="1" npc_text="“Because I was the only one Uncle Garth could fully trust, I was given a special task: to break into a well-known scientist’s home to steal certain schematics that would have paid well in the right hands.”" speaker="Jason">
+		<DialogueResponse goto="2" />
+	</DialogueNode>
+	<DialogueNode key="2" npc_text="“I’ll give you one last chance. See that house over there? There’s some egg-head scientist livin’ over there. You break in and see if you can find somethin’ worth stealin’. You come back with some good loot, or you better not come back at all, got it? Only, if I find out you’ve run away, I’ll come after you and I’ll fuckin’ break your neck.”" speaker="Garth">
+		<DialogueResponse goto="3" />
+	</DialogueNode>
+	<DialogueNode key="3" npc_text="“*sniff sniff* Yes, Uncle Garth.”" speaker="Young_Jason" />
+</Dialogue>
