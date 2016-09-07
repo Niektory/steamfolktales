@@ -35,7 +35,7 @@ class Roll(AnnotatedValueBase):
 			sides=self.sides,
 			modifier="+{}".format(self.modifier) if self.modifier else "")
 
-	def __str__(self):
+	def formatted(self, multiline=False, result=False):
 		return "{total} ({annotation}rolled {d_notation}, got {results})".format(
 			total=self.value,
 			annotation="{}: ".format(self.annotation) if self.annotation else "",
@@ -98,5 +98,5 @@ class Check(object):
 		return "{target} (need to roll this or lower){separator}roll {roll}{result}".format(
 			target=formatted(self.target, multiline=multiline, result=result),
 			separator="\n" if multiline else " vs. ",
-			roll=self.results,
+			roll=formatted(self.results),
 			result="{}{}".format("\n" if multiline else " ", str(self) if result else ""))

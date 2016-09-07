@@ -101,7 +101,8 @@ class RPGStats(object):
 
 	@property
 	def initiative(self):
-		return (40 - AnnotatedValue(self.attributes["WIT"], "WIT")
+		return (AnnotatedValue(40, "initiative base")
+			- AnnotatedValue(self.attributes["WIT"], "WIT")
 			- AnnotatedValue(self.attributes["REF"], "REF"))
 		
 	@property

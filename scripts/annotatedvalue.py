@@ -11,6 +11,9 @@ class AnnotatedValueBase(object):
 	def __float__(self):
 		return float(self.value)
 
+	def __str__(self):
+		return str(self.value)
+
 	def __add__(self, other):
 		return AnnotatedExpression(self, "+", other)
 
@@ -51,7 +54,7 @@ class AnnotatedValue(AnnotatedValueBase):
 		self.value = value
 		self.annotation = annotation
 
-	def __str__(self):
+	def formatted(self, multiline=False, result=False):
 		return "{}{}".format(
 			self.value,
 			" ({})".format(self.annotation) if self.annotation else "")
@@ -96,9 +99,6 @@ class AnnotatedExpression(AnnotatedValueBase):
 			operator=self.operation,
 			rvalue="({})".format(rvalue) if r_need_parentheses else rvalue,
 			result="{}= {}".format("\n---\n" if multiline else " ", self.value) if result else "")
-
-	def __str__(self):
-		return self.formatted()
 
 
 def formatted(value, multiline=False, result=False):
