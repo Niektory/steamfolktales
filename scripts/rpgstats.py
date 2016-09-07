@@ -109,7 +109,8 @@ class RPGStats(object):
 		
 	@property
 	def passive_defense_modifier(self):
-		return (2 - AnnotatedValue(self.skills["Dodge"], "Dodge ranks")
+		return (AnnotatedValue(2, "PDM base")
+			- AnnotatedValue(self.skills["Dodge"], "Dodge ranks")
 			- AnnotatedValue(self.attributeModifier("REF"), "REF modifier")
 			+ self.wounds_pdm_penalty)
 

@@ -201,6 +201,27 @@ class Character(object):
 	#	elif action == "Loot":
 	#		self.loot(pc)
 
+	@property
+	def martial_art_used(self):
+		# return the martial art associated with the currently held weapon
+		# but only if we have ranks if the proper skill
+		if self.inventory.hands:
+			martial_art = self.inventory.hands[0].weapon_data.martial_art
+		else:
+			martial_art = "Victorian Pugilism"
+		return martial_art if self.rpg_stats.skills.get(martial_art) else None
+
+	#def isUsingMartialArt(self, martial_art):
+	#	if not self.rpg_stats.skills.get(martial_art):
+	#		# no ranks in the skill
+	#		return False
+	#	if self.inventory.hands:
+	#		# holding a weapon, check if proper type for this martial art
+	#		return martial_art == self.inventory.hands[0].weapon_data.martial_art
+	#	else:
+	#		# no weapon, check if this martial art can be used unarmed
+	#		return martial_art == "Victorian Pugilism"
+
 	@classmethod
 	def loadXML(cls, ID, filename, world):
 		tree = ET.parse(filename)

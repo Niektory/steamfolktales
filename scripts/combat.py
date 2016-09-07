@@ -177,6 +177,20 @@ class Combat(object):
 		dist = AnnotatedValue(
 			gridhelper.distance(attacker.coords, target.coords),
 			"distance")
+		# calculate effective PDM
+		if dist >= 5:
+			# too far, no PDM for you!
+			pdm = AnnotatedValue(0, "PDM ignored")
+		else:
+			# using PDM if closer than 5m
+			pdm = target.rpg_stats.passive_defense_modifier
+			# martial artists can in some circumstances add 2 to target's PDM
+			if (attacker.martial_art_used
+					and not target.martial_art_used
+					and target.rpg_stats.skillTotal("Dodge") < 12
+					and target.rpg_stats.skillTotal(
+						weapon[0].weapon_data.skill if weapon else "Brawl") < 14):
+				pdm += AnnotatedValue(2, "martial arts PDM modifier")
 		# attack roll
 		# TODO: golden success/tumble effects
 		if weapon:
@@ -191,21 +205,12 @@ class Combat(object):
 			if len(weapon[0].weapon_data.magazine) > 0:
 				# remove the bullet
 				weapon[0].weapon_data.magazine.pop(0)
-			if dist < 5:
-				# using PDM if closer than 5m
-				# weapon skill check; modifier = target's PDM + weapon accuracy - range penalty
-				hit = attacker.rpg_stats.skillCheck(
-						weapon[0].weapon_data.skill,
-						target.rpg_stats.passive_defense_modifier
-						+ weapon[0].weapon_data.accuracy
-						- dist // weapon[0].weapon_data.range)
-			else:
-				# too far, no PDM for you!
-				# weapon skill check; modifier = weapon accuracy - range penalty
-				hit = attacker.rpg_stats.skillCheck(
-						weapon[0].weapon_data.skill,
-						weapon[0].weapon_data.accuracy
-						- dist // weapon[0].weapon_data.range)
+			# weapon skill check; modifier = target's PDM + weapon accuracy - range penalty
+			hit = attacker.rpg_stats.skillCheck(
+				weapon[0].weapon_data.skill,
+				pdm
+				+ weapon[0].weapon_data.accuracy
+				- dist // weapon[0].weapon_data.range)
 			damage = weapon[0].weapon_data.damage_roll
 			# determine hit location
 			if weapon[0].weapon_data.ranged:
@@ -246,8 +251,7 @@ class Combat(object):
 			if dist > 1.5:
 				# not in range, aborting
 				return False
-			hit = attacker.rpg_stats.skillCheck("Brawl",
-					target.rpg_stats.passive_defense_modifier)
+			hit = attacker.rpg_stats.skillCheck("Brawl", pdm)
 			damage = Roll(3, annotation="unarmed damage")
 			# determine hit location
 			if attack_type == "High attack":
