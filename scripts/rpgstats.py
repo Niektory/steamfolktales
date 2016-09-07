@@ -7,11 +7,12 @@ from wound import Wound
 from rpgdice import roll, Roll, Check
 from annotatedvalue import AnnotatedValue
 
+
 class RPGStats(object):
 	attribute_names = ("STR", "CON", "DEX", "REF", "INT", "WIT", "CHA", "EMP")
 	combat_skills = ("Handguns", "Long Guns", "Rapid Shooting", "Dodge", "Brawl",
 			"Melee, Balanced", "Melee, Finesse", "Melee, Heavy", "Throwing")
-	martial_arts = ("Victorian Pugilism", "Northern Bladesmastery",
+	martial_arts = ("Victoran Pugilism", "Northern Bladesmastery",
 			"Wolfbite", "Shadowplay", "Fencing",)
 	agility_skills = ("Stealth", "Sleight of Hand")
 	mental_skills = ("Mechanics", "Gunsmith", "Blacksmith", "Clockwork",

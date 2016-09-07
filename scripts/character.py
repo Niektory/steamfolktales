@@ -208,7 +208,7 @@ class Character(object):
 		if self.inventory.hands:
 			martial_art = self.inventory.hands[0].weapon_data.martial_art
 		else:
-			martial_art = "Victorian Pugilism"
+			martial_art = "Victoran Pugilism"
 		return martial_art if self.rpg_stats.skills.get(martial_art) else None
 
 	#def isUsingMartialArt(self, martial_art):
@@ -220,7 +220,7 @@ class Character(object):
 	#		return martial_art == self.inventory.hands[0].weapon_data.martial_art
 	#	else:
 	#		# no weapon, check if this martial art can be used unarmed
-	#		return martial_art == "Victorian Pugilism"
+	#		return martial_art == "Victoran Pugilism"
 
 	@classmethod
 	def loadXML(cls, ID, filename, world):
