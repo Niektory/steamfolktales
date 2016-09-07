@@ -3,7 +3,7 @@
 
 from random import randrange
 
-from annotatedvalue import formatted
+from annotatedvalue import formatted, AnnotatedValueBase
 
 
 def roll(sides=6, dice=1):
@@ -13,7 +13,7 @@ def roll(sides=6, dice=1):
 #def totalDecorator(function):
 #	return lambda self, other: function(self.total, other)
 
-class Roll(object):
+class Roll(AnnotatedValueBase):
 	def __init__(self, sides=6, dice=1, modifier=0, annotation=None):
 		self.sides = sides
 		self.dice = dice
@@ -24,9 +24,6 @@ class Roll(object):
 	@property
 	def value(self):
 		return sum(self.results) + self.modifier
-
-	def __int__(self):
-		return int(self.value)
 
 	def __getitem__(self, key):
 		return self.results[key]

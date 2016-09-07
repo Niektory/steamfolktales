@@ -206,12 +206,25 @@ class Combat(object):
 				# remove the bullet
 				weapon[0].weapon_data.magazine.pop(0)
 			# weapon skill check; modifier = target's PDM + weapon accuracy - range penalty
-			hit = attacker.rpg_stats.skillCheck(
-				weapon[0].weapon_data.skill,
-				pdm
+			attack_mods = (pdm
 				+ weapon[0].weapon_data.accuracy
 				- dist // weapon[0].weapon_data.range)
+			hit = attacker.rpg_stats.skillCheck(
+				weapon[0].weapon_data.skill,
+				attack_mods)
+			# damage roll
 			damage = weapon[0].weapon_data.damage_roll
+			if attacker.martial_art_used:
+				# martial art skill check; additional damage on success
+				# reuses the attack roll but checks against a different skill
+				martial_art_hit = attacker.rpg_stats.skillCheck(
+					attacker.martial_art_used,
+					attack_mods)
+				martial_art_hit.results = hit.results
+				if martial_art_hit.golden:
+					damage += AnnotatedValue(3, annotation="martial arts golden success bonus")
+				elif martial_art_hit.success:
+					damage += Roll(3, annotation="martial arts damage bonus")
 			# determine hit location
 			if weapon[0].weapon_data.ranged:
 				location_roll = roll(20)
@@ -251,8 +264,21 @@ class Combat(object):
 			if dist > 1.5:
 				# not in range, aborting
 				return False
+			# Brawl skill check; modifier = target's PDM
 			hit = attacker.rpg_stats.skillCheck("Brawl", pdm)
+			# damage roll
 			damage = Roll(3, annotation="unarmed damage")
+			if attacker.martial_art_used:
+				# martial art skill check; additional damage on success
+				# reuses the attack roll but checks against a different skill
+				martial_art_hit = attacker.rpg_stats.skillCheck(
+					attacker.martial_art_used,
+					pdm)
+				martial_art_hit.results = hit.results
+				if martial_art_hit.golden:
+					damage += AnnotatedValue(4, annotation="martial arts golden success bonus")
+				elif martial_art_hit.success:
+					damage += Roll(4, annotation="martial arts damage bonus")
 			# determine hit location
 			if attack_type == "High attack":
 				location_roll = roll(7)
