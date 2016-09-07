@@ -160,7 +160,8 @@ class Combat(object):
 		return self.attack(target, attack_type)
 
 	def attack(self, target, attack_type, first=True):
-		if self.combatants[self.current_combatant] == target:
+		attacker = self.combatants[self.current_combatant]
+		if attacker == target:
 			# trying to attack self, aborting
 			return False
 		if target not in self.combatants:
@@ -172,9 +173,9 @@ class Combat(object):
 		if attack_type not in self.available_attacks:
 			# selected attack cannot be performed, aborting
 			return False
-		weapon = self.combatants[self.current_combatant].inventory.hands
+		weapon = attacker.inventory.hands
 		dist = AnnotatedValue(
-			gridhelper.distance(self.combatants[self.current_combatant].coords, target.coords),
+			gridhelper.distance(attacker.coords, target.coords),
 			"distance")
 		# attack roll
 		# TODO: golden success/tumble effects
@@ -193,7 +194,7 @@ class Combat(object):
 			if dist < 5:
 				# using PDM if closer than 5m
 				# weapon skill check; modifier = target's PDM + weapon accuracy - range penalty
-				hit = self.combatants[self.current_combatant].rpg_stats.skillCheck(
+				hit = attacker.rpg_stats.skillCheck(
 						weapon[0].weapon_data.skill,
 						target.rpg_stats.passive_defense_modifier
 						+ weapon[0].weapon_data.accuracy
@@ -201,7 +202,7 @@ class Combat(object):
 			else:
 				# too far, no PDM for you!
 				# weapon skill check; modifier = weapon accuracy - range penalty
-				hit = self.combatants[self.current_combatant].rpg_stats.skillCheck(
+				hit = attacker.rpg_stats.skillCheck(
 						weapon[0].weapon_data.skill,
 						weapon[0].weapon_data.accuracy
 						- dist // weapon[0].weapon_data.range)
@@ -245,7 +246,7 @@ class Combat(object):
 			if dist > 1.5:
 				# not in range, aborting
 				return False
-			hit = self.combatants[self.current_combatant].rpg_stats.skillCheck("Brawl",
+			hit = attacker.rpg_stats.skillCheck("Brawl",
 					target.rpg_stats.passive_defense_modifier)
 			damage = Roll(3, annotation="unarmed damage")
 			# determine hit location
@@ -273,7 +274,7 @@ class Combat(object):
 		self.damage = damage
 		self.hit_location = hit_location
 		# play the attack animation
-		self.combatants[self.current_combatant].visual.attack(target.visual.instance.getLocation())
+		attacker.visual.attack(target.visual.instance.getLocation())
 		# after attacking immediately end turn
 		#self.endTurn()
 		self.current_AP = 0
