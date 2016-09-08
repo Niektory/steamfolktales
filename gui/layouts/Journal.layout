@@ -2,7 +2,7 @@
 <GUILayout version="4">
     <Window type="TaharezLook/FrameWindow" name="Journal" >
         <Property name="Text" value="Journal" />
-        <Property name="TitlebarFont" value="DejaVuSans-10" />
+        <Property name="TitlebarFont" value="Default" />
         <Property name="TitlebarEnabled" value="False" />
         <Property name="Area" value="{{0.5,-250},{0.5,-200},{0.5,250},{0.5,200}}" />
         <Property name="MinSize" value="{{0,500},{0,400}}" />

@@ -2,7 +2,7 @@
 <GUILayout version="4">
     <Window type="TaharezLook/FrameWindow" name="WeaponInfo" >
         <Property name="Text" value="Weapon Info" />
-        <Property name="TitlebarFont" value="DejaVuSans-10" />
+        <Property name="TitlebarFont" value="Default" />
         <Property name="TitlebarEnabled" value="False" />
         <Property name="CloseButtonEnabled" value="False" />
         <Property name="SizingEnabled" value="False" />

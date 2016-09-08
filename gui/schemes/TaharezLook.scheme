@@ -124,9 +124,8 @@
 	<Imageset filename="Jewelry_Ring03.imageset" />
 	<Imageset filename="Jewelry_Ring04.imageset" />
 	<Imageset filename="Jewelry_Ruby_Brooch01.imageset" />
-	<Font filename="DejaVuSans-10.font" />
-	<Font filename="DejaVuSans-25.font" />
-	<Font filename="DejaVuSans-120.font" />
+	<Font filename="Default.font" />
+	<Font filename="IntroText.font" />
 	<LookNFeel filename="TaharezLook.looknfeel" />
 	<LookNFeel filename="InventoryComponents.looknfeel" />
 	<WindowRendererSet filename="CEGUICoreWindowRendererSet" />

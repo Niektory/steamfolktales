@@ -2,7 +2,7 @@
 <GUILayout version="4">
     <Window type="TaharezLook/FrameWindow" name="Help" >
         <Property name="Text" value="Online Help" />
-        <Property name="TitlebarFont" value="DejaVuSans-10" />
+        <Property name="TitlebarFont" value="Default" />
         <Property name="TitlebarEnabled" value="False" />
         <Property name="Area" value="{{0.5,-246},{0.5,-150},{0.5,246},{0.5,150}}" />
         <Property name="MinSize" value="{{0,390},{0,300}}" />

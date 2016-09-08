@@ -9,6 +9,6 @@
         <Property name="AlwaysOnTop" value="True" />
         <Property name="VertFormatting" value="CentreAligned" />
         <Property name="HorzFormatting" value="CentreAligned" />
-        <Property name="Font" value="DejaVuSans-25" />
+        <Property name="Font" value="IntroText" />
     </Window>
 </GUILayout>

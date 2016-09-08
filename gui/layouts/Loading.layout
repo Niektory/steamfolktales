@@ -9,7 +9,7 @@
 		<Window type="TaharezLook/FrameWindowSmall" name="Loading" >
 			<Property name="Visible" value="False" />
 		    <Property name="Text" value="Loading..." />
-		    <Property name="TitlebarFont" value="DejaVuSans-10" />
+		    <Property name="TitlebarFont" value="Default" />
 		    <Property name="TitlebarEnabled" value="False" />
 			<Property name="CloseButtonEnabled" value="False" />
 			<Property name="SizingEnabled" value="False" />

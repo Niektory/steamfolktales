@@ -5,7 +5,7 @@
 		<Property name="Visible" value="False" />
 		<Window type="TaharezLook/FrameWindow" name="TopFrame" >
 			<Property name="Text" value="Dialogue" />
-			<Property name="TitlebarFont" value="DejaVuSans-10" />
+			<Property name="TitlebarFont" value="Default" />
 			<Property name="TitlebarEnabled" value="False" />
 			<Property name="CloseButtonEnabled" value="False" />
 			<Property name="Area" value="{{0.5,-348},{0,70},{0.5,348},{0,255}}" />
@@ -40,7 +40,7 @@
 		</Window>
 		<Window type="TaharezLook/FrameWindow" name="BottomFrame" >
 			<Property name="Text" value="Dialogue" />
-			<Property name="TitlebarFont" value="DejaVuSans-10" />
+			<Property name="TitlebarFont" value="Default" />
 			<Property name="TitlebarEnabled" value="False" />
 			<Property name="CloseButtonEnabled" value="False" />
 			<Property name="Area" value="{{0.5,-348},{1,-255},{0.5,348},{1,-70}}" />
