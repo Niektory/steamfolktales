@@ -386,17 +386,19 @@ class View:
 						print("getInstances() error!", instance)
 						#self.application.maplayer.getInstances()
 						continue
-					if instance.getObject().getId() in customanimations.light_circles:
-						circle = customanimations.light_circles[instance.getObject().getId()]
-						if ((circle[0] < hour < circle[1]) or (hour < circle[1] < circle[0])
-														or (circle[1] < circle[0] < hour)):
-							for i in xrange(2):
-								self.light_renderer.addSimpleLight("pc",
-									fife.RendererNode(instance, fife.Point(circle[7],circle[8])),
-									255, 64, 32, circle[2], circle[3],
-									int(circle[4]*255),
-									int(circle[5]*255),
-									int(circle[6]*255))
+					if instance.getObject().getId() not in customanimations.light_circles:
+						continue
+					circle = customanimations.light_circles[instance.getObject().getId()]
+					if not ((circle[0] < hour < circle[1]) or (hour < circle[1] < circle[0])
+							or (circle[1] < circle[0] < hour)):
+						continue
+					for i in xrange(2):
+						self.light_renderer.addSimpleLight("pc",
+							fife.RendererNode(instance, fife.Point(
+								int(circle[7] * self.camera.getZoom()),
+								int(circle[8] * self.camera.getZoom()))),
+							255, 64, 32, circle[2], circle[3],
+							int(circle[4] * 255), int(circle[5] * 255), int(circle[6] * 255))
 				break
 			prev_hour = next_hour
 		# set transparency for light overlay instances
