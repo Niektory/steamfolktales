@@ -84,9 +84,9 @@ class Check(object):
 
 	def __str__(self):
 		if self.golden:
-			return "golden success"
+			return "golden success with margin: {}".format(self.margin)
 		elif self.success:
-			return "success"
+			return "success with margin: {}".format(self.margin)
 		elif self.fumble:
 			return "fumble"
 		elif self.failure:

@@ -298,6 +298,8 @@ class Combat(object):
 				#	hit_location = "right leg"
 				else:
 					hit_location = "leg"
+		# damage bonus from hit roll margin
+		damage += AnnotatedValue(hit.margin, "hit roll's margin of success") // 2
 		# save hit results to be used later by onTargetHit
 		self.target = target
 		self.hit = hit
