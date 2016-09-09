@@ -1,4 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Item name="Dagger" image="Basic_Dagger/full_image">
-	<WeaponData damage="1d4" speed="2" skill="Melee, Finesse" sprite="dagger" martial_art="Shadowplay" />
+	<WeaponData damage="1d4" skill="Melee, Finesse" sprite="dagger" martial_art="Shadowplay" />
 </Item>

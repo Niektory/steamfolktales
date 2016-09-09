@@ -159,7 +159,7 @@ class Combat(object):
 			return
 		return self.attack(target, attack_type)
 
-	def attack(self, target, attack_type, first=True):
+	def attack(self, target, attack_type, attack_count=0):
 		attacker = self.combatants[self.current_combatant]
 		if attacker == target:
 			# trying to attack self, aborting
@@ -167,7 +167,7 @@ class Combat(object):
 		if target not in self.combatants:
 			# target not in combat, aborting
 			return False
-		if (not self.can_attack) and first:
+		if not self.can_attack and attack_count == 0:
 			# not enough AP, aborting
 			return False
 		if attack_type not in self.available_attacks:
@@ -205,13 +205,17 @@ class Combat(object):
 			if len(weapon[0].weapon_data.magazine) > 0:
 				# remove the bullet
 				weapon[0].weapon_data.magazine.pop(0)
-			# weapon skill check; modifier = target's PDM + weapon accuracy - range penalty
+			# weapon skill check, or Rapid Fire skill check if ranged Full Attack
+			skill_used = ("Rapid Shooting"
+				if attack_type == "Full Attack"
+				and attacker.skills["Rapid Shooting"]<attacker.skills[weapon[0].weapon_data.skill]
+				else weapon[0].weapon_data.skill)
+			# modifier = target's PDM + weapon accuracy - range penalty - multi attack penalty
 			attack_mods = (pdm
 				+ weapon[0].weapon_data.accuracy
-				- dist // weapon[0].weapon_data.range)
-			hit = attacker.rpg_stats.skillCheck(
-				weapon[0].weapon_data.skill,
-				attack_mods)
+				- dist // weapon[0].weapon_data.range
+				- AnnotatedValue(attack_count, "penalty for multiple attacks"))
+			hit = attacker.rpg_stats.skillCheck(skill_used, attack_mods)
 			# damage roll
 			damage = weapon[0].weapon_data.damage_roll
 			# STR bonus for balanced and heavy weapons; can't be higher than weapon's max damage
@@ -316,10 +320,19 @@ class Combat(object):
 		#self.endTurn()
 		self.current_AP = 0
 		self.application.view.clearTiles()
-		if first and (attack_type in ("Low attack", "High attack", "Full attack")):
-			if weapon:
-				for i in xrange(weapon[0].weapon_data.speed - 1):
-					self.multi_attack.append(lambda: self.attack(target, attack_type, False))
+		# additional attacks
+		if weapon:
+			# ranged Full Attack
+			if (attack_type == "Full attack" and not self.moved
+					and weapon[0].weapon_data.speed > attack_count + 1):
+				self.multi_attack.append(
+					lambda: self.attack(target, attack_type, attack_count + 1))
+			# Finesse weapon with skill >= 3
+			elif (weapon[0].weapon_data.skill == "Melee, Finesse" and attack_count == 0
+					and attacker.rpg_stats.skills["Melee, Finesse"] >= 3
+					and (attacker.rpg_stats.skills["Melee, Finesse"] >= 6 or not self.moved)):
+				self.multi_attack.append(
+					lambda: self.attack(target, attack_type, attack_count + 1))
 		return True
 
 	def onTargetHit(self):
