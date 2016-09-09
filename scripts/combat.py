@@ -214,6 +214,10 @@ class Combat(object):
 				attack_mods)
 			# damage roll
 			damage = weapon[0].weapon_data.damage_roll
+			# STR bonus for balanced and heavy weapons; can't be higher than weapon's max damage
+			if weapon[0].weapon_data.skill in ("Melee, Balanced", "Melee, Heavy"):
+				damage += min(attacker.rpg_stats.attributeModifier("STR"),
+					weapon[0].weapon_data.max_damage)
 			if attacker.martial_art_used:
 				# martial art skill check; additional damage on success
 				# reuses the attack roll but checks against a different skill
@@ -266,8 +270,9 @@ class Combat(object):
 				return False
 			# Brawl skill check; modifier = target's PDM
 			hit = attacker.rpg_stats.skillCheck("Brawl", pdm)
-			# damage roll
-			damage = Roll(3, annotation="unarmed damage")
+			# damage roll + unarmed STR bonus
+			damage = (Roll(3, annotation="unarmed damage")
+				+ attacker.rpg_stats.attributeModifier("STR"))
 			if attacker.martial_art_used:
 				# martial art skill check; additional damage on success
 				# reuses the attack roll but checks against a different skill

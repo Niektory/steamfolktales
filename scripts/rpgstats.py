@@ -57,7 +57,7 @@ class RPGStats(object):
 		return 8
 	
 	def attributeModifier(self, attribute):
-		return self.attributes[attribute] // 2 - 5
+		return AnnotatedValue(self.attributes[attribute] // 2 - 5, "{} modifier".format(attribute))
 		
 	def skillModifier(self, skill):
 		return self.attributeModifier(self.assignedAttribute(skill))

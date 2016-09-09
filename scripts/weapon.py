@@ -61,7 +61,11 @@ class WeaponData(object):
 		#	damage_sum += roll(die[1], die[0])
 		#return damage_sum
 		return Roll(self.damage[1], self.damage[0], self.damage[2], "weapon damage")
-	
+
+	@property
+	def max_damage(self):
+		return self.damage[0] * self.damage[1] + self.damage[2]
+
 	@property
 	def damage_str(self):
 		damage_string = ""
