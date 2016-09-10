@@ -208,7 +208,8 @@ class Combat(object):
 			# weapon skill check, or Rapid Fire skill check if ranged Full Attack
 			skill_used = ("Rapid Shooting"
 				if attack_type == "Full Attack"
-				and attacker.skills["Rapid Shooting"]<attacker.skills[weapon[0].weapon_data.skill]
+					and attacker.rpg_stats.skills["Rapid Shooting"]
+						< attacker.rpg_stats.skills[weapon[0].weapon_data.skill]
 				else weapon[0].weapon_data.skill)
 			# modifier = target's PDM + weapon accuracy - range penalty - multi attack penalty
 			attack_mods = (pdm
@@ -220,8 +221,16 @@ class Combat(object):
 			damage = weapon[0].weapon_data.damage_roll
 			# STR bonus for balanced and heavy weapons; can't be higher than weapon's max damage
 			if weapon[0].weapon_data.skill in ("Melee, Balanced", "Melee, Heavy"):
-				damage += min(attacker.rpg_stats.attributeModifier("STR"),
-					weapon[0].weapon_data.max_damage)
+				# heavy STR bonus
+				if (weapon[0].weapon_data.skill == "Melee, Heavy"
+						and attacker.rpg_stats.skills["Melee, Heavy"] >= 3
+						and (attacker.rpg_stats.skills["Melee, Heavy"] >= 6 or not self.moved)):
+					str_mod = max(attacker.rpg_stats.attributeModifier("STR"),
+						attacker.rpg_stats.attributes["STR"] - 10)
+				# regular STR bonus
+				else:
+					str_mod = attacker.rpg_stats.attributeModifier("STR")
+				damage += min(str_mod, weapon[0].weapon_data.max_damage)
 			if attacker.martial_art_used:
 				# martial art skill check; additional damage on success
 				# reuses the attack roll but checks against a different skill
