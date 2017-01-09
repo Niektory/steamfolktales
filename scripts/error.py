@@ -3,8 +3,10 @@
 
 from __future__ import print_function
 
-from traceback import print_exception
+from traceback import print_exception, format_exception
 from datetime import datetime
+
+from config.version import version
 
 ERROR_FILE = "error.log"
 
@@ -18,18 +20,55 @@ ERROR_FILE = "error.log"
 
 # TODO: change the code to use the decorator instead of this
 class LogException:
+	past_errors = []
+
 	def __enter__(self):
 		pass
 
 	def __exit__(self, exc_type, exc_value, exc_traceback):
 		if exc_type is None:
+			# no exception, nothing to do
 			return
-		with open(ERROR_FILE, "a") as f:
-			f.write(str(datetime.now()))
-			f.write("\n\n")
-			print_exception(exc_type, exc_value, exc_traceback, file=f)
-			f.write("\n-----\n\n")
-		print("FATAL ERROR! Exception logged in", ERROR_FILE)
+		# log/display each error once; ignore further identical errors
+		if format_exception(exc_type, exc_value, exc_traceback) not in LogException.past_errors:
+			LogException.past_errors.append(format_exception(exc_type, exc_value, exc_traceback))
+			print("\n============================================================\n")
+			print_exception(exc_type, exc_value, exc_traceback)
+			try:
+				with open(ERROR_FILE, "a") as f:
+					f.write(version + "\n")
+					f.write(str(datetime.now()))
+					f.write("\n\n")
+					print_exception(exc_type, exc_value, exc_traceback, file=f)
+					f.write("\n-----\n\n")
+			except IOError:
+				error_message = "An unhandled exception occured!\n"\
+					"Could not open file '{}' for writing. Exception could not be logged.\n"\
+					"Please copy/screenshot the error and send it to the developers."\
+					.format(ERROR_FILE)
+			else:
+				error_message = "An unhandled exception occured!\n"\
+					"The exception has been logged in file '{}'."\
+					"Please send that file to the developers."\
+					.format(ERROR_FILE)
+			print()
+			print(error_message)
+			print("\n============================================================\n")
+			try:
+				import Tkinter
+				import tkMessageBox
+			except ImportError:
+				pass
+			else:
+				window = Tkinter.Tk()
+				window.wm_withdraw()
+				tkMessageBox.showerror(
+					title="".join(
+						format_exception(exc_type, exc_value, exc_traceback, limit=0)[1:]),
+					message=error_message + "\n\n" + "".join(
+						format_exception(exc_type, exc_value, exc_traceback, limit=5)))
+		# don't propagate the exception
+		return True
 
 def LogExceptionDecorator(function):
 	def innerFunction(*args, **kwargs):
