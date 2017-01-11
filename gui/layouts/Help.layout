@@ -38,6 +38,7 @@
             <Property name="VertScrollbar" value="True" />
             <Property name="FrameEnabled" value="True" />
             <Property name="BackgroundEnabled" value="False" />
+            <Property name="Font" value="Monospace" />
         </Window>
     </Window>
 </GUILayout>

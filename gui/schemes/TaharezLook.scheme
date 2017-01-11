@@ -126,6 +126,7 @@
 	<Imageset filename="Jewelry_Ruby_Brooch01.imageset" />
 	<Font filename="Default.font" />
 	<Font filename="IntroText.font" />
+	<Font filename="Monospace.font" />
 	<LookNFeel filename="TaharezLook.looknfeel" />
 	<LookNFeel filename="InventoryComponents.looknfeel" />
 	<WindowRendererSet filename="CEGUICoreWindowRendererSet" />
