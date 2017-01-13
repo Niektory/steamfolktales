@@ -30,6 +30,8 @@ class GUIMainMenu:
 					PyCEGUI.PushButton.EventClicked, self.gui.map_test.show)
 		self.quit_game_button = self.window.getChild("MainMenu/QuitGameButton")
 		self.quit_game_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.quitGame)
+		self.help_button = self.window.getChild("MainMenu/HelpButton")
+		self.help_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.help)
 
 		if int(self.application.settings.get(
 					"FIFE", "ScreenResolution", "1024x768").split("x")[0]) > 1024:
@@ -46,6 +48,11 @@ class GUIMainMenu:
 	def quitGame(self, args):
 		with LogException():
 			self.application.quit()
+
+	def help(self, args):
+		with LogException():
+			self.gui.help.home()
+
 
 class GUIGameMenu:
 	def __init__(self, application, gui):

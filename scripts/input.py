@@ -151,10 +151,10 @@ class KeyListener(fife.IKeyListener):
 
 		if key_val == self.getHotkey("Quick Load"):
 			self.application.prepareLoadGame("quick")
+		elif key_val == fife.Key.F1:
+			self.application.gui.help.home()
 		elif self.application.view:
-			if key_val == fife.Key.F1:
-				self.application.gui.help.home()
-			elif key_val == fife.Key.ESCAPE:
+			if key_val == fife.Key.ESCAPE:
 				self.application.gui.escapePressed()
 			elif self.application.gui.dialogue.window.isVisible() \
 						and fife.Key.NUM_1 <= key_val <= fife.Key.NUM_9:
