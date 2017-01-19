@@ -10,9 +10,10 @@ from annotatedvalue import formatted, AnnotatedValue
 
 
 class Combat(object):
-	def __init__(self, application, combatants):
+	def __init__(self, application, combatants, surprised=[]):
 		self.application = application
 		self.combatants = combatants
+		self.surprised_combatants = surprised
 		self.current_combatant = 0
 		self.animations = []
 		self.multi_attack = []
@@ -27,9 +28,11 @@ class Combat(object):
 				3000)
 			link = self.application.gui.help.createPage(
 				formatted(self.initiative[combatant], multiline=True, result=True))
-			combat_log.printMessage("{} rolled initiative: {}".format(
+			combat_log.printMessage("{} rolled initiative: {}{}".format(
 				combatant.name,
-				combat_log.createLink(int(self.initiative[combatant]), link)))
+				combat_log.createLink(int(self.initiative[combatant]), link),
+				" but is surprised and cannot act this round."\
+					if combatant in self.surprised_combatants else ""))
 		self.combatants.sort(key=lambda combatant: self.initiative[combatant])
 		#self.application.gui.initiative.show(self)
 		# switching to combat animations
@@ -41,6 +44,10 @@ class Combat(object):
 		#self.beginTurn()
 			
 	def beginTurn(self):
+		if self.combatants[self.current_combatant] in self.surprised_combatants:
+			# surprised combatants skip their first turn
+			self.endTurn()
+			return
 		self.current_AP = self.combatants[self.current_combatant].rpg_stats.movement
 		self.moved = False
 		self.application.gui.initiative.show(self)
@@ -79,7 +86,10 @@ class Combat(object):
 			if not combatant.player_controlled:
 				# if there's still at least one hostile give the turn to the next combatant
 				if (self.current_combatant + 1) >= len(self.combatants):
+					# all combatants had their turn, starting next round from the first combatant
 					self.current_combatant = 0
+					# surprise round over, make everyone aware
+					self.surprised_combatants = []
 				else:
 					self.current_combatant += 1
 				self.beginTurn()
@@ -179,8 +189,9 @@ class Combat(object):
 			"distance")
 		# calculate effective PDM
 		if dist >= 5:
-			# too far, no PDM for you!
-			pdm = AnnotatedValue(0, "PDM ignored")
+			pdm = AnnotatedValue(0, "PDM ignored (too far)")
+		elif target in self.surprised_combatants:
+			pdm = AnnotatedValue(0, "PDM ignored (surprised)")
 		else:
 			# using PDM if closer than 5m
 			pdm = target.rpg_stats.passive_defense_modifier

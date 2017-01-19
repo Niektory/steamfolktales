@@ -62,8 +62,25 @@ class Exploration(object):
 				action.target.door.open(action.target, pc)
 			elif action.name == "Close":
 				action.target.door.close(action.target, pc)
+			elif action.name == "Kill":
+				combatants = [pc, action.target]
+				surprised_combatants = [action.target]
+				for character in self.application.world.characters:
+					if character in combatants:
+						continue
+					if character.dead:
+						continue
+					if not character.killable:
+						continue
+					if character.map_name != action.target.map_name:
+						continue
+					if gridhelper.distance(action.target.coords, character.coords) > 15:
+						continue
+					combatants.append(character)
+					surprised_combatants.append(character)
+				self.application.startCombat(combatants, surprised=surprised_combatants)
 			else:
-				pc.visual.say("I don't know how to " + action.name + " " + action.target.name + "!")
+				pc.visual.say("I don't know how to {} {}!".format(action.name, action.target.name))
 		else:
 			# if we're far we'll run up and interact later
 			#pc.visual.run(self.visual.instance.getLocation(), cut_dist = -1)

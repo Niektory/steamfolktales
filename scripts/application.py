@@ -342,11 +342,11 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 	def current_character(self):
 		return self.world.player_character
 
-	def startCombat(self, combatants):
+	def startCombat(self, combatants, surprised=[]):
 		for character in self.world.characters:
 			if character.visual:
 				character.visual.idle()
-		self.combat = Combat(self, combatants)
+		self.combat = Combat(self, combatants, surprised=surprised)
 		self.combat.beginTurn()
 
 	def startCutscene(self, Cutscene):

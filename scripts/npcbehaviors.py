@@ -107,6 +107,8 @@ def detect(self, time):
 				continue
 			if character.dead:
 				continue
+			if not character.killable:
+				continue
 			if character.map_name != self.map_name:
 				continue
 			if gridhelper.distance(self.coords, character.coords) > 15:
