@@ -130,11 +130,14 @@ class View:
 
 	def moveCamera(self, camera_move_x, camera_move_y):
 		cur_rot = self.camera.getRotation()
+		cell_dimensions = self.camera.getCellImageDimensions()
 		coord = self.camera.getLocationRef().getMapCoordinates()
-		coord.x += ((math.cos(cur_rot / 180 * math.pi) * camera_move_x
-				- math.sin(cur_rot / 180 * math.pi) * camera_move_y) / self.target_zoom)
-		coord.y += ((math.cos(cur_rot / 180 * math.pi) * camera_move_y
-				+ math.sin(cur_rot / 180 * math.pi) * camera_move_x) / self.target_zoom)
+		coord.x += ((math.cos(cur_rot / 180 * math.pi) * camera_move_x / cell_dimensions.x
+				- math.sin(cur_rot / 180 * math.pi) * camera_move_y / cell_dimensions.y)
+				/ self.target_zoom * math.sqrt(2))
+		coord.y += ((math.cos(cur_rot / 180 * math.pi) * camera_move_y / cell_dimensions.y
+				+ math.sin(cur_rot / 180 * math.pi) * camera_move_x / cell_dimensions.x)
+				/ self.target_zoom * math.sqrt(2))
 		# limit the camera to the current map's borders
 		map_size = self.application.maplayer.getCellCache().getSize()
 		if coord.x < map_size.x:
@@ -168,15 +171,15 @@ class View:
 				self.camera.setZoom(cur_zoom - 0.1)
 		# animate panning
 		if self.camera_move_key_up or self.camera_move_mouse_up:
-			camera_move_y = -0.4
+			camera_move_y = -25
 		elif self.camera_move_key_down or self.camera_move_mouse_down:
-			camera_move_y = 0.4
+			camera_move_y = 25
 		else:
 			camera_move_y = 0
 		if self.camera_move_key_left or self.camera_move_mouse_left:
-			camera_move_x = -0.4
+			camera_move_x = -25
 		elif self.camera_move_key_right or self.camera_move_mouse_right:
-			camera_move_x = 0.4
+			camera_move_x = 25
 		else:
 			camera_move_x = 0
 		self.moveCamera(camera_move_x, camera_move_y)

@@ -129,8 +129,9 @@ class MouseListener(fife.IMouseListener):
 		
 	def mouseDragged(self, event):
 		if self.middle_click_point:
-			self.application.view.moveCamera((self.middle_click_point.x - event.getX()) / 40,
-											(self.middle_click_point.y - event.getY()) / 40)
+			self.application.view.moveCamera(
+					self.middle_click_point.x - event.getX(),
+					self.middle_click_point.y - event.getY())
 			self.middle_click_point = fife.ScreenPoint(event.getX(), event.getY())
 
 
