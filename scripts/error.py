@@ -31,7 +31,8 @@ class LogException:
 			return
 		# log/display each error once; ignore further identical errors
 		if format_exception(exc_type, exc_value, exc_traceback) not in LogException.past_errors:
-			LogException.past_errors.append(format_exception(exc_type, exc_value, exc_traceback))
+			traceback = format_exception(exc_type, exc_value, exc_traceback)
+			LogException.past_errors.append(traceback)
 			print("\n============================================================\n")
 			print_exception(exc_type, exc_value, exc_traceback)
 			try:
@@ -48,7 +49,7 @@ class LogException:
 					.format(ERROR_FILE)
 			else:
 				error_message = "An unhandled exception occured!\n"\
-					"The exception has been logged in file '{}'."\
+					"The exception has been logged in file '{}'. "\
 					"Please send that file to the developers."\
 					.format(ERROR_FILE)
 			print()
@@ -62,11 +63,13 @@ class LogException:
 			else:
 				window = Tkinter.Tk()
 				window.wm_withdraw()
+				short_traceback = traceback[:]
+				if len(short_traceback) > 6:
+					short_traceback[1:-5] = ["(...)\n"]
 				tkMessageBox.showerror(
 					title="".join(
 						format_exception(exc_type, exc_value, exc_traceback, limit=0)[1:]),
-					message=error_message + "\n\n" + "".join(
-						format_exception(exc_type, exc_value, exc_traceback, limit=5)))
+					message=error_message + "\n\n" + "".join(short_traceback))
 		# don't propagate the exception
 		return True
 
