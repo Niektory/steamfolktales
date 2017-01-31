@@ -7,6 +7,7 @@ from fife import fife
 from random import randrange, choice
 
 from animal import Animal
+from error import LogExceptionDecorator
 
 
 class MouseListener(fife.IMouseListener):
@@ -15,7 +16,8 @@ class MouseListener(fife.IMouseListener):
 		fife.IMouseListener.__init__(self)
 		self.middle_click_point = None
 		self.last_click_time = 0
-		
+
+	@LogExceptionDecorator
 	def mousePressed(self, event):
 		clickpoint = fife.ScreenPoint(event.getX(), event.getY())
 		
@@ -104,7 +106,8 @@ class MouseListener(fife.IMouseListener):
 						#character = self.application.world.addCharacterAt(
 						#					location.getLayerCoordinates())
 						#self.application.world.enablePlayerCharacter(character)
-							
+
+	@LogExceptionDecorator
 	def mouseReleased(self, event):
 		if (event.getButton() == fife.MouseEvent.MIDDLE):
 			self.middle_click_point = None
@@ -120,13 +123,16 @@ class MouseListener(fife.IMouseListener):
 		
 	def mouseClicked(self, event):
 		pass
-		
+
+	@LogExceptionDecorator
 	def mouseWheelMovedUp(self, event):
 		self.application.view.zoomIn()
-		
+
+	@LogExceptionDecorator
 	def mouseWheelMovedDown(self, event):
 		self.application.view.zoomOut()
-		
+
+	@LogExceptionDecorator
 	def mouseDragged(self, event):
 		if self.middle_click_point:
 			self.application.view.moveCamera(
@@ -146,7 +152,8 @@ class KeyListener(fife.IKeyListener):
 			return fife.Key.__dict__[self.application.settings.get("hotkeys", hotkey_name)]
 		except KeyError:
 			return None
-		
+
+	@LogExceptionDecorator
 	def keyPressed(self, event):
 		key_val = event.getKey().getValue()
 
@@ -252,6 +259,7 @@ class KeyListener(fife.IKeyListener):
 				fife.InstanceVisual.create(instance)
 				self.application.view.animals.append(Animal(instance, self.application))
 
+	@LogExceptionDecorator
 	def keyReleased(self, event):
 		key_val = event.getKey().getValue()
 		if self.application.view:
@@ -266,4 +274,3 @@ class KeyListener(fife.IKeyListener):
 
 			elif key_val == self.getHotkey("Turbo"):
 				self.application.game_speed = 1
-
