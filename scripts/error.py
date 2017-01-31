@@ -76,5 +76,5 @@ class LogException:
 def LogExceptionDecorator(function):
 	def innerFunction(*args, **kwargs):
 		with LogException():
-			function(*args, **kwargs)
+			return function(*args, **kwargs)
 	return innerFunction
