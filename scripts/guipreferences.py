@@ -379,3 +379,27 @@ class GUIPreferences:
 		self.addKey("DELETE", PyCEGUI.Key.Delete)
 
 		#self.r_keymap = {v:k for k, v in self.keymap.items()}
+
+		return
+		# look for keys that could still be mapped; gotta map 'em all!
+		print("* Unmapped FIFE keys:")
+		for str_key in dir(fife.Key):
+			try:
+				int_key = fife.Key.__dict__[str_key]
+			except KeyError:
+				continue
+			if not isinstance(int_key, int):
+				continue
+			if str_key not in self.keymap:
+				print(str_key, int_key)
+		print("* Unmapped CEGUI keys:")
+		for str_key in dir(PyCEGUI.Key):
+			try:
+				int_key = PyCEGUI.Key.__dict__[str_key]
+			except KeyError:
+				continue
+			if not isinstance(int_key, int):
+				continue
+			if int_key not in self.r_keymap:
+				print(str_key, int_key)
+		print("* End of unmapped keys")
