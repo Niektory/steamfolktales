@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2016 Tomasz "Niektóry" Turowski
 
-from __future__ import division
+from __future__ import division, print_function
 
 import PyCEGUI
 from fife import fife
@@ -138,9 +138,9 @@ class GUIPreferences:
 						self.enable_sound_checkbox.isSelected())
 			self.application.settings.set("FIFE", "InitialVolume",
 						self.volume_slider.getScrollPosition())
-			for i in xrange(len(self.hotkey_edits)):
-				self.application.settings.set("hotkeys", self.hotkey_labels[i].getText(),
-						self.hotkey_edits[i].getProperty("HiddenData"))
+			for label, edit in zip(self.hotkey_labels, self.hotkey_edits):
+				self.application.settings.set("hotkeys", label.getText(),
+						edit.getProperty("HiddenData"))
 			self.application.settings.saveSettings()
 			self.application.gui.hud.updateTooltips()
 			self.window.hide()
@@ -181,13 +181,15 @@ class GUIPreferences:
 					# skip separator labels
 					continue
 				hotkey_edit = self.page_controls_scrollable.getChild("HotkeyEdit-" + action)
-				if settings.get("hotkeys", action):
-					hotkey_edit.setProperty("Text", str(self.toCeguiKey(
-															settings.get("hotkeys", action))))
-					hotkey_edit.setProperty("HiddenData", str(settings.get("hotkeys", action)))
-				else:
+				fife_key = settings.get("hotkeys", action)
+				try:
+					cegui_key = self.toCeguiKey(fife_key)
+				except KeyError:
 					hotkey_edit.setProperty("Text", "")
 					hotkey_edit.setProperty("HiddenData", "")
+				else:
+					hotkey_edit.setProperty("Text", str(cegui_key))
+					hotkey_edit.setProperty("HiddenData", str(fife_key))
 
 			self.window.show()
 			self.window.moveToFront()
@@ -214,128 +216,166 @@ class GUIPreferences:
 		return self.r_keymap[key]
 
 	def toCeguiKey(self, key):
-		return self.keymap[int(key)]
+		return self.keymap[key]
+
+	def addKey(self, fife_key, cegui_key):
+		try:
+			fife.Key.__dict__[fife_key]
+		except KeyError:
+			print("Invalid FIFE key: {}".format(fife_key))
+			return
+		self.keymap[fife_key] = cegui_key
+		self.r_keymap[cegui_key] = fife_key
 
 	def initKeyMap(self):
-		self.keymap = dict()
-		self.keymap[fife.Key.NUM_1] = PyCEGUI.Key.One
-		self.keymap[fife.Key.NUM_2] = PyCEGUI.Key.Two
-		self.keymap[fife.Key.NUM_3] = PyCEGUI.Key.Three
-		self.keymap[fife.Key.NUM_4] = PyCEGUI.Key.Four
-		self.keymap[fife.Key.NUM_5] = PyCEGUI.Key.Five
-		self.keymap[fife.Key.NUM_6] = PyCEGUI.Key.Six
-		self.keymap[fife.Key.NUM_7] = PyCEGUI.Key.Seven
-		self.keymap[fife.Key.NUM_8] = PyCEGUI.Key.Eight
-		self.keymap[fife.Key.NUM_9] = PyCEGUI.Key.Nine
-		self.keymap[fife.Key.NUM_0] = PyCEGUI.Key.Zero
+		self.keymap = {}
+		self.r_keymap = {}
 
-		self.keymap[fife.Key.Q] = PyCEGUI.Key.Q
-		self.keymap[fife.Key.W] = PyCEGUI.Key.W
-		self.keymap[fife.Key.E] = PyCEGUI.Key.E
-		self.keymap[fife.Key.R] = PyCEGUI.Key.R
-		self.keymap[fife.Key.T] = PyCEGUI.Key.T
-		self.keymap[fife.Key.Y] = PyCEGUI.Key.Y
-		self.keymap[fife.Key.U] = PyCEGUI.Key.U
-		self.keymap[fife.Key.I] = PyCEGUI.Key.I
-		self.keymap[fife.Key.O] = PyCEGUI.Key.O
-		self.keymap[fife.Key.P] = PyCEGUI.Key.P
-		self.keymap[fife.Key.A] = PyCEGUI.Key.A
-		self.keymap[fife.Key.S] = PyCEGUI.Key.S
-		self.keymap[fife.Key.D] = PyCEGUI.Key.D
-		self.keymap[fife.Key.F] = PyCEGUI.Key.F
-		self.keymap[fife.Key.G] = PyCEGUI.Key.G
-		self.keymap[fife.Key.H] = PyCEGUI.Key.H
-		self.keymap[fife.Key.J] = PyCEGUI.Key.J
-		self.keymap[fife.Key.K] = PyCEGUI.Key.K
-		self.keymap[fife.Key.L] = PyCEGUI.Key.L
-		self.keymap[fife.Key.Z] = PyCEGUI.Key.Z
-		self.keymap[fife.Key.X] = PyCEGUI.Key.X
-		self.keymap[fife.Key.C] = PyCEGUI.Key.C
-		self.keymap[fife.Key.V] = PyCEGUI.Key.V
-		self.keymap[fife.Key.B] = PyCEGUI.Key.B
-		self.keymap[fife.Key.N] = PyCEGUI.Key.N
-		self.keymap[fife.Key.M] = PyCEGUI.Key.M
+		self.addKey("NUM_1", PyCEGUI.Key.One)
+		self.addKey("NUM_2", PyCEGUI.Key.Two)
+		self.addKey("NUM_3", PyCEGUI.Key.Three)
+		self.addKey("NUM_4", PyCEGUI.Key.Four)
+		self.addKey("NUM_5", PyCEGUI.Key.Five)
+		self.addKey("NUM_6", PyCEGUI.Key.Six)
+		self.addKey("NUM_7", PyCEGUI.Key.Seven)
+		self.addKey("NUM_8", PyCEGUI.Key.Eight)
+		self.addKey("NUM_9", PyCEGUI.Key.Nine)
+		self.addKey("NUM_0", PyCEGUI.Key.Zero)
 
-		self.keymap[fife.Key.COMMA] = PyCEGUI.Key.Comma
-		self.keymap[fife.Key.PERIOD] = PyCEGUI.Key.Period
-		self.keymap[fife.Key.SLASH] = PyCEGUI.Key.Slash
-		self.keymap[fife.Key.BACKSLASH] = PyCEGUI.Key.Backslash
-		self.keymap[fife.Key.MINUS] = PyCEGUI.Key.Minus
-		self.keymap[fife.Key.EQUALS] = PyCEGUI.Key.Equals
+		self.addKey("Q", PyCEGUI.Key.Q)
+		self.addKey("W", PyCEGUI.Key.W)
+		self.addKey("E", PyCEGUI.Key.E)
+		self.addKey("R", PyCEGUI.Key.R)
+		self.addKey("T", PyCEGUI.Key.T)
+		self.addKey("Y", PyCEGUI.Key.Y)
+		self.addKey("U", PyCEGUI.Key.U)
+		self.addKey("I", PyCEGUI.Key.I)
+		self.addKey("O", PyCEGUI.Key.O)
+		self.addKey("P", PyCEGUI.Key.P)
+		self.addKey("A", PyCEGUI.Key.A)
+		self.addKey("S", PyCEGUI.Key.S)
+		self.addKey("D", PyCEGUI.Key.D)
+		self.addKey("F", PyCEGUI.Key.F)
+		self.addKey("G", PyCEGUI.Key.G)
+		self.addKey("H", PyCEGUI.Key.H)
+		self.addKey("J", PyCEGUI.Key.J)
+		self.addKey("K", PyCEGUI.Key.K)
+		self.addKey("L", PyCEGUI.Key.L)
+		self.addKey("Z", PyCEGUI.Key.Z)
+		self.addKey("X", PyCEGUI.Key.X)
+		self.addKey("C", PyCEGUI.Key.C)
+		self.addKey("V", PyCEGUI.Key.V)
+		self.addKey("B", PyCEGUI.Key.B)
+		self.addKey("N", PyCEGUI.Key.N)
+		self.addKey("M", PyCEGUI.Key.M)
 
-		self.keymap[fife.Key.SEMICOLON] = PyCEGUI.Key.Semicolon
-		self.keymap[fife.Key.LEFTBRACKET] = PyCEGUI.Key.LeftBracket
-		self.keymap[fife.Key.RIGHTBRACKET] = PyCEGUI.Key.RightBracket
-		self.keymap[fife.Key.QUOTE] = PyCEGUI.Key.Apostrophe
-		self.keymap[fife.Key.BACKQUOTE] = PyCEGUI.Key.Grave
+		self.addKey("COMMA", PyCEGUI.Key.Comma)
+		self.addKey("PERIOD", PyCEGUI.Key.Period)
+		self.addKey("SLASH", PyCEGUI.Key.Slash)
+		self.addKey("BACKSLASH", PyCEGUI.Key.Backslash)
+		self.addKey("MINUS", PyCEGUI.Key.Minus)
+		self.addKey("EQUALS", PyCEGUI.Key.Equals)
+		self.addKey("SEMICOLON", PyCEGUI.Key.Semicolon)
+		self.addKey("COLON", PyCEGUI.Key.Colon)
+		self.addKey("LEFTBRACKET", PyCEGUI.Key.LeftBracket)
+		self.addKey("RIGHTBRACKET", PyCEGUI.Key.RightBracket)
+		self.addKey("QUOTE", PyCEGUI.Key.Apostrophe)
+		self.addKey("BACKQUOTE", PyCEGUI.Key.Grave)
+		self.addKey("AT", PyCEGUI.Key.At)
+		self.addKey("UNDERSCORE", PyCEGUI.Key.Underline)
 
-		self.keymap[fife.Key.ENTER] = PyCEGUI.Key.Return
-		self.keymap[fife.Key.SPACE] = PyCEGUI.Key.Space
-		self.keymap[fife.Key.BACKSPACE] = PyCEGUI.Key.Backspace
-		self.keymap[fife.Key.TAB] = PyCEGUI.Key.Tab
+		self.addKey("ENTER", PyCEGUI.Key.Return)
+		self.addKey("SPACE", PyCEGUI.Key.Space)
+		self.addKey("BACKSPACE", PyCEGUI.Key.Backspace)
+		self.addKey("TAB", PyCEGUI.Key.Tab)
 
-		self.keymap[fife.Key.ESCAPE] = PyCEGUI.Key.Escape
-		self.keymap[fife.Key.PAUSE] = PyCEGUI.Key.Pause
-		self.keymap[fife.Key.SYSREQ] = PyCEGUI.Key.SysRq
-		self.keymap[fife.Key.POWER] = PyCEGUI.Key.Power
+		self.addKey("ESCAPE", PyCEGUI.Key.Escape)
+		self.addKey("PAUSE", PyCEGUI.Key.Pause)
+		self.addKey("SYS_REQ", PyCEGUI.Key.SysRq)
+		self.addKey("POWER", PyCEGUI.Key.Power)
+		self.addKey("SLEEP", PyCEGUI.Key.Sleep)
 
-		self.keymap[fife.Key.NUM_LOCK] = PyCEGUI.Key.NumLock
-		self.keymap[fife.Key.SCROLL_LOCK] = PyCEGUI.Key.ScrollLock
+		self.addKey("CALCULATOR", PyCEGUI.Key.Calculator)
+		self.addKey("MAIL", PyCEGUI.Key.Mail)
+		self.addKey("COMPUTER", PyCEGUI.Key.MyComputer)
+		self.addKey("MEDIASELECT", PyCEGUI.Key.MediaSelect)
+		self.addKey("STOP", PyCEGUI.Key.Stop)
 
-		self.keymap[fife.Key.F1] = PyCEGUI.Key.F1
-		self.keymap[fife.Key.F2] = PyCEGUI.Key.F2
-		self.keymap[fife.Key.F3] = PyCEGUI.Key.F3
-		self.keymap[fife.Key.F4] = PyCEGUI.Key.F4
-		self.keymap[fife.Key.F5] = PyCEGUI.Key.F5
-		self.keymap[fife.Key.F6] = PyCEGUI.Key.F6
-		self.keymap[fife.Key.F7] = PyCEGUI.Key.F7
-		self.keymap[fife.Key.F8] = PyCEGUI.Key.F8
-		self.keymap[fife.Key.F9] = PyCEGUI.Key.F9
-		self.keymap[fife.Key.F10] = PyCEGUI.Key.F10
-		self.keymap[fife.Key.F11] = PyCEGUI.Key.F11
-		self.keymap[fife.Key.F12] = PyCEGUI.Key.F12
-		self.keymap[fife.Key.F13] = PyCEGUI.Key.F13
-		self.keymap[fife.Key.F14] = PyCEGUI.Key.F14
-		self.keymap[fife.Key.F15] = PyCEGUI.Key.F15
+		self.addKey("AUDIO_PLAY", PyCEGUI.Key.PlayPause)
+		self.addKey("AUDIO_STOP", PyCEGUI.Key.MediaStop)
+		self.addKey("AUDIO_PREV", PyCEGUI.Key.PrevTrack)
+		self.addKey("AUDIO_NEXT", PyCEGUI.Key.NextTrack)
+		self.addKey("MUTE", PyCEGUI.Key.Mute)
+		self.addKey("VOLUME_UP", PyCEGUI.Key.VolumeUp)
+		self.addKey("VOLUME_DOWN", PyCEGUI.Key.VolumeDown)
 
-		self.keymap[fife.Key.LEFT_CONTROL] = PyCEGUI.Key.LeftControl
-		self.keymap[fife.Key.LEFT_ALT] = PyCEGUI.Key.LeftAlt
-		self.keymap[fife.Key.LEFT_SHIFT] = PyCEGUI.Key.LeftShift
-		self.keymap[fife.Key.LEFT_SUPER] = PyCEGUI.Key.LeftWindows
-		self.keymap[fife.Key.RIGHT_CONTROL] = PyCEGUI.Key.RightControl
-		self.keymap[fife.Key.RIGHT_ALT] = PyCEGUI.Key.RightAlt
-		self.keymap[fife.Key.RIGHT_SHIFT] = PyCEGUI.Key.RightShift
-		self.keymap[fife.Key.RIGHT_SUPER] = PyCEGUI.Key.RightWindows
-		self.keymap[fife.Key.MENU] = PyCEGUI.Key.AppMenu
+		self.addKey("AC_BACK", PyCEGUI.Key.WebBack)
+		self.addKey("AC_FORWARD", PyCEGUI.Key.WebForward)
+		self.addKey("AC_HOME", PyCEGUI.Key.WebHome)
+		self.addKey("AC_BOOKMARKS", PyCEGUI.Key.WebFavorites)
+		self.addKey("AC_SEARCH", PyCEGUI.Key.WebSearch)
+		self.addKey("AC_REFRESH", PyCEGUI.Key.WebRefresh)
+		self.addKey("AC_STOP", PyCEGUI.Key.WebStop)
 
-		self.keymap[fife.Key.KP0] = PyCEGUI.Key.Numpad0
-		self.keymap[fife.Key.KP1] = PyCEGUI.Key.Numpad1
-		self.keymap[fife.Key.KP2] = PyCEGUI.Key.Numpad2
-		self.keymap[fife.Key.KP3] = PyCEGUI.Key.Numpad3
-		self.keymap[fife.Key.KP4] = PyCEGUI.Key.Numpad4
-		self.keymap[fife.Key.KP5] = PyCEGUI.Key.Numpad5
-		self.keymap[fife.Key.KP6] = PyCEGUI.Key.Numpad6
-		self.keymap[fife.Key.KP7] = PyCEGUI.Key.Numpad7
-		self.keymap[fife.Key.KP8] = PyCEGUI.Key.Numpad8
-		self.keymap[fife.Key.KP9] = PyCEGUI.Key.Numpad9
-		self.keymap[fife.Key.KP_PERIOD] = PyCEGUI.Key.Decimal
-		self.keymap[fife.Key.KP_PLUS] = PyCEGUI.Key.Add
-		self.keymap[fife.Key.KP_MINUS] = PyCEGUI.Key.Subtract
-		self.keymap[fife.Key.KP_MULTIPLY] = PyCEGUI.Key.Multiply
-		self.keymap[fife.Key.KP_DIVIDE] = PyCEGUI.Key.Divide
-		self.keymap[fife.Key.KP_ENTER] = PyCEGUI.Key.NumpadEnter
+		self.addKey("NUM_LOCK", PyCEGUI.Key.NumLock)
+		self.addKey("SCROLL_LOCK", PyCEGUI.Key.ScrollLock)
+		self.addKey("CAPS_LOCK", PyCEGUI.Key.Capital)
 
-		self.keymap[fife.Key.UP] = PyCEGUI.Key.ArrowUp
-		self.keymap[fife.Key.LEFT] = PyCEGUI.Key.ArrowLeft
-		self.keymap[fife.Key.RIGHT] = PyCEGUI.Key.ArrowRight
-		self.keymap[fife.Key.DOWN] = PyCEGUI.Key.ArrowDown
+		self.addKey("F1", PyCEGUI.Key.F1)
+		self.addKey("F2", PyCEGUI.Key.F2)
+		self.addKey("F3", PyCEGUI.Key.F3)
+		self.addKey("F4", PyCEGUI.Key.F4)
+		self.addKey("F5", PyCEGUI.Key.F5)
+		self.addKey("F6", PyCEGUI.Key.F6)
+		self.addKey("F7", PyCEGUI.Key.F7)
+		self.addKey("F8", PyCEGUI.Key.F8)
+		self.addKey("F9", PyCEGUI.Key.F9)
+		self.addKey("F10", PyCEGUI.Key.F10)
+		self.addKey("F11", PyCEGUI.Key.F11)
+		self.addKey("F12", PyCEGUI.Key.F12)
+		self.addKey("F13", PyCEGUI.Key.F13)
+		self.addKey("F14", PyCEGUI.Key.F14)
+		self.addKey("F15", PyCEGUI.Key.F15)
 
-		self.keymap[fife.Key.HOME] = PyCEGUI.Key.Home
-		self.keymap[fife.Key.END] = PyCEGUI.Key.End
-		self.keymap[fife.Key.PAGE_UP] = PyCEGUI.Key.PageUp
-		self.keymap[fife.Key.PAGE_DOWN] = PyCEGUI.Key.PageDown
-		self.keymap[fife.Key.INSERT] = PyCEGUI.Key.Insert
-		self.keymap[fife.Key.DELETE] = PyCEGUI.Key.Delete
+		self.addKey("LEFT_CONTROL", PyCEGUI.Key.LeftControl)
+		self.addKey("LEFT_ALT", PyCEGUI.Key.LeftAlt)
+		self.addKey("LEFT_SHIFT", PyCEGUI.Key.LeftShift)
+		self.addKey("LEFT_SUPER", PyCEGUI.Key.LeftWindows)
+		self.addKey("RIGHT_CONTROL", PyCEGUI.Key.RightControl)
+		self.addKey("RIGHT_ALT", PyCEGUI.Key.RightAlt)
+		self.addKey("RIGHT_SHIFT", PyCEGUI.Key.RightShift)
+		self.addKey("RIGHT_SUPER", PyCEGUI.Key.RightWindows)
+		self.addKey("MENU", PyCEGUI.Key.AppMenu)
 
-		self.r_keymap = {v:k for k, v in self.keymap.items()}
+		self.addKey("KP_0", PyCEGUI.Key.Numpad0)
+		self.addKey("KP_1", PyCEGUI.Key.Numpad1)
+		self.addKey("KP_2", PyCEGUI.Key.Numpad2)
+		self.addKey("KP_3", PyCEGUI.Key.Numpad3)
+		self.addKey("KP_4", PyCEGUI.Key.Numpad4)
+		self.addKey("KP_5", PyCEGUI.Key.Numpad5)
+		self.addKey("KP_6", PyCEGUI.Key.Numpad6)
+		self.addKey("KP_7", PyCEGUI.Key.Numpad7)
+		self.addKey("KP_8", PyCEGUI.Key.Numpad8)
+		self.addKey("KP_9", PyCEGUI.Key.Numpad9)
+		self.addKey("KP_PERIOD", PyCEGUI.Key.Decimal)
+		self.addKey("KP_PLUS", PyCEGUI.Key.Add)
+		self.addKey("KP_MINUS", PyCEGUI.Key.Subtract)
+		self.addKey("KP_MULTIPLY", PyCEGUI.Key.Multiply)
+		self.addKey("KP_DIVIDE", PyCEGUI.Key.Divide)
+		self.addKey("KP_ENTER", PyCEGUI.Key.NumpadEnter)
+		self.addKey("KP_COMMA", PyCEGUI.Key.NumpadComma)
+		self.addKey("KP_EQUALS", PyCEGUI.Key.NumpadEquals)
 
+		self.addKey("UP", PyCEGUI.Key.ArrowUp)
+		self.addKey("LEFT", PyCEGUI.Key.ArrowLeft)
+		self.addKey("RIGHT", PyCEGUI.Key.ArrowRight)
+		self.addKey("DOWN", PyCEGUI.Key.ArrowDown)
+
+		self.addKey("HOME", PyCEGUI.Key.Home)
+		self.addKey("END", PyCEGUI.Key.End)
+		self.addKey("PAGE_UP", PyCEGUI.Key.PageUp)
+		self.addKey("PAGE_DOWN", PyCEGUI.Key.PageDown)
+		self.addKey("INSERT", PyCEGUI.Key.Insert)
+		self.addKey("DELETE", PyCEGUI.Key.Delete)
+
+		#self.r_keymap = {v:k for k, v in self.keymap.items()}

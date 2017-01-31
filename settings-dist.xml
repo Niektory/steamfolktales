@@ -41,21 +41,32 @@
 		<Setting name="schemes" type="str"> gui/schemes/ </Setting>
 	</Module>
 	<Module name="hotkeys">
-		<Setting name="Pan Up" type="unicode">273</Setting>
-		<Setting name="Pan Down" type="unicode">274</Setting>
-		<Setting name="Pan Left" type="unicode">276</Setting>
-		<Setting name="Pan Right" type="unicode">275</Setting>
-		<Setting name="Quick Save" type="unicode">286</Setting>
-		<Setting name="Quick Load" type="unicode">287</Setting>
-		<Setting name="Attach to PC" type="unicode">122</Setting>
-		<Setting name="Pause" type="unicode">112</Setting>
-		<Setting name="Journal" type="unicode">106</Setting>
-		<Setting name="Character Sheet" type="unicode">99</Setting>
-		<Setting name="Inventory" type="unicode">105</Setting>
-		<Setting name="End Turn" type="unicode">32</Setting>
-		<Setting name="Walk" type="unicode">49</Setting>
-		<Setting name="Run" type="unicode">50</Setting>
-		<Setting name="Sneak" type="unicode">51</Setting>
-		<Setting name="Cycle" type="unicode">96</Setting>
+		<Setting name="Grid Coordinates" type="unicode">O</Setting>
+		<Setting name="Grid Instances" type="unicode">G</Setting>
+		<Setting name="Grid Blockers" type="unicode">B</Setting>
+		<Setting name="Character Info" type="unicode">N</Setting>
+		<Setting name="Tooltip" type="unicode">T</Setting>
+		<Setting name="Fog of War" type="unicode">F</Setting>
+		<Setting name="Advance Time" type="unicode">R</Setting>
+		<Setting name="Turbo" type="unicode">LEFT_CONTROL</Setting>
+		<Setting name="Kill Enemies" type="unicode">K</Setting>
+		<Setting name="Attach to PC" type="unicode">Z</Setting>
+		<Setting name="Pan Up" type="unicode">UP</Setting>
+		<Setting name="Pan Down" type="unicode">DOWN</Setting>
+		<Setting name="Pan Left" type="unicode">LEFT</Setting>
+		<Setting name="Pan Right" type="unicode">RIGHT</Setting>
+		<Setting name="Zoom In" type="unicode">KP_PLUS</Setting>
+		<Setting name="Zoom Out" type="unicode">KP_MINUS</Setting>
+		<Setting name="Quick Save" type="unicode">F5</Setting>
+		<Setting name="Quick Load" type="unicode">F6</Setting>
+		<Setting name="Pause" type="unicode">PAUSE</Setting>
+		<Setting name="Character Sheet" type="unicode">C</Setting>
+		<Setting name="Inventory" type="unicode">I</Setting>
+		<Setting name="Journal" type="unicode">J</Setting>
+		<Setting name="End Turn" type="unicode">SPACE</Setting>
+		<Setting name="Cycle" type="unicode">BACKQUOTE</Setting>
+		<Setting name="Walk" type="unicode">NUM_1</Setting>
+		<Setting name="Run" type="unicode">NUM_2</Setting>
+		<Setting name="Sneak" type="unicode">NUM_3</Setting>
 	</Module>
 </Settings>

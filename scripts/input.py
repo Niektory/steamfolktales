@@ -142,9 +142,9 @@ class KeyListener(fife.IKeyListener):
 		self.alt_pressed = False
 
 	def getHotkey(self, hotkey_name):
-		if self.application.settings.get("hotkeys", hotkey_name):
-			return int(self.application.settings.get("hotkeys", hotkey_name))
-		else:
+		try:
+			return fife.Key.__dict__[self.application.settings.get("hotkeys", hotkey_name)]
+		except KeyError:
 			return None
 		
 	def keyPressed(self, event):
