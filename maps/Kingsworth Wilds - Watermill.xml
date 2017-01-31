@@ -211,5 +211,5 @@
 <cell x="5" y="7" blocker_type="blocker" />
 		</cellcache>
 	</cellcaches>
-    <camera id="main_camera" ref_layer_id="buildings_layer" zoom="1.000000" tilt="-50.131700" rotation="45.000000"viewport="0,0,1600,900" ref_cell_width="78" ref_cell_height="50" />
+    <camera id="main_camera" ref_layer_id="buildings_layer" zoom="1.000000" tilt="-50.131700" rotation="45.000000" viewport="0,0,1600,900" ref_cell_width="78" ref_cell_height="50" />
 </map>
