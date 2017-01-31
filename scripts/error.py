@@ -18,7 +18,6 @@ ERROR_FILE = "error.log"
 #		f.write("\n-----\n\n")
 #	print("FATAL ERROR! Exception logged in", ERROR_FILE)
 
-# TODO: change the code to use the decorator instead of this
 class LogException:
 	past_errors = []
 

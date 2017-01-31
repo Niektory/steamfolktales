@@ -4,7 +4,7 @@
 import PyCEGUI
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 
 
 class GUIWeaponInfo:
@@ -21,19 +21,19 @@ class GUIWeaponInfo:
 		self.speed_edit = self.window.getChild("SpeedEdit")
 		self.range_edit = self.window.getChild("RangeEdit")
 
+	@LogExceptionDecorator
 	def show(self, weapon):
-		with LogException():
-			self.current_weapon = weapon
-			self.window.show()
-			self.window.moveToFront()
-			self.name_label.setText(self.current_weapon.name)
-			self.description_label.setText(self.current_weapon.description)
-			self.weapon_image.setProperty("Image", self.current_weapon.image)
-			self.accuracy_edit.setText(str(self.current_weapon.weapon_data.accuracy))
-			self.damage_edit.setText(self.current_weapon.weapon_data.damage_str)
-			self.speed_edit.setText(str(self.current_weapon.weapon_data.speed))
-			self.range_edit.setText(self.current_weapon.weapon_data.range_str)
+		self.current_weapon = weapon
+		self.window.show()
+		self.window.moveToFront()
+		self.name_label.setText(self.current_weapon.name)
+		self.description_label.setText(self.current_weapon.description)
+		self.weapon_image.setProperty("Image", self.current_weapon.image)
+		self.accuracy_edit.setText(str(self.current_weapon.weapon_data.accuracy))
+		self.damage_edit.setText(self.current_weapon.weapon_data.damage_str)
+		self.speed_edit.setText(str(self.current_weapon.weapon_data.speed))
+		self.range_edit.setText(self.current_weapon.weapon_data.range_str)
 
+	@LogExceptionDecorator
 	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
+		self.window.hide()

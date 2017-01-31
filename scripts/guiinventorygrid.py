@@ -6,7 +6,7 @@ from __future__ import division
 import PyCEGUI
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 
 
 class InventoryGrid(PyCEGUI.Window):
@@ -16,25 +16,25 @@ class InventoryGrid(PyCEGUI.Window):
 		self.setCellSize(104, 104)
 		self.item_list = []
 
+	@LogExceptionDecorator
 	def populateGeometryBuffer(self):
-		with LogException():
-			if not self.isUserStringDefined("Image"):
-				return
-			img = PyCEGUI.PropertyHelper.stringToImage(self.getUserString("Image"))
-			if not img:
-				return
-			for i in xrange(self.height):
-				for j in xrange(self.width):
-					if self.checkSpace(j, i):
-						color = 0xFFFFFFFF
-					else:
-						color = 0xFF808080
-					img.render(self.getGeometryBuffer(),
-							PyCEGUI.Rectf(PyCEGUI.Vector2f(j*self.cell_width, i*self.cell_height),
-											PyCEGUI.Sizef(self.cell_width, self.cell_height)),
-							PyCEGUI.Rectf(PyCEGUI.Vector2f(j*self.cell_width, i*self.cell_height),
-											PyCEGUI.Sizef(self.cell_width, self.cell_height)),
-							PyCEGUI.ColourRect(color))
+		if not self.isUserStringDefined("Image"):
+			return
+		img = PyCEGUI.PropertyHelper.stringToImage(self.getUserString("Image"))
+		if not img:
+			return
+		for i in xrange(self.height):
+			for j in xrange(self.width):
+				if self.checkSpace(j, i):
+					color = 0xFFFFFFFF
+				else:
+					color = 0xFF808080
+				img.render(self.getGeometryBuffer(),
+						PyCEGUI.Rectf(PyCEGUI.Vector2f(j*self.cell_width, i*self.cell_height),
+										PyCEGUI.Sizef(self.cell_width, self.cell_height)),
+						PyCEGUI.Rectf(PyCEGUI.Vector2f(j*self.cell_width, i*self.cell_height),
+										PyCEGUI.Sizef(self.cell_width, self.cell_height)),
+						PyCEGUI.ColourRect(color))
 			
 	def setGridSize(self, width, height):
 		self.width = width

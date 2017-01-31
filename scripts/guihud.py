@@ -4,7 +4,7 @@
 import PyCEGUI
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 #from weapon import Weapon
 
 
@@ -86,68 +86,68 @@ class GUIHUD:
 																"hotkeys", hotkey_name))) + "]"
 		else:
 			return ""
-		
+
+	@LogExceptionDecorator
 	def camp(self, args=None):
-		with LogException():
-			self.application.world.advanceTime(6 * 3600000)
+		self.application.world.advanceTime(6 * 3600000)
 
 	def selectAttack(self, attack):
 		self.selected_attack = attack
 		self.refresh()
 		
+	@LogExceptionDecorator
 	def changeWalkMode(self, args=None, mode=None):
-		with LogException():
-			if not self.application.current_character:
-				return
-			if mode:
-				self.walk_mode = mode
-			elif self.walk_mode == "walk":
-				self.walk_mode = "run"
-			elif self.walk_mode == "run":
-				self.walk_mode = "sneak"
-			else:
-				self.walk_mode = "walk"
-			self.refresh()
-			self.application.current_character.visual.idle()
+		if not self.application.current_character:
+			return
+		if mode:
+			self.walk_mode = mode
+		elif self.walk_mode == "walk":
+			self.walk_mode = "run"
+		elif self.walk_mode == "run":
+			self.walk_mode = "sneak"
+		else:
+			self.walk_mode = "walk"
+		self.refresh()
+		self.application.current_character.visual.idle()
 	
+	@LogExceptionDecorator
 	def clickedItem(self, args):
-		with LogException():
-			if args.button != PyCEGUI.RightButton:
-				return
-			if not self.application.combat:
-				return
-			item = self.application.current_character.inventory.hands
-			self.gui.popup_menu.show(args.position.d_x, args.position.d_y)
-			for attack in self.application.combat.available_attacks:
-				self.gui.popup_menu.addMenuItem(attack,
-									lambda args, attack=attack: self.selectAttack(attack))
-			if not item:
-				return
-			#if not isinstance(item[0], Weapon):
-			if item[0].weapon_data is None:
-				return
-			#self.gui.popup_menu.addMenuItem("Examine",
-			#				lambda args: self.gui.weapon_info.show(item[0]))
-			ammo_in_menu = []
-			if len(item[0].weapon_data.magazine) < item[0].weapon_data.magazine_size:
-				for ammo_stack in self.application.current_character.inventory.findAmmoCalibre(
-									item[0].weapon_data.calibre):
-					if ammo_stack[0].name in ammo_in_menu:
-						continue
-					self.gui.popup_menu.addMenuItem("Load " + ammo_stack[0].name,
-								lambda args, ammo_stack=ammo_stack:
-								self.gui.inventory.loadAmmo(item[0], ammo_stack))
-					amount = min(item[0].weapon_data.magazine_size-len(
-								item[0].weapon_data.magazine),len(ammo_stack),3)
-					if len(ammo_stack) > 1 and amount > 1 and not self.application.combat.moved:
-						self.gui.popup_menu.addMenuItem(
-								"Load "+str(amount)+u"×"+ammo_stack[0].name,
-								lambda args, ammo_stack=ammo_stack, amount=amount:
-								self.gui.inventory.loadAmmo(item[0], ammo_stack, amount))
-					ammo_in_menu.append(ammo_stack[0].name)
-			if len(item[0].weapon_data.magazine) > 0:
-				self.gui.popup_menu.addMenuItem("Unload",
-								lambda args: self.gui.inventory.unloadAmmo(item[0]))
+		if args.button != PyCEGUI.RightButton:
+			return
+		if not self.application.combat:
+			return
+		item = self.application.current_character.inventory.hands
+		self.gui.popup_menu.show(args.position.d_x, args.position.d_y)
+		for attack in self.application.combat.available_attacks:
+			self.gui.popup_menu.addMenuItem(attack,
+								lambda args, attack=attack: self.selectAttack(attack))
+		if not item:
+			return
+		#if not isinstance(item[0], Weapon):
+		if item[0].weapon_data is None:
+			return
+		#self.gui.popup_menu.addMenuItem("Examine",
+		#				lambda args: self.gui.weapon_info.show(item[0]))
+		ammo_in_menu = []
+		if len(item[0].weapon_data.magazine) < item[0].weapon_data.magazine_size:
+			for ammo_stack in self.application.current_character.inventory.findAmmoCalibre(
+								item[0].weapon_data.calibre):
+				if ammo_stack[0].name in ammo_in_menu:
+					continue
+				self.gui.popup_menu.addMenuItem("Load " + ammo_stack[0].name,
+							lambda args, ammo_stack=ammo_stack:
+							self.gui.inventory.loadAmmo(item[0], ammo_stack))
+				amount = min(item[0].weapon_data.magazine_size-len(
+							item[0].weapon_data.magazine),len(ammo_stack),3)
+				if len(ammo_stack) > 1 and amount > 1 and not self.application.combat.moved:
+					self.gui.popup_menu.addMenuItem(
+							"Load "+str(amount)+u"×"+ammo_stack[0].name,
+							lambda args, ammo_stack=ammo_stack, amount=amount:
+							self.gui.inventory.loadAmmo(item[0], ammo_stack, amount))
+				ammo_in_menu.append(ammo_stack[0].name)
+		if len(item[0].weapon_data.magazine) > 0:
+			self.gui.popup_menu.addMenuItem("Unload",
+							lambda args: self.gui.inventory.unloadAmmo(item[0]))
 
 	def refresh(self):
 		if not self.application.current_character:
@@ -205,13 +205,12 @@ class GUIHUD:
 		self.window_combat.moveToFront()
 		self.refresh()
 		
+	@LogExceptionDecorator
 	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
-			self.window_combat.hide()
-			self.visible = False
+		self.window.hide()
+		self.window_combat.hide()
+		self.visible = False
 
+	@LogExceptionDecorator
 	def defend(self, args):
-		with LogException():
-			self.gui.application.combat.playerEndTurn()
-		
+		self.gui.application.combat.playerEndTurn()

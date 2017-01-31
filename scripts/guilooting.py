@@ -6,7 +6,7 @@ from __future__ import print_function
 import PyCEGUI
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 from rpginventory import RPGInventory
 #from weapon import Weapon
 #from ammo import Ammo
@@ -55,200 +55,200 @@ class GUILooting:
 			print("Item parent unknown!")
 			return
 
+	@LogExceptionDecorator
 	def dropItem(self, args):
 		"""
 		Handle drag&dropping items on an empty cell.
 		args.window -- the grid or frame (if not empty) the item is dropped on
 		args.dragDropItem -- the drag container that is being dropped
 		"""
-		with LogException():
-			# shortcuts
-			backpack = self.current_character.inventory.backpack
-			loot = self.current_loot.inventory.backpack
-			# move the RPG item in the character object
-			# determine the source stack
-			src_stack = self.findStack(args.dragDropItem)
-			# determine the destination stack
-			if args.window == self.backpack_grid:
-				item_area = args.dragDropItem.getUnclippedOuterRect().get()
-				drop_x = args.window.gridXFromPixel(item_area.left())
-				drop_y = args.window.gridYFromPixel(item_area.top())
-				dest_stack = backpack[drop_y][drop_x]
-				if not self.current_character.inventory.checkBackpackSpace(drop_x, drop_y,
-								src_stack[0].size_x, src_stack[0].size_y, ignore=src_stack):
-					# not enough space to move the item
-					return
-			elif args.window == self.loot_grid:
-				item_area = args.dragDropItem.getUnclippedOuterRect().get()
-				drop_x = args.window.gridXFromPixel(item_area.left())
-				drop_y = args.window.gridYFromPixel(item_area.top())
-				dest_stack = loot[drop_y][drop_x]
-				if not self.current_loot.inventory.checkBackpackSpace(drop_x, drop_y,
-								src_stack[0].size_x, src_stack[0].size_y, ignore=src_stack):
-					# not enough space to move the item
-					return
-			else:
-				print("Drag destination unknown!")
+		# shortcuts
+		backpack = self.current_character.inventory.backpack
+		loot = self.current_loot.inventory.backpack
+		# move the RPG item in the character object
+		# determine the source stack
+		src_stack = self.findStack(args.dragDropItem)
+		# determine the destination stack
+		if args.window == self.backpack_grid:
+			item_area = args.dragDropItem.getUnclippedOuterRect().get()
+			drop_x = args.window.gridXFromPixel(item_area.left())
+			drop_y = args.window.gridYFromPixel(item_area.top())
+			dest_stack = backpack[drop_y][drop_x]
+			if not self.current_character.inventory.checkBackpackSpace(drop_x, drop_y,
+							src_stack[0].size_x, src_stack[0].size_y, ignore=src_stack):
+				# not enough space to move the item
 				return
-			if src_stack is dest_stack:
-				# destination is source! nothing to do
+		elif args.window == self.loot_grid:
+			item_area = args.dragDropItem.getUnclippedOuterRect().get()
+			drop_x = args.window.gridXFromPixel(item_area.left())
+			drop_y = args.window.gridYFromPixel(item_area.top())
+			dest_stack = loot[drop_y][drop_x]
+			if not self.current_loot.inventory.checkBackpackSpace(drop_x, drop_y,
+							src_stack[0].size_x, src_stack[0].size_y, ignore=src_stack):
+				# not enough space to move the item
 				return
-			if dest_stack:
-				# destination not empty! modify the args and call self.swapItems() instead
-				args.window = args.window.getChildElementAtIdx(0)
-				self.swapItems(args)
-				return
-			if len(src_stack) > 1:
-				# moving a stack, ask how many items to move
-				self.gui.popup_spinner.askForValue(len(src_stack),
-							lambda amount: self.moveItems(src_stack, dest_stack, amount))
-				return
-			self.moveItems(src_stack, dest_stack, 1)
-			# refresh the GUI
-			self.refresh()
+		else:
+			print("Drag destination unknown!")
+			return
+		if src_stack is dest_stack:
+			# destination is source! nothing to do
+			return
+		if dest_stack:
+			# destination not empty! modify the args and call self.swapItems() instead
+			args.window = args.window.getChildElementAtIdx(0)
+			self.swapItems(args)
+			return
+		if len(src_stack) > 1:
+			# moving a stack, ask how many items to move
+			self.gui.popup_spinner.askForValue(len(src_stack),
+						lambda amount: self.moveItems(src_stack, dest_stack, amount))
+			return
+		self.moveItems(src_stack, dest_stack, 1)
+		# refresh the GUI
+		self.refresh()
 
+	@LogExceptionDecorator
 	def swapItems(self, args):
 		"""
 		Handle drag&dropping items on another item.
 		args.window -- the drag container the item is dropped on
 		args.dragDropItem -- the drag container that is being dropped
 		"""
-		with LogException():
-			# shortcuts
-			backpack = self.current_character.inventory.backpack
-			loot = self.current_loot.inventory.backpack
-			# swap the RPG items in the character object
-			# determine the source stack
-			if args.dragDropItem.getParent() == self.backpack_grid:
-				src_coords = map(int, args.dragDropItem.getName().split("-")[-2:])
-				src_stack = backpack[src_coords[0]][src_coords[1]]
-			elif args.dragDropItem.getParent() == self.loot_grid:
-				src_coords = map(int, args.dragDropItem.getName().split("-")[-2:])
-				src_stack = loot[src_coords[0]][src_coords[1]]
-			else:
-				print("Drag source unknown!")
+		# shortcuts
+		backpack = self.current_character.inventory.backpack
+		loot = self.current_loot.inventory.backpack
+		# swap the RPG items in the character object
+		# determine the source stack
+		if args.dragDropItem.getParent() == self.backpack_grid:
+			src_coords = map(int, args.dragDropItem.getName().split("-")[-2:])
+			src_stack = backpack[src_coords[0]][src_coords[1]]
+		elif args.dragDropItem.getParent() == self.loot_grid:
+			src_coords = map(int, args.dragDropItem.getName().split("-")[-2:])
+			src_stack = loot[src_coords[0]][src_coords[1]]
+		else:
+			print("Drag source unknown!")
+			return
+		# determine the destination stack
+		if args.window.getParent() == self.backpack_grid:
+			dest_coords = map(int, args.window.getName().split("-")[-2:])
+			dest_stack = backpack[dest_coords[0]][dest_coords[1]]
+			if not self.current_character.inventory.checkBackpackSpace(
+							dest_coords[1], dest_coords[0],
+							src_stack[0].size_x, src_stack[0].size_y, ignore=dest_stack):
+				# not enough space to move the item
 				return
-			# determine the destination stack
-			if args.window.getParent() == self.backpack_grid:
-				dest_coords = map(int, args.window.getName().split("-")[-2:])
-				dest_stack = backpack[dest_coords[0]][dest_coords[1]]
-				if not self.current_character.inventory.checkBackpackSpace(
-								dest_coords[1], dest_coords[0],
-								src_stack[0].size_x, src_stack[0].size_y, ignore=dest_stack):
-					# not enough space to move the item
-					return
-			elif args.window.getParent() == self.loot_grid:
-				dest_coords = map(int, args.window.getName().split("-")[-2:])
-				dest_stack = loot[dest_coords[0]][dest_coords[1]]
-				if not self.current_loot.inventory.checkBackpackSpace(
-								dest_coords[1], dest_coords[0],
-								src_stack[0].size_x, src_stack[0].size_y, ignore=dest_stack):
-					# not enough space to move the item
-					return
-			else:
-				print("Drag destination unknown!")
+		elif args.window.getParent() == self.loot_grid:
+			dest_coords = map(int, args.window.getName().split("-")[-2:])
+			dest_stack = loot[dest_coords[0]][dest_coords[1]]
+			if not self.current_loot.inventory.checkBackpackSpace(
+							dest_coords[1], dest_coords[0],
+							src_stack[0].size_x, src_stack[0].size_y, ignore=dest_stack):
+				# not enough space to move the item
 				return
-			# check if the dest item can be swapped back
-			if args.dragDropItem.getParent() == self.backpack_grid:
-				if not self.current_character.inventory.checkBackpackSpace(
-								src_coords[1], src_coords[0],
-								dest_stack[0].size_x, dest_stack[0].size_y, ignore=src_stack):
-					return
-			elif args.dragDropItem.getParent() == self.loot_grid:
-				if not self.current_loot.inventory.checkBackpackSpace(src_coords[1], src_coords[0],
-								dest_stack[0].size_x, dest_stack[0].size_y, ignore=src_stack):
-					return
-			#if isinstance(src_stack[0], Ammo) and isinstance(dest_stack[0], Weapon):
-			if src_stack[0].ammo_data and dest_stack[0].weapon_data:
-				if (src_stack[0].weapon_data.ammo_calibre == dest_stack[0].weapon_data.calibre
-							) and (
-							len(dest_stack[0].weapon_data.magazine)
-							< dest_stack[0].weapon_data.magazine_size):
-					# don't swap, load ammo in the gun instead
-					if (len(src_stack) == 1) or (
-								(dest_stack[0].weapon_data.magazine_size
-								- len(dest_stack[0].weapon_data.magazine)) == 1):
-						# only one bullet can be loaded
-						self.loadAmmo(dest_stack[0], src_stack)
-					else:
-						# multiple bullets can be loaded, ask how many
-						self.gui.popup_spinner.askForValue(
-								min(len(src_stack),
-									dest_stack[0].weapon_data.magazine_size
-									- len(dest_stack[0].weapon_data.magazine)),
-								lambda amount: self.loadAmmo(dest_stack[0], src_stack, amount))
-					return
-			if (src_stack[0].name == dest_stack[0].name) and (
-								dest_stack[0].max_stack > len(dest_stack)):
-				# moving on top of the same item type and there's free space,
-				# stack instead of swapping
-				if (len(src_stack) == 1) or ((dest_stack[0].max_stack - len(dest_stack)) == 1):
-					# only one item can be moved
-					self.moveItems(src_stack, dest_stack, 1)
+		else:
+			print("Drag destination unknown!")
+			return
+		# check if the dest item can be swapped back
+		if args.dragDropItem.getParent() == self.backpack_grid:
+			if not self.current_character.inventory.checkBackpackSpace(
+							src_coords[1], src_coords[0],
+							dest_stack[0].size_x, dest_stack[0].size_y, ignore=src_stack):
+				return
+		elif args.dragDropItem.getParent() == self.loot_grid:
+			if not self.current_loot.inventory.checkBackpackSpace(src_coords[1], src_coords[0],
+							dest_stack[0].size_x, dest_stack[0].size_y, ignore=src_stack):
+				return
+		#if isinstance(src_stack[0], Ammo) and isinstance(dest_stack[0], Weapon):
+		if src_stack[0].ammo_data and dest_stack[0].weapon_data:
+			if (src_stack[0].weapon_data.ammo_calibre == dest_stack[0].weapon_data.calibre
+						) and (
+						len(dest_stack[0].weapon_data.magazine)
+						< dest_stack[0].weapon_data.magazine_size):
+				# don't swap, load ammo in the gun instead
+				if (len(src_stack) == 1) or (
+							(dest_stack[0].weapon_data.magazine_size
+							- len(dest_stack[0].weapon_data.magazine)) == 1):
+					# only one bullet can be loaded
+					self.loadAmmo(dest_stack[0], src_stack)
 				else:
-					# multiple items can be moved, ask how many
+					# multiple bullets can be loaded, ask how many
 					self.gui.popup_spinner.askForValue(
-							min(len(src_stack), dest_stack[0].max_stack - len(dest_stack)),
-							lambda amount: self.moveItems(src_stack, dest_stack, amount))
+							min(len(src_stack),
+								dest_stack[0].weapon_data.magazine_size
+								- len(dest_stack[0].weapon_data.magazine)),
+							lambda amount: self.loadAmmo(dest_stack[0], src_stack, amount))
 				return
-			# all checks passed, let's swap
-			src_stack[:], dest_stack[:] = dest_stack[:], src_stack[:]
-			# refresh the GUI
-			self.refresh()
+		if (src_stack[0].name == dest_stack[0].name) and (
+							dest_stack[0].max_stack > len(dest_stack)):
+			# moving on top of the same item type and there's free space,
+			# stack instead of swapping
+			if (len(src_stack) == 1) or ((dest_stack[0].max_stack - len(dest_stack)) == 1):
+				# only one item can be moved
+				self.moveItems(src_stack, dest_stack, 1)
+			else:
+				# multiple items can be moved, ask how many
+				self.gui.popup_spinner.askForValue(
+						min(len(src_stack), dest_stack[0].max_stack - len(dest_stack)),
+						lambda amount: self.moveItems(src_stack, dest_stack, amount))
+			return
+		# all checks passed, let's swap
+		src_stack[:], dest_stack[:] = dest_stack[:], src_stack[:]
+		# refresh the GUI
+		self.refresh()
 			
+	@LogExceptionDecorator
 	def takeAll(self, args=None):
-		with LogException():
-			for i in xrange(self.current_loot.inventory.vert_grid_size):
-				for j in xrange(self.current_loot.inventory.horz_grid_size):
-					while self.current_loot.inventory.backpack[i][j]:
-						if self.current_character.inventory.addItem(
-												self.current_loot.inventory.backpack[i][j][0]):
-							self.current_loot.inventory.backpack[i][j].pop(0)
-						else:
-							break
-			#self.show(self.current_character, self.current_loot)
-			self.refresh()
+		for i in xrange(self.current_loot.inventory.vert_grid_size):
+			for j in xrange(self.current_loot.inventory.horz_grid_size):
+				while self.current_loot.inventory.backpack[i][j]:
+					if self.current_character.inventory.addItem(
+											self.current_loot.inventory.backpack[i][j][0]):
+						self.current_loot.inventory.backpack[i][j].pop(0)
+					else:
+						break
+		#self.show(self.current_character, self.current_loot)
+		self.refresh()
 
+	@LogExceptionDecorator
 	def unloadAmmo(self, weapon):
-		with LogException():
-			while len(weapon.weapon_data.magazine) > 0:
-				self.current_character.inventory.addItem(weapon.weapon_data.magazine.pop())
-			self.refresh()
+		while len(weapon.weapon_data.magazine) > 0:
+			self.current_character.inventory.addItem(weapon.weapon_data.magazine.pop())
+		self.refresh()
 
+	@LogExceptionDecorator
 	def loadAmmo(self, weapon, ammo_stack, amount=1):
-		with LogException():
-			for i in xrange(amount):
-				if len(weapon.weapon_data.magazine) < weapon.weapon_data.magazine_size:
-					weapon.weapon_data.magazine.append(ammo_stack.pop(0))
-			self.refresh()
-			if self.application.combat:
-				self.application.combat.playerEndTurn()
+		for i in xrange(amount):
+			if len(weapon.weapon_data.magazine) < weapon.weapon_data.magazine_size:
+				weapon.weapon_data.magazine.append(ammo_stack.pop(0))
+		self.refresh()
+		if self.application.combat:
+			self.application.combat.playerEndTurn()
 
+	@LogExceptionDecorator
 	def clickedItem(self, args):
-		with LogException():
-			if args.button == PyCEGUI.RightButton:
-				#coords = map(int, args.window.getName().split("-")[-2:])
-				#item = self.working_inventory.backpack[coords[0]][coords[1]][0]
-				stack = self.findStack(args.window)
-				#if isinstance(stack[0], Weapon):
-				if stack[0].weapon_data is not None:
-					#self.gui.weapon_info.show(item)
-					self.gui.popup_menu.show(args.position.d_x, args.position.d_y)
+		if args.button == PyCEGUI.RightButton:
+			#coords = map(int, args.window.getName().split("-")[-2:])
+			#item = self.working_inventory.backpack[coords[0]][coords[1]][0]
+			stack = self.findStack(args.window)
+			#if isinstance(stack[0], Weapon):
+			if stack[0].weapon_data is not None:
+				#self.gui.weapon_info.show(item)
+				self.gui.popup_menu.show(args.position.d_x, args.position.d_y)
+				self.gui.popup_menu.addMenuItem(
+							"Examine", lambda args: self.gui.weapon_info.show(stack[0]))
+				ammo_in_menu = []
+				if len(stack[0].weapon_data.magazine) < stack[0].weapon_data.magazine_size:
+					for ammo_stack in self.working_inventory.findAmmoCalibre(
+											stack[0].weapon_data.calibre):
+						if ammo_stack[0].name not in ammo_in_menu:
+							self.gui.popup_menu.addMenuItem(
+									"Load " + ammo_stack[0].name,
+									lambda args, ammo_stack=ammo_stack: self.loadAmmo(
+																		stack[0], ammo_stack))
+						ammo_in_menu.append(ammo_stack[0].name)
+				if len(stack[0].weapon_data.magazine) > 0:
 					self.gui.popup_menu.addMenuItem(
-								"Examine", lambda args: self.gui.weapon_info.show(stack[0]))
-					ammo_in_menu = []
-					if len(stack[0].weapon_data.magazine) < stack[0].weapon_data.magazine_size:
-						for ammo_stack in self.working_inventory.findAmmoCalibre(
-												stack[0].weapon_data.calibre):
-							if ammo_stack[0].name not in ammo_in_menu:
-								self.gui.popup_menu.addMenuItem(
-										"Load " + ammo_stack[0].name,
-										lambda args, ammo_stack=ammo_stack: self.loadAmmo(
-																			stack[0], ammo_stack))
-							ammo_in_menu.append(ammo_stack[0].name)
-					if len(stack[0].weapon_data.magazine) > 0:
-						self.gui.popup_menu.addMenuItem(
-										"Unload", lambda args: self.unloadAmmo(item))
+									"Unload", lambda args: self.unloadAmmo(item))
 
 	def show(self, character, loot):
 		self.window.show()
@@ -342,7 +342,6 @@ class GUILooting:
 			# no image, using default
 			new_item.setProperty("Image", "TaharezLook/CloseButtonHover")
 
+	@LogExceptionDecorator
 	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
-			
+		self.window.hide()

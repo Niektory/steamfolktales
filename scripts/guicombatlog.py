@@ -3,12 +3,12 @@
 
 import PyCEGUI
 
-from error import LogException
+from error import LogExceptionDecorator
 
 
+@LogExceptionDecorator
 def propagateMouseWheel(args):
-	with LogException():
-		args.window.getParent().fireEvent(PyCEGUI.Window.EventMouseWheel, args)
+	args.window.getParent().fireEvent(PyCEGUI.Window.EventMouseWheel, args)
 
 
 class GUICombatLog:
@@ -89,4 +89,3 @@ class GUICombatLog:
 		new_link.subscribeEvent(PyCEGUI.Window.EventMouseWheel, propagateMouseWheel)
 		self.links.append(new_link)
 		return "[window='Link-{}={}']".format(len(self.links), address)
-

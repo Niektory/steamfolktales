@@ -4,7 +4,7 @@
 import PyCEGUI
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 from campaign.journal import questLog
 
 
@@ -16,21 +16,21 @@ class GUIJournal:
 		self.close_button = self.window.getChild("CloseButton")
 		self.close_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.hide)
 
+	@LogExceptionDecorator
 	def show(self, args=None):
-		with LogException():
-			self.window.show()
-			self.window.moveToFront()
-			self.quest_log.setText(questLog(self.application.world))
-			self.application.playSound("SFT-QUESTLOG-OPEN")
+		self.window.show()
+		self.window.moveToFront()
+		self.quest_log.setText(questLog(self.application.world))
+		self.application.playSound("SFT-QUESTLOG-OPEN")
 
+	@LogExceptionDecorator
 	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
-			self.application.playSound("SFT-QUESTLOG-CLOSE")
+		self.window.hide()
+		self.application.playSound("SFT-QUESTLOG-CLOSE")
 				
+	@LogExceptionDecorator
 	def toggle(self, args=None):
-		with LogException():
-			if self.window.isVisible():
-				self.hide()
-			else:
-				self.show()
+		if self.window.isVisible():
+			self.hide()
+		else:
+			self.show()

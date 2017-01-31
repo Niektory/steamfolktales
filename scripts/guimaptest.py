@@ -6,7 +6,7 @@ from os import listdir
 #from traceback import print_exc
 from fife import fife
 
-from error import LogException
+from error import LogExceptionDecorator
 
 
 #def closeWindow(args):
@@ -30,46 +30,46 @@ class GUIMapTest:
 		self.y_edit = self.window.getChild("YEdit")
 		self.ignore_selecting = False
 
+	@LogExceptionDecorator
 	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
+		self.window.hide()
 
+	@LogExceptionDecorator
 	def show(self, args=None):
-		with LogException():
-			self.file_list.resetList()
-			self.file_items = []
-			for file_name in listdir("maps"):
-				if file_name.endswith(".xml"):
-					self.addMapToList(file_name[:-4])
-			self.window.show()
-			self.window.moveToFront()
+		self.file_list.resetList()
+		self.file_items = []
+		for file_name in listdir("maps"):
+			if file_name.endswith(".xml"):
+				self.addMapToList(file_name[:-4])
+		self.window.show()
+		self.window.moveToFront()
 
+	@LogExceptionDecorator
 	def load(self, args):
-		with LogException():
+		item = self.file_list.getFirstSelectedItem()
+		if item:
+			self.application.prepareLoadMapTest(item.getText(), fife.ModelCoordinate(
+						int(self.x_edit.getText()), int(self.y_edit.getText()), 0),
+						self.sprite_edit.getText())
+
+	@LogExceptionDecorator
+	def selectItem(self, args):
+		self.ignore_selecting = True
+		item = self.file_list.findItemWithText(self.name_edit.getText(), None)
+		if item:
+			self.file_list.setItemSelectState(item, True)
+		elif self.file_list.getFirstSelectedItem():
+			self.file_list.clearAllSelections()
+		self.ignore_selecting = False
+
+	@LogExceptionDecorator
+	def fillEditBox(self, args):
+		if not self.ignore_selecting:
 			item = self.file_list.getFirstSelectedItem()
 			if item:
-				self.application.prepareLoadMapTest(item.getText(), fife.ModelCoordinate(
-							int(self.x_edit.getText()), int(self.y_edit.getText()), 0),
-							self.sprite_edit.getText())
-
-	def selectItem(self, args):
-		with LogException():
-			self.ignore_selecting = True
-			item = self.file_list.findItemWithText(self.name_edit.getText(), None)
-			if item:
-				self.file_list.setItemSelectState(item, True)
-			elif self.file_list.getFirstSelectedItem():
-				self.file_list.clearAllSelections()
-			self.ignore_selecting = False
-
-	def fillEditBox(self, args):
-		with LogException():
-			if not self.ignore_selecting:
-				item = self.file_list.getFirstSelectedItem()
-				if item:
-					self.name_edit.setText(item.getText())
-				else:
-					self.name_edit.setText("")
+				self.name_edit.setText(item.getText())
+			else:
+				self.name_edit.setText("")
 
 	def addMapToList(self, save_name):
 		self.file_items.append(PyCEGUI.ListboxTextItem(save_name))
@@ -79,4 +79,3 @@ class GUIMapTest:
 		self.file_items[-1].setSelectionColours(PyCEGUI.Colour(0.33, 0.295, 0.244))
 		self.file_items[-1].setTextColours(PyCEGUI.Colour(0.98, 0.886, 0.733))
 		self.file_list.addItem(self.file_items[-1])
-

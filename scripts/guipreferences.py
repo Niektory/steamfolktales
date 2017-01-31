@@ -7,7 +7,7 @@ import PyCEGUI
 from fife import fife
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 
 
 #def closeWindow(args):
@@ -113,104 +113,104 @@ class GUIPreferences:
 		self.cancel_button = self.window.getChild("CancelButton")
 		self.cancel_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.hide)
 
+	@LogExceptionDecorator
 	def savePreferences(self, args):
-		with LogException():
-			if self.enable_sound_checkbox.isSelected():
-				self.application.fifesoundmanager.setVolume(
-							self.volume_slider.getScrollPosition() / 10)
-			else:
-				self.application.fifesoundmanager.setVolume(0.0)
-			self.application.settings.set("gameplay", "TimeAcceleration",
-						int(self.time_acceleration_edit.getText()))
-			self.application.settings.set("gameplay", "WalkSpeed",
-						float(self.walk_speed_edit.getText()))
-			self.application.settings.set("gameplay", "RunSpeed",
-						float(self.run_speed_edit.getText()))
-			self.application.settings.set("gameplay", "PreloadSprites",
-						self.preload_sprites_checkbox.isSelected())
+		if self.enable_sound_checkbox.isSelected():
+			self.application.fifesoundmanager.setVolume(
+						self.volume_slider.getScrollPosition() / 10)
+		else:
+			self.application.fifesoundmanager.setVolume(0.0)
+		self.application.settings.set("gameplay", "TimeAcceleration",
+					int(self.time_acceleration_edit.getText()))
+		self.application.settings.set("gameplay", "WalkSpeed",
+					float(self.walk_speed_edit.getText()))
+		self.application.settings.set("gameplay", "RunSpeed",
+					float(self.run_speed_edit.getText()))
+		self.application.settings.set("gameplay", "PreloadSprites",
+					self.preload_sprites_checkbox.isSelected())
 
-			if self.resolution_list.getFirstSelectedItem():
-				self.application.settings.set("FIFE", "ScreenResolution",
-						self.resolution_list.getFirstSelectedItem().getText())
-			self.application.settings.set("FIFE", "FullScreen",
-						self.fullscreen_checkbox.isSelected())
-			self.application.settings.set("FIFE", "PlaySounds",
-						self.enable_sound_checkbox.isSelected())
-			self.application.settings.set("FIFE", "InitialVolume",
-						self.volume_slider.getScrollPosition())
-			for label, edit in zip(self.hotkey_labels, self.hotkey_edits):
-				self.application.settings.set("hotkeys", label.getText(),
-						edit.getProperty("HiddenData"))
-			self.application.settings.saveSettings()
-			self.application.gui.hud.updateTooltips()
-			self.window.hide()
+		if self.resolution_list.getFirstSelectedItem():
+			self.application.settings.set("FIFE", "ScreenResolution",
+					self.resolution_list.getFirstSelectedItem().getText())
+		self.application.settings.set("FIFE", "FullScreen",
+					self.fullscreen_checkbox.isSelected())
+		self.application.settings.set("FIFE", "PlaySounds",
+					self.enable_sound_checkbox.isSelected())
+		self.application.settings.set("FIFE", "InitialVolume",
+					self.volume_slider.getScrollPosition())
+		for label, edit in zip(self.hotkey_labels, self.hotkey_edits):
+			self.application.settings.set("hotkeys", label.getText(),
+					edit.getProperty("HiddenData"))
+		self.application.settings.saveSettings()
+		self.application.gui.hud.updateTooltips()
+		self.window.hide()
 
+	@LogExceptionDecorator
 	def show(self, args=None):
-		with LogException():
-			settings = self.application.settings	# shortcut
+		settings = self.application.settings	# shortcut
 
-			# load gameplay settings
-			self.time_acceleration_edit.setText(
-						str(settings.get("gameplay", "TimeAcceleration", 1)))
-			self.walk_speed_edit.setText(
-						str(settings.get("gameplay", "WalkSpeed", 1.8)))
-			self.run_speed_edit.setText(str(settings.get("gameplay", "RunSpeed", 4.0)))
-			self.preload_sprites_checkbox.setSelected(
-						settings.get("gameplay", "PreloadSprites", True))
-			
-			# load video and audio settings
-			self.resolution_list.resetList()
-			self.resolution_items = []
-			for resolution in self.application.settings._resolutions:
-				self.resolution_items.append(PyCEGUI.ListboxTextItem(resolution))
-				self.resolution_items[-1].setAutoDeleted(False)
-				self.resolution_items[-1].setSelectionBrushImage(
-														"TaharezLook/MultiListSelectionBrush")
-				self.resolution_items[-1].setSelectionColours(PyCEGUI.Colour(0.33, 0.295, 0.244))
-				self.resolution_items[-1].setTextColours(PyCEGUI.Colour(0.98, 0.886, 0.733))
-				self.resolution_list.addItem(self.resolution_items[-1])
-				if resolution == settings.get("FIFE", "ScreenResolution", "1024x768"):
-					self.resolution_list.setItemSelectState(self.resolution_items[-1], True)
-			self.fullscreen_checkbox.setSelected(settings.get("FIFE", "FullScreen", False))
-			self.enable_sound_checkbox.setSelected(settings.get("FIFE", "PlaySounds", True))
-			self.volume_slider.setScrollPosition(settings.get("FIFE", "InitialVolume", 10.0))
+		# load gameplay settings
+		self.time_acceleration_edit.setText(
+					str(settings.get("gameplay", "TimeAcceleration", 1)))
+		self.walk_speed_edit.setText(
+					str(settings.get("gameplay", "WalkSpeed", 1.8)))
+		self.run_speed_edit.setText(str(settings.get("gameplay", "RunSpeed", 4.0)))
+		self.preload_sprites_checkbox.setSelected(
+					settings.get("gameplay", "PreloadSprites", True))
+		
+		# load video and audio settings
+		self.resolution_list.resetList()
+		self.resolution_items = []
+		for resolution in self.application.settings._resolutions:
+			self.resolution_items.append(PyCEGUI.ListboxTextItem(resolution))
+			self.resolution_items[-1].setAutoDeleted(False)
+			self.resolution_items[-1].setSelectionBrushImage(
+													"TaharezLook/MultiListSelectionBrush")
+			self.resolution_items[-1].setSelectionColours(PyCEGUI.Colour(0.33, 0.295, 0.244))
+			self.resolution_items[-1].setTextColours(PyCEGUI.Colour(0.98, 0.886, 0.733))
+			self.resolution_list.addItem(self.resolution_items[-1])
+			if resolution == settings.get("FIFE", "ScreenResolution", "1024x768"):
+				self.resolution_list.setItemSelectState(self.resolution_items[-1], True)
+		self.fullscreen_checkbox.setSelected(settings.get("FIFE", "FullScreen", False))
+		self.enable_sound_checkbox.setSelected(settings.get("FIFE", "PlaySounds", True))
+		self.volume_slider.setScrollPosition(settings.get("FIFE", "InitialVolume", 10.0))
 
-			# load hotkeys
-			for action in self.hotkey_actions:
-				if action[1] == "-":
-					# skip separator labels
-					continue
-				hotkey_edit = self.page_controls_scrollable.getChild("HotkeyEdit-" + action)
-				fife_key = settings.get("hotkeys", action)
-				try:
-					cegui_key = self.toCeguiKey(fife_key)
-				except KeyError:
-					hotkey_edit.setProperty("Text", "")
-					hotkey_edit.setProperty("HiddenData", "")
-				else:
-					hotkey_edit.setProperty("Text", str(cegui_key))
-					hotkey_edit.setProperty("HiddenData", str(fife_key))
-
-			self.window.show()
-			self.window.moveToFront()
-
-	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
-
-	def hotkeyPressed(self, args):
-		with LogException():
-			for edit in self.hotkey_edits:
-				if str(args.scancode) == edit.getText():
-					return True
-			if args.scancode in [PyCEGUI.Key.Escape, PyCEGUI.Key.F1]:
-				args.window.setText("")
-				args.window.setProperty("HiddenData", "")
+		# load hotkeys
+		for action in self.hotkey_actions:
+			if action[1] == "-":
+				# skip separator labels
+				continue
+			hotkey_edit = self.page_controls_scrollable.getChild("HotkeyEdit-" + action)
+			fife_key = settings.get("hotkeys", action)
+			try:
+				cegui_key = self.toCeguiKey(fife_key)
+			except KeyError:
+				hotkey_edit.setProperty("Text", "")
+				hotkey_edit.setProperty("HiddenData", "")
 			else:
-				args.window.setText(str(args.scancode))
-				args.window.setProperty("HiddenData", str(self.toFifeKey(args.scancode)))
-			args.window.deactivate()
-			return True
+				hotkey_edit.setProperty("Text", str(cegui_key))
+				hotkey_edit.setProperty("HiddenData", str(fife_key))
+
+		self.window.show()
+		self.window.moveToFront()
+
+	@LogExceptionDecorator
+	def hide(self, args=None):
+		self.window.hide()
+
+	@LogExceptionDecorator
+	def hotkeyPressed(self, args):
+		for edit in self.hotkey_edits:
+			if str(args.scancode) == edit.getText():
+				return True
+		if args.scancode in [PyCEGUI.Key.Escape, PyCEGUI.Key.F1]:
+			args.window.setText("")
+			args.window.setProperty("HiddenData", "")
+		else:
+			args.window.setText(str(args.scancode))
+			args.window.setProperty("HiddenData", str(self.toFifeKey(args.scancode)))
+		args.window.deactivate()
+		return True
 
 	def toFifeKey(self, key):
 		return self.r_keymap[key]

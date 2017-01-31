@@ -7,7 +7,7 @@ import PyCEGUI
 from fife import fife
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 from config.version import version
 from bubble import SayBubble
 from detectionbar import DetectionBar
@@ -127,16 +127,16 @@ class GUI:
 
 		print("* GUI loaded!")
 
+	@LogExceptionDecorator
 	def buttonSound(self, args):
-		with LogException():
-			#print args.window.getType(), args.window.getName()
-			if args.button != PyCEGUI.LeftButton:
-				return
-			if ((args.window.getType()
-						in ("TaharezLook/Button", "TaharezLook/ImageButton", "DragContainer",
-						"TaharezLook/Checkbox", "TaharezLook/TabButton"))
-						or args.window.getName().startswith("Response")):
-				self.application.playSound("SFT-INVENTORY-CLICK")
+		#print args.window.getType(), args.window.getName()
+		if args.button != PyCEGUI.LeftButton:
+			return
+		if ((args.window.getType()
+					in ("TaharezLook/Button", "TaharezLook/ImageButton", "DragContainer",
+					"TaharezLook/Checkbox", "TaharezLook/TabButton"))
+					or args.window.getName().startswith("Response")):
+			self.application.playSound("SFT-INVENTORY-CLICK")
 
 	def pump(self):
 		#self.timeline.update()

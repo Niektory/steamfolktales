@@ -5,7 +5,7 @@ import PyCEGUI
 from os import listdir
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 
 
 #def closeWindow(args):
@@ -37,70 +37,70 @@ class GUISaveLoad:
 	#	else:
 	#		self.save_button.hide()
 
+	@LogExceptionDecorator
 	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
+		self.window.hide()
 
+	@LogExceptionDecorator
 	def showSave(self, args=None):
-		with LogException():
-			self.file_list.resetList()
-			self.file_items = []
-			for file_name in listdir("saves"):
-				if file_name.endswith(".sav"):
-					self.addSaveToList(file_name[:-4])
-			self.selectItem()
-			self.window.show()
-			self.window.moveToFront()
-			self.save_button.show()
-			self.load_button.hide()
+		self.file_list.resetList()
+		self.file_items = []
+		for file_name in listdir("saves"):
+			if file_name.endswith(".sav"):
+				self.addSaveToList(file_name[:-4])
+		self.selectItem()
+		self.window.show()
+		self.window.moveToFront()
+		self.save_button.show()
+		self.load_button.hide()
 
+	@LogExceptionDecorator
 	def showLoad(self, args=None):
-		with LogException():
-			self.file_list.resetList()
-			self.file_items = []
-			for file_name in listdir("saves"):
-				if file_name.endswith(".sav"):
-					self.addSaveToList(file_name[:-4])
-			self.selectItem()
-			self.window.show()
-			self.window.moveToFront()
-			self.save_button.hide()
-			self.load_button.show()
+		self.file_list.resetList()
+		self.file_items = []
+		for file_name in listdir("saves"):
+			if file_name.endswith(".sav"):
+				self.addSaveToList(file_name[:-4])
+		self.selectItem()
+		self.window.show()
+		self.window.moveToFront()
+		self.save_button.hide()
+		self.load_button.show()
 
+	@LogExceptionDecorator
 	def save(self, args):
-		with LogException():
-			item = self.file_list.getFirstSelectedItem()
-			if item:
-				self.application.saveGame(item.getText())
-			elif (len(self.name_edit.getText()) > 0) and (self.name_edit.getText()[0] != " "):
-				self.application.saveGame(self.name_edit.getText())
-				#self.addSaveToList(self.name_edit.getText())
-			self.window.hide()
+		item = self.file_list.getFirstSelectedItem()
+		if item:
+			self.application.saveGame(item.getText())
+		elif (len(self.name_edit.getText()) > 0) and (self.name_edit.getText()[0] != " "):
+			self.application.saveGame(self.name_edit.getText())
+			#self.addSaveToList(self.name_edit.getText())
+		self.window.hide()
 
+	@LogExceptionDecorator
 	def load(self, args):
-		with LogException():
+		item = self.file_list.getFirstSelectedItem()
+		if item:
+			self.application.prepareLoadGame(item.getText())
+
+	@LogExceptionDecorator
+	def selectItem(self, args=None):
+		self.ignore_selecting = True
+		item = self.file_list.findItemWithText(self.name_edit.getText(), None)
+		if item:
+			self.file_list.setItemSelectState(item, True)
+		elif self.file_list.getFirstSelectedItem():
+			self.file_list.clearAllSelections()
+		self.ignore_selecting = False
+
+	@LogExceptionDecorator
+	def fillEditBox(self, args):
+		if not self.ignore_selecting:
 			item = self.file_list.getFirstSelectedItem()
 			if item:
-				self.application.prepareLoadGame(item.getText())
-
-	def selectItem(self, args=None):
-		with LogException():
-			self.ignore_selecting = True
-			item = self.file_list.findItemWithText(self.name_edit.getText(), None)
-			if item:
-				self.file_list.setItemSelectState(item, True)
-			elif self.file_list.getFirstSelectedItem():
-				self.file_list.clearAllSelections()
-			self.ignore_selecting = False
-
-	def fillEditBox(self, args):
-		with LogException():
-			if not self.ignore_selecting:
-				item = self.file_list.getFirstSelectedItem()
-				if item:
-					self.name_edit.setText(item.getText())
-				else:
-					self.name_edit.setText("")
+				self.name_edit.setText(item.getText())
+			else:
+				self.name_edit.setText("")
 
 	def addSaveToList(self, save_name):
 		self.file_items.append(PyCEGUI.ListboxTextItem(save_name))

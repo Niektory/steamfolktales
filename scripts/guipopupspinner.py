@@ -4,7 +4,7 @@
 import PyCEGUI
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 
 
 class GUIPopupSpinner:
@@ -19,9 +19,9 @@ class GUIPopupSpinner:
 		self.cancel_button = self.window.getChild("CancelButton")
 		self.cancel_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.hide)
 
+	@LogExceptionDecorator
 	def show(self, args=None):
-		with LogException():
-			self.window.show()
+		self.window.show()
 
 	def askForValue(self, max_value, callback):
 		self.max_value = max_value
@@ -37,29 +37,29 @@ class GUIPopupSpinner:
 		#new_attribute_edit.setReadOnly(True)
 		self.update()
 
+	@LogExceptionDecorator
 	def update(self, args=None):
-		with LogException():
-			if self.value_spinner.getMaximumValue() == self.value_spinner.getCurrentValue():
-				self.value_spinner.getChild("__auto_incbtn__").setEnabled(False)
-			else:
-				self.value_spinner.getChild("__auto_incbtn__").setEnabled(True)
-			if self.value_spinner.getMinimumValue() == self.value_spinner.getCurrentValue():
-				self.value_spinner.getChild("__auto_decbtn__").setEnabled(False)
-			else:
-				self.value_spinner.getChild("__auto_decbtn__").setEnabled(True)
+		if self.value_spinner.getMaximumValue() == self.value_spinner.getCurrentValue():
+			self.value_spinner.getChild("__auto_incbtn__").setEnabled(False)
+		else:
+			self.value_spinner.getChild("__auto_incbtn__").setEnabled(True)
+		if self.value_spinner.getMinimumValue() == self.value_spinner.getCurrentValue():
+			self.value_spinner.getChild("__auto_decbtn__").setEnabled(False)
+		else:
+			self.value_spinner.getChild("__auto_decbtn__").setEnabled(True)
 
+	@LogExceptionDecorator
 	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
+		self.window.hide()
 			
+	@LogExceptionDecorator
 	def toggle(self, args=None):
-		with LogException():
-			if self.window.isVisible():
-				self.hide()
-			else:
-				self.show()
+		if self.window.isVisible():
+			self.hide()
+		else:
+			self.show()
 
+	@LogExceptionDecorator
 	def acceptValue(self, args):
-		with LogException():
-			self.callback(int(self.value_spinner.getCurrentValue()))
-			self.window.hide()
+		self.callback(int(self.value_spinner.getCurrentValue()))
+		self.window.hide()

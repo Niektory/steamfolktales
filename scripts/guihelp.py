@@ -4,7 +4,7 @@
 import PyCEGUI
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 from config.version import version
 
 class GUIHelp:
@@ -35,34 +35,34 @@ class GUIHelp:
 		self.close_button = self.window.getChild("CloseButton")
 		self.close_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.hide)
 
+	@LogExceptionDecorator
 	def linkClicked(self, args):
-		with LogException():
-			address = args.window.getName()[args.window.getName().find("=")+1:]
-			self.text.setText(self.pages[address])
-			self.window.show()
-			self.window.moveToFront()
-			if self.current_address != address:
-				if self.current_address:
-					self.history_back.append(self.current_address)
-				self.current_address = address
-				self.history_forward = []
-			self.updateButtons()
+		address = args.window.getName()[args.window.getName().find("=")+1:]
+		self.text.setText(self.pages[address])
+		self.window.show()
+		self.window.moveToFront()
+		if self.current_address != address:
+			if self.current_address:
+				self.history_back.append(self.current_address)
+			self.current_address = address
+			self.history_forward = []
+		self.updateButtons()
 
+	@LogExceptionDecorator
 	def home(self, args=None):
-		with LogException():
-			self.text.setText(self.pages["home"])
-			self.window.show()
-			self.window.moveToFront()
-			if self.current_address != "home":
-				if self.current_address:
-					self.history_back.append(self.current_address)
-				self.current_address = "home"
-				self.history_forward = []
-			self.updateButtons()
+		self.text.setText(self.pages["home"])
+		self.window.show()
+		self.window.moveToFront()
+		if self.current_address != "home":
+			if self.current_address:
+				self.history_back.append(self.current_address)
+			self.current_address = "home"
+			self.history_forward = []
+		self.updateButtons()
 
+	@LogExceptionDecorator
 	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
+		self.window.hide()
 
 	def updateButtons(self):
 		if len(self.history_back) > 0:
@@ -74,25 +74,24 @@ class GUIHelp:
 		else:
 			self.forward_button.setEnabled(False)
 
+	@LogExceptionDecorator
 	def back(self, args):
-		with LogException():
-			if len(self.history_back) > 0:
-				self.history_forward.append(self.current_address)
-				self.current_address = self.history_back[-1]
-				self.history_back.remove(self.history_back[-1])
-				self.text.setText(self.pages[self.current_address])
-			self.updateButtons()
+		if len(self.history_back) > 0:
+			self.history_forward.append(self.current_address)
+			self.current_address = self.history_back[-1]
+			self.history_back.remove(self.history_back[-1])
+			self.text.setText(self.pages[self.current_address])
+		self.updateButtons()
 
+	@LogExceptionDecorator
 	def forward(self, args):
-		with LogException():
-			if len(self.history_forward) > 0:
-				self.history_back.append(self.current_address)
-				self.current_address = self.history_forward[-1]
-				self.history_forward.remove(self.history_forward[-1])
-				self.text.setText(self.pages[self.current_address])
-			self.updateButtons()
+		if len(self.history_forward) > 0:
+			self.history_back.append(self.current_address)
+			self.current_address = self.history_forward[-1]
+			self.history_forward.remove(self.history_forward[-1])
+			self.text.setText(self.pages[self.current_address])
+		self.updateButtons()
 
 	def createPage(self, content):
 		self.pages[str(len(self.pages) + 1)] = str(content)
 		return str(len(self.pages))
-

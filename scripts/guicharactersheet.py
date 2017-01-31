@@ -5,7 +5,7 @@ import PyCEGUI
 #from traceback import print_exc
 from copy import deepcopy
 
-from error import LogException
+from error import LogExceptionDecorator
 
 
 def calcSkillValue(value):
@@ -63,11 +63,11 @@ class GUICharacterSheet:
 		self.attribute_edits = []
 		self.skill_labels = []
 		self.skill_edits = []
-		
+
+	@LogExceptionDecorator
 	def show(self, args=None):
-		with LogException():
-			if self.application.current_character:
-				self.showCharacter(self.application.current_character)
+		if self.application.current_character:
+			self.showCharacter(self.application.current_character)
 
 	def showCharacter(self, character):
 		self.window.show()
@@ -203,89 +203,89 @@ class GUICharacterSheet:
 			if vert_pos >= 490:
 				vert_pos = 10
 				horz_pos += 250
-				
+
+	@LogExceptionDecorator
 	def update(self, args=None):
-		with LogException():
-			# calculate available character points and update the spinners
-			cur_total_value = 0
-			for attribute in self.attribute_edits:
-				cur_total_value += calcAttributeValue(int(attribute.getCurrentValue()))
-			for skill in self.skill_edits:
-				cur_total_value += calcSkillValue(int(skill.getCurrentValue()))
-			cur_cp_available = self.total_cp - cur_total_value
-			self.working_stats.character_points = cur_cp_available
-			self.cp_edit.setText(str(cur_cp_available))
-			for attribute in self.attribute_edits:
-				attribute.setMaximumValue(min(18,
-						calcMaxAttributeValue(cur_cp_available, int(attribute.getCurrentValue()))))
-				if attribute.getMaximumValue() == attribute.getCurrentValue():
-					attribute.getChild("__auto_incbtn__").setEnabled(False)
-				else:
-					attribute.getChild("__auto_incbtn__").setEnabled(True)
-				attribute.getChild("__auto_incbtn__").setTooltipText("Cost: "
-							+ str((int(attribute.getCurrentValue())-9)
-							*(int(attribute.getCurrentValue())-9))
-							+ " CP")
-				if attribute.getMinimumValue() == attribute.getCurrentValue():
-					attribute.getChild("__auto_decbtn__").setEnabled(False)
-				else:
-					attribute.getChild("__auto_decbtn__").setEnabled(True)
-			for skill in self.skill_edits:
-				skill.setMaximumValue(min(10,
-						calcMaxSkillValue(cur_cp_available, int(skill.getCurrentValue()))))
-				if skill.getMaximumValue() == skill.getCurrentValue():
-					skill.getChild("__auto_incbtn__").setEnabled(False)
-				else:
-					skill.getChild("__auto_incbtn__").setEnabled(True)
-				skill.getChild("__auto_incbtn__").setTooltipText("Cost: "
-							+ str(int(skill.getCurrentValue())+1)
-							+ " CP")
-				if skill.getMinimumValue() == skill.getCurrentValue():
-					skill.getChild("__auto_decbtn__").setEnabled(False)
-				else:
-					skill.getChild("__auto_decbtn__").setEnabled(True)
+		# calculate available character points and update the spinners
+		cur_total_value = 0
+		for attribute in self.attribute_edits:
+			cur_total_value += calcAttributeValue(int(attribute.getCurrentValue()))
+		for skill in self.skill_edits:
+			cur_total_value += calcSkillValue(int(skill.getCurrentValue()))
+		cur_cp_available = self.total_cp - cur_total_value
+		self.working_stats.character_points = cur_cp_available
+		self.cp_edit.setText(str(cur_cp_available))
+		for attribute in self.attribute_edits:
+			attribute.setMaximumValue(min(18,
+					calcMaxAttributeValue(cur_cp_available, int(attribute.getCurrentValue()))))
+			if attribute.getMaximumValue() == attribute.getCurrentValue():
+				attribute.getChild("__auto_incbtn__").setEnabled(False)
+			else:
+				attribute.getChild("__auto_incbtn__").setEnabled(True)
+			attribute.getChild("__auto_incbtn__").setTooltipText("Cost: "
+						+ str((int(attribute.getCurrentValue())-9)
+						*(int(attribute.getCurrentValue())-9))
+						+ " CP")
+			if attribute.getMinimumValue() == attribute.getCurrentValue():
+				attribute.getChild("__auto_decbtn__").setEnabled(False)
+			else:
+				attribute.getChild("__auto_decbtn__").setEnabled(True)
+		for skill in self.skill_edits:
+			skill.setMaximumValue(min(10,
+					calcMaxSkillValue(cur_cp_available, int(skill.getCurrentValue()))))
+			if skill.getMaximumValue() == skill.getCurrentValue():
+				skill.getChild("__auto_incbtn__").setEnabled(False)
+			else:
+				skill.getChild("__auto_incbtn__").setEnabled(True)
+			skill.getChild("__auto_incbtn__").setTooltipText("Cost: "
+						+ str(int(skill.getCurrentValue())+1)
+						+ " CP")
+			if skill.getMinimumValue() == skill.getCurrentValue():
+				skill.getChild("__auto_decbtn__").setEnabled(False)
+			else:
+				skill.getChild("__auto_decbtn__").setEnabled(True)
 
-			for i in xrange(len(self.attribute_edits)):
-				self.working_stats.attributes[self.attribute_labels[i].getText()] = (
-						int(self.attribute_edits[i].getCurrentValue()))
-			for i in xrange(len(self.skill_edits)):
-				self.working_stats.skills[self.skill_labels[i].getText()] = (
-						int(self.skill_edits[i].getCurrentValue()))
-			# display derived stats
-			if self.working_stats.max_stamina == self.current_character.rpg_stats.max_stamina:
-				self.stamina_edit.setText(str(self.working_stats.max_stamina))
-			else:
-				self.stamina_edit.setText(
-						"[colour='FF80FF00']" + str(self.working_stats.max_stamina))
-			if self.working_stats.movement == self.current_character.rpg_stats.movement:
-				self.movement_edit.setText(str(self.working_stats.movement))
-			else:
-				self.movement_edit.setText("[colour='FF80FF00']" + str(self.working_stats.movement))
-			if self.working_stats.initiative == self.current_character.rpg_stats.initiative:
-				self.initiative_edit.setText(str(self.working_stats.initiative))
-			else:
-				self.initiative_edit.setText(
-						"[colour='FF80FF00']" + str(self.working_stats.initiative))
-			if (self.working_stats.passive_defense_modifier
-						== self.current_character.rpg_stats.passive_defense_modifier):
-				self.pdm_edit.setText(str(self.working_stats.passive_defense_modifier))
-			else:
-				self.pdm_edit.setText(
-						"[colour='FF80FF00']" + str(self.working_stats.passive_defense_modifier))
+		for i in xrange(len(self.attribute_edits)):
+			self.working_stats.attributes[self.attribute_labels[i].getText()] = (
+					int(self.attribute_edits[i].getCurrentValue()))
+		for i in xrange(len(self.skill_edits)):
+			self.working_stats.skills[self.skill_labels[i].getText()] = (
+					int(self.skill_edits[i].getCurrentValue()))
+		# display derived stats
+		if self.working_stats.max_stamina == self.current_character.rpg_stats.max_stamina:
+			self.stamina_edit.setText(str(self.working_stats.max_stamina))
+		else:
+			self.stamina_edit.setText(
+					"[colour='FF80FF00']" + str(self.working_stats.max_stamina))
+		if self.working_stats.movement == self.current_character.rpg_stats.movement:
+			self.movement_edit.setText(str(self.working_stats.movement))
+		else:
+			self.movement_edit.setText("[colour='FF80FF00']" + str(self.working_stats.movement))
+		if self.working_stats.initiative == self.current_character.rpg_stats.initiative:
+			self.initiative_edit.setText(str(self.working_stats.initiative))
+		else:
+			self.initiative_edit.setText(
+					"[colour='FF80FF00']" + str(self.working_stats.initiative))
+		if (self.working_stats.passive_defense_modifier
+					== self.current_character.rpg_stats.passive_defense_modifier):
+			self.pdm_edit.setText(str(self.working_stats.passive_defense_modifier))
+		else:
+			self.pdm_edit.setText(
+					"[colour='FF80FF00']" + str(self.working_stats.passive_defense_modifier))
 
+	@LogExceptionDecorator
 	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
+		self.window.hide()
 			
+	@LogExceptionDecorator
 	def toggle(self, args=None):
-		with LogException():
-			if self.window.isVisible():
-				self.hide()
-			else:
-				self.show()
+		if self.window.isVisible():
+			self.hide()
+		else:
+			self.show()
 
+	@LogExceptionDecorator
 	def modifyCharacter(self, args):
-		with LogException():
-			#self.current_character.name = self.name_edit.getText()
-			self.current_character.rpg_stats = self.working_stats
-			self.window.hide()
+		#self.current_character.name = self.name_edit.getText()
+		self.current_character.rpg_stats = self.working_stats
+		self.window.hide()

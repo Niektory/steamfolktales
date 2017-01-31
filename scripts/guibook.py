@@ -4,12 +4,12 @@
 import PyCEGUI
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 
 
+@LogExceptionDecorator
 def closeWindow(args):
-	with LogException():
-		args.window.hide()
+	args.window.hide()
 
 class GUIBook:
 	def __init__(self):

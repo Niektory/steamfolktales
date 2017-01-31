@@ -6,7 +6,7 @@ from __future__ import print_function
 import PyCEGUI
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 from dialogue import DialogueState, DialogueResponse
 # DialogueNode, DialogueCheck, DialogueResponse, loadDialogue
 
@@ -230,22 +230,22 @@ class GUIDialogue:
 		"""
 
 	# simplify?
+	@LogExceptionDecorator
 	def pickResponse(self, args):
-		with LogException():
-			picked_response = self.current_responses[int(
-					args.window.getName()[args.window.getName().find("-")+1:])-1]
-			if picked_response.text:
-				if self.dialogue_state.pc:
-					self.printLine(self.dialogue_state.pc.name, picked_response.text)
-				else:
-					self.printLine("", picked_response.text)
-			self.dialogue_state.pickResponse(picked_response)
-			self.enterNode()
-			#if picked_response.goto is not None:
-			#	self.current_node = self.current_dialogue.nodes[picked_response.goto]
-			#	self.enterNode()
-			#else:
-			#	self.hide()
+		picked_response = self.current_responses[int(
+				args.window.getName()[args.window.getName().find("-")+1:])-1]
+		if picked_response.text:
+			if self.dialogue_state.pc:
+				self.printLine(self.dialogue_state.pc.name, picked_response.text)
+			else:
+				self.printLine("", picked_response.text)
+		self.dialogue_state.pickResponse(picked_response)
+		self.enterNode()
+		#if picked_response.goto is not None:
+		#	self.current_node = self.current_dialogue.nodes[picked_response.goto]
+		#	self.enterNode()
+		#else:
+		#	self.hide()
 
 	# simplify?
 	def pickResponseNumber(self, number):
@@ -269,18 +269,18 @@ class GUIDialogue:
 		#else:
 		#	self.hide()
 
+	@LogExceptionDecorator
 	def mouseEntersResponse(self, args):
-		with LogException():
-			if not args.window.isPropertyPresent("TextColours"):
-				print("WARNING: mouseEntersResponse: No property TextColours in", \
-					args.window.getName())
-				return
-			args.window.setProperty("TextColours", "FFFFFFFF")
+		if not args.window.isPropertyPresent("TextColours"):
+			print("WARNING: mouseEntersResponse: No property TextColours in", \
+				args.window.getName())
+			return
+		args.window.setProperty("TextColours", "FFFFFFFF")
 
+	@LogExceptionDecorator
 	def mouseLeavesResponse(self, args):
-		with LogException():
-			if not args.window.isPropertyPresent("TextColours"):
-				print("WARNING: mouseLeavesResponse: No property TextColours in", \
-					args.window.getName())
-				return
-			args.window.setProperty("TextColours", "FFFAE2BB")
+		if not args.window.isPropertyPresent("TextColours"):
+			print("WARNING: mouseLeavesResponse: No property TextColours in", \
+				args.window.getName())
+			return
+		args.window.setProperty("TextColours", "FFFAE2BB")

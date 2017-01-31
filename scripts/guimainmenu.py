@@ -4,7 +4,7 @@
 import PyCEGUI
 #from traceback import print_exc
 
-from error import LogException
+from error import LogExceptionDecorator
 
 
 def closeWindow(args):
@@ -41,17 +41,17 @@ class GUIMainMenu:
 		self.window.show()
 		self.window.moveToFront()
 
+	@LogExceptionDecorator
 	def newGame(self, args):
-		with LogException():
-			self.application.prepareNewGame()
+		self.application.prepareNewGame()
 
+	@LogExceptionDecorator
 	def quitGame(self, args):
-		with LogException():
-			self.application.quit()
+		self.application.quit()
 
+	@LogExceptionDecorator
 	def help(self, args):
-		with LogException():
-			self.gui.help.home()
+		self.gui.help.home()
 
 
 class GUIGameMenu:
@@ -74,27 +74,27 @@ class GUIGameMenu:
 		self.main_menu_button = self.window.getChild("MainMenuButton")
 		self.main_menu_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.mainMenu)
 
+	@LogExceptionDecorator
 	def show(self, args=None):
-		with LogException():
-			self.window.show()
-			self.window.moveToFront()
-			#self.application.pause()
+		self.window.show()
+		self.window.moveToFront()
+		#self.application.pause()
 		
+	@LogExceptionDecorator
 	def hide(self, args=None):
-		with LogException():
-			self.window.hide()
+		self.window.hide()
 			
+	@LogExceptionDecorator
 	def toggle(self, args=None):
-		with LogException():
-			if self.window.isVisible():
-				self.hide()
-			else:
-				self.show()
+		if self.window.isVisible():
+			self.hide()
+		else:
+			self.show()
 
+	@LogExceptionDecorator
 	def help(self, args):
-		with LogException():
-			self.gui.help.home()
-			self.window.hide()
+		self.gui.help.home()
+		self.window.hide()
 
 	#def saveLoad(self, args):
 	#	try:
@@ -104,22 +104,22 @@ class GUIGameMenu:
 	#		print_exc()
 	#		raise
 
+	@LogExceptionDecorator
 	def save(self, args):
-		with LogException():
-			self.gui.save_load.showSave()
-			self.window.hide()
+		self.gui.save_load.showSave()
+		self.window.hide()
 
+	@LogExceptionDecorator
 	def load(self, args):
-		with LogException():
-			self.gui.save_load.showLoad()
-			self.window.hide()
+		self.gui.save_load.showLoad()
+		self.window.hide()
 
+	@LogExceptionDecorator
 	def preferences(self, args):
-		with LogException():
-			self.gui.preferences.show()
-			self.window.hide()
+		self.gui.preferences.show()
+		self.window.hide()
 
+	@LogExceptionDecorator
 	def mainMenu(self, args):
-		with LogException():
-			self.application.unloadMap()
-			self.gui.showMainMenu()
+		self.application.unloadMap()
+		self.gui.showMainMenu()
