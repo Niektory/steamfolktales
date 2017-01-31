@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-# Copyright 2016 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 #from traceback import print_exc
 
@@ -16,4 +16,3 @@ if __name__ == '__main__':
 			settings_gui_xml="")
 		application = Application(settings)
 		application.run()
-		
