@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object id="Steamcar01" namespace="steamfolktales" blocking="1" static="1">
-	<image source="Steamcar01.png" direction="0" x_offset="25" y_offset="-44" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Steamcar01" namespace="steamfolktales" static="1">
+		<image direction="0" source="Steamcar01.png" x_offset="25" y_offset="-44" />
+	</object>
+</assets>

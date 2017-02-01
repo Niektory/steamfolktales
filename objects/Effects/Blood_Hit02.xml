@@ -1,13 +1,15 @@
-<?fife type="object"?>
-<object blocking="0" id="Blood_Hit02" namespace="effects" static="0">
-	<action id="0">
-		<animation atlas="Blood_Hit02.png" width="1" height="1" x_offset="0" y_offset="0">
-			<direction delay="67" dir="0" frames="1"/>
-		</animation>
-	</action>
-	<action id="idle">
-		<animation atlas="Blood_Hit02.png" width="50" height="50" x_offset="0" y_offset="-50">
-			<direction delay="50" dir="0" frames="5"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="Blood_Hit02" namespace="effects" static="0">
+		<action id="0">
+			<animation atlas="Blood_Hit02.png" height="1" width="1" x_offset="0" y_offset="0">
+				<direction delay="67" dir="0" frames="1" />
+			</animation>
+		</action>
+		<action id="idle">
+			<animation atlas="Blood_Hit02.png" height="50" width="50" x_offset="0" y_offset="-50">
+				<direction delay="50" dir="0" frames="5" />
+			</animation>
+		</action>
+	</object>
+</assets>

@@ -1,92 +1,94 @@
-<?fife type="object"?>
-<object blocking="1" id="Uncle_Garth" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Uncle_Garth_Idle.png" height="120" width="79" y_offset="-30">
-			<direction delay="120" dir="315" frames="14"/>
-			<direction delay="120" dir="0" frames="14"/>
-			<direction delay="120" dir="45" frames="14"/>
-			<direction delay="120" dir="90" frames="14"/>
-			<direction delay="120" dir="135" frames="14"/>
-			<direction delay="120" dir="160" frames="14"/>
-			<direction delay="120" dir="225" frames="14"/>
-			<direction delay="120" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="unarmed_attack">
-		<animation atlas="Uncle_Garth_Slap.png" height="119" width="86" y_offset="-30">
-			<direction delay="60" dir="315" frames="14" action="9"/>
-			<direction delay="60" dir="0" frames="14" action="9"/>
-			<direction delay="60" dir="45" frames="14" action="9"/>
-			<direction delay="60" dir="90" frames="14" action="9"/>
-			<direction delay="60" dir="135" frames="14" action="9"/>
-			<direction delay="60" dir="160" frames="14" action="9"/>
-			<direction delay="60" dir="225" frames="14" action="9"/>
-			<direction delay="60" dir="270" frames="14" action="9"/>
-		</animation>
-	</action>
-	<action id="unarmed_idle">
-		<animation atlas="Uncle_Garth_Idle.png" height="120" width="79" y_offset="-30">
-			<direction delay="120" dir="315" frames="14"/>
-			<direction delay="120" dir="0" frames="14"/>
-			<direction delay="120" dir="45" frames="14"/>
-			<direction delay="120" dir="90" frames="14"/>
-			<direction delay="120" dir="135" frames="14"/>
-			<direction delay="120" dir="160" frames="14"/>
-			<direction delay="120" dir="225" frames="14"/>
-			<direction delay="120" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="unarmed_walk">
-		<animation atlas="Uncle_Garth_Walk.png" width="86" height="119" y_offset="-33">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="die">
-		<animation atlas="Uncle_Garth_Die.png" height="150" width="181" y_offset="-13">
-			<direction delay="70" dir="315" frames="13"/>
-			<direction delay="70" dir="0" frames="13"/>
-			<direction delay="70" dir="45" frames="13"/>
-			<direction delay="70" dir="90" frames="13"/>
-			<direction delay="70" dir="135" frames="13"/>
-			<direction delay="70" dir="160" frames="13"/>
-			<direction delay="70" dir="225" frames="13"/>
-			<direction delay="70" dir="270" frames="13"/>
-		</animation>
-	</action>
-	<action id="dead">
-		<animation atlas="Uncle_Garth_Dead.png" height="150" width="179" y_offset="-13">
-			<direction delay="100000" dir="315" frames="1"/>
-			<direction delay="100000" dir="0" frames="1"/>
-			<direction delay="100000" dir="45" frames="1"/>
-			<direction delay="100000" dir="90" frames="1"/>
-			<direction delay="100000" dir="135" frames="1"/>
-			<direction delay="100000" dir="160" frames="1"/>
-			<direction delay="100000" dir="225" frames="1"/>
-			<direction delay="100000" dir="270" frames="1"/>
-		</animation>
-	</action>
-	<action id="walk">
-		<animation atlas="Uncle_Garth_Walk.png" width="86" height="119" y_offset="-33">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="sleep">
-		<animation atlas="Garth_Sleep.png" width="60" height="87" x_offset="-10" y_offset="-23">
-			<direction delay="100000" dir="270" frames="1"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Uncle_Garth" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Uncle_Garth_Idle.png" height="120" width="79" y_offset="-30">
+				<direction delay="120" dir="315" frames="14" />
+				<direction delay="120" dir="0" frames="14" />
+				<direction delay="120" dir="45" frames="14" />
+				<direction delay="120" dir="90" frames="14" />
+				<direction delay="120" dir="135" frames="14" />
+				<direction delay="120" dir="160" frames="14" />
+				<direction delay="120" dir="225" frames="14" />
+				<direction delay="120" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_attack">
+			<animation atlas="Uncle_Garth_Slap.png" height="119" width="86" y_offset="-30">
+				<direction action="9" delay="60" dir="315" frames="14" />
+				<direction action="9" delay="60" dir="0" frames="14" />
+				<direction action="9" delay="60" dir="45" frames="14" />
+				<direction action="9" delay="60" dir="90" frames="14" />
+				<direction action="9" delay="60" dir="135" frames="14" />
+				<direction action="9" delay="60" dir="160" frames="14" />
+				<direction action="9" delay="60" dir="225" frames="14" />
+				<direction action="9" delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_idle">
+			<animation atlas="Uncle_Garth_Idle.png" height="120" width="79" y_offset="-30">
+				<direction delay="120" dir="315" frames="14" />
+				<direction delay="120" dir="0" frames="14" />
+				<direction delay="120" dir="45" frames="14" />
+				<direction delay="120" dir="90" frames="14" />
+				<direction delay="120" dir="135" frames="14" />
+				<direction delay="120" dir="160" frames="14" />
+				<direction delay="120" dir="225" frames="14" />
+				<direction delay="120" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_walk">
+			<animation atlas="Uncle_Garth_Walk.png" height="119" width="86" y_offset="-33">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="die">
+			<animation atlas="Uncle_Garth_Die.png" height="150" width="181" y_offset="-13">
+				<direction delay="70" dir="315" frames="13" />
+				<direction delay="70" dir="0" frames="13" />
+				<direction delay="70" dir="45" frames="13" />
+				<direction delay="70" dir="90" frames="13" />
+				<direction delay="70" dir="135" frames="13" />
+				<direction delay="70" dir="160" frames="13" />
+				<direction delay="70" dir="225" frames="13" />
+				<direction delay="70" dir="270" frames="13" />
+			</animation>
+		</action>
+		<action id="dead">
+			<animation atlas="Uncle_Garth_Dead.png" height="150" width="179" y_offset="-13">
+				<direction delay="100000" dir="315" frames="1" />
+				<direction delay="100000" dir="0" frames="1" />
+				<direction delay="100000" dir="45" frames="1" />
+				<direction delay="100000" dir="90" frames="1" />
+				<direction delay="100000" dir="135" frames="1" />
+				<direction delay="100000" dir="160" frames="1" />
+				<direction delay="100000" dir="225" frames="1" />
+				<direction delay="100000" dir="270" frames="1" />
+			</animation>
+		</action>
+		<action id="walk">
+			<animation atlas="Uncle_Garth_Walk.png" height="119" width="86" y_offset="-33">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="sleep">
+			<animation atlas="Garth_Sleep.png" height="87" width="60" x_offset="-10" y_offset="-23">
+				<direction delay="100000" dir="270" frames="1" />
+			</animation>
+		</action>
+	</object>
+</assets>

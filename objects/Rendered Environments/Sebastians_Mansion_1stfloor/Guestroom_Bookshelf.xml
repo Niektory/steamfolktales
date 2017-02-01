@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object id="Guestroom_Bookshelf" namespace="steamfolktales" blocking="1" static="1">
-	<image source="Guestroom_Bookshelf.png" direction="0" x_offset="0" y_offset="0" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Guestroom_Bookshelf" namespace="steamfolktales" static="1">
+		<image direction="0" source="Guestroom_Bookshelf.png" x_offset="0" y_offset="0" />
+	</object>
+</assets>

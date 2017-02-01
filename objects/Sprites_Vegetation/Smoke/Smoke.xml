@@ -1,8 +1,10 @@
-<?fife type="object"?>
-<object blocking="0" cellstack_position="0" id="Smoke" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Smoke.png" height="180" width="90" x_offset="26" y_offset="-45">
-			<direction delay="250" dir="0" frames="5" />
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" cellstack_position="0" id="Smoke" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Smoke.png" height="180" width="90" x_offset="26" y_offset="-45">
+				<direction delay="250" dir="0" frames="5" />
+			</animation>
+		</action>
+	</object>
+</assets>

@@ -1,13 +1,15 @@
-<?fife type="object"?>
-<object blocking="1" cellstack_position="0" id="Bush01_animated" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Bush01_animated.png" height="256" width="256" x_offset="0" y_offset="0">
-			<direction delay="250" dir="0" frames="6" />
-		</animation>
-	</action>
-	<action id="still">
-		<animation atlas="Bush01_animated.png" height="256" width="256" x_offset="0" y_offset="0">
-			<direction delay="250" dir="0" frames="1" />
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" cellstack_position="0" id="Bush01_animated" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Bush01_animated.png" height="256" width="256" x_offset="0" y_offset="0">
+				<direction delay="250" dir="0" frames="6" />
+			</animation>
+		</action>
+		<action id="still">
+			<animation atlas="Bush01_animated.png" height="256" width="256" x_offset="0" y_offset="0">
+				<direction delay="250" dir="0" frames="1" />
+			</animation>
+		</action>
+	</object>
+</assets>

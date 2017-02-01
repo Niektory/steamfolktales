@@ -1,91 +1,93 @@
-<?fife type="object"?>
-<object id="Watermill01_block" namespace="steamfolktales" blocking="1" static="0">
-	<image source="../0.png" direction="0" x_offset="0" y_offset="0" />
-	<multipart>
-		<rotation rot="0">
-			<occupied_coord x="-2" y="-2" />
-			<occupied_coord x="-2" y="-1" />
-			<occupied_coord x="-2" y="0" />
-			<occupied_coord x="-2" y="1" />
-			<occupied_coord x="-2" y="2" />
-			<occupied_coord x="-2" y="3" />
-			<occupied_coord x="-1" y="-3" />
-			<occupied_coord x="-1" y="-2" />
-			<occupied_coord x="-1" y="-1" />
-			<occupied_coord x="-1" y="0" />
-			<occupied_coord x="-1" y="1" />
-			<occupied_coord x="-1" y="2" />
-			<occupied_coord x="-1" y="3" />
-			<occupied_coord x="0" y="-4" />
-			<occupied_coord x="0" y="-3" />
-			<occupied_coord x="0" y="-2" />
-			<occupied_coord x="0" y="-1" />
-			<occupied_coord x="0" y="1" />
-			<occupied_coord x="0" y="2" />
-			<occupied_coord x="0" y="3" />
-			<occupied_coord x="1" y="-5" />
-			<occupied_coord x="1" y="-4" />
-			<occupied_coord x="1" y="-3" />
-			<occupied_coord x="1" y="-2" />
-			<occupied_coord x="1" y="-1" />
-			<occupied_coord x="1" y="0" />
-			<occupied_coord x="1" y="1" />
-			<occupied_coord x="1" y="2" />
-			<occupied_coord x="1" y="3" />
-			<occupied_coord x="2" y="-5" />
-			<occupied_coord x="2" y="-4" />
-			<occupied_coord x="2" y="-3" />
-			<occupied_coord x="2" y="-2" />
-			<occupied_coord x="2" y="-1" />
-			<occupied_coord x="2" y="0" />
-			<occupied_coord x="2" y="1" />
-			<occupied_coord x="2" y="2" />
-			<occupied_coord x="2" y="3" />
-			<occupied_coord x="3" y="-5" />
-			<occupied_coord x="3" y="-4" />
-			<occupied_coord x="3" y="-3" />
-			<occupied_coord x="3" y="-2" />
-			<occupied_coord x="3" y="-1" />
-			<occupied_coord x="3" y="0" />
-			<occupied_coord x="3" y="1" />
-			<occupied_coord x="3" y="2" />
-			<occupied_coord x="3" y="3" />
-			<occupied_coord x="4" y="-5" />
-			<occupied_coord x="4" y="-4" />
-			<occupied_coord x="4" y="-3" />
-			<occupied_coord x="4" y="-2" />
-			<occupied_coord x="4" y="-1" />
-			<occupied_coord x="4" y="0" />
-			<occupied_coord x="4" y="1" />
-			<occupied_coord x="4" y="2" />
-			<occupied_coord x="4" y="3" />
-			<occupied_coord x="5" y="-5" />
-			<occupied_coord x="5" y="-4" />
-			<occupied_coord x="5" y="-3" />
-			<occupied_coord x="5" y="-2" />
-			<occupied_coord x="5" y="-1" />
-			<occupied_coord x="5" y="0" />
-			<occupied_coord x="5" y="1" />
-			<occupied_coord x="5" y="2" />
-			<occupied_coord x="5" y="3" />
-			<occupied_coord x="6" y="-5" />
-			<occupied_coord x="6" y="-4" />
-			<occupied_coord x="6" y="-3" />
-			<occupied_coord x="6" y="-2" />
-			<occupied_coord x="6" y="-1" />
-			<occupied_coord x="6" y="0" />
-			<occupied_coord x="6" y="1" />
-			<occupied_coord x="6" y="2" />
-			<occupied_coord x="6" y="3" />
-			<occupied_coord x="7" y="-5" />
-			<occupied_coord x="7" y="-4" />
-			<occupied_coord x="7" y="-3" />
-			<occupied_coord x="7" y="-2" />
-			<occupied_coord x="7" y="-1" />
-			<occupied_coord x="7" y="0" />
-			<occupied_coord x="7" y="1" />
-			<occupied_coord x="7" y="2" />
-			<occupied_coord x="7" y="3" />
-		</rotation>
-	</multipart>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Watermill01_block" namespace="steamfolktales" static="0">
+		<image direction="0" source="../0.png" x_offset="0" y_offset="0" />
+		<multipart>
+			<rotation rot="0">
+				<occupied_coord x="-2" y="-2" />
+				<occupied_coord x="-2" y="-1" />
+				<occupied_coord x="-2" y="0" />
+				<occupied_coord x="-2" y="1" />
+				<occupied_coord x="-2" y="2" />
+				<occupied_coord x="-2" y="3" />
+				<occupied_coord x="-1" y="-3" />
+				<occupied_coord x="-1" y="-2" />
+				<occupied_coord x="-1" y="-1" />
+				<occupied_coord x="-1" y="0" />
+				<occupied_coord x="-1" y="1" />
+				<occupied_coord x="-1" y="2" />
+				<occupied_coord x="-1" y="3" />
+				<occupied_coord x="0" y="-4" />
+				<occupied_coord x="0" y="-3" />
+				<occupied_coord x="0" y="-2" />
+				<occupied_coord x="0" y="-1" />
+				<occupied_coord x="0" y="1" />
+				<occupied_coord x="0" y="2" />
+				<occupied_coord x="0" y="3" />
+				<occupied_coord x="1" y="-5" />
+				<occupied_coord x="1" y="-4" />
+				<occupied_coord x="1" y="-3" />
+				<occupied_coord x="1" y="-2" />
+				<occupied_coord x="1" y="-1" />
+				<occupied_coord x="1" y="0" />
+				<occupied_coord x="1" y="1" />
+				<occupied_coord x="1" y="2" />
+				<occupied_coord x="1" y="3" />
+				<occupied_coord x="2" y="-5" />
+				<occupied_coord x="2" y="-4" />
+				<occupied_coord x="2" y="-3" />
+				<occupied_coord x="2" y="-2" />
+				<occupied_coord x="2" y="-1" />
+				<occupied_coord x="2" y="0" />
+				<occupied_coord x="2" y="1" />
+				<occupied_coord x="2" y="2" />
+				<occupied_coord x="2" y="3" />
+				<occupied_coord x="3" y="-5" />
+				<occupied_coord x="3" y="-4" />
+				<occupied_coord x="3" y="-3" />
+				<occupied_coord x="3" y="-2" />
+				<occupied_coord x="3" y="-1" />
+				<occupied_coord x="3" y="0" />
+				<occupied_coord x="3" y="1" />
+				<occupied_coord x="3" y="2" />
+				<occupied_coord x="3" y="3" />
+				<occupied_coord x="4" y="-5" />
+				<occupied_coord x="4" y="-4" />
+				<occupied_coord x="4" y="-3" />
+				<occupied_coord x="4" y="-2" />
+				<occupied_coord x="4" y="-1" />
+				<occupied_coord x="4" y="0" />
+				<occupied_coord x="4" y="1" />
+				<occupied_coord x="4" y="2" />
+				<occupied_coord x="4" y="3" />
+				<occupied_coord x="5" y="-5" />
+				<occupied_coord x="5" y="-4" />
+				<occupied_coord x="5" y="-3" />
+				<occupied_coord x="5" y="-2" />
+				<occupied_coord x="5" y="-1" />
+				<occupied_coord x="5" y="0" />
+				<occupied_coord x="5" y="1" />
+				<occupied_coord x="5" y="2" />
+				<occupied_coord x="5" y="3" />
+				<occupied_coord x="6" y="-5" />
+				<occupied_coord x="6" y="-4" />
+				<occupied_coord x="6" y="-3" />
+				<occupied_coord x="6" y="-2" />
+				<occupied_coord x="6" y="-1" />
+				<occupied_coord x="6" y="0" />
+				<occupied_coord x="6" y="1" />
+				<occupied_coord x="6" y="2" />
+				<occupied_coord x="6" y="3" />
+				<occupied_coord x="7" y="-5" />
+				<occupied_coord x="7" y="-4" />
+				<occupied_coord x="7" y="-3" />
+				<occupied_coord x="7" y="-2" />
+				<occupied_coord x="7" y="-1" />
+				<occupied_coord x="7" y="0" />
+				<occupied_coord x="7" y="1" />
+				<occupied_coord x="7" y="2" />
+				<occupied_coord x="7" y="3" />
+			</rotation>
+		</multipart>
+	</object>
+</assets>

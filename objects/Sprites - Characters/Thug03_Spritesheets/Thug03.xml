@@ -1,123 +1,125 @@
-<?fife type="object"?>
-<object blocking="1" cellstack_position="0" id="Thug03" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Thug03_Idle.png" height="118" width="67" y_offset="-30">
-			<direction delay="120" dir="315" frames="14" />
-			<direction delay="120" dir="0" frames="14" />
-			<direction delay="120" dir="45" frames="14" />
-			<direction delay="120" dir="90" frames="14" />
-			<direction delay="120" dir="135" frames="14" />
-			<direction delay="120" dir="160" frames="14" />
-			<direction delay="120" dir="225" frames="14" />
-			<direction delay="120" dir="270" frames="14" />
-		</animation>
-	</action>
-	<action id="unarmed_attack">
-		<animation atlas="Thug03_Combat_Attack.png" height="140" width="149" y_offset="-30">
-			<direction action="9" delay="60" dir="315" frames="14" />
-			<direction action="9" delay="60" dir="0" frames="14" />
-			<direction action="9" delay="60" dir="45" frames="14" />
-			<direction action="9" delay="60" dir="90" frames="14" />
-			<direction action="9" delay="60" dir="135" frames="14" />
-			<direction action="9" delay="60" dir="160" frames="14" />
-			<direction action="9" delay="60" dir="225" frames="14" />
-			<direction action="9" delay="60" dir="270" frames="14" />
-		</animation>
-	</action>
-	<action id="unarmed_idle">
-		<animation atlas="Thug03_Combat_Idle.png" height="117" width="75" y_offset="-30">
-			<direction delay="120" dir="315" frames="14" />
-			<direction delay="120" dir="0" frames="14" />
-			<direction delay="120" dir="45" frames="14" />
-			<direction delay="120" dir="90" frames="14" />
-			<direction delay="120" dir="135" frames="14" />
-			<direction delay="120" dir="160" frames="14" />
-			<direction delay="120" dir="225" frames="14" />
-			<direction delay="120" dir="270" frames="14" />
-		</animation>
-	</action>
-	<action id="unarmed_walk">
-		<animation atlas="Thug03_Combat_Walk.png" height="138" width="124" y_offset="-33">
-			<direction delay="60" dir="315" frames="14" />
-			<direction delay="60" dir="0" frames="14" />
-			<direction delay="60" dir="45" frames="14" />
-			<direction delay="60" dir="90" frames="14" />
-			<direction delay="60" dir="135" frames="14" />
-			<direction delay="60" dir="160" frames="14" />
-			<direction delay="60" dir="225" frames="14" />
-			<direction delay="60" dir="270" frames="14" />
-		</animation>
-	</action>
-	<action id="sword_attack">
-		<animation atlas="Thug03_Combat_Attack.png" height="140" width="149" y_offset="-30">
-			<direction action="9" delay="60" dir="315" frames="14" />
-			<direction action="9" delay="60" dir="0" frames="14" />
-			<direction action="9" delay="60" dir="45" frames="14" />
-			<direction action="9" delay="60" dir="90" frames="14" />
-			<direction action="9" delay="60" dir="135" frames="14" />
-			<direction action="9" delay="60" dir="160" frames="14" />
-			<direction action="9" delay="60" dir="225" frames="14" />
-			<direction action="9" delay="60" dir="270" frames="14" />
-		</animation>
-	</action>
-	<action id="sword_idle">
-		<animation atlas="Thug03_Combat_Idle.png" height="117" width="75" y_offset="-30">
-			<direction delay="120" dir="315" frames="14" />
-			<direction delay="120" dir="0" frames="14" />
-			<direction delay="120" dir="45" frames="14" />
-			<direction delay="120" dir="90" frames="14" />
-			<direction delay="120" dir="135" frames="14" />
-			<direction delay="120" dir="160" frames="14" />
-			<direction delay="120" dir="225" frames="14" />
-			<direction delay="120" dir="270" frames="14" />
-		</animation>
-	</action>
-	<action id="sword_walk">
-		<animation atlas="Thug03_Combat_Walk.png" height="138" width="124" y_offset="-33">
-			<direction delay="60" dir="315" frames="14" />
-			<direction delay="60" dir="0" frames="14" />
-			<direction delay="60" dir="45" frames="14" />
-			<direction delay="60" dir="90" frames="14" />
-			<direction delay="60" dir="135" frames="14" />
-			<direction delay="60" dir="160" frames="14" />
-			<direction delay="60" dir="225" frames="14" />
-			<direction delay="60" dir="270" frames="14" />
-		</animation>
-	</action>
-	<action id="die">
-		<animation atlas="Thug03_Die.png" height="163" width="216" y_offset="-13">
-			<direction delay="70" dir="315" frames="13" />
-			<direction delay="70" dir="0" frames="13" />
-			<direction delay="70" dir="45" frames="13" />
-			<direction delay="70" dir="90" frames="13" />
-			<direction delay="70" dir="135" frames="13" />
-			<direction delay="70" dir="160" frames="13" />
-			<direction delay="70" dir="225" frames="13" />
-			<direction delay="70" dir="270" frames="13" />
-		</animation>
-	</action>
-	<action id="dead">
-		<animation atlas="Thug03_Dead.png" height="163" width="216" y_offset="-13">
-			<direction delay="100000" dir="315" frames="1" />
-			<direction delay="100000" dir="0" frames="1" />
-			<direction delay="100000" dir="45" frames="1" />
-			<direction delay="100000" dir="90" frames="1" />
-			<direction delay="100000" dir="135" frames="1" />
-			<direction delay="100000" dir="160" frames="1" />
-			<direction delay="100000" dir="225" frames="1" />
-			<direction delay="100000" dir="270" frames="1" />
-		</animation>
-	</action>
-	<action id="walk">
-		<animation atlas="Thug03_Walk.png" height="120" width="82" y_offset="-33">
-			<direction delay="60" dir="315" frames="14" />
-			<direction delay="60" dir="0" frames="14" />
-			<direction delay="60" dir="45" frames="14" />
-			<direction delay="60" dir="90" frames="14" />
-			<direction delay="60" dir="135" frames="14" />
-			<direction delay="60" dir="160" frames="14" />
-			<direction delay="60" dir="225" frames="14" />
-			<direction delay="60" dir="270" frames="14" />
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" cellstack_position="0" id="Thug03" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Thug03_Idle.png" height="118" width="67" y_offset="-30">
+				<direction delay="120" dir="315" frames="14" />
+				<direction delay="120" dir="0" frames="14" />
+				<direction delay="120" dir="45" frames="14" />
+				<direction delay="120" dir="90" frames="14" />
+				<direction delay="120" dir="135" frames="14" />
+				<direction delay="120" dir="160" frames="14" />
+				<direction delay="120" dir="225" frames="14" />
+				<direction delay="120" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_attack">
+			<animation atlas="Thug03_Combat_Attack.png" height="140" width="149" y_offset="-30">
+				<direction action="9" delay="60" dir="315" frames="14" />
+				<direction action="9" delay="60" dir="0" frames="14" />
+				<direction action="9" delay="60" dir="45" frames="14" />
+				<direction action="9" delay="60" dir="90" frames="14" />
+				<direction action="9" delay="60" dir="135" frames="14" />
+				<direction action="9" delay="60" dir="160" frames="14" />
+				<direction action="9" delay="60" dir="225" frames="14" />
+				<direction action="9" delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_idle">
+			<animation atlas="Thug03_Combat_Idle.png" height="117" width="75" y_offset="-30">
+				<direction delay="120" dir="315" frames="14" />
+				<direction delay="120" dir="0" frames="14" />
+				<direction delay="120" dir="45" frames="14" />
+				<direction delay="120" dir="90" frames="14" />
+				<direction delay="120" dir="135" frames="14" />
+				<direction delay="120" dir="160" frames="14" />
+				<direction delay="120" dir="225" frames="14" />
+				<direction delay="120" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_walk">
+			<animation atlas="Thug03_Combat_Walk.png" height="138" width="124" y_offset="-33">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="sword_attack">
+			<animation atlas="Thug03_Combat_Attack.png" height="140" width="149" y_offset="-30">
+				<direction action="9" delay="60" dir="315" frames="14" />
+				<direction action="9" delay="60" dir="0" frames="14" />
+				<direction action="9" delay="60" dir="45" frames="14" />
+				<direction action="9" delay="60" dir="90" frames="14" />
+				<direction action="9" delay="60" dir="135" frames="14" />
+				<direction action="9" delay="60" dir="160" frames="14" />
+				<direction action="9" delay="60" dir="225" frames="14" />
+				<direction action="9" delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="sword_idle">
+			<animation atlas="Thug03_Combat_Idle.png" height="117" width="75" y_offset="-30">
+				<direction delay="120" dir="315" frames="14" />
+				<direction delay="120" dir="0" frames="14" />
+				<direction delay="120" dir="45" frames="14" />
+				<direction delay="120" dir="90" frames="14" />
+				<direction delay="120" dir="135" frames="14" />
+				<direction delay="120" dir="160" frames="14" />
+				<direction delay="120" dir="225" frames="14" />
+				<direction delay="120" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="sword_walk">
+			<animation atlas="Thug03_Combat_Walk.png" height="138" width="124" y_offset="-33">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="die">
+			<animation atlas="Thug03_Die.png" height="163" width="216" y_offset="-13">
+				<direction delay="70" dir="315" frames="13" />
+				<direction delay="70" dir="0" frames="13" />
+				<direction delay="70" dir="45" frames="13" />
+				<direction delay="70" dir="90" frames="13" />
+				<direction delay="70" dir="135" frames="13" />
+				<direction delay="70" dir="160" frames="13" />
+				<direction delay="70" dir="225" frames="13" />
+				<direction delay="70" dir="270" frames="13" />
+			</animation>
+		</action>
+		<action id="dead">
+			<animation atlas="Thug03_Dead.png" height="163" width="216" y_offset="-13">
+				<direction delay="100000" dir="315" frames="1" />
+				<direction delay="100000" dir="0" frames="1" />
+				<direction delay="100000" dir="45" frames="1" />
+				<direction delay="100000" dir="90" frames="1" />
+				<direction delay="100000" dir="135" frames="1" />
+				<direction delay="100000" dir="160" frames="1" />
+				<direction delay="100000" dir="225" frames="1" />
+				<direction delay="100000" dir="270" frames="1" />
+			</animation>
+		</action>
+		<action id="walk">
+			<animation atlas="Thug03_Walk.png" height="120" width="82" y_offset="-33">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+	</object>
+</assets>

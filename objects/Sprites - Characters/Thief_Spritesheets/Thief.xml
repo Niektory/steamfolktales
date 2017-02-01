@@ -1,87 +1,89 @@
-<?fife type="object"?>
-<object blocking="1" id="Thief" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Thief_Idle.png" height="127" width="80" y_offset="-42">
-			<direction delay="120" dir="315" frames="15"/>
-			<direction delay="120" dir="0" frames="15"/>
-			<direction delay="120" dir="45" frames="15"/>
-			<direction delay="120" dir="90" frames="15"/>
-			<direction delay="120" dir="135" frames="15"/>
-			<direction delay="120" dir="160" frames="15"/>
-			<direction delay="120" dir="225" frames="15"/>
-			<direction delay="120" dir="270" frames="15"/>
-		</animation>
-	</action>
-	<action id="dagger_attack">
-		<animation atlas="Thief_Attack.png" height="154" width="130" y_offset="-26">
-			<direction delay="60" dir="315" frames="15" action="8"/>
-			<direction delay="60" dir="0" frames="15" action="8"/>
-			<direction delay="60" dir="45" frames="15" action="8"/>
-			<direction delay="60" dir="90" frames="15" action="8"/>
-			<direction delay="60" dir="135" frames="15" action="8"/>
-			<direction delay="60" dir="160" frames="15" action="8"/>
-			<direction delay="60" dir="225" frames="15" action="8"/>
-			<direction delay="60" dir="270" frames="15" action="8"/>
-		</animation>
-	</action>
-	<action id="dagger_idle">
-		<animation atlas="Thief_Combat_Idle.png" height="170" width="170" y_offset="-44">
-			<direction delay="66" dir="315" frames="15"/>
-			<direction delay="66" dir="0" frames="15"/>
-			<direction delay="66" dir="45" frames="15"/>
-			<direction delay="66" dir="90" frames="15"/>
-			<direction delay="66" dir="135" frames="15"/>
-			<direction delay="66" dir="160" frames="15"/>
-			<direction delay="66" dir="225" frames="15"/>
-			<direction delay="66" dir="270" frames="15"/>
-		</animation>
-	</action>
-	<action id="dagger_walk">
-		<animation atlas="Thief_Combat_Walk.png" height="139" width="119" y_offset="-33">
-			<direction delay="30" dir="315" frames="15"/>
-			<direction delay="30" dir="0" frames="15"/>
-			<direction delay="30" dir="45" frames="15"/>
-			<direction delay="30" dir="90" frames="15"/>
-			<direction delay="30" dir="135" frames="15"/>
-			<direction delay="30" dir="160" frames="15"/>
-			<direction delay="30" dir="225" frames="15"/>
-			<direction delay="30" dir="270" frames="15"/>
-		</animation>
-	</action>
-	<action id="die">
-		<animation atlas="Thief_Die.png" height="256" width="256" y_offset="0">
-			<direction delay="70" dir="315" frames="15"/>
-			<direction delay="70" dir="0" frames="15"/>
-			<direction delay="70" dir="45" frames="15"/>
-			<direction delay="70" dir="90" frames="15"/>
-			<direction delay="70" dir="135" frames="15"/>
-			<direction delay="70" dir="160" frames="15"/>
-			<direction delay="70" dir="225" frames="15"/>
-			<direction delay="70" dir="270" frames="15"/>
-		</animation>
-	</action>
-	<action id="dead">
-		<animation atlas="Thief_Dead.png" height="256" width="256" y_offset="0">
-			<direction delay="100000" dir="315" frames="1"/>
-			<direction delay="100000" dir="0" frames="1"/>
-			<direction delay="100000" dir="45" frames="1"/>
-			<direction delay="100000" dir="90" frames="1"/>
-			<direction delay="100000" dir="135" frames="1"/>
-			<direction delay="100000" dir="160" frames="1"/>
-			<direction delay="100000" dir="225" frames="1"/>
-			<direction delay="100000" dir="270" frames="1"/>
-		</animation>
-	</action>
-	<action id="walk">
-		<animation atlas="Thief_Walk.png" height="135" width="95" y_offset="-33">
-			<direction delay="66" dir="315" frames="15"/>
-			<direction delay="66" dir="0" frames="15"/>
-			<direction delay="66" dir="45" frames="15"/>
-			<direction delay="66" dir="90" frames="15"/>
-			<direction delay="66" dir="135" frames="15"/>
-			<direction delay="66" dir="160" frames="15"/>
-			<direction delay="66" dir="225" frames="15"/>
-			<direction delay="66" dir="270" frames="15"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Thief" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Thief_Idle.png" height="127" width="80" y_offset="-42">
+				<direction delay="120" dir="315" frames="15" />
+				<direction delay="120" dir="0" frames="15" />
+				<direction delay="120" dir="45" frames="15" />
+				<direction delay="120" dir="90" frames="15" />
+				<direction delay="120" dir="135" frames="15" />
+				<direction delay="120" dir="160" frames="15" />
+				<direction delay="120" dir="225" frames="15" />
+				<direction delay="120" dir="270" frames="15" />
+			</animation>
+		</action>
+		<action id="dagger_attack">
+			<animation atlas="Thief_Attack.png" height="154" width="130" y_offset="-26">
+				<direction action="8" delay="60" dir="315" frames="15" />
+				<direction action="8" delay="60" dir="0" frames="15" />
+				<direction action="8" delay="60" dir="45" frames="15" />
+				<direction action="8" delay="60" dir="90" frames="15" />
+				<direction action="8" delay="60" dir="135" frames="15" />
+				<direction action="8" delay="60" dir="160" frames="15" />
+				<direction action="8" delay="60" dir="225" frames="15" />
+				<direction action="8" delay="60" dir="270" frames="15" />
+			</animation>
+		</action>
+		<action id="dagger_idle">
+			<animation atlas="Thief_Combat_Idle.png" height="170" width="170" y_offset="-44">
+				<direction delay="66" dir="315" frames="15" />
+				<direction delay="66" dir="0" frames="15" />
+				<direction delay="66" dir="45" frames="15" />
+				<direction delay="66" dir="90" frames="15" />
+				<direction delay="66" dir="135" frames="15" />
+				<direction delay="66" dir="160" frames="15" />
+				<direction delay="66" dir="225" frames="15" />
+				<direction delay="66" dir="270" frames="15" />
+			</animation>
+		</action>
+		<action id="dagger_walk">
+			<animation atlas="Thief_Combat_Walk.png" height="139" width="119" y_offset="-33">
+				<direction delay="30" dir="315" frames="15" />
+				<direction delay="30" dir="0" frames="15" />
+				<direction delay="30" dir="45" frames="15" />
+				<direction delay="30" dir="90" frames="15" />
+				<direction delay="30" dir="135" frames="15" />
+				<direction delay="30" dir="160" frames="15" />
+				<direction delay="30" dir="225" frames="15" />
+				<direction delay="30" dir="270" frames="15" />
+			</animation>
+		</action>
+		<action id="die">
+			<animation atlas="Thief_Die.png" height="256" width="256" y_offset="0">
+				<direction delay="70" dir="315" frames="15" />
+				<direction delay="70" dir="0" frames="15" />
+				<direction delay="70" dir="45" frames="15" />
+				<direction delay="70" dir="90" frames="15" />
+				<direction delay="70" dir="135" frames="15" />
+				<direction delay="70" dir="160" frames="15" />
+				<direction delay="70" dir="225" frames="15" />
+				<direction delay="70" dir="270" frames="15" />
+			</animation>
+		</action>
+		<action id="dead">
+			<animation atlas="Thief_Dead.png" height="256" width="256" y_offset="0">
+				<direction delay="100000" dir="315" frames="1" />
+				<direction delay="100000" dir="0" frames="1" />
+				<direction delay="100000" dir="45" frames="1" />
+				<direction delay="100000" dir="90" frames="1" />
+				<direction delay="100000" dir="135" frames="1" />
+				<direction delay="100000" dir="160" frames="1" />
+				<direction delay="100000" dir="225" frames="1" />
+				<direction delay="100000" dir="270" frames="1" />
+			</animation>
+		</action>
+		<action id="walk">
+			<animation atlas="Thief_Walk.png" height="135" width="95" y_offset="-33">
+				<direction delay="66" dir="315" frames="15" />
+				<direction delay="66" dir="0" frames="15" />
+				<direction delay="66" dir="45" frames="15" />
+				<direction delay="66" dir="90" frames="15" />
+				<direction delay="66" dir="135" frames="15" />
+				<direction delay="66" dir="160" frames="15" />
+				<direction delay="66" dir="225" frames="15" />
+				<direction delay="66" dir="270" frames="15" />
+			</animation>
+		</action>
+	</object>
+</assets>

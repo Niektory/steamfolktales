@@ -1,13 +1,15 @@
-<?fife type="object"?>
-<object blocking="1" id="Tree04_Anim" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Tree04_Anim.png" height="315" width="309" x_offset="50" y_offset="-115">
-			<direction delay="180" dir="0" frames="6"/>
-		</animation>
-	</action>
-	<action id="still">
-		<animation atlas="Tree04_Anim.png" height="315" width="309" x_offset="50" y_offset="-115">
-			<direction delay="180" dir="0" frames="1"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Tree04_Anim" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Tree04_Anim.png" height="315" width="309" x_offset="50" y_offset="-115">
+				<direction delay="180" dir="0" frames="6" />
+			</animation>
+		</action>
+		<action id="still">
+			<animation atlas="Tree04_Anim.png" height="315" width="309" x_offset="50" y_offset="-115">
+				<direction delay="180" dir="0" frames="1" />
+			</animation>
+		</action>
+	</object>
+</assets>

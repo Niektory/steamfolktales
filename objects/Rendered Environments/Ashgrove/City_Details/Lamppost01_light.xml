@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object id="Lamppost01_light" namespace="steamfolktales" blocking="1" static="1">
-	<image source="Lamppost01_light.png" direction="0" x_offset="31" y_offset="-59" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Lamppost01_light" namespace="steamfolktales" static="1">
+		<image direction="0" source="Lamppost01_light.png" x_offset="31" y_offset="-59" />
+	</object>
+</assets>

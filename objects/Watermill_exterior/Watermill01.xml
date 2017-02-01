@@ -1,5 +1,7 @@
-<?fife type="object"?>
-<object id="Watermill01" namespace="steamfolktales" blocking="1" static="0">
-	<image source="Watermill01.png" direction="0" x_offset="234" y_offset="-100" />
-	<multipart id="Watermill01_block" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Watermill01" namespace="steamfolktales" static="0">
+		<image direction="0" source="Watermill01.png" x_offset="234" y_offset="-100" />
+		<multipart id="Watermill01_block" />
+	</object>
+</assets>

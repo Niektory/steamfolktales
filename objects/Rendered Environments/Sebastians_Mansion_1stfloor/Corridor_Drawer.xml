@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object blocking="1" cellstack_position="0" id="Corridor_Drawer" namespace="steamfolktales" static="1">
-	<image direction="0" source="Corridor_Drawer.png" x_offset="10" y_offset="-21" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" cellstack_position="0" id="Corridor_Drawer" namespace="steamfolktales" static="1">
+		<image direction="0" source="Corridor_Drawer.png" x_offset="10" y_offset="-21" />
+	</object>
+</assets>

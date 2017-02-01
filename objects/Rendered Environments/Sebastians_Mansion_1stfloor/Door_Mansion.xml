@@ -1,13 +1,15 @@
-<?fife type="object"?>
-<object blocking="1" id="Door_Mansion" namespace="steamfolktales" static="0">
-	<action id="closed">
-		<animation atlas="Door_Closed.png" height="103" width="44" x_offset="-11" y_offset="-36">
-			<direction delay="100000" dir="0" frames="1"/>
-		</animation>
-	</action>
-	<action id="open">
-		<animation atlas="Door_Opened.png" height="103" width="44" x_offset="33" y_offset="-36">
-			<direction delay="100000" dir="0" frames="1"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Door_Mansion" namespace="steamfolktales" static="0">
+		<action id="closed">
+			<animation atlas="Door_Closed.png" height="103" width="44" x_offset="-11" y_offset="-36">
+				<direction delay="100000" dir="0" frames="1" />
+			</animation>
+		</action>
+		<action id="open">
+			<animation atlas="Door_Opened.png" height="103" width="44" x_offset="33" y_offset="-36">
+				<direction delay="100000" dir="0" frames="1" />
+			</animation>
+		</action>
+	</object>
+</assets>

@@ -1,13 +1,15 @@
-<?fife type="object"?>
-<object blocking="1" cellstack_position="0" id="Steam_effect02" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Steam_effect02.png" height="66" width="66" x_offset="-27" y_offset="-19">
-			<direction delay="100" dir="0" frames="10" />
-		</animation>
-	</action>
-	<action id="still">
-		<animation atlas="Steam_effect02.png" height="66" width="66" x_offset="-27" y_offset="-19">
-			<direction delay="180" dir="0" frames="1" />
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" cellstack_position="0" id="Steam_effect02" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Steam_effect02.png" height="66" width="66" x_offset="-27" y_offset="-19">
+				<direction delay="100" dir="0" frames="10" />
+			</animation>
+		</action>
+		<action id="still">
+			<animation atlas="Steam_effect02.png" height="66" width="66" x_offset="-27" y_offset="-19">
+				<direction delay="180" dir="0" frames="1" />
+			</animation>
+		</action>
+	</object>
+</assets>

@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object blocking="1" cellstack_position="0" id="Bedroom_doorway01_02" namespace="steamfolktales" static="1">
-	<image direction="0" source="Bedroom_doorway01_02.png" x_offset="17" y_offset="-59" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" cellstack_position="0" id="Bedroom_doorway01_02" namespace="steamfolktales" static="1">
+		<image direction="0" source="Bedroom_doorway01_02.png" x_offset="17" y_offset="-59" />
+	</object>
+</assets>

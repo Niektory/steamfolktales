@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object blocking="1" cellstack_position="0" id="Sawmill_Factory02_2" namespace="steamfolktales" static="1">
-	<image direction="0" source="Sawmill_Factory02_2.png" x_offset="-40" y_offset="-346" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" cellstack_position="0" id="Sawmill_Factory02_2" namespace="steamfolktales" static="1">
+		<image direction="0" source="Sawmill_Factory02_2.png" x_offset="-40" y_offset="-346" />
+	</object>
+</assets>

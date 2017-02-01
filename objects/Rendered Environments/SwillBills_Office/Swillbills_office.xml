@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object id="Swillbills_office" namespace="steamfolktales" blocking="0" static="1">
-	<image source="Swillbills_office.png" direction="0" y_offset="2775" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="Swillbills_office" namespace="steamfolktales" static="1">
+		<image direction="0" source="Swillbills_office.png" y_offset="2775" />
+	</object>
+</assets>

@@ -1,8 +1,10 @@
-<?fife type="object"?>
-<object blocking="0" id="Water_animation" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Water_animation.png" height="100" width="156" x_offset="0" y_offset="0">
-			<direction delay="450" dir="0" frames="6"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="Water_animation" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Water_animation.png" height="100" width="156" x_offset="0" y_offset="0">
+				<direction delay="450" dir="0" frames="6" />
+			</animation>
+		</action>
+	</object>
+</assets>

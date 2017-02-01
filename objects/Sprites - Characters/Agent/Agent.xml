@@ -1,243 +1,245 @@
-<?fife type="object"?>
-<object blocking="1" id="Agent" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Agent_Idle.png" width="128" height="128" y_offset="-25">
-			<direction delay="150" dir="315" frames="14"/>
-			<direction delay="150" dir="0" frames="14"/>
-			<direction delay="150" dir="45" frames="14"/>
-			<direction delay="150" dir="90" frames="14"/>
-			<direction delay="150" dir="135" frames="14"/>
-			<direction delay="150" dir="160" frames="14"/>
-			<direction delay="150" dir="225" frames="14"/>
-			<direction delay="150" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="walk">
-		<animation atlas="Agent_Walk.png" width="84" height="120" x_offset="-5" y_offset="-32">
-			<direction delay="71" dir="315" frames="14"/>
-			<direction delay="71" dir="0" frames="14"/>
-			<direction delay="71" dir="45" frames="14"/>
-			<direction delay="71" dir="90" frames="14"/>
-			<direction delay="71" dir="135" frames="14"/>
-			<direction delay="71" dir="160" frames="14"/>
-			<direction delay="71" dir="225" frames="14"/>
-			<direction delay="71" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="run">
-		<animation atlas="Agent_Run.png" width="128" height="128" y_offset="-25">
-			<direction delay="45" dir="315" frames="14"/>
-			<direction delay="45" dir="0" frames="14"/>
-			<direction delay="45" dir="45" frames="14"/>
-			<direction delay="45" dir="90" frames="14"/>
-			<direction delay="45" dir="135" frames="14"/>
-			<direction delay="45" dir="160" frames="14"/>
-			<direction delay="45" dir="225" frames="14"/>
-			<direction delay="45" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="die">
-		<animation atlas="Agent_Die.png" width="172" height="153" y_offset="-25">
-			<direction delay="70" dir="315" frames="15"/>
-			<direction delay="70" dir="0" frames="15"/>
-			<direction delay="70" dir="45" frames="15"/>
-			<direction delay="70" dir="90" frames="15"/>
-			<direction delay="70" dir="135" frames="15"/>
-			<direction delay="70" dir="160" frames="15"/>
-			<direction delay="70" dir="225" frames="15"/>
-			<direction delay="70" dir="270" frames="15"/>
-		</animation>
-	</action>
-	<action id="dead">
-		<animation atlas="Agent_Dead.png" width="172" height="153" y_offset="-25">
-			<direction delay="100000" dir="315" frames="1"/>
-			<direction delay="100000" dir="0" frames="1"/>
-			<direction delay="100000" dir="45" frames="1"/>
-			<direction delay="100000" dir="90" frames="1"/>
-			<direction delay="100000" dir="135" frames="1"/>
-			<direction delay="100000" dir="160" frames="1"/>
-			<direction delay="100000" dir="225" frames="1"/>
-			<direction delay="100000" dir="270" frames="1"/>
-		</animation>
-	</action>
-	<action id="revolver_idle">
-		<animation atlas="Agent_Revolver_Idle.png" width="128" height="128" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="revolver_attack">
-		<animation atlas="Agent_Revolver_Attack.png" width="160" height="160" y_offset="-25">
-			<direction delay="60" dir="315" frames="14" action="6"/>
-			<direction delay="60" dir="0" frames="14" action="6"/>
-			<direction delay="60" dir="45" frames="14" action="6"/>
-			<direction delay="60" dir="90" frames="14" action="6"/>
-			<direction delay="60" dir="135" frames="14" action="6"/>
-			<direction delay="60" dir="160" frames="14" action="6"/>
-			<direction delay="60" dir="225" frames="14" action="6"/>
-			<direction delay="60" dir="270" frames="14" action="6"/>
-		</animation>
-	</action>
-	<action id="revolver_walk">
-		<animation atlas="Agent_Revolver_Walk.png" width="128" height="128" y_offset="-25">
-			<direction delay="30" dir="315" frames="14"/>
-			<direction delay="30" dir="0" frames="14"/>
-			<direction delay="30" dir="45" frames="14"/>
-			<direction delay="30" dir="90" frames="14"/>
-			<direction delay="30" dir="135" frames="14"/>
-			<direction delay="30" dir="160" frames="14"/>
-			<direction delay="30" dir="225" frames="14"/>
-			<direction delay="30" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="sword_idle">
-		<animation atlas="Agent_Sword_Idle.png" width="160" height="160" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="sword_attack">
-		<animation atlas="Agent_Sword_Attack.png" width="180" height="180" y_offset="-25">
-			<direction delay="60" dir="315" frames="14" action="10"/>
-			<direction delay="60" dir="0" frames="14" action="10"/>
-			<direction delay="60" dir="45" frames="14" action="10"/>
-			<direction delay="60" dir="90" frames="14" action="10"/>
-			<direction delay="60" dir="135" frames="14" action="10"/>
-			<direction delay="60" dir="160" frames="14" action="10"/>
-			<direction delay="60" dir="225" frames="14" action="10"/>
-			<direction delay="60" dir="270" frames="14" action="10"/>
-		</animation>
-	</action>
-	<action id="sword_walk">
-		<animation atlas="Agent_Sword_Walk.png" width="160" height="160" y_offset="-25">
-			<direction delay="30" dir="315" frames="14"/>
-			<direction delay="30" dir="0" frames="14"/>
-			<direction delay="30" dir="45" frames="14"/>
-			<direction delay="30" dir="90" frames="14"/>
-			<direction delay="30" dir="135" frames="14"/>
-			<direction delay="30" dir="160" frames="14"/>
-			<direction delay="30" dir="225" frames="14"/>
-			<direction delay="30" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="unarmed_idle">
-		<animation atlas="Agent_Hands_Idle.png" width="128" height="128" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="unarmed_attack">
-		<animation atlas="Agent_Hands_Attack.png" width="144" height="144" y_offset="-25">
-			<direction delay="60" dir="315" frames="14" action="8"/>
-			<direction delay="60" dir="0" frames="14" action="8"/>
-			<direction delay="60" dir="45" frames="14" action="8"/>
-			<direction delay="60" dir="90" frames="14" action="8"/>
-			<direction delay="60" dir="135" frames="14" action="8"/>
-			<direction delay="60" dir="160" frames="14" action="8"/>
-			<direction delay="60" dir="225" frames="14" action="8"/>
-			<direction delay="60" dir="270" frames="14" action="8"/>
-		</animation>
-	</action>
-	<action id="unarmed_walk">
-		<animation atlas="Agent_Hands_Walk.png" width="128" height="128" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="axe_idle">
-		<animation atlas="Agent_Axe_Idle.png" width="127" height="159" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="axe_attack">
-		<animation atlas="Agent_Axe_Attack.png" width="180" height="180" y_offset="-25">
-			<direction delay="60" dir="315" frames="14" action="10"/>
-			<direction delay="60" dir="0" frames="14" action="10"/>
-			<direction delay="60" dir="45" frames="14" action="10"/>
-			<direction delay="60" dir="90" frames="14" action="10"/>
-			<direction delay="60" dir="135" frames="14" action="10"/>
-			<direction delay="60" dir="160" frames="14" action="10"/>
-			<direction delay="60" dir="225" frames="14" action="10"/>
-			<direction delay="60" dir="270" frames="14" action="10"/>
-		</animation>
-	</action>
-	<action id="axe_walk">
-		<animation atlas="Agent_Axe_Walk.png" width="127" height="159" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="dagger_idle">
-		<animation atlas="Agent_Dagger_Idle.png" width="128" height="128" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="dagger_attack">
-		<animation atlas="Agent_Dagger_Attack.png" width="144" height="144" y_offset="-25">
-			<direction delay="60" dir="315" frames="14" action="12"/>
-			<direction delay="60" dir="0" frames="14" action="12"/>
-			<direction delay="60" dir="45" frames="14" action="12"/>
-			<direction delay="60" dir="90" frames="14" action="12"/>
-			<direction delay="60" dir="135" frames="14" action="12"/>
-			<direction delay="60" dir="160" frames="14" action="12"/>
-			<direction delay="60" dir="225" frames="14" action="12"/>
-			<direction delay="60" dir="270" frames="14" action="12"/>
-		</animation>
-	</action>
-	<action id="dagger_walk">
-		<animation atlas="Agent_Dagger_Walk.png" width="128" height="128" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Agent" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Agent_Idle.png" height="128" width="128" y_offset="-25">
+				<direction delay="150" dir="315" frames="14" />
+				<direction delay="150" dir="0" frames="14" />
+				<direction delay="150" dir="45" frames="14" />
+				<direction delay="150" dir="90" frames="14" />
+				<direction delay="150" dir="135" frames="14" />
+				<direction delay="150" dir="160" frames="14" />
+				<direction delay="150" dir="225" frames="14" />
+				<direction delay="150" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="walk">
+			<animation atlas="Agent_Walk.png" height="120" width="84" x_offset="-5" y_offset="-32">
+				<direction delay="71" dir="315" frames="14" />
+				<direction delay="71" dir="0" frames="14" />
+				<direction delay="71" dir="45" frames="14" />
+				<direction delay="71" dir="90" frames="14" />
+				<direction delay="71" dir="135" frames="14" />
+				<direction delay="71" dir="160" frames="14" />
+				<direction delay="71" dir="225" frames="14" />
+				<direction delay="71" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="run">
+			<animation atlas="Agent_Run.png" height="128" width="128" y_offset="-25">
+				<direction delay="45" dir="315" frames="14" />
+				<direction delay="45" dir="0" frames="14" />
+				<direction delay="45" dir="45" frames="14" />
+				<direction delay="45" dir="90" frames="14" />
+				<direction delay="45" dir="135" frames="14" />
+				<direction delay="45" dir="160" frames="14" />
+				<direction delay="45" dir="225" frames="14" />
+				<direction delay="45" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="die">
+			<animation atlas="Agent_Die.png" height="153" width="172" y_offset="-25">
+				<direction delay="70" dir="315" frames="15" />
+				<direction delay="70" dir="0" frames="15" />
+				<direction delay="70" dir="45" frames="15" />
+				<direction delay="70" dir="90" frames="15" />
+				<direction delay="70" dir="135" frames="15" />
+				<direction delay="70" dir="160" frames="15" />
+				<direction delay="70" dir="225" frames="15" />
+				<direction delay="70" dir="270" frames="15" />
+			</animation>
+		</action>
+		<action id="dead">
+			<animation atlas="Agent_Dead.png" height="153" width="172" y_offset="-25">
+				<direction delay="100000" dir="315" frames="1" />
+				<direction delay="100000" dir="0" frames="1" />
+				<direction delay="100000" dir="45" frames="1" />
+				<direction delay="100000" dir="90" frames="1" />
+				<direction delay="100000" dir="135" frames="1" />
+				<direction delay="100000" dir="160" frames="1" />
+				<direction delay="100000" dir="225" frames="1" />
+				<direction delay="100000" dir="270" frames="1" />
+			</animation>
+		</action>
+		<action id="revolver_idle">
+			<animation atlas="Agent_Revolver_Idle.png" height="128" width="128" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="revolver_attack">
+			<animation atlas="Agent_Revolver_Attack.png" height="160" width="160" y_offset="-25">
+				<direction action="6" delay="60" dir="315" frames="14" />
+				<direction action="6" delay="60" dir="0" frames="14" />
+				<direction action="6" delay="60" dir="45" frames="14" />
+				<direction action="6" delay="60" dir="90" frames="14" />
+				<direction action="6" delay="60" dir="135" frames="14" />
+				<direction action="6" delay="60" dir="160" frames="14" />
+				<direction action="6" delay="60" dir="225" frames="14" />
+				<direction action="6" delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="revolver_walk">
+			<animation atlas="Agent_Revolver_Walk.png" height="128" width="128" y_offset="-25">
+				<direction delay="30" dir="315" frames="14" />
+				<direction delay="30" dir="0" frames="14" />
+				<direction delay="30" dir="45" frames="14" />
+				<direction delay="30" dir="90" frames="14" />
+				<direction delay="30" dir="135" frames="14" />
+				<direction delay="30" dir="160" frames="14" />
+				<direction delay="30" dir="225" frames="14" />
+				<direction delay="30" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="sword_idle">
+			<animation atlas="Agent_Sword_Idle.png" height="160" width="160" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="sword_attack">
+			<animation atlas="Agent_Sword_Attack.png" height="180" width="180" y_offset="-25">
+				<direction action="10" delay="60" dir="315" frames="14" />
+				<direction action="10" delay="60" dir="0" frames="14" />
+				<direction action="10" delay="60" dir="45" frames="14" />
+				<direction action="10" delay="60" dir="90" frames="14" />
+				<direction action="10" delay="60" dir="135" frames="14" />
+				<direction action="10" delay="60" dir="160" frames="14" />
+				<direction action="10" delay="60" dir="225" frames="14" />
+				<direction action="10" delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="sword_walk">
+			<animation atlas="Agent_Sword_Walk.png" height="160" width="160" y_offset="-25">
+				<direction delay="30" dir="315" frames="14" />
+				<direction delay="30" dir="0" frames="14" />
+				<direction delay="30" dir="45" frames="14" />
+				<direction delay="30" dir="90" frames="14" />
+				<direction delay="30" dir="135" frames="14" />
+				<direction delay="30" dir="160" frames="14" />
+				<direction delay="30" dir="225" frames="14" />
+				<direction delay="30" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_idle">
+			<animation atlas="Agent_Hands_Idle.png" height="128" width="128" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_attack">
+			<animation atlas="Agent_Hands_Attack.png" height="144" width="144" y_offset="-25">
+				<direction action="8" delay="60" dir="315" frames="14" />
+				<direction action="8" delay="60" dir="0" frames="14" />
+				<direction action="8" delay="60" dir="45" frames="14" />
+				<direction action="8" delay="60" dir="90" frames="14" />
+				<direction action="8" delay="60" dir="135" frames="14" />
+				<direction action="8" delay="60" dir="160" frames="14" />
+				<direction action="8" delay="60" dir="225" frames="14" />
+				<direction action="8" delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_walk">
+			<animation atlas="Agent_Hands_Walk.png" height="128" width="128" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="axe_idle">
+			<animation atlas="Agent_Axe_Idle.png" height="159" width="127" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="axe_attack">
+			<animation atlas="Agent_Axe_Attack.png" height="180" width="180" y_offset="-25">
+				<direction action="10" delay="60" dir="315" frames="14" />
+				<direction action="10" delay="60" dir="0" frames="14" />
+				<direction action="10" delay="60" dir="45" frames="14" />
+				<direction action="10" delay="60" dir="90" frames="14" />
+				<direction action="10" delay="60" dir="135" frames="14" />
+				<direction action="10" delay="60" dir="160" frames="14" />
+				<direction action="10" delay="60" dir="225" frames="14" />
+				<direction action="10" delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="axe_walk">
+			<animation atlas="Agent_Axe_Walk.png" height="159" width="127" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="dagger_idle">
+			<animation atlas="Agent_Dagger_Idle.png" height="128" width="128" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="dagger_attack">
+			<animation atlas="Agent_Dagger_Attack.png" height="144" width="144" y_offset="-25">
+				<direction action="12" delay="60" dir="315" frames="14" />
+				<direction action="12" delay="60" dir="0" frames="14" />
+				<direction action="12" delay="60" dir="45" frames="14" />
+				<direction action="12" delay="60" dir="90" frames="14" />
+				<direction action="12" delay="60" dir="135" frames="14" />
+				<direction action="12" delay="60" dir="160" frames="14" />
+				<direction action="12" delay="60" dir="225" frames="14" />
+				<direction action="12" delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="dagger_walk">
+			<animation atlas="Agent_Dagger_Walk.png" height="128" width="128" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+	</object>
+</assets>

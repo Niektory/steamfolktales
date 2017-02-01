@@ -1,13 +1,15 @@
-<?fife type="object"?>
-<object blocking="1" cellstack_position="0" id="Airship_Exterior_Propeller1" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Airship_Exterior_Propeller1.png" height="328" width="336" x_offset="-12" y_offset="-64">
-			<direction delay="120" dir="0" frames="4" />
-		</animation>
-	</action>
-	<action id="still">
-		<animation atlas="Airship_Exterior_Propeller1.png" height="328" width="336" x_offset="-12" y_offset="-64">
-			<direction delay="180" dir="0" frames="1" />
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" cellstack_position="0" id="Airship_Exterior_Propeller1" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Airship_Exterior_Propeller1.png" height="328" width="336" x_offset="-12" y_offset="-64">
+				<direction delay="120" dir="0" frames="4" />
+			</animation>
+		</action>
+		<action id="still">
+			<animation atlas="Airship_Exterior_Propeller1.png" height="328" width="336" x_offset="-12" y_offset="-64">
+				<direction delay="180" dir="0" frames="1" />
+			</animation>
+		</action>
+	</object>
+</assets>

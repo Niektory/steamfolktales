@@ -1,159 +1,161 @@
-<?fife type="object"?>
-<object blocking="1" id="Young_Jason" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="YoungJason_Idle.png" width="72" height="114" y_offset="-24">
-			<direction delay="150" dir="315" frames="14"/>
-			<direction delay="150" dir="0" frames="14"/>
-			<direction delay="150" dir="45" frames="14"/>
-			<direction delay="150" dir="90" frames="14"/>
-			<direction delay="150" dir="135" frames="14"/>
-			<direction delay="150" dir="160" frames="14"/>
-			<direction delay="150" dir="225" frames="14"/>
-			<direction delay="150" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="walk">
-		<animation atlas="YoungJason_Walk.png" width="84" height="111" y_offset="-25">
-			<direction delay="71" dir="315" frames="14"/>
-			<direction delay="71" dir="0" frames="14"/>
-			<direction delay="71" dir="45" frames="14"/>
-			<direction delay="71" dir="90" frames="14"/>
-			<direction delay="71" dir="135" frames="14"/>
-			<direction delay="71" dir="160" frames="14"/>
-			<direction delay="71" dir="225" frames="14"/>
-			<direction delay="71" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="sneak_idle">
-		<animation atlas="Young_Jason_Sneak_Idle.png" width="66" height="102" y_offset="-24">
-			<direction delay="150" dir="315" frames="14"/>
-			<direction delay="150" dir="0" frames="14"/>
-			<direction delay="150" dir="45" frames="14"/>
-			<direction delay="150" dir="90" frames="14"/>
-			<direction delay="150" dir="135" frames="14"/>
-			<direction delay="150" dir="160" frames="14"/>
-			<direction delay="150" dir="225" frames="14"/>
-			<direction delay="150" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="sneak_walk">
-		<animation atlas="Young_Jason_Sneak.png" width="68" height="106" y_offset="-25">
-			<direction delay="71" dir="315" frames="14"/>
-			<direction delay="71" dir="0" frames="14"/>
-			<direction delay="71" dir="45" frames="14"/>
-			<direction delay="71" dir="90" frames="14"/>
-			<direction delay="71" dir="135" frames="14"/>
-			<direction delay="71" dir="160" frames="14"/>
-			<direction delay="71" dir="225" frames="14"/>
-			<direction delay="71" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="run">
-		<animation atlas="YoungJason_Run.png" width="103" height="138" y_offset="-29">
-			<direction delay="45" dir="315" frames="14"/>
-			<direction delay="45" dir="0" frames="14"/>
-			<direction delay="45" dir="45" frames="14"/>
-			<direction delay="45" dir="90" frames="14"/>
-			<direction delay="45" dir="135" frames="14"/>
-			<direction delay="45" dir="160" frames="14"/>
-			<direction delay="45" dir="225" frames="14"/>
-			<direction delay="45" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="die">
-		<animation atlas="../Agent/Agent_Die.png" width="172" height="153" y_offset="-25">
-			<direction delay="70" dir="315" frames="15"/>
-			<direction delay="70" dir="0" frames="15"/>
-			<direction delay="70" dir="45" frames="15"/>
-			<direction delay="70" dir="90" frames="15"/>
-			<direction delay="70" dir="135" frames="15"/>
-			<direction delay="70" dir="160" frames="15"/>
-			<direction delay="70" dir="225" frames="15"/>
-			<direction delay="70" dir="270" frames="15"/>
-		</animation>
-	</action>
-	<action id="dead">
-		<animation atlas="../Agent/Agent_Dead.png" width="172" height="153" y_offset="-25">
-			<direction delay="100000" dir="315" frames="1"/>
-			<direction delay="100000" dir="0" frames="1"/>
-			<direction delay="100000" dir="45" frames="1"/>
-			<direction delay="100000" dir="90" frames="1"/>
-			<direction delay="100000" dir="135" frames="1"/>
-			<direction delay="100000" dir="160" frames="1"/>
-			<direction delay="100000" dir="225" frames="1"/>
-			<direction delay="100000" dir="270" frames="1"/>
-		</animation>
-	</action>
-	<action id="dagger_idle">
-		<animation atlas="YoungJason_Daggeridle.png" width="90" height="118" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="dagger_attack">
-		<animation atlas="YoungJason_DaggerAttack.png" width="107" height="129" y_offset="-25">
-			<direction delay="40" dir="315" frames="14" action="10"/>
-			<direction delay="40" dir="0" frames="14" action="10"/>
-			<direction delay="40" dir="45" frames="14" action="10"/>
-			<direction delay="40" dir="90" frames="14" action="10"/>
-			<direction delay="40" dir="135" frames="14" action="10"/>
-			<direction delay="40" dir="160" frames="14" action="10"/>
-			<direction delay="40" dir="225" frames="14" action="10"/>
-			<direction delay="40" dir="270" frames="14" action="10"/>
-		</animation>
-	</action>
-	<action id="dagger_walk">
-		<animation atlas="YoungJason_Daggerwalk.png" width="90" height="118" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="unarmed_idle">
-		<animation atlas="Young_Jason_Fists_Idle.png" width="84" height="111" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-	<action id="unarmed_attack">
-		<animation atlas="Young_Jason_Fists_Attack.png" width="119" height="123" y_offset="-25">
-			<direction delay="60" dir="315" frames="14" action="10"/>
-			<direction delay="60" dir="0" frames="14" action="10"/>
-			<direction delay="60" dir="45" frames="14" action="10"/>
-			<direction delay="60" dir="90" frames="14" action="10"/>
-			<direction delay="60" dir="135" frames="14" action="10"/>
-			<direction delay="60" dir="160" frames="14" action="10"/>
-			<direction delay="60" dir="225" frames="14" action="10"/>
-			<direction delay="60" dir="270" frames="14" action="10"/>
-		</animation>
-	</action>
-	<action id="unarmed_walk">
-		<animation atlas="Young_Jason_Fists_Walk.png" width="88" height="113" y_offset="-25">
-			<direction delay="60" dir="315" frames="14"/>
-			<direction delay="60" dir="0" frames="14"/>
-			<direction delay="60" dir="45" frames="14"/>
-			<direction delay="60" dir="90" frames="14"/>
-			<direction delay="60" dir="135" frames="14"/>
-			<direction delay="60" dir="160" frames="14"/>
-			<direction delay="60" dir="225" frames="14"/>
-			<direction delay="60" dir="270" frames="14"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Young_Jason" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="YoungJason_Idle.png" height="114" width="72" y_offset="-24">
+				<direction delay="150" dir="315" frames="14" />
+				<direction delay="150" dir="0" frames="14" />
+				<direction delay="150" dir="45" frames="14" />
+				<direction delay="150" dir="90" frames="14" />
+				<direction delay="150" dir="135" frames="14" />
+				<direction delay="150" dir="160" frames="14" />
+				<direction delay="150" dir="225" frames="14" />
+				<direction delay="150" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="walk">
+			<animation atlas="YoungJason_Walk.png" height="111" width="84" y_offset="-25">
+				<direction delay="71" dir="315" frames="14" />
+				<direction delay="71" dir="0" frames="14" />
+				<direction delay="71" dir="45" frames="14" />
+				<direction delay="71" dir="90" frames="14" />
+				<direction delay="71" dir="135" frames="14" />
+				<direction delay="71" dir="160" frames="14" />
+				<direction delay="71" dir="225" frames="14" />
+				<direction delay="71" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="sneak_idle">
+			<animation atlas="Young_Jason_Sneak_Idle.png" height="102" width="66" y_offset="-24">
+				<direction delay="150" dir="315" frames="14" />
+				<direction delay="150" dir="0" frames="14" />
+				<direction delay="150" dir="45" frames="14" />
+				<direction delay="150" dir="90" frames="14" />
+				<direction delay="150" dir="135" frames="14" />
+				<direction delay="150" dir="160" frames="14" />
+				<direction delay="150" dir="225" frames="14" />
+				<direction delay="150" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="sneak_walk">
+			<animation atlas="Young_Jason_Sneak.png" height="106" width="68" y_offset="-25">
+				<direction delay="71" dir="315" frames="14" />
+				<direction delay="71" dir="0" frames="14" />
+				<direction delay="71" dir="45" frames="14" />
+				<direction delay="71" dir="90" frames="14" />
+				<direction delay="71" dir="135" frames="14" />
+				<direction delay="71" dir="160" frames="14" />
+				<direction delay="71" dir="225" frames="14" />
+				<direction delay="71" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="run">
+			<animation atlas="YoungJason_Run.png" height="138" width="103" y_offset="-29">
+				<direction delay="45" dir="315" frames="14" />
+				<direction delay="45" dir="0" frames="14" />
+				<direction delay="45" dir="45" frames="14" />
+				<direction delay="45" dir="90" frames="14" />
+				<direction delay="45" dir="135" frames="14" />
+				<direction delay="45" dir="160" frames="14" />
+				<direction delay="45" dir="225" frames="14" />
+				<direction delay="45" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="die">
+			<animation atlas="../Agent/Agent_Die.png" height="153" width="172" y_offset="-25">
+				<direction delay="70" dir="315" frames="15" />
+				<direction delay="70" dir="0" frames="15" />
+				<direction delay="70" dir="45" frames="15" />
+				<direction delay="70" dir="90" frames="15" />
+				<direction delay="70" dir="135" frames="15" />
+				<direction delay="70" dir="160" frames="15" />
+				<direction delay="70" dir="225" frames="15" />
+				<direction delay="70" dir="270" frames="15" />
+			</animation>
+		</action>
+		<action id="dead">
+			<animation atlas="../Agent/Agent_Dead.png" height="153" width="172" y_offset="-25">
+				<direction delay="100000" dir="315" frames="1" />
+				<direction delay="100000" dir="0" frames="1" />
+				<direction delay="100000" dir="45" frames="1" />
+				<direction delay="100000" dir="90" frames="1" />
+				<direction delay="100000" dir="135" frames="1" />
+				<direction delay="100000" dir="160" frames="1" />
+				<direction delay="100000" dir="225" frames="1" />
+				<direction delay="100000" dir="270" frames="1" />
+			</animation>
+		</action>
+		<action id="dagger_idle">
+			<animation atlas="YoungJason_Daggeridle.png" height="118" width="90" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="dagger_attack">
+			<animation atlas="YoungJason_DaggerAttack.png" height="129" width="107" y_offset="-25">
+				<direction action="10" delay="40" dir="315" frames="14" />
+				<direction action="10" delay="40" dir="0" frames="14" />
+				<direction action="10" delay="40" dir="45" frames="14" />
+				<direction action="10" delay="40" dir="90" frames="14" />
+				<direction action="10" delay="40" dir="135" frames="14" />
+				<direction action="10" delay="40" dir="160" frames="14" />
+				<direction action="10" delay="40" dir="225" frames="14" />
+				<direction action="10" delay="40" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="dagger_walk">
+			<animation atlas="YoungJason_Daggerwalk.png" height="118" width="90" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_idle">
+			<animation atlas="Young_Jason_Fists_Idle.png" height="111" width="84" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_attack">
+			<animation atlas="Young_Jason_Fists_Attack.png" height="123" width="119" y_offset="-25">
+				<direction action="10" delay="60" dir="315" frames="14" />
+				<direction action="10" delay="60" dir="0" frames="14" />
+				<direction action="10" delay="60" dir="45" frames="14" />
+				<direction action="10" delay="60" dir="90" frames="14" />
+				<direction action="10" delay="60" dir="135" frames="14" />
+				<direction action="10" delay="60" dir="160" frames="14" />
+				<direction action="10" delay="60" dir="225" frames="14" />
+				<direction action="10" delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+		<action id="unarmed_walk">
+			<animation atlas="Young_Jason_Fists_Walk.png" height="113" width="88" y_offset="-25">
+				<direction delay="60" dir="315" frames="14" />
+				<direction delay="60" dir="0" frames="14" />
+				<direction delay="60" dir="45" frames="14" />
+				<direction delay="60" dir="90" frames="14" />
+				<direction delay="60" dir="135" frames="14" />
+				<direction delay="60" dir="160" frames="14" />
+				<direction delay="60" dir="225" frames="14" />
+				<direction delay="60" dir="270" frames="14" />
+			</animation>
+		</action>
+	</object>
+</assets>

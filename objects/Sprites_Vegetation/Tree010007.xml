@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object id="Tree010007" namespace="steamfolktales" blocking="1" static="1">
-	<image source="Tree010007.png" direction="0" x_offset="139" y_offset="-53" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Tree010007" namespace="steamfolktales" static="1">
+		<image direction="0" source="Tree010007.png" x_offset="139" y_offset="-53" />
+	</object>
+</assets>

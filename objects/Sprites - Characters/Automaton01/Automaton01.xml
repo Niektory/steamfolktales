@@ -1,27 +1,29 @@
-<?fife type="object"?>
-<object blocking="1" id="Automaton01" namespace="steamfolktales" static="0">
-	<action id="idle">
-		<animation atlas="Automaton01_Idle.png" width="193" height="213" y_offset="-45">
-			<direction delay="250" dir="315" frames="7"/>
-			<direction delay="250" dir="0" frames="7"/>
-			<direction delay="250" dir="45" frames="7"/>
-			<direction delay="250" dir="90" frames="7"/>
-			<direction delay="250" dir="135" frames="7"/>
-			<direction delay="250" dir="160" frames="7"/>
-			<direction delay="250" dir="225" frames="7"/>
-			<direction delay="250" dir="270" frames="7"/>
-		</animation>
-	</action>
-	<action id="walk">
-		<animation atlas="Automaton01_Walk.png" width="215" height="237" y_offset="-40">
-			<direction delay="101" dir="315" frames="14"/>
-			<direction delay="101" dir="0" frames="14"/>
-			<direction delay="101" dir="45" frames="14"/>
-			<direction delay="101" dir="90" frames="14"/>
-			<direction delay="101" dir="135" frames="14"/>
-			<direction delay="101" dir="160" frames="14"/>
-			<direction delay="101" dir="225" frames="14"/>
-			<direction delay="101" dir="270" frames="14"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Automaton01" namespace="steamfolktales" static="0">
+		<action id="idle">
+			<animation atlas="Automaton01_Idle.png" height="213" width="193" y_offset="-45">
+				<direction delay="250" dir="315" frames="7" />
+				<direction delay="250" dir="0" frames="7" />
+				<direction delay="250" dir="45" frames="7" />
+				<direction delay="250" dir="90" frames="7" />
+				<direction delay="250" dir="135" frames="7" />
+				<direction delay="250" dir="160" frames="7" />
+				<direction delay="250" dir="225" frames="7" />
+				<direction delay="250" dir="270" frames="7" />
+			</animation>
+		</action>
+		<action id="walk">
+			<animation atlas="Automaton01_Walk.png" height="237" width="215" y_offset="-40">
+				<direction delay="101" dir="315" frames="14" />
+				<direction delay="101" dir="0" frames="14" />
+				<direction delay="101" dir="45" frames="14" />
+				<direction delay="101" dir="90" frames="14" />
+				<direction delay="101" dir="135" frames="14" />
+				<direction delay="101" dir="160" frames="14" />
+				<direction delay="101" dir="225" frames="14" />
+				<direction delay="101" dir="270" frames="14" />
+			</animation>
+		</action>
+	</object>
+</assets>

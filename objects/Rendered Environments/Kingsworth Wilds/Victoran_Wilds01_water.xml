@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object id="Victoran_Wilds01_water" namespace="steamfolktales" blocking="0" static="1">
-	<image source="Victoran_Wilds01_water.png" direction="0" x_offset="-660" y_offset="2376" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="Victoran_Wilds01_water" namespace="steamfolktales" static="1">
+		<image direction="0" source="Victoran_Wilds01_water.png" x_offset="-660" y_offset="2376" />
+	</object>
+</assets>

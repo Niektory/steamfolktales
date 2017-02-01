@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object blocking="1" cellstack_position="0" id="Entrance_Pole" namespace="steamfolktales" static="1">
-	<image direction="0" source="Entrance_Pole.png" x_offset="-15" y_offset="-70" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" cellstack_position="0" id="Entrance_Pole" namespace="steamfolktales" static="1">
+		<image direction="0" source="Entrance_Pole.png" x_offset="-15" y_offset="-70" />
+	</object>
+</assets>
