@@ -58,7 +58,8 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 									self.engine.getRenderBackend())
 		self.objectLoader = fife.ObjectLoader(self.model, 
 									self.engine.getVFS(), 
-									self.engine.getImageManager())
+									self.engine.getImageManager(),
+									self.engine.getAnimationManager())
 #		self.atlasLoader = fife.AtlasLoader(self.model, 
 #									self.engine.getVFS(), 
 #									self.engine.getImageManager())
