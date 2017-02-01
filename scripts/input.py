@@ -10,6 +10,29 @@ from animal import Animal
 from error import LogExceptionDecorator
 
 
+key_to_number = {
+	fife.Key.NUM_0: 0,
+	fife.Key.NUM_1: 1,
+	fife.Key.NUM_2: 2,
+	fife.Key.NUM_3: 3,
+	fife.Key.NUM_4: 4,
+	fife.Key.NUM_5: 5,
+	fife.Key.NUM_6: 6,
+	fife.Key.NUM_7: 7,
+	fife.Key.NUM_8: 8,
+	fife.Key.NUM_9: 9,
+	fife.Key.KP_0: 0,
+	fife.Key.KP_1: 1,
+	fife.Key.KP_2: 2,
+	fife.Key.KP_3: 3,
+	fife.Key.KP_4: 4,
+	fife.Key.KP_5: 5,
+	fife.Key.KP_6: 6,
+	fife.Key.KP_7: 7,
+	fife.Key.KP_8: 8,
+	fife.Key.KP_9: 9}
+
+
 class MouseListener(fife.IMouseListener):
 	def __init__(self, application):
 		self.application = application
@@ -165,11 +188,8 @@ class KeyListener(fife.IKeyListener):
 			if key_val == fife.Key.ESCAPE:
 				self.application.gui.escapePressed()
 			elif self.application.gui.dialogue.window.isVisible() \
-						and fife.Key.NUM_1 <= key_val <= fife.Key.NUM_9:
-				self.application.gui.dialogue.pickResponseNumber(key_val - fife.Key.NUM_0)
-			elif self.application.gui.dialogue.window.isVisible() \
-						and fife.Key.KP1 <= key_val <= fife.Key.KP9:
-				self.application.gui.dialogue.pickResponseNumber(key_val - fife.Key.KP0)
+					and 1 <= key_to_number.get(key_val, 0) <= 9:
+				self.application.gui.dialogue.pickResponseNumber(key_to_number[key_val])
 
 			elif key_val == self.getHotkey("Quick Save"):
 				self.application.saveGame("quick")
