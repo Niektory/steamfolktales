@@ -15,14 +15,14 @@
 		</action>
 		<action id="dagger_attack">
 			<animation atlas="Thief_Attack.png" height="154" width="130" y_offset="-26">
-				<direction action="8" delay="60" dir="315" frames="15" />
-				<direction action="8" delay="60" dir="0" frames="15" />
-				<direction action="8" delay="60" dir="45" frames="15" />
-				<direction action="8" delay="60" dir="90" frames="15" />
-				<direction action="8" delay="60" dir="135" frames="15" />
-				<direction action="8" delay="60" dir="160" frames="15" />
-				<direction action="8" delay="60" dir="225" frames="15" />
-				<direction action="8" delay="60" dir="270" frames="15" />
+				<direction action_frame="8" delay="60" dir="315" frames="15" />
+				<direction action_frame="8" delay="60" dir="0" frames="15" />
+				<direction action_frame="8" delay="60" dir="45" frames="15" />
+				<direction action_frame="8" delay="60" dir="90" frames="15" />
+				<direction action_frame="8" delay="60" dir="135" frames="15" />
+				<direction action_frame="8" delay="60" dir="160" frames="15" />
+				<direction action_frame="8" delay="60" dir="225" frames="15" />
+				<direction action_frame="8" delay="60" dir="270" frames="15" />
 			</animation>
 		</action>
 		<action id="dagger_idle">

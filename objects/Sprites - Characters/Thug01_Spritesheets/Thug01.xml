@@ -15,14 +15,14 @@
 		</action>
 		<action id="unarmed_attack">
 			<animation atlas="Thug01_Attack.png" height="146" width="112" y_offset="-30">
-				<direction action="9" delay="60" dir="315" frames="14" />
-				<direction action="9" delay="60" dir="0" frames="14" />
-				<direction action="9" delay="60" dir="45" frames="14" />
-				<direction action="9" delay="60" dir="90" frames="14" />
-				<direction action="9" delay="60" dir="135" frames="14" />
-				<direction action="9" delay="60" dir="160" frames="14" />
-				<direction action="9" delay="60" dir="225" frames="14" />
-				<direction action="9" delay="60" dir="270" frames="14" />
+				<direction action_frame="9" delay="60" dir="315" frames="14" />
+				<direction action_frame="9" delay="60" dir="0" frames="14" />
+				<direction action_frame="9" delay="60" dir="45" frames="14" />
+				<direction action_frame="9" delay="60" dir="90" frames="14" />
+				<direction action_frame="9" delay="60" dir="135" frames="14" />
+				<direction action_frame="9" delay="60" dir="160" frames="14" />
+				<direction action_frame="9" delay="60" dir="225" frames="14" />
+				<direction action_frame="9" delay="60" dir="270" frames="14" />
 			</animation>
 		</action>
 		<action id="unarmed_idle">
@@ -51,14 +51,14 @@
 		</action>
 		<action id="dagger_attack">
 			<animation atlas="Thug01_Attack.png" height="146" width="112" y_offset="-30">
-				<direction action="9" delay="60" dir="315" frames="14" />
-				<direction action="9" delay="60" dir="0" frames="14" />
-				<direction action="9" delay="60" dir="45" frames="14" />
-				<direction action="9" delay="60" dir="90" frames="14" />
-				<direction action="9" delay="60" dir="135" frames="14" />
-				<direction action="9" delay="60" dir="160" frames="14" />
-				<direction action="9" delay="60" dir="225" frames="14" />
-				<direction action="9" delay="60" dir="270" frames="14" />
+				<direction action_frame="9" delay="60" dir="315" frames="14" />
+				<direction action_frame="9" delay="60" dir="0" frames="14" />
+				<direction action_frame="9" delay="60" dir="45" frames="14" />
+				<direction action_frame="9" delay="60" dir="90" frames="14" />
+				<direction action_frame="9" delay="60" dir="135" frames="14" />
+				<direction action_frame="9" delay="60" dir="160" frames="14" />
+				<direction action_frame="9" delay="60" dir="225" frames="14" />
+				<direction action_frame="9" delay="60" dir="270" frames="14" />
 			</animation>
 		</action>
 		<action id="dagger_idle">

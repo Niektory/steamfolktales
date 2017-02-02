@@ -15,14 +15,14 @@
 		</action>
 		<action id="unarmed_attack">
 			<animation atlas="Gil_Fist_Punch.png" height="142" width="139" y_offset="-24">
-				<direction action="10" delay="60" dir="315" frames="14" />
-				<direction action="10" delay="60" dir="0" frames="14" />
-				<direction action="10" delay="60" dir="45" frames="14" />
-				<direction action="10" delay="60" dir="90" frames="14" />
-				<direction action="10" delay="60" dir="135" frames="14" />
-				<direction action="10" delay="60" dir="160" frames="14" />
-				<direction action="10" delay="60" dir="225" frames="14" />
-				<direction action="10" delay="60" dir="270" frames="14" />
+				<direction action_frame="10" delay="60" dir="315" frames="14" />
+				<direction action_frame="10" delay="60" dir="0" frames="14" />
+				<direction action_frame="10" delay="60" dir="45" frames="14" />
+				<direction action_frame="10" delay="60" dir="90" frames="14" />
+				<direction action_frame="10" delay="60" dir="135" frames="14" />
+				<direction action_frame="10" delay="60" dir="160" frames="14" />
+				<direction action_frame="10" delay="60" dir="225" frames="14" />
+				<direction action_frame="10" delay="60" dir="270" frames="14" />
 			</animation>
 		</action>
 		<action id="unarmed_idle">
@@ -51,14 +51,14 @@
 		</action>
 		<action id="axe_attack">
 			<animation atlas="Gil_Axe_Attack.png" height="149" width="149" y_offset="-24">
-				<direction action="12" delay="60" dir="315" frames="14" />
-				<direction action="12" delay="60" dir="0" frames="14" />
-				<direction action="12" delay="60" dir="45" frames="14" />
-				<direction action="12" delay="60" dir="90" frames="14" />
-				<direction action="12" delay="60" dir="135" frames="14" />
-				<direction action="12" delay="60" dir="160" frames="14" />
-				<direction action="12" delay="60" dir="225" frames="14" />
-				<direction action="12" delay="60" dir="270" frames="14" />
+				<direction action_frame="12" delay="60" dir="315" frames="14" />
+				<direction action_frame="12" delay="60" dir="0" frames="14" />
+				<direction action_frame="12" delay="60" dir="45" frames="14" />
+				<direction action_frame="12" delay="60" dir="90" frames="14" />
+				<direction action_frame="12" delay="60" dir="135" frames="14" />
+				<direction action_frame="12" delay="60" dir="160" frames="14" />
+				<direction action_frame="12" delay="60" dir="225" frames="14" />
+				<direction action_frame="12" delay="60" dir="270" frames="14" />
 			</animation>
 		</action>
 		<action id="axe_idle">

@@ -75,14 +75,14 @@
 		</action>
 		<action id="revolver_attack">
 			<animation atlas="Agent_Revolver_Attack.png" height="160" width="160" y_offset="-25">
-				<direction action="6" delay="60" dir="315" frames="14" />
-				<direction action="6" delay="60" dir="0" frames="14" />
-				<direction action="6" delay="60" dir="45" frames="14" />
-				<direction action="6" delay="60" dir="90" frames="14" />
-				<direction action="6" delay="60" dir="135" frames="14" />
-				<direction action="6" delay="60" dir="160" frames="14" />
-				<direction action="6" delay="60" dir="225" frames="14" />
-				<direction action="6" delay="60" dir="270" frames="14" />
+				<direction action_frame="6" delay="60" dir="315" frames="14" />
+				<direction action_frame="6" delay="60" dir="0" frames="14" />
+				<direction action_frame="6" delay="60" dir="45" frames="14" />
+				<direction action_frame="6" delay="60" dir="90" frames="14" />
+				<direction action_frame="6" delay="60" dir="135" frames="14" />
+				<direction action_frame="6" delay="60" dir="160" frames="14" />
+				<direction action_frame="6" delay="60" dir="225" frames="14" />
+				<direction action_frame="6" delay="60" dir="270" frames="14" />
 			</animation>
 		</action>
 		<action id="revolver_walk">
@@ -111,14 +111,14 @@
 		</action>
 		<action id="sword_attack">
 			<animation atlas="Agent_Sword_Attack.png" height="180" width="180" y_offset="-25">
-				<direction action="10" delay="60" dir="315" frames="14" />
-				<direction action="10" delay="60" dir="0" frames="14" />
-				<direction action="10" delay="60" dir="45" frames="14" />
-				<direction action="10" delay="60" dir="90" frames="14" />
-				<direction action="10" delay="60" dir="135" frames="14" />
-				<direction action="10" delay="60" dir="160" frames="14" />
-				<direction action="10" delay="60" dir="225" frames="14" />
-				<direction action="10" delay="60" dir="270" frames="14" />
+				<direction action_frame="10" delay="60" dir="315" frames="14" />
+				<direction action_frame="10" delay="60" dir="0" frames="14" />
+				<direction action_frame="10" delay="60" dir="45" frames="14" />
+				<direction action_frame="10" delay="60" dir="90" frames="14" />
+				<direction action_frame="10" delay="60" dir="135" frames="14" />
+				<direction action_frame="10" delay="60" dir="160" frames="14" />
+				<direction action_frame="10" delay="60" dir="225" frames="14" />
+				<direction action_frame="10" delay="60" dir="270" frames="14" />
 			</animation>
 		</action>
 		<action id="sword_walk">
@@ -147,14 +147,14 @@
 		</action>
 		<action id="unarmed_attack">
 			<animation atlas="Agent_Hands_Attack.png" height="144" width="144" y_offset="-25">
-				<direction action="8" delay="60" dir="315" frames="14" />
-				<direction action="8" delay="60" dir="0" frames="14" />
-				<direction action="8" delay="60" dir="45" frames="14" />
-				<direction action="8" delay="60" dir="90" frames="14" />
-				<direction action="8" delay="60" dir="135" frames="14" />
-				<direction action="8" delay="60" dir="160" frames="14" />
-				<direction action="8" delay="60" dir="225" frames="14" />
-				<direction action="8" delay="60" dir="270" frames="14" />
+				<direction action_frame="8" delay="60" dir="315" frames="14" />
+				<direction action_frame="8" delay="60" dir="0" frames="14" />
+				<direction action_frame="8" delay="60" dir="45" frames="14" />
+				<direction action_frame="8" delay="60" dir="90" frames="14" />
+				<direction action_frame="8" delay="60" dir="135" frames="14" />
+				<direction action_frame="8" delay="60" dir="160" frames="14" />
+				<direction action_frame="8" delay="60" dir="225" frames="14" />
+				<direction action_frame="8" delay="60" dir="270" frames="14" />
 			</animation>
 		</action>
 		<action id="unarmed_walk">
@@ -183,14 +183,14 @@
 		</action>
 		<action id="axe_attack">
 			<animation atlas="Agent_Axe_Attack.png" height="180" width="180" y_offset="-25">
-				<direction action="10" delay="60" dir="315" frames="14" />
-				<direction action="10" delay="60" dir="0" frames="14" />
-				<direction action="10" delay="60" dir="45" frames="14" />
-				<direction action="10" delay="60" dir="90" frames="14" />
-				<direction action="10" delay="60" dir="135" frames="14" />
-				<direction action="10" delay="60" dir="160" frames="14" />
-				<direction action="10" delay="60" dir="225" frames="14" />
-				<direction action="10" delay="60" dir="270" frames="14" />
+				<direction action_frame="10" delay="60" dir="315" frames="14" />
+				<direction action_frame="10" delay="60" dir="0" frames="14" />
+				<direction action_frame="10" delay="60" dir="45" frames="14" />
+				<direction action_frame="10" delay="60" dir="90" frames="14" />
+				<direction action_frame="10" delay="60" dir="135" frames="14" />
+				<direction action_frame="10" delay="60" dir="160" frames="14" />
+				<direction action_frame="10" delay="60" dir="225" frames="14" />
+				<direction action_frame="10" delay="60" dir="270" frames="14" />
 			</animation>
 		</action>
 		<action id="axe_walk">
@@ -219,14 +219,14 @@
 		</action>
 		<action id="dagger_attack">
 			<animation atlas="Agent_Dagger_Attack.png" height="144" width="144" y_offset="-25">
-				<direction action="12" delay="60" dir="315" frames="14" />
-				<direction action="12" delay="60" dir="0" frames="14" />
-				<direction action="12" delay="60" dir="45" frames="14" />
-				<direction action="12" delay="60" dir="90" frames="14" />
-				<direction action="12" delay="60" dir="135" frames="14" />
-				<direction action="12" delay="60" dir="160" frames="14" />
-				<direction action="12" delay="60" dir="225" frames="14" />
-				<direction action="12" delay="60" dir="270" frames="14" />
+				<direction action_frame="12" delay="60" dir="315" frames="14" />
+				<direction action_frame="12" delay="60" dir="0" frames="14" />
+				<direction action_frame="12" delay="60" dir="45" frames="14" />
+				<direction action_frame="12" delay="60" dir="90" frames="14" />
+				<direction action_frame="12" delay="60" dir="135" frames="14" />
+				<direction action_frame="12" delay="60" dir="160" frames="14" />
+				<direction action_frame="12" delay="60" dir="225" frames="14" />
+				<direction action_frame="12" delay="60" dir="270" frames="14" />
 			</animation>
 		</action>
 		<action id="dagger_walk">
