@@ -21,6 +21,7 @@ class GUICombatLog:
 		self.length_before_last = 0
 		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("CombatLog.layout")
 		self.output = self.window.getChild("TextBox")
+		self.output.getChild("__auto_vscrollbar__").setEndLockEnabled(True)
 
 	def clear(self):
 		# scroll the log to the beginning
@@ -66,8 +67,8 @@ class GUICombatLog:
 		#print "VertScrollDocumentSize: {}".format(
 		#									self.output.getProperty("VertScrollDocumentSize"))
 		#print "VertScrollPageSize: {}".format(self.output.getProperty("VertScrollPageSize"))
-		self.output.setProperty("VertScrollPosition",
-								self.output.getProperty("VertScrollDocumentSize"))
+		#self.output.setProperty("VertScrollPosition",
+		#						self.output.getProperty("VertScrollDocumentSize"))
 		#args = PyCEGUI.MouseEventArgs(self.output)
 		#args.wheelChange = -1000
 		#self.output.fireEvent(PyCEGUI.GUISheet.EventMouseWheel, args)
