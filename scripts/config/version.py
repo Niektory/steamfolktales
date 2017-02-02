@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-version = "January 2017 prototype"
+version = "February 2017 prototype"
