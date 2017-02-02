@@ -99,8 +99,11 @@ class GUIDialogue:
 				# workaround: force the scrollbar to appear by adding empty space,
 				# then subtract its size
 				self.npc_text.setText("\n\n\n\n\n\n\n\n\n\n")
+				# render the text to update the properties
+				self.npc_text.render()
 				scroll_pos = float(self.npc_text.getProperty("VertScrollDocumentSize"))
 				self.npc_text.setText(history_text+"\n\n\n\n\n\n\n\n\n\n")
+				self.npc_text.render()
 				scroll_pos = float(self.npc_text.getProperty("VertScrollDocumentSize")) \
 							- scroll_pos
 				#self.npc_text.setText(history_text)
@@ -118,6 +121,7 @@ class GUIDialogue:
 			#print line.encode('ascii','ignore')
 		# make some empty space so we can scroll freely
 		self.npc_text.setText(history_text + "\n\n\n\n\n\n\n\n\n")
+		self.npc_text.render()
 		# scroll the log to only show the last line
 		self.npc_text.setProperty("VertScrollPosition", str(scroll_pos))
 		#print "scroll_pos:", scroll_pos
