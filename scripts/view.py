@@ -16,6 +16,21 @@ from animal import Animal, Bird
 from plant import Plant
 from effects import SimpleEffect
 from config import customanimations
+from error import LogExceptionDecorator
+
+
+class ViewLayerChangeListener(fife.LayerChangeListener):
+	def onLayerChanged(self, layer, changedInstances): pass
+	def onInstanceDelete(self, layer, instance): pass
+
+	def __init__(self, view):
+		super(ViewLayerChangeListener, self).__init__()
+		self.view = view
+
+	@LogExceptionDecorator
+	def onInstanceCreate(self, layer, instance):
+		# force lighting update whenever an instance is added
+		self.view.last_hour = None
 
 
 class View:
@@ -38,6 +53,7 @@ class View:
 		#self.tiles = {}
 		self.tiles = []
 		self.hidden_obstructions = []
+		self.last_hour = None
 
 		self.camera.setViewPort(fife.Rect(
 				0,0,self.application.engine.getRenderBackend().getScreenWidth(),
@@ -100,6 +116,9 @@ class View:
 				self.camera.attach(self.application.current_character.visual.instance)
 				self.application.current_character.visual.instance.setVisitor(True)
 				self.application.current_character.visual.instance.setVisitorRadius(9)
+
+		self.layer_change_listener = ViewLayerChangeListener(self)
+		self.application.maplayer.addChangeListener(self.layer_change_listener)
 		print("* View initialized!")
 		
 		
@@ -355,6 +374,14 @@ class View:
 
 	def updateLighting(self):
 		hour = self.application.world.getHour()
+		# optimization: this method is expensive, so only run it:
+		# - after loading a new map (self.last_hour is None)
+		# - if the hour has changed since the last run
+		# - if new instances were added since the last run (a listener sets self.last_hour to None)
+		# TODO: in the last case: only update the new instances, not all of them
+		if hour == self.last_hour:
+			return
+		self.last_hour = hour
 		day = self.application.world.getDay()
 		# tooltip clock
 		#self.application.gui.tooltip.printMessage("Day " + str(day)
