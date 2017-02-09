@@ -393,5 +393,6 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		#	if self.world.visual:
 		if self.view:
 			self.view.pump()
+		self.gui.pump2()
 		if self._listener.quitrequested:
 			self.quit()

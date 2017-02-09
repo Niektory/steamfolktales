@@ -125,6 +125,10 @@ class GUI:
 					"Window/" + PyCEGUI.PushButton.EventMouseButtonDown,
 					self.buttonSound)
 
+		self.global_tooltip.move(0, 0)
+		self.global_tooltip.printMessage("Steamfolk Tales " + version + "\n")
+		self.global_tooltip.update()
+
 		print("* GUI loaded!")
 
 	@LogExceptionDecorator
@@ -140,9 +144,6 @@ class GUI:
 
 	def pump(self):
 		#self.timeline.update()
-		self.global_tooltip.clear()
-		self.global_tooltip.move(0, 0)
-		self.global_tooltip.printMessage("Steamfolk Tales " + version + "\n")
 		self.tooltip.clear()
 		# get the mouse cursor position
 		ptx, pty = self.application.engine.getCursor().getPosition()
@@ -163,6 +164,9 @@ class GUI:
 		self.hud.updateVisibility()
 		for bar in self.detection_bars:
 			bar.fill = 0.0
+
+	def pump2(self):
+		self.tooltip.update()
 
 	def sayBubble(self, instance, text, time=2000, color=""):
 		for bubble in self.bubbles:
