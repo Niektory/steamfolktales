@@ -422,13 +422,16 @@ class View:
 					if not ((circle[0] < hour < circle[1]) or (hour < circle[1] < circle[0])
 							or (circle[1] < circle[0] < hour)):
 						continue
-					for i in xrange(2):
-						self.light_renderer.addSimpleLight("pc",
-							fife.RendererNode(instance, fife.Point(
-								int(circle[7] * self.camera.getZoom()),
-								int(circle[8] * self.camera.getZoom()))),
-							255, 64, 32, circle[2], circle[3],
-							int(circle[4] * 255), int(circle[5] * 255), int(circle[6] * 255))
+					for i in xrange(2): # double light power!
+						self.light_renderer.addSimpleLight(group="pc",
+							n=fife.RendererNode(instance, fife.Point(
+								int(circle[7]),
+								#int(circle[7] * self.camera.getZoom()),
+								int(circle[8]))),
+								#int(circle[8] * self.camera.getZoom()))),
+							intensity=255, radius=64, subdivisions=32,
+							xstretch=circle[2], ystretch=circle[3],
+							r=int(circle[4]*255), g=int(circle[5]*255), b=int(circle[6]*255))
 				break
 			prev_hour = next_hour
 		# set transparency for light overlay instances
