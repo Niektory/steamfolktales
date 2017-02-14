@@ -4,6 +4,8 @@
 from fife import fife
 from random import randrange
 
+from error import LogExceptionDecorator
+
 class Plant(fife.InstanceActionListener):
 	def __init__(self, instance):
 		fife.InstanceActionListener.__init__(self)
@@ -11,9 +13,11 @@ class Plant(fife.InstanceActionListener):
 		self.instance.addActionListener(self)
 		self.idle()
 
+	@LogExceptionDecorator
 	def onInstanceActionFinished(self, instance, action):
 		self.idle()
 
+	@LogExceptionDecorator
 	def onInstanceActionCancelled(self, instance, action):
 		print("Plant.onInstanceActionCancelled()")
 		return

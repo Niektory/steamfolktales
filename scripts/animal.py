@@ -7,7 +7,7 @@ from fife import fife
 from random import randrange
 
 from timeline import Timer
-
+from error import LogExceptionDecorator
 
 class Animal(fife.InstanceActionListener):
 	STATE_IDLE, STATE_RUN1, STATE_RUN2 = range(3)
@@ -20,9 +20,11 @@ class Animal(fife.InstanceActionListener):
 		self.state = self.STATE_IDLE
 		self.idle()
 
+	@LogExceptionDecorator
 	def onInstanceActionFinished(self, instance, action):
 		self.application.real_timeline.addTimer(Timer("idle animal", action=self.idle))
 
+	@LogExceptionDecorator
 	def onInstanceActionCancelled(self, instance, action):
 		if self.state == self.STATE_RUN1:
 			print("Animal out of control!")
@@ -64,11 +66,13 @@ class Bird(fife.InstanceActionListener):
 		self.state = self.STATE_IDLE
 		self.idle()
 
+	@LogExceptionDecorator
 	def onInstanceActionFinished(self, instance, action):
 		if self.state == self.STATE_RUN1:
 			print("Bird out of control!")
 		self.application.real_timeline.addTimer(Timer("idle bird", action=self.idle))
 
+	@LogExceptionDecorator
 	def onInstanceActionCancelled(self, instance, action):
 		print("Bird.onInstanceActionCancelled() called")
 		return
