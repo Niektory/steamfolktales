@@ -244,12 +244,16 @@ class KeyListener(fife.IKeyListener):
 			elif key_val == self.getHotkey("Zoom Out"):
 				self.application.view.zoomOut()
 			elif key_val == self.getHotkey("Pan Up"):
+				self.application.camera.detach()
 				self.application.view.camera_move_key_up = True
 			elif key_val == self.getHotkey("Pan Down"):
+				self.application.camera.detach()
 				self.application.view.camera_move_key_down = True
 			elif key_val == self.getHotkey("Pan Left"):
+				self.application.camera.detach()
 				self.application.view.camera_move_key_left = True
 			elif key_val == self.getHotkey("Pan Right"):
+				self.application.camera.detach()
 				self.application.view.camera_move_key_right = True
 
 			elif key_val == self.getHotkey("End Turn"):
