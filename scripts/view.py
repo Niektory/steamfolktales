@@ -120,8 +120,8 @@ class View:
 		self.layer_change_listener = ViewLayerChangeListener(self)
 		self.application.maplayer.addChangeListener(self.layer_change_listener)
 		print("* View initialized!")
-		
-		
+
+
 	def toggleCoordinates(self):
 		self.coordinate_renderer.setEnabled(not self.coordinate_renderer.isEnabled())
 
@@ -148,15 +148,29 @@ class View:
 			self.target_zoom = max(self.target_zoom - 1, 1)
 
 	def moveCamera(self, camera_move_x, camera_move_y):
-		cur_rot = self.camera.getRotation()
-		cell_dimensions = self.camera.getCellImageDimensions()
-		coord = self.camera.getLocationRef().getMapCoordinates()
-		coord.x += ((math.cos(cur_rot / 180 * math.pi) * camera_move_x / cell_dimensions.x
-				- math.sin(cur_rot / 180 * math.pi) * camera_move_y / cell_dimensions.y)
-				/ self.target_zoom * math.sqrt(2))
-		coord.y += ((math.cos(cur_rot / 180 * math.pi) * camera_move_y / cell_dimensions.y
-				+ math.sin(cur_rot / 180 * math.pi) * camera_move_x / cell_dimensions.x)
-				/ self.target_zoom * math.sqrt(2))
+		scr_coord = self.camera.getOrigin() + fife.ScreenPoint(camera_move_x, camera_move_y)
+		coord = self.camera.toMapCoordinates(scr_coord, False)
+		coord.z = 0
+
+		#cur_rot = self.camera.getRotation()
+		#cell_dimensions = self.camera.getCellImageDimensions()
+		#new_coord2 = self.camera.getLocation().getMapCoordinates()
+		#new_coord2.x += ((math.cos(cur_rot / 180 * math.pi) * camera_move_x / cell_dimensions.x
+		#		- math.sin(cur_rot / 180 * math.pi) * camera_move_y / cell_dimensions.y)
+		#		/ self.target_zoom * math.sqrt(2))
+		#new_coord2.y += ((math.cos(cur_rot / 180 * math.pi) * camera_move_y / cell_dimensions.y
+		#		+ math.sin(cur_rot / 180 * math.pi) * camera_move_x / cell_dimensions.x)
+		#		/ self.target_zoom * math.sqrt(2))
+
+		#x_error = abs(new_coord2.x - new_coord.x)
+		#y_error = abs(new_coord2.y - new_coord.y)
+		#if  x_error > self.x_error:
+		#	print(self.x_error, self.y_error)
+		#	self.x_error = x_error
+		#if  y_error > self.y_error:
+		#	print(self.x_error, self.y_error)
+		#	self.y_error = y_error
+
 		# limit the camera to the current map's borders
 		map_size = self.application.maplayer.getCellCache().getSize()
 		if coord.x < map_size.x:
@@ -167,8 +181,10 @@ class View:
 			coord.x = map_size.w
 		if coord.y > map_size.h:
 			coord.y = map_size.h
-		self.camera.getLocationRef().setMapCoordinates(coord)
-		self.camera.refresh()
+
+		loc = self.camera.getLocation()
+		loc.setMapCoordinates(coord)
+		self.camera.setLocation(loc)
 
 	def animateCamera(self):
 		# detach the camera if there's no PC or no PC visual; might crash otherwise
@@ -486,4 +502,3 @@ class View:
 		else:
 			self.camera.refresh()
 		self.highlightInstances()
-		
