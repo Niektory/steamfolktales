@@ -108,6 +108,8 @@ class GUIHUD:
 		else:
 			self.walk_mode = "walk"
 		self.refresh()
+		if not self.application.current_character.visual:
+			return
 		self.application.current_character.visual.idle()
 	
 	@LogExceptionDecorator
@@ -169,22 +171,26 @@ class GUIHUD:
 		self.attack_label_combat.setText(self.selected_attack)
 		#else:
 		#	self.attack_label_combat.setText("")
-		if not self.application.current_character.visual:
-			return
 		if self.walk_mode == "walk":
 			self.walk_button.setProperty("NormalImage", "Button_Walk01/full_image")
 			self.walk_button.setProperty("HoverImage", "Button_Walk02/full_image")
 			self.walk_button.setProperty("PushedImage", "Button_Walk01/full_image")
+			if not self.application.current_character.visual:
+				return
 			self.application.current_character.visual.sneaking = False
 		elif self.walk_mode == "run":
 			self.walk_button.setProperty("NormalImage", "Button_Run01/full_image")
 			self.walk_button.setProperty("HoverImage", "Button_Run02/full_image")
 			self.walk_button.setProperty("PushedImage", "Button_Run01/full_image")
+			if not self.application.current_character.visual:
+				return
 			self.application.current_character.visual.sneaking = False
 		else:
 			self.walk_button.setProperty("NormalImage", "Button_Sneak01/full_image")
 			self.walk_button.setProperty("HoverImage", "Button_Sneak02/full_image")
 			self.walk_button.setProperty("PushedImage", "Button_Sneak01/full_image")
+			if not self.application.current_character.visual:
+				return
 			self.application.current_character.visual.sneaking = True
 
 	def show(self):
