@@ -18,7 +18,7 @@
             <Property name="Text" >Video</Property>
             <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
 		    <Window type="TaharezLook/Label" name="ResolutionLabel" >
-		        <Property name="Text" value="Resolution (requires restart):" />
+		        <Property name="Text" value="Resolution:" />
 		        <Property name="Position" value="{{0,5},{0,5}}" />
 		        <Property name="Size" value="{{1,-10},{0,20}}" />
 		        <Property name="VertFormatting" value="TopAligned" />
@@ -28,7 +28,7 @@
                 <Property name="Area" value="{{0,5},{0,25},{1,-5},{1,-30}}" />
             </Window>
             <Window type="TaharezLook/Checkbox" name="Fullscreen" >
-		        <Property name="Text" value="Fullscreen (requires restart)" />
+		        <Property name="Text" value="Fullscreen" />
                 <Property name="Area" value="{{0,5},{1,-26},{1,-5},{1,-5}}" />
             </Window>
         </Window>

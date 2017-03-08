@@ -67,6 +67,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		self.map = None
 		self.world = None
 		self.view = None
+		self.change_res = False
 
 		self.eventmanager = self.engine.getEventManager()
 		self.mouselistener = MouseListener(self)
@@ -359,7 +360,41 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 			dialogue = loadDialogue(dialogue)
 		self.gui.dialogue.start(DialogueState(dialogue, self.world, npc=npc, pc=pc))
 
+	def changeRes(self):
+		self.change_res = True
+
+	def changeRes2(self):
+		#PyCEGUIOpenGLRenderer.OpenGLRenderer.grabTextures(
+		#	PyCEGUI.System.getSingleton().getRenderer())
+		self.change_res = False
+		old_mode = self.engine.getRenderBackend().getCurrentScreenMode()
+		new_mode = self.engine.getDeviceCaps().getNearestScreenMode(
+				int(self.settings.get("FIFE", "ScreenResolution", "1024x768").split("x")[0]),
+				int(self.settings.get("FIFE", "ScreenResolution", "1024x768").split("x")[1]),
+				self.settings.get("FIFE", "BitsPerPixel", "0"),
+				self.settings.get("FIFE", "RenderBackend", "OpenGL"),
+				self.settings.get("FIFE", "FullScreen", False))
+		if (old_mode.getWidth() == new_mode.getWidth()
+				and old_mode.getHeight() == new_mode.getHeight()
+				and old_mode.isFullScreen() == new_mode.isFullScreen()):
+			return
+		self.engine.changeScreenMode(new_mode)
+		if not self.view:
+			return
+		self.camera.setViewPort(fife.Rect(0, 0,
+			self.engine.getRenderBackend().getScreenWidth(),
+			self.engine.getRenderBackend().getScreenHeight()))
+		self.camera.refresh()
+		#PyCEGUIOpenGLRenderer.OpenGLRenderer.restoreTextures(
+		#	PyCEGUI.System.getSingleton().getRenderer())
+		#PyCEGUI.System.getSingleton().notifyDisplaySizeChanged(PyCEGUI.Sizef(
+		#	int(self.settings.get("FIFE", "ScreenResolution", "1024x768").split("x")[0]),
+		#	int(self.settings.get("FIFE", "ScreenResolution", "1024x768").split("x")[1])))
+
 	def _pump(self):
+		if self.change_res:
+			self.changeRes2()
+			return
 		if self.imagemanager.getMemoryUsed() != self.lastmem:
 			print("Memory used by the image manager:", "{:,}".format(
 															self.imagemanager.getMemoryUsed()))

@@ -143,6 +143,7 @@ class GUIPreferences:
 					edit.getProperty("HiddenData"))
 		self.application.settings.saveSettings()
 		self.application.gui.hud.updateTooltips()
+		self.application.changeRes()
 		self.window.hide()
 
 	@LogExceptionDecorator
