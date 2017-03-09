@@ -125,6 +125,11 @@ class GUI:
 					"Window/" + PyCEGUI.PushButton.EventMouseButtonDown,
 					self.buttonSound)
 
+		# register tooltip movement
+		PyCEGUI.GlobalEventSet.getSingleton().subscribeEvent(
+					"Window/" + PyCEGUI.Window.EventMouseMove,
+					self.moveTooltip)
+
 		self.global_tooltip.move(0, 0)
 		self.global_tooltip.printMessage("Steamfolk Tales " + version + "\n")
 		self.global_tooltip.update()
@@ -142,14 +147,19 @@ class GUI:
 					or args.window.getName().startswith("Response")):
 			self.application.playSound("SFT-INVENTORY-CLICK")
 
+	@LogExceptionDecorator
+	def moveTooltip(self, args):
+		# move the tooltip near the mouse cursor
+		self.tooltip.move(args.position.d_x, args.position.d_y, 27, 40)
+
 	def pump(self):
 		#self.timeline.update()
 		self.tooltip.clear()
 		# get the mouse cursor position
-		ptx, pty = self.application.engine.getCursor().getPosition()
-		pt = fife.ScreenPoint(ptx, pty)
+		#ptx, pty = self.application.engine.getCursor().getPosition()
+		#pt = fife.ScreenPoint(ptx, pty)
 		# move the tooltip near the mouse cursor
-		self.tooltip.move(ptx, pty, 27, 40)
+		#self.tooltip.move(ptx, pty, 27, 40)
 		if (self.application.gui.context.getWindowContainingMouse().getName()
 					!= "_MasterRoot"):
 			# cursor over the GUI, display tooltip text if any
