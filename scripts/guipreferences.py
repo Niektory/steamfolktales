@@ -116,10 +116,10 @@ class GUIPreferences:
 	@LogExceptionDecorator
 	def savePreferences(self, args):
 		if self.enable_sound_checkbox.isSelected():
-			self.application.fifesoundmanager.setVolume(
+			self.application.soundmanager.setVolume(
 						self.volume_slider.getScrollPosition() / 10)
 		else:
-			self.application.fifesoundmanager.setVolume(0.0)
+			self.application.soundmanager.setVolume(0.0)
 		self.application.settings.set("gameplay", "TimeAcceleration",
 					int(self.time_acceleration_edit.getText()))
 		self.application.settings.set("gameplay", "WalkSpeed",

@@ -6,7 +6,6 @@ from __future__ import print_function
 from fife import fife
 from fife.extensions.pychan.pychanbasicapplication import PychanApplicationBase
 from fife.extensions.cegui.ceguibasicapplication import CEGUIApplicationBase, CEGUIEventListener
-from fife.extensions.soundmanager import SoundManager
 #import pickle
 #from traceback import print_exc
 #import cProfile
@@ -74,8 +73,8 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		self.keylistener = KeyListener(self)
 		self.eventmanager.addMouseListenerFront(self.mouselistener)
 		self.eventmanager.addKeyListenerFront(self.keylistener)
-		self.soundmanager = SoundManager(self.engine)
-		self.fifesoundmanager = self.engine.getSoundManager()
+		self.soundmanager = self.engine.getSoundManager()
+		self.soundmanager.init()
 		self.imagemanager = self.engine.getImageManager()
 		print("* Application initialized!")
 
@@ -101,7 +100,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 #		self.sound_attack = self.soundmanager.createSoundEmitter("sfx/attack-1.ogg")
 		#self.music.looping = True
 		if not self.settings.get("FIFE", "PlaySounds"):
-			self.fifesoundmanager.setVolume(0.0)
+			self.soundmanager.setVolume(0.0)
 		#self.music.play()
 
 		self.cursor = self.imagemanager.load("gui/cursors/Mousecursor01.png")
@@ -126,7 +125,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 
 	def playSound(self, sound):
 		if sound not in self.sounds:
-			self.sounds[sound] = self.soundmanager.createSoundEmitter(
+			self.sounds[sound] = self.soundmanager.createEmitter(
 					"sfx/" + sound + ".ogg")
 		self.sounds[sound].play()
 
@@ -165,9 +164,9 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 			self.music_name = music.music_by_map[map_name]
 			if self.music:
 				self.music.stop()
-			self.music = self.soundmanager.createSoundEmitter(
+			self.music = self.soundmanager.createEmitter(
 					"music/" + self.music_name + ".ogg")
-			self.music.looping = True
+			self.music.setLooping(True)
 			self.music.play()
 
 	def unloadMap(self):
