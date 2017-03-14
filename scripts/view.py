@@ -54,11 +54,12 @@ class View:
 		self.tiles = []
 		self.hidden_obstructions = []
 		self.last_hour = None
+		self.cursor = self.application.cursor
 
 		self.camera.setViewPort(fife.Rect(
 				0,0,self.application.engine.getRenderBackend().getScreenWidth(),
 				self.application.engine.getRenderBackend().getScreenHeight()))
-		
+
 		print("  * Enabling renderers...")
 		self.instance_renderer = fife.InstanceRenderer.getInstance(self.camera)
 		self.instance_renderer.addIgnoreLight(["effects"])
@@ -263,7 +264,7 @@ class View:
 
 	def highlightInstances(self):
 		# reset cursor
-		self.application.engine.getCursor().set(self.application.cursor)
+		self.cursor = self.application.cursor
 		for map_object in (
 					self.application.world.characters + self.application.world.interact_objects):
 			if map_object.visual:
@@ -347,7 +348,7 @@ class View:
 		transition = self.application.world.findMapTransitionAt(location.getLayerCoordinates())
 		if transition:
 			self.application.gui.tooltip.printMessage(transition.name)
-			self.application.engine.getCursor().set(self.application.map_cursor)
+			self.cursor = self.application.map_cursor
 
 		# outline the selected character
 		#if self.application.current_character:
@@ -502,3 +503,4 @@ class View:
 		else:
 			self.camera.refresh()
 		self.highlightInstances()
+		self.application.engine.getCursor().set(self.cursor)

@@ -361,6 +361,8 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 
 	def changeRes(self):
 		self.change_res = True
+		self.engine.getCursor().setNativeImageCursorEnabled(
+			self.settings.get("FIFE", "NativeImageCursor", False))
 
 	def changeRes2(self):
 		#PyCEGUIOpenGLRenderer.OpenGLRenderer.grabTextures(
@@ -375,8 +377,12 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 				self.settings.get("FIFE", "FullScreen", False))
 		if (old_mode.getWidth() == new_mode.getWidth()
 				and old_mode.getHeight() == new_mode.getHeight()
-				and old_mode.isFullScreen() == new_mode.isFullScreen()):
+				and old_mode.isFullScreen() == new_mode.isFullScreen()
+				and self.engine.getRenderBackend().isVSyncEnabled()
+					== self.settings.get("FIFE", "VSync", True)):
 			return
+		self.engine.getRenderBackend().setVSyncEnabled(
+			self.settings.get("FIFE", "VSync", True))
 		self.engine.changeScreenMode(new_mode)
 		if not self.view:
 			return

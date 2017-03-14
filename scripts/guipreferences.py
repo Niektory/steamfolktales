@@ -47,6 +47,8 @@ class GUIPreferences:
 		# video and audio controls
 		self.resolution_list = self.page_video.getChild("Resolutions")
 		self.fullscreen_checkbox = self.page_video.getChild("Fullscreen")
+		self.vsync_checkbox = self.page_video.getChild("VSync")
+		self.native_cursor_checkbox = self.page_video.getChild("NativeCursor")
 		self.enable_sound_checkbox = self.page_audio.getChild("Enable")
 		self.volume_slider = self.page_audio.getChild("VolumeSlider")
 
@@ -134,6 +136,10 @@ class GUIPreferences:
 					self.resolution_list.getFirstSelectedItem().getText())
 		self.application.settings.set("FIFE", "FullScreen",
 					self.fullscreen_checkbox.isSelected())
+		self.application.settings.set("FIFE", "VSync",
+					self.vsync_checkbox.isSelected())
+		self.application.settings.set("FIFE", "NativeImageCursor",
+					self.native_cursor_checkbox.isSelected())
 		self.application.settings.set("FIFE", "PlaySounds",
 					self.enable_sound_checkbox.isSelected())
 		self.application.settings.set("FIFE", "InitialVolume",
@@ -173,6 +179,8 @@ class GUIPreferences:
 			if resolution == settings.get("FIFE", "ScreenResolution", "1024x768"):
 				self.resolution_list.setItemSelectState(self.resolution_items[-1], True)
 		self.fullscreen_checkbox.setSelected(settings.get("FIFE", "FullScreen", False))
+		self.vsync_checkbox.setSelected(settings.get("FIFE", "VSync", True))
+		self.native_cursor_checkbox.setSelected(settings.get("FIFE", "NativeImageCursor", False))
 		self.enable_sound_checkbox.setSelected(settings.get("FIFE", "PlaySounds", True))
 		self.volume_slider.setScrollPosition(settings.get("FIFE", "InitialVolume", 10.0))
 

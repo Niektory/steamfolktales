@@ -25,10 +25,18 @@
 		        <Property name="HorzFormatting" value="LeftAligned" />
 			</Window>
             <Window type="TaharezLook/Listbox" name="Resolutions" >
-                <Property name="Area" value="{{0,5},{0,25},{1,-5},{1,-30}}" />
+                <Property name="Area" value="{{0,5},{0,25},{1,-5},{1,-80}}" />
             </Window>
             <Window type="TaharezLook/Checkbox" name="Fullscreen" >
 		        <Property name="Text" value="Fullscreen" />
+                <Property name="Area" value="{{0,5},{1,-76},{1,-5},{1,-55}}" />
+            </Window>
+            <Window type="TaharezLook/Checkbox" name="VSync" >
+		        <Property name="Text" value="VSync" />
+                <Property name="Area" value="{{0,5},{1,-51},{1,-5},{1,-30}}" />
+            </Window>
+            <Window type="TaharezLook/Checkbox" name="NativeCursor" >
+		        <Property name="Text" value="Native cursor" />
                 <Property name="Area" value="{{0,5},{1,-26},{1,-5},{1,-5}}" />
             </Window>
         </Window>
