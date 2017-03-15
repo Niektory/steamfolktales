@@ -42,13 +42,14 @@ class DetectionBar(fife.InstanceDeleteListener):
 					+ str(coords.x - 30)
 					+ "},{0," + str(coords.y - 90) + "}}")
 
-	def destroy(self):
+	def destroy(self, remove_listener=True):
 		PyCEGUI.WindowManager.getSingleton().destroyWindow(self.bar)
 		if self.application.gui.detection_bars.count(self):
 			self.application.gui.detection_bars.remove(self)
 		if self.application.real_timeline.timers.count(self.timer):
 			self.application.real_timeline.timers.remove(self.timer)
+		if remove_listener:
+			self.instance.removeDeleteListener(self)
 
 	def onInstanceDeleted(self, instance):
-		self.destroy()
-
+		self.destroy(remove_listener=False)

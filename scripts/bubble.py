@@ -82,7 +82,7 @@ class SayBubble(fife.InstanceDeleteListener):
 					+ str(coords.x - int(float(self.horz_extent)) // 2 + 1)
 					+ "},{0," + str(coords.y - int(float(self.vert_extent)) - 89) + "}}")
 
-	def destroy(self):
+	def destroy(self, remove_listener=True):
 		PyCEGUI.WindowManager.getSingleton().destroyWindow(self.bubble)
 		PyCEGUI.WindowManager.getSingleton().destroyWindow(self.shadow1)
 		PyCEGUI.WindowManager.getSingleton().destroyWindow(self.shadow2)
@@ -92,7 +92,8 @@ class SayBubble(fife.InstanceDeleteListener):
 			self.application.gui.bubbles.remove(self)
 		if self.application.real_timeline.timers.count(self.timer):
 			self.application.real_timeline.timers.remove(self.timer)
+		if remove_listener:
+			self.instance.removeDeleteListener(self)
 
 	def onInstanceDeleted(self, instance):
-		self.destroy()
-
+		self.destroy(remove_listener=False)
