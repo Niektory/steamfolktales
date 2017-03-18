@@ -194,8 +194,9 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		self.loadMap(self.world.current_map_name)
 		self.world.visual = WorldVisual(self, self.maplayer, self.world)
 		self.view = View(self)
-		self.view.camera.getLocationRef().setLayerCoordinates(
-					fife.ModelCoordinate(40, 0, 0))
+		camera_loc = self.view.camera.getLocation()
+		camera_loc.setLayerCoordinates(self.world.camera_coords)
+		self.view.camera.setLocation(camera_loc)
 		self.gui.showHUD()
 		self.unpause(True)
 		self.change_map_name = None

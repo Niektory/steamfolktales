@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Tomasz "Niektóry" Turowski
 
-#from fife import fife
+from fife import fife
 
 #from cutscenes import InnIntroCutscene, InnIntroCutscene2, GarthIntroCutscene
 
@@ -9,6 +9,7 @@
 @classmethod
 def initPrologue(cls, world):
 	world.current_map_name = "Twomapples_Inn"
+	world.camera_coords = fife.ModelCoordinate(40, 0, 0)
 	world.addMapTrigger(
 		"Two Mapples Inn intro", "Twomapples_Inn", None, None, None, None,
 		"InnIntroCutscene", True)
