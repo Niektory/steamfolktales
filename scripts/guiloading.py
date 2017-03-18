@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Tomasz "Niektóry" Turowski
 
+from __future__ import division
+
 import PyCEGUI
-from traceback import print_exc
+import timeit
 
 from config.loadingscreens import loading_screens_by_map
 
@@ -16,17 +18,19 @@ class GUILoading:
 		self.default_image = self.window.getProperty("Image")
 		self.action = None
 		self.visible = False
-		self.fade_speed = 0.03
+		self.fade_duration = 1
+		self.fade_start = 0
 
 	def show(self):
 		self.window.show()
 		self.window.moveToFront()
-		self.window.setAlpha(1.0)
+		self.window.setAlpha(1)
 		self.visible = True
 
 	def showFade(self, action, map=None):
 		self.show()
-		self.window.setAlpha(self.fade_speed)
+		self.window.setAlpha(0)
+		self.fade_start = timeit.default_timer()
 		self.action = action
 		image = loading_screens_by_map.get(map)
 		if image is not None:
@@ -36,17 +40,20 @@ class GUILoading:
 		
 	def hideFade(self):
 		self.visible = False
+		self.fade_start = 0
 
 	def update(self):
 		if not self.window.isVisible():
 			return
-		alpha = self.window.getAlpha()
 		if self.visible:
-			self.window.setAlpha(alpha + self.fade_speed)
-			if (alpha >= 1.0) and self.action:
+			self.window.setAlpha((timeit.default_timer() - self.fade_start) / self.fade_duration)
+			if (self.window.getAlpha() >= 1) and self.action:
 				self.action()
 				self.action = None
 		else:
-			self.window.setAlpha(alpha - self.fade_speed)
-			if alpha <= 0.0:
+			if self.fade_start == 0:
+				self.fade_start = timeit.default_timer()
+			self.window.setAlpha(
+				1 - (timeit.default_timer() - self.fade_start) / self.fade_duration)
+			if self.window.getAlpha() <= 0:
 				self.window.hide()
