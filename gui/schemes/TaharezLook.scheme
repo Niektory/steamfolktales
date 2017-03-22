@@ -27,6 +27,7 @@
 	<Imageset filename="Textbox_Left_end.imageset" />
 	<Imageset filename="Textbox_Right_end.imageset" />
 	<Imageset filename="Textbox_center.imageset" />
+	<Imageset filename="Caret.imageset" />
 	<Imageset filename="Background01.imageset" />
 	<Imageset filename="Bottomleft_corner.imageset" />
 	<Imageset filename="Bottomright_corner.imageset" />
