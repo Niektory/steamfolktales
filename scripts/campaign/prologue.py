@@ -8,28 +8,28 @@ from fife import fife
 
 @classmethod
 def initPrologue(cls, world):
-	world.current_map_name = "Twomapples_Inn"
+	world.current_map_name = "TwoMapples_Inn"
 	world.camera_coords = fife.ModelCoordinate(40, 0, 0)
 	world.addMapTrigger(
-		"Two Mapples Inn intro", "Twomapples_Inn", None, None, None, None,
+		"Two Mapples Inn intro", "TwoMapples_Inn", None, None, None, None,
 		"InnIntroCutscene", True)
 	#world.addMapTrigger(
-	#	"Two Mapples Inn prologue dialogue Radcliffe", "Twomapples_Inn", None, None, None, None,
+	#	"Two Mapples Inn prologue dialogue Radcliffe", "TwoMapples_Inn", None, None, None, None,
 	#	lambda pc: cls.startDialogue(world, "prologue_dialogue0"), True)
 	#world.addMapTrigger(
-	#	"Two Mapples Inn Radcliffe walks to the bar", "Twomapples_Inn", None, None, None, None,
+	#	"Two Mapples Inn Radcliffe walks to the bar", "TwoMapples_Inn", None, None, None, None,
 	#	lambda pc: world.application.startCutscene(cls.InnIntroCutscene2), True)
 	world.addMapTrigger(
-		"Two Mapples Inn prologue dialogue", "Twomapples_Inn", None, None, None, None,
+		"Two Mapples Inn prologue dialogue", "TwoMapples_Inn", None, None, None, None,
 		"prologue_dialogue", True)
 
 
 @classmethod
 def continuePrologue(cls, npc, pc, world):
 	world.disablePlayerCharacter()
-	world.application.prepareChangeMap("Twomapples_Inn")
+	world.application.prepareChangeMap("TwoMapples_Inn")
 	world.addMapTrigger(
-		"Two Mapples Inn prologue dialogue cont.", "Twomapples_Inn", None, None, None, None,
+		"Two Mapples Inn prologue dialogue cont.", "TwoMapples_Inn", None, None, None, None,
 		"prologue_dialogue", True)
 
 

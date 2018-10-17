@@ -40,7 +40,7 @@ import_by_map = {
 "Amelia_Engineroom":(
 	"objects/Sprites - Characters/Terrorist_Gil/Gil.xml",
 	"objects/Sprites - Characters/Sebastian_Dustys/Sebastian_Rex_Dustys.xml"),
-#"Twomapples_Inn":(
+#"TwoMapples_Inn":(
 #	"objects/Sprites - Characters/Agent/Agent.xml",
 #	"objects/Sprites - Characters/Dusty/Dusty.xml",
 #	"objects/Sprites - Characters/Mark_Mapple/Mark_Mapple.xml",
