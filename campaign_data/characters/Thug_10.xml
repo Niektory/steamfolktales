@@ -1,9 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Character name="Thug" sprite="Thug01" map="Ashgrove_Sawmill" killable="1" behavior="detect,wander">
-	<Inventory>
-		<Hands>
-			<Item ID="Dagger" />
-		</Hands>
-	</Inventory>
-	<Knowledge key="wander_rect" value="-42,-43,-34,-27" />
+	<Knowledge key="wander_rect" value="0,-25,20,-19" />
 </Character>

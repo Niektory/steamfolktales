@@ -1906,14 +1906,18 @@
             <i o="Barrel_Fire" x="-13.000000" y="21.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
             <i o="Barrel_Fire" x="-15.000000" y="12.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
             <i o="Barrel_Fire" x="11.000000" y="-10.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
-            <i id="c:Thug_1" o="Thug01" x="-13.000000" y="19.000000" z="0.000000" r="270" blocking="1" stackpos="0" />
-            <i id="c:Thug_2" o="Thug02" x="-13.000000" y="23.000000" z="0.000000" r="45" blocking="1" stackpos="0" />
-            <i id="c:Thug_3" o="Thug03" x="-25.000000" y="-19.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
-            <i id="c:Thug_4" o="Thug01" x="-26.000000" y="11.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
-            <i id="c:Thug_5" o="Thug03" x="-1.000000" y="16.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
-            <i id="c:Thug_6" o="Thug03" x="-19.000000" y="40.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
-            <i id="c:Thug_7" o="Thug01" x="-38.000000" y="-27.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
-            <i id="c:Thug_8" o="Thug02" x="-43.000000" y="4.000000" z="0.000000" r="0" blocking="1" stackpos="0" />
+            <i id="c:Thug_1" o="Thug01" x="-14.000000" y="19.000000" z="0.000000" r="315" blocking="1" stackpos="0" />
+            <i id="c:Thug_2" o="Thug02" x="-11.000000" y="22.000000" z="0.000000" r="135" blocking="1" stackpos="0" />
+            <i id="c:Thug_3" o="Thug03" x="-4.000000" y="2.000000" z="0.000000" r="225" blocking="1" stackpos="0" />
+            <i id="c:Thug_4" o="Thug01" x="-26.000000" y="11.000000" z="0.000000" r="45" blocking="1" stackpos="0" />
+            <i id="c:Thug_5" o="Thug03" x="0.000000" y="17.000000" z="0.000000" r="45" blocking="1" stackpos="0" />
+            <i id="c:Thug_6" o="Thug03" x="-19.000000" y="39.000000" z="0.000000" r="180" blocking="1" stackpos="0" />
+            <i id="c:Thug_7" o="Thug01" x="-38.000000" y="-27.000000" z="0.000000" r="270" blocking="1" stackpos="0" />
+            <i id="c:Thug_8" o="Thug02" x="-15.000000" y="10.000000" z="0.000000" r="180" blocking="1" stackpos="0" />
+            <i id="c:Thug_9" o="Thug02" x="9.000000" y="18.000000" z="0.000000" r="270" blocking="1" stackpos="0" />
+            <i id="c:Thug_10" o="Thug01" x="10.000000" y="-20.000000" z="0.000000" r="45" blocking="1" stackpos="0" />
+            <i id="c:Thug_11" o="Thug02" x="-51.000000" y="-14.000000" z="0.000000" r="45" blocking="1" stackpos="0" />
+            <i id="c:Thug_12" o="Thug03" x="23.000000" y="-34.000000" z="0.000000" r="45" blocking="1" stackpos="0" />
             <i id="o:sawmill_door" o="Sawmill_Hideout_Door_Outside" x="12.000000" y="12.000000" z="0.000000" r="0" stackpos="0" />
             <i o="Ashgrove_Sawmill_Entrance01" x="9.000000" y="12.000000" z="0.000000" r="0" stackpos="0" />
             <i o="Ashgrove_Sawmill_House01_front" x="-76.000000" y="-6.000000" z="0.000000" r="0" stackpos="0" />

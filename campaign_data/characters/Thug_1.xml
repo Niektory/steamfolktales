@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<Character name="Thug" sprite="Thug01" map="Ashgrove_Sawmill" killable="1" behavior="detect,wander">
+<Character name="Thug" sprite="Thug01" map="Ashgrove_Sawmill" killable="1" behavior="detect">
 	<Inventory>
 		<Hands>
 			<Item ID="Dagger" />
