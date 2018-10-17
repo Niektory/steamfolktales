@@ -10,7 +10,6 @@ import gridhelper
 
 
 def wander(self, time):
-	return
 	if randrange(400) or (self.visual.state == self.visual.STATE_RUN2):
 		#self.visual.instance.actOnce("idle")
 		return
