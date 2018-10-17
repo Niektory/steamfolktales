@@ -40,8 +40,8 @@ def detect(self, time):
 				fife.getAngleBetween(self.visual.instance.getLocation(),
 				pc.visual.instance.getLocation()))
 	# increase suspicion based on time delta, angle, distance, sneak skill, movement
-	stealth_rating = (pc.rpg_stats.skillTotal("Stealth").value
-		- self.rpg_stats.attributeModifier("WIT") - 6)
+	stealth_rating = int((pc.rpg_stats.skillTotal("Stealth")
+		- self.rpg_stats.attributeModifier("WIT") - 6))
 	if pc.visual.state == pc.visual.STATE_IDLE:
 		v_increment = 2.5 - stealth_rating / 8
 		a_increment = 1.0 - stealth_rating / 8
